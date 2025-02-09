@@ -29,6 +29,9 @@ version = "0.0.0"
 python = "^3.9"
 linkml-runtime = "^1.1.24"
 
+[project.optional-dependencies]
+docs = ["jinjanator>=24.4.0"]
+
 [tool.poetry.requires-plugins]
 poetry-dynamic-versioning = ">=1.5.2"
 
@@ -45,5 +48,3 @@ schemasheets = ">=0.1.14"
 jupyter = ">=1.0.0"
 mknotebooks = ">= 0.8.0"
 
-[tool.poetry.extras]
-docs = ["jinja2"]
