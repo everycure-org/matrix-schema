@@ -36,3 +36,8 @@ message MatrixNode
   string internationalResourceIdentifier = 0
   string upstreamDataSource = 0
  }
+// A holder for MatrixNode objects.
+message MatrixNodeCollection
+ {
+ repeated  matrixNode entries = 0
+ }

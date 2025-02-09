@@ -9,6 +9,7 @@
 --     * Slot: labels Description: 
 --     * Slot: international_resource_identifier Description: 
 --     * Slot: upstream_data_source Description: 
+--     * Slot: MatrixNodeCollection_id Description: Autocreated FK slot
 -- # Class: "MatrixEdge" Description: "An edge representing a relationship between two nodes in the Biolink knowledge graph."
 --     * Slot: id Description: 
 --     * Slot: subject Description: 
@@ -26,7 +27,17 @@
 --     * Slot: MatrixEdgeCollection_id Description: Autocreated FK slot
 -- # Class: "MatrixEdgeCollection" Description: "A holder for MatrixEdge objects."
 --     * Slot: id Description: 
+-- # Class: "MatrixNodeCollection" Description: "A holder for MatrixNode objects."
+--     * Slot: id Description: 
 
+CREATE TABLE "MatrixEdgeCollection" (
+	id INTEGER NOT NULL, 
+	PRIMARY KEY (id)
+);
+CREATE TABLE "MatrixNodeCollection" (
+	id INTEGER NOT NULL, 
+	PRIMARY KEY (id)
+);
 CREATE TABLE "MatrixNode" (
 	id TEXT NOT NULL, 
 	name TEXT, 
@@ -37,13 +48,11 @@ CREATE TABLE "MatrixNode" (
 	publications TEXT, 
 	labels TEXT, 
 	international_resource_identifier TEXT, 
-	upstream_data_source TEXT NOT NULL, 
+	upstream_data_source TEXT, 
+	"MatrixNodeCollection_id" INTEGER, 
 	PRIMARY KEY (id), 
-	UNIQUE (id)
-);
-CREATE TABLE "MatrixEdgeCollection" (
-	id INTEGER NOT NULL, 
-	PRIMARY KEY (id)
+	UNIQUE (id), 
+	FOREIGN KEY("MatrixNodeCollection_id") REFERENCES "MatrixNodeCollection" (id)
 );
 CREATE TABLE "MatrixEdge" (
 	id INTEGER NOT NULL, 
@@ -58,7 +67,7 @@ CREATE TABLE "MatrixEdge" (
 	subject_direction_qualifier TEXT, 
 	object_aspect_qualifier TEXT, 
 	object_direction_qualifier TEXT, 
-	upstream_data_source TEXT NOT NULL, 
+	upstream_data_source TEXT, 
 	"MatrixEdgeCollection_id" INTEGER, 
 	PRIMARY KEY (id), 
 	UNIQUE (subject, predicate, object), 

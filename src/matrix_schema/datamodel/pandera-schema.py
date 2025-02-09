@@ -27,6 +27,8 @@ class MatrixNodeSchema(pa.DataFrameModel):
     labels: Optional[Series[str]] = pa.Field(nullable=True)
     
     international_resource_identifier: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    upstream_data_source: Optional[Series[str]] = pa.Field(nullable=True)
 
 
 class MatrixEdgeSchema(pa.DataFrameModel):
@@ -59,6 +61,12 @@ class MatrixEdgeSchema(pa.DataFrameModel):
 
 class MatrixEdgeCollectionSchema(pa.DataFrameModel):
     """Schema for matrixedgecollection TSV file."""
+    
+    entries: Optional[Series[str]] = pa.Field(nullable=True)
+
+
+class MatrixNodeCollectionSchema(pa.DataFrameModel):
+    """Schema for matrixnodecollection TSV file."""
     
     entries: Optional[Series[str]] = pa.Field(nullable=True)
 

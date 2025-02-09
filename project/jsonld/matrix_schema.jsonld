@@ -379,7 +379,6 @@
       "from_schema": "https://w3id.org/everycure-org/matrix-schema",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/category",
       "range": "string",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -457,7 +456,6 @@
       "from_schema": "https://w3id.org/everycure-org/matrix-schema",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject",
       "range": "string",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -467,7 +465,6 @@
       "from_schema": "https://w3id.org/everycure-org/matrix-schema",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/predicate",
       "range": "string",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -477,7 +474,6 @@
       "from_schema": "https://w3id.org/everycure-org/matrix-schema",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object",
       "range": "string",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -665,7 +661,6 @@
         "MatrixNode"
       ],
       "range": "string",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -813,7 +808,6 @@
         "MatrixEdge"
       ],
       "range": "string",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -826,6 +820,20 @@
         "MatrixEdgeCollection"
       ],
       "range": "MatrixEdge",
+      "multivalued": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixNodeCollection__entries",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/entries",
+      "alias": "entries",
+      "owner": "MatrixNodeCollection",
+      "domain_of": [
+        "MatrixNodeCollection"
+      ],
+      "range": "MatrixNode",
       "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
@@ -892,7 +900,6 @@
         },
         {
           "name": "upstream_data_source",
-          "required": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -978,7 +985,6 @@
         },
         {
           "name": "upstream_data_source",
-          "required": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -1015,15 +1021,35 @@
         }
       ],
       "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdgeCollection",
-      "tree_root": true,
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "MatrixNodeCollection",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixNodeCollection",
+      "description": "A holder for MatrixNode objects.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slots": [
+        "matrixNodeCollection__entries"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "entries",
+          "range": "MatrixNode",
+          "multivalued": true,
+          "inlined": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixNodeCollection",
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "matrix_schema.yaml",
-  "source_file_date": "2025-02-09T09:44:20",
-  "source_file_size": 4035,
-  "generation_date": "2025-02-09T09:47:57",
+  "source_file_date": "2025-02-09T12:39:31",
+  "source_file_size": 4096,
+  "generation_date": "2025-02-09T12:39:40",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/matrix_schema.context.jsonld",
