@@ -34,7 +34,6 @@ slots:
   category:
     description: "Biolink category of the entity."
     range: string
-    required: true
   description:
     description: "Detailed description of the entity."
     range: string
@@ -64,15 +63,12 @@ slots:
   subject:
     description: "The subject entity in the edge."
     range: string
-    required: true
   predicate:
     description: "The predicate defining the relationship."
     range: string
-    required: true
   object:
     description: "The object entity in the edge."
     range: string
-    required: true
   knowledge_level:
     description: "Knowledge level of the relationship."
     range: string
@@ -144,10 +140,18 @@ classes:
           - object
 
   MatrixEdgeCollection:
-    tree_root: true
+    #tree_root: true
     description: "A holder for MatrixEdge objects."
     attributes:
       entries:
         range: MatrixEdge
+        multivalued: true
+        inlined: true
+
+  MatrixNodeCollection:
+    description: "A holder for MatrixNode objects."
+    attributes:
+      entries:
+        range: MatrixNode
         multivalued: true
         inlined: true
