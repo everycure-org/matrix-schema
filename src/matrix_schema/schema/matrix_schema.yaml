@@ -15,151 +15,12 @@ prefixes:
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
   example: https://example.org/
+
 default_prefix: matrix_schema
 default_range: string
 
 imports:
   - linkml:types
-
-classes:
-  MatrixNode:
-    description: "A node in the Biolink knowledge graph."
-    attributes:
-      id:
-        description: "Unique identifier for the node."
-        range: string
-        required: true
-        identifier: true
-      name:
-        description: "Human-readable name of the node."
-        range: string
-        required: false
-      category:
-        description: "Biolink category of the node."
-        range: string
-        required: true
-      description:
-        description: "Detailed description of the node."
-        range: string
-        required: false
-      equivalent_identifiers:
-        description: "List of equivalent identifiers for the node."
-        range: string
-        multivalued: true
-      all_categories:
-        description: "All categories associated with the node."
-        range: string
-        multivalued: true
-      publications:
-        description: "Publications associated with the node."
-        range: string
-        multivalued: true
-      labels:
-        description: "Alternative labels for the node."
-        range: string
-        multivalued: true
-      international_resource_identifier:
-        description: "IRI of the node."
-        range: string
-        required: false
-      upstream_data_source:
-        description: "Sources from which this node's data originates."
-        range: string
-        multivalued: true
-    unique_keys:
-      unique_id:
-        unique_key: true
-        key_attributes: [id]
-
-  MatrixEdge:
-    description: "An edge representing a relationship between two nodes in the Biolink knowledge graph."
-    attributes:
-      subject:
-        description: "The subject entity in the edge."
-        range: string
-        required: true
-      predicate:
-        description: "The predicate defining the relationship."
-        range: string
-        required: true
-      object:
-        description: "The object entity in the edge."
-        range: string
-        required: true
-      knowledge_level:
-        description: "Knowledge level of the relationship."
-        range: string
-        required: false
-      primary_knowledge_source:
-        description: "Primary source of the knowledge in the edge."
-        range: string
-        required: false
-      aggregator_knowledge_source:
-        description: "Aggregators of the knowledge."
-        range: string
-        multivalued: true
-      publications:
-        description: "Publications supporting this edge."
-        range: string
-        multivalued: true
-      subject_aspect_qualifier:
-        description: "Aspect qualifier for the subject."
-        range: string
-        required: false
-      subject_direction_qualifier:
-        description: "Direction qualifier for the subject."
-        range: string
-        required: false
-      object_aspect_qualifier:
-        description: "Aspect qualifier for the object."
-        range: string
-        required: false
-      object_direction_qualifier:
-        description: "Direction qualifier for the object."
-        range: string
-        required: false
-      upstream_data_source:
-        description: "Sources from which this edge's data originates."
-        range: string
-        multivalued: true
-        required: true
-    unique_keys:
-      unique_edge:
-        unique_key: true
-        key_attributes: [subject, predicate, object]
-
-
-  NamedThing:
-    description: >-
-      A generic grouping for any identifiable entity
-    slots:
-      - id
-      - name
-      - description
-    class_uri: schema:Thing
-
-  MatrixEdge:
-    is_a: NamedThing
-    description: >-
-      Represents a MatrixEdge
-    slots:
-      - primary_email
-      - birth_date
-      - age_in_years
-      - vital_status
-    slot_usage:
-      primary_email:
-        pattern: "^\\S+@[\\S+\\.]+\\S+"
-
-  MatrixEdgeCollection:
-    tree_root: true
-    description: >-
-      A holder for MatrixEdge objects
-    attributes:
-      entries:
-        range: MatrixEdge
-        multivalued: true
-        inlined: true
 
 slots:
   id:
@@ -168,35 +29,127 @@ slots:
     range: uriorcurie
     description: A unique identifier for a thing
   name:
-    slot_uri: schema:name
-    description: A human-readable name for a thing
+    description: "Human-readable name of the entity."
+    range: string
+  category:
+    description: "Biolink category of the entity."
+    range: string
+    required: true
   description:
-    slot_uri: schema:description
-    description: A human-readable description for a thing
-  primary_email:
-    slot_uri: schema:email
-    description: The main email address of a person
-  birth_date:
-    slot_uri: schema:birthDate
-    range: date
-    description: Date on which a person is born
-  age_in_years:
-    range: integer
-    description: Number of years since birth
-  vital_status:
-    range: PersonStatus
-    description: living or dead status
+    description: "Detailed description of the entity."
+    range: string
+  equivalent_identifiers:
+    description: "List of equivalent identifiers for the entity."
+    range: string
+    multivalued: true
+  all_categories:
+    description: "All categories associated with the entity."
+    range: string
+    multivalued: true
+  publications:
+    description: "Publications associated with the entity."
+    range: string
+    multivalued: true
+  labels:
+    description: "Alternative labels for the entity."
+    range: string
+    multivalued: true
+  international_resource_identifier:
+    description: "IRI of the entity."
+    range: string
+  upstream_data_source:
+    description: "Sources from which this entity's data originates."
+    range: string
+    multivalued: true
+  subject:
+    description: "The subject entity in the edge."
+    range: string
+    required: true
+  predicate:
+    description: "The predicate defining the relationship."
+    range: string
+    required: true
+  object:
+    description: "The object entity in the edge."
+    range: string
+    required: true
+  knowledge_level:
+    description: "Knowledge level of the relationship."
+    range: string
+  primary_knowledge_source:
+    description: "Primary source of the knowledge in the edge."
+    range: string
+  aggregator_knowledge_source:
+    description: "Aggregators of the knowledge."
+    range: string
+    multivalued: true
+  subject_aspect_qualifier:
+    description: "Aspect qualifier for the subject."
+    range: string
+  subject_direction_qualifier:
+    description: "Direction qualifier for the subject."
+    range: string
+  object_aspect_qualifier:
+    description: "Aspect qualifier for the object."
+    range: string
+  object_direction_qualifier:
+    description: "Direction qualifier for the object."
+    range: string
 
-enums:
-  PersonStatus:
-    permissible_values:
-      ALIVE:
-        description: the person is living
-        meaning: PATO:0001421
-      DEAD:
-        description: the person is deceased
-        meaning: PATO:0001422
-      UNKNOWN:
-        description: the vital status is not known
-        todos:
-          - map this to an ontology
+classes:
+  MatrixNode:
+    description: "A node in the Biolink knowledge graph."
+    attributes:
+      id:
+        required: true
+        identifier: true
+      name:
+      category:
+        required: true
+      description:
+      equivalent_identifiers:
+      all_categories:
+      publications:
+      labels:
+      international_resource_identifier:
+      upstream_data_source:
+        required: true
+    unique_keys:
+      unique_id:
+        unique_key_slots: 
+          - id
+
+  MatrixEdge:
+    description: "An edge representing a relationship between two nodes in the Biolink knowledge graph."
+    attributes:
+      subject:
+        required: true
+      predicate:
+        required: true
+      object:
+        required: true
+      knowledge_level:
+      primary_knowledge_source:
+      aggregator_knowledge_source:
+      publications:
+      subject_aspect_qualifier:
+      subject_direction_qualifier:
+      object_aspect_qualifier:
+      object_direction_qualifier:
+      upstream_data_source:
+        required: true
+    unique_keys:
+      unique_edge:
+        unique_key_slots: 
+          - subject
+          - predicate
+          - object
+
+  MatrixEdgeCollection:
+    tree_root: true
+    description: "A holder for MatrixEdge objects."
+    attributes:
+      entries:
+        range: MatrixEdge
+        multivalued: true
+        inlined: true
