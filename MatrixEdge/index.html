@@ -333,7 +333,7 @@
 </tr>
 <tr>
 <td><a href="../upstream_data_source/">upstream_data_source</a></td>
-<td>1 <br/> <a href="../String/">String</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -456,7 +456,6 @@ attributes:
     domain_of:
     - MatrixNode
     - MatrixEdge
-    required: true
 unique_keys:
   unique_edge:
     unique_key_name: unique_edge
@@ -575,7 +574,6 @@ attributes:
     - MatrixNode
     - MatrixEdge
     range: string
-    required: true
 unique_keys:
   unique_edge:
     unique_key_name: unique_edge

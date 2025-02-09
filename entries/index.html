@@ -305,21 +305,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      Schema Source
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -374,6 +359,11 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../MatrixNodeCollection/">MatrixNodeCollection</a></td>
+<td>A holder for MatrixNode objects</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../MatrixEdgeCollection/">MatrixEdgeCollection</a></td>
 <td>A holder for MatrixEdge objects</td>
 <td>no</td>
@@ -382,18 +372,9 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../MatrixEdge/">MatrixEdge</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
+<li>Range: <a href="../String/">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://w3id.org/everycure-org/matrix-schema</li>
-</ul>
 <h2 id="mappings">Mappings</h2>
 <table>
 <thead>
@@ -417,15 +398,11 @@
 <details>
 
 <pre><code class="language-yaml">name: entries
-from_schema: https://w3id.org/everycure-org/matrix-schema
-rank: 1000
 alias: entries
-owner: MatrixEdgeCollection
 domain_of:
 - MatrixEdgeCollection
-range: MatrixEdge
-multivalued: true
-inlined: true
+- MatrixNodeCollection
+range: string
 
 </code></pre>
 
