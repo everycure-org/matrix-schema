@@ -113,7 +113,6 @@ classes:
       labels:
       international_resource_identifier:
       upstream_data_source:
-        required: true
     unique_keys:
       unique_id:
         unique_key_slots: 
@@ -137,7 +136,6 @@ classes:
       object_aspect_qualifier:
       object_direction_qualifier:
       upstream_data_source:
-        required: true
     unique_keys:
       unique_edge:
         unique_key_slots: 
