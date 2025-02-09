@@ -22,6 +22,112 @@ imports:
   - linkml:types
 
 classes:
+  MatrixNode:
+    description: "A node in the Biolink knowledge graph."
+    attributes:
+      id:
+        description: "Unique identifier for the node."
+        range: string
+        required: true
+        identifier: true
+      name:
+        description: "Human-readable name of the node."
+        range: string
+        required: false
+      category:
+        description: "Biolink category of the node."
+        range: string
+        required: true
+      description:
+        description: "Detailed description of the node."
+        range: string
+        required: false
+      equivalent_identifiers:
+        description: "List of equivalent identifiers for the node."
+        range: string
+        multivalued: true
+      all_categories:
+        description: "All categories associated with the node."
+        range: string
+        multivalued: true
+      publications:
+        description: "Publications associated with the node."
+        range: string
+        multivalued: true
+      labels:
+        description: "Alternative labels for the node."
+        range: string
+        multivalued: true
+      international_resource_identifier:
+        description: "IRI of the node."
+        range: string
+        required: false
+      upstream_data_source:
+        description: "Sources from which this node's data originates."
+        range: string
+        multivalued: true
+    unique_keys:
+      unique_id:
+        unique_key: true
+        key_attributes: [id]
+
+  MatrixEdge:
+    description: "An edge representing a relationship between two nodes in the Biolink knowledge graph."
+    attributes:
+      subject:
+        description: "The subject entity in the edge."
+        range: string
+        required: true
+      predicate:
+        description: "The predicate defining the relationship."
+        range: string
+        required: true
+      object:
+        description: "The object entity in the edge."
+        range: string
+        required: true
+      knowledge_level:
+        description: "Knowledge level of the relationship."
+        range: string
+        required: false
+      primary_knowledge_source:
+        description: "Primary source of the knowledge in the edge."
+        range: string
+        required: false
+      aggregator_knowledge_source:
+        description: "Aggregators of the knowledge."
+        range: string
+        multivalued: true
+      publications:
+        description: "Publications supporting this edge."
+        range: string
+        multivalued: true
+      subject_aspect_qualifier:
+        description: "Aspect qualifier for the subject."
+        range: string
+        required: false
+      subject_direction_qualifier:
+        description: "Direction qualifier for the subject."
+        range: string
+        required: false
+      object_aspect_qualifier:
+        description: "Aspect qualifier for the object."
+        range: string
+        required: false
+      object_direction_qualifier:
+        description: "Direction qualifier for the object."
+        range: string
+        required: false
+      upstream_data_source:
+        description: "Sources from which this edge's data originates."
+        range: string
+        multivalued: true
+        required: true
+    unique_keys:
+      unique_edge:
+        unique_key: true
+        key_attributes: [subject, predicate, object]
+
 
   NamedThing:
     description: >-
