@@ -1,0 +1,31 @@
+{
+  "template": "https://github.com/linkml/linkml-project-cookiecutter",
+  "commit": "1094cf2ce542028ab0017eaa059dd49cdde81fb5",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "matrix-schema",
+      "__project_slug": "matrix_schema",
+      "github_org": "everycure-org",
+      "__source_path": "src/matrix_schema/schema/matrix_schema.yaml",
+      "project_description": "The collected MATRIX schemas",
+      "full_name": "Nicolas Matentzoglu",
+      "email": "nicolas.matentzoglu@gmail.com",
+      "__author": "Nicolas Matentzoglu <nicolas.matentzoglu@gmail.com>",
+      "license": "BSD-3",
+      "main_schema_class": "MatrixEdge",
+      "create_python_classes": "Yes",
+      "use_schemasheets": "No",
+      "google_sheet_id": "1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ",
+      "google_sheet_tabs": "personinfo enums",
+      "__google_sheet_module": "personinfo_enums",
+      "github_token_for_pypi_deployment": "PYPI_PASSWORD",
+      "_copy_without_render": [
+        "src/docs/js/*",
+        "src/docs/javascript/*"
+      ],
+      "_template": "https://github.com/linkml/linkml-project-cookiecutter"
+    }
+  },
+  "directory": null
+}
