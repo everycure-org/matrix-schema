@@ -3,7 +3,6 @@ BASE <https://w3id.org/everycure-org/matrix-schema/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
-PREFIX schema1: <http://schema.org/>
 
 
 linkml:String xsd:string
@@ -45,15 +44,20 @@ linkml:Jsonpath xsd:string
 linkml:Sparqlpath xsd:string
 
 <MatrixEdge> CLOSED {
-    (  $<MatrixEdge_tes> (  &<NamedThing_tes> ;
-          rdf:type [ schema1:Thing ] ? ;
-          schema1:email @linkml:String ? ;
-          schema1:birthDate @linkml:Date ? ;
-          <age_in_years> @linkml:Integer ? ;
-          <vital_status> [ <http://purl.obolibrary.org/obo/PATO_0001421> <http://purl.obolibrary.org/obo/PATO_0001422>
-             <https://w3id.org/everycure-org/matrix-schema/PersonStatus#UNKNOWN> ] ?
+    (  $<MatrixEdge_tes> (  <subject> @linkml:String ;
+          <predicate> @linkml:String ;
+          <object> @linkml:String ;
+          <knowledge_level> @linkml:String ? ;
+          <primary_knowledge_source> @linkml:String ? ;
+          <aggregator_knowledge_source> @linkml:String ? ;
+          <publications> @linkml:String ? ;
+          <subject_aspect_qualifier> @linkml:String ? ;
+          <subject_direction_qualifier> @linkml:String ? ;
+          <object_aspect_qualifier> @linkml:String ? ;
+          <object_direction_qualifier> @linkml:String ? ;
+          <upstream_data_source> @linkml:String
        ) ;
-       rdf:type [ <MatrixEdge> ]
+       rdf:type [ <MatrixEdge> ] ?
     )
 }
 
@@ -63,13 +67,18 @@ linkml:Sparqlpath xsd:string
     )
 }
 
-<NamedThing>  (
-    CLOSED {
-       (  $<NamedThing_tes> (  schema1:name @linkml:String ? ;
-             schema1:description @linkml:String ?
-          ) ;
-          rdf:type [ schema1:Thing ]
-       )
-    } OR @<MatrixEdge>
-)
+<MatrixNode> CLOSED {
+    (  $<MatrixNode_tes> (  <name> @linkml:String ? ;
+          <category> @linkml:String ;
+          <description> @linkml:String ? ;
+          <equivalent_identifiers> @linkml:String ? ;
+          <all_categories> @linkml:String ? ;
+          <publications> @linkml:String ? ;
+          <labels> @linkml:String ? ;
+          <international_resource_identifier> @linkml:String ? ;
+          <upstream_data_source> @linkml:String
+       ) ;
+       rdf:type [ <MatrixNode> ]
+    )
+}
 

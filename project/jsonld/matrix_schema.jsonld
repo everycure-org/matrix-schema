@@ -348,32 +348,6 @@
       "@type": "TypeDefinition"
     }
   ],
-  "enums": [
-    {
-      "name": "PersonStatus",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/PersonStatus",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "permissible_values": [
-        {
-          "text": "ALIVE",
-          "description": "the person is living",
-          "meaning": "PATO:0001421"
-        },
-        {
-          "text": "DEAD",
-          "description": "the person is deceased",
-          "meaning": "PATO:0001422"
-        },
-        {
-          "text": "UNKNOWN",
-          "description": "the vital status is not known",
-          "todos": [
-            "map this to an ontology"
-          ]
-        }
-      ]
-    }
-  ],
   "slots": [
     {
       "name": "id",
@@ -385,10 +359,6 @@
       ],
       "slot_uri": "http://schema.org/identifier",
       "identifier": true,
-      "owner": "NamedThing",
-      "domain_of": [
-        "NamedThing"
-      ],
       "range": "uriorcurie",
       "required": true,
       "@type": "SlotDefinition"
@@ -396,44 +366,352 @@
     {
       "name": "name",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/name",
-      "description": "A human-readable name for a thing",
+      "description": "Human-readable name of the entity.",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "mappings": [
-        "http://schema.org/name"
-      ],
-      "slot_uri": "http://schema.org/name",
-      "owner": "NamedThing",
-      "domain_of": [
-        "NamedThing"
-      ],
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/name",
       "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "category",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/category",
+      "description": "Biolink category of the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/category",
+      "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "description",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/description",
-      "description": "A human-readable description for a thing",
+      "description": "Detailed description of the entity.",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "mappings": [
-        "http://schema.org/description"
-      ],
-      "slot_uri": "http://schema.org/description",
-      "owner": "NamedThing",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/description",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "equivalent_identifiers",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/equivalent_identifiers",
+      "description": "List of equivalent identifiers for the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/equivalent_identifiers",
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "all_categories",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/all_categories",
+      "description": "All categories associated with the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/all_categories",
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "publications",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/publications",
+      "description": "Publications associated with the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/publications",
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "labels",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/labels",
+      "description": "Alternative labels for the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/labels",
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "international_resource_identifier",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/international_resource_identifier",
+      "description": "IRI of the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/international_resource_identifier",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "upstream_data_source",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/upstream_data_source",
+      "description": "Sources from which this entity's data originates.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/upstream_data_source",
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subject",
+      "description": "The subject entity in the edge.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "predicate",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/predicate",
+      "description": "The predicate defining the relationship.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/predicate",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/object",
+      "description": "The object entity in the edge.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "knowledge_level",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/knowledge_level",
+      "description": "Knowledge level of the relationship.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/knowledge_level",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "primary_knowledge_source",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/primary_knowledge_source",
+      "description": "Primary source of the knowledge in the edge.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/primary_knowledge_source",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "aggregator_knowledge_source",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/aggregator_knowledge_source",
+      "description": "Aggregators of the knowledge.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/aggregator_knowledge_source",
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject_aspect_qualifier",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subject_aspect_qualifier",
+      "description": "Aspect qualifier for the subject.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject_aspect_qualifier",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject_direction_qualifier",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subject_direction_qualifier",
+      "description": "Direction qualifier for the subject.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject_direction_qualifier",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object_aspect_qualifier",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/object_aspect_qualifier",
+      "description": "Aspect qualifier for the object.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object_aspect_qualifier",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object_direction_qualifier",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/object_direction_qualifier",
+      "description": "Direction qualifier for the object.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object_direction_qualifier",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixNode__id",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/id",
+      "identifier": true,
+      "alias": "id",
+      "owner": "MatrixNode",
       "domain_of": [
-        "NamedThing"
+        "MatrixNode"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixNode__name",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/name",
+      "alias": "name",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
       ],
       "range": "string",
       "@type": "SlotDefinition"
     },
     {
-      "name": "primary_email",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/primary_email",
-      "description": "The main email address of a person",
+      "name": "matrixNode__category",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "mappings": [
-        "http://schema.org/email"
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/category",
+      "alias": "category",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
       ],
-      "slot_uri": "http://schema.org/email",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixNode__description",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/description",
+      "alias": "description",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixNode__equivalent_identifiers",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/equivalent_identifiers",
+      "alias": "equivalent_identifiers",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixNode__all_categories",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/all_categories",
+      "alias": "all_categories",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixNode__publications",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/publications",
+      "alias": "publications",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixNode__labels",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/labels",
+      "alias": "labels",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixNode__international_resource_identifier",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/international_resource_identifier",
+      "alias": "international_resource_identifier",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixNode__upstream_data_source",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/upstream_data_source",
+      "alias": "upstream_data_source",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixEdge__subject",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject",
+      "alias": "subject",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixEdge__predicate",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/predicate",
+      "alias": "predicate",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixEdge__object",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object",
+      "alias": "object",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixEdge__knowledge_level",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/knowledge_level",
+      "alias": "knowledge_level",
       "owner": "MatrixEdge",
       "domain_of": [
         "MatrixEdge"
@@ -442,45 +720,100 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "birth_date",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/birth_date",
-      "description": "Date on which a person is born",
+      "name": "matrixEdge__primary_knowledge_source",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "mappings": [
-        "http://schema.org/birthDate"
-      ],
-      "slot_uri": "http://schema.org/birthDate",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/primary_knowledge_source",
+      "alias": "primary_knowledge_source",
       "owner": "MatrixEdge",
       "domain_of": [
         "MatrixEdge"
       ],
-      "range": "date",
+      "range": "string",
       "@type": "SlotDefinition"
     },
     {
-      "name": "age_in_years",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/age_in_years",
-      "description": "Number of years since birth",
+      "name": "matrixEdge__aggregator_knowledge_source",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/age_in_years",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/aggregator_knowledge_source",
+      "alias": "aggregator_knowledge_source",
       "owner": "MatrixEdge",
       "domain_of": [
         "MatrixEdge"
       ],
-      "range": "integer",
+      "range": "string",
       "@type": "SlotDefinition"
     },
     {
-      "name": "vital_status",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/vital_status",
-      "description": "living or dead status",
+      "name": "matrixEdge__publications",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/vital_status",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/publications",
+      "alias": "publications",
       "owner": "MatrixEdge",
       "domain_of": [
         "MatrixEdge"
       ],
-      "range": "PersonStatus",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixEdge__subject_aspect_qualifier",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject_aspect_qualifier",
+      "alias": "subject_aspect_qualifier",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixEdge__subject_direction_qualifier",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject_direction_qualifier",
+      "alias": "subject_direction_qualifier",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixEdge__object_aspect_qualifier",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object_aspect_qualifier",
+      "alias": "object_aspect_qualifier",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixEdge__object_direction_qualifier",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object_direction_qualifier",
+      "alias": "object_direction_qualifier",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "matrixEdge__upstream_data_source",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/upstream_data_source",
+      "alias": "upstream_data_source",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -496,71 +829,177 @@
       "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
-    },
-    {
-      "name": "MatrixEdge_primary_email",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/primary_email",
-      "description": "The main email address of a person",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "mappings": [
-        "http://schema.org/email"
-      ],
-      "is_a": "primary_email",
-      "domain": "MatrixEdge",
-      "slot_uri": "http://schema.org/email",
-      "alias": "primary_email",
-      "owner": "MatrixEdge",
-      "domain_of": [
-        "MatrixEdge"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "primary_email",
-      "range": "string",
-      "pattern": "^\\S+@[\\S+\\.]+\\S+",
-      "@type": "SlotDefinition"
     }
   ],
   "classes": [
     {
-      "name": "NamedThing",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/NamedThing",
-      "description": "A generic grouping for any identifiable entity",
+      "name": "MatrixNode",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixNode",
+      "description": "A node in the Biolink knowledge graph.",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "mappings": [
-        "schema:Thing"
-      ],
       "slots": [
-        "id",
-        "name",
-        "description"
+        "matrixNode__id",
+        "matrixNode__name",
+        "matrixNode__category",
+        "matrixNode__description",
+        "matrixNode__equivalent_identifiers",
+        "matrixNode__all_categories",
+        "matrixNode__publications",
+        "matrixNode__labels",
+        "matrixNode__international_resource_identifier",
+        "matrixNode__upstream_data_source"
       ],
       "slot_usage": {},
-      "class_uri": "http://schema.org/Thing",
+      "attributes": [
+        {
+          "name": "id",
+          "identifier": true,
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "name",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "category",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "description",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "equivalent_identifiers",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "all_categories",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "publications",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "labels",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "international_resource_identifier",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "upstream_data_source",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixNode",
+      "unique_keys": [
+        {
+          "unique_key_name": "unique_id",
+          "unique_key_slots": [
+            "id"
+          ],
+          "@type": "UniqueKey"
+        }
+      ],
       "@type": "ClassDefinition"
     },
     {
       "name": "MatrixEdge",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdge",
-      "description": "Represents a MatrixEdge",
+      "description": "An edge representing a relationship between two nodes in the Biolink knowledge graph.",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "is_a": "NamedThing",
       "slots": [
-        "id",
-        "name",
-        "description",
-        "MatrixEdge_primary_email",
-        "birth_date",
-        "age_in_years",
-        "vital_status"
+        "matrixEdge__subject",
+        "matrixEdge__predicate",
+        "matrixEdge__object",
+        "matrixEdge__knowledge_level",
+        "matrixEdge__primary_knowledge_source",
+        "matrixEdge__aggregator_knowledge_source",
+        "matrixEdge__publications",
+        "matrixEdge__subject_aspect_qualifier",
+        "matrixEdge__subject_direction_qualifier",
+        "matrixEdge__object_aspect_qualifier",
+        "matrixEdge__object_direction_qualifier",
+        "matrixEdge__upstream_data_source"
       ],
       "slot_usage": {},
+      "attributes": [
+        {
+          "name": "subject",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "predicate",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "object",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "knowledge_level",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "primary_knowledge_source",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "aggregator_knowledge_source",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "publications",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "subject_aspect_qualifier",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "subject_direction_qualifier",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "object_aspect_qualifier",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "object_direction_qualifier",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "upstream_data_source",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
       "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdge",
+      "unique_keys": [
+        {
+          "unique_key_name": "unique_edge",
+          "unique_key_slots": [
+            "subject",
+            "predicate",
+            "object"
+          ],
+          "@type": "UniqueKey"
+        }
+      ],
       "@type": "ClassDefinition"
     },
     {
       "name": "MatrixEdgeCollection",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdgeCollection",
-      "description": "A holder for MatrixEdge objects",
+      "description": "A holder for MatrixEdge objects.",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema",
       "slots": [
         "matrixEdgeCollection__entries"
@@ -582,9 +1021,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "matrix_schema.yaml",
-  "source_file_date": "2025-02-09T09:20:54",
-  "source_file_size": 2222,
-  "generation_date": "2025-02-09T09:23:50",
+  "source_file_date": "2025-02-09T09:44:20",
+  "source_file_size": 4035,
+  "generation_date": "2025-02-09T09:47:57",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/matrix_schema.context.jsonld",

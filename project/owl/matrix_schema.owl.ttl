@@ -1,11 +1,9 @@
-@prefix PATO: <http://purl.obolibrary.org/obo/PATO_> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix linkml: <https://w3id.org/linkml/> .
 @prefix matrix_schema: <https://w3id.org/everycure-org/matrix-schema/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -13,131 +11,303 @@ matrix_schema:MatrixEdgeCollection a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "MatrixEdgeCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom matrix_schema:MatrixEdge ;
             owl:onProperty matrix_schema:entries ],
         [ a owl:Restriction ;
-            owl:allValuesFrom matrix_schema:MatrixEdge ;
+            owl:minCardinality 0 ;
             owl:onProperty matrix_schema:entries ] ;
-    skos:definition "A holder for MatrixEdge objects" ;
+    skos:definition "A holder for MatrixEdge objects." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
+
+matrix_schema:MatrixNode a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "MatrixNode" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:labels ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:category ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:publications ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:equivalent_identifiers ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:category ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:all_categories ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:all_categories ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:labels ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:upstream_data_source ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:international_resource_identifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:upstream_data_source ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:publications ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:international_resource_identifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:equivalent_identifiers ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:international_resource_identifier ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:category ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:description ] ;
+    owl:hasKey ( matrix_schema:id ) ;
+    skos:definition "A node in the Biolink knowledge graph." ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
 matrix_schema:MatrixEdge a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "MatrixEdge" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:age_in_years ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Date ;
-            owl:onProperty matrix_schema:birth_date ],
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:object_direction_qualifier ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:vital_status ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:primary_email ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:birth_date ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:age_in_years ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:vital_status ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom matrix_schema:PersonStatus ;
-            owl:onProperty matrix_schema:vital_status ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:primary_email ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Integer ;
-            owl:onProperty matrix_schema:age_in_years ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:birth_date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:onDatatype xsd:string ;
-                    owl:withRestrictions ( [ xsd:pattern "^\\S+@[\\S+\\.]+\\S+" ] ) ] ;
-            owl:onProperty matrix_schema:primary_email ],
-        matrix_schema:NamedThing ;
-    skos:definition "Represents a MatrixEdge" ;
-    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
-
-matrix_schema:NamedThing a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "NamedThing" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty matrix_schema:id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:description ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:name ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:id ],
+            owl:onProperty matrix_schema:object ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty matrix_schema:id ],
+            owl:onProperty matrix_schema:upstream_data_source ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:description ] ;
-    skos:definition "A generic grouping for any identifiable entity" ;
-    skos:exactMatch schema1:Thing ;
+            owl:onProperty matrix_schema:object_aspect_qualifier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:object ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:knowledge_level ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:object_aspect_qualifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:subject ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:subject_aspect_qualifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:predicate ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:predicate ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:aggregator_knowledge_source ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:subject_aspect_qualifier ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:subject_direction_qualifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:publications ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:primary_knowledge_source ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:publications ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:predicate ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:object_direction_qualifier ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:knowledge_level ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:subject_aspect_qualifier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:upstream_data_source ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:subject ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:object ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:object_direction_qualifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:subject_direction_qualifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:primary_knowledge_source ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:primary_knowledge_source ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:knowledge_level ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:aggregator_knowledge_source ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:subject_direction_qualifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:object_aspect_qualifier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:subject ] ;
+    owl:hasKey ( matrix_schema:subject matrix_schema:predicate matrix_schema:object ) ;
+    skos:definition "An edge representing a relationship between two nodes in the Biolink knowledge graph." ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
-PATO:0001421 a owl:Class,
-        matrix_schema:PersonStatus ;
-    rdfs:label "ALIVE" ;
-    rdfs:subClassOf matrix_schema:PersonStatus .
+matrix_schema:aggregator_knowledge_source a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "aggregator_knowledge_source" ;
+    rdfs:range linkml:String ;
+    skos:definition "Aggregators of the knowledge." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
-PATO:0001422 a owl:Class,
-        matrix_schema:PersonStatus ;
-    rdfs:label "DEAD" ;
-    rdfs:subClassOf matrix_schema:PersonStatus .
-
-<https://w3id.org/everycure-org/matrix-schema/PersonStatus#UNKNOWN> a owl:Class,
-        matrix_schema:PersonStatus ;
-    rdfs:label "UNKNOWN" ;
-    rdfs:subClassOf matrix_schema:PersonStatus .
+matrix_schema:all_categories a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "all_categories" ;
+    rdfs:range linkml:String ;
+    skos:definition "All categories associated with the entity." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
 matrix_schema:entries a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "entries" ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
-matrix_schema:age_in_years a owl:ObjectProperty,
+matrix_schema:equivalent_identifiers a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "age_in_years" ;
-    rdfs:range linkml:Integer ;
-    skos:definition "Number of years since birth" ;
+    rdfs:label "equivalent_identifiers" ;
+    rdfs:range linkml:String ;
+    skos:definition "List of equivalent identifiers for the entity." ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
-matrix_schema:birth_date a owl:ObjectProperty,
+matrix_schema:labels a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "birth_date" ;
-    rdfs:range linkml:Date ;
-    skos:definition "Date on which a person is born" ;
+    rdfs:label "labels" ;
+    rdfs:range linkml:String ;
+    skos:definition "Alternative labels for the entity." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
+
+matrix_schema:category a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "category" ;
+    rdfs:range linkml:String ;
+    skos:definition "Biolink category of the entity." ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
 matrix_schema:description a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "description" ;
-    skos:definition "A human-readable description for a thing" ;
+    rdfs:range linkml:String ;
+    skos:definition "Detailed description of the entity." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
+
+matrix_schema:international_resource_identifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "international_resource_identifier" ;
+    rdfs:range linkml:String ;
+    skos:definition "IRI of the entity." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
+
+matrix_schema:knowledge_level a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "knowledge_level" ;
+    rdfs:range linkml:String ;
+    skos:definition "Knowledge level of the relationship." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
+
+matrix_schema:name a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "name" ;
+    rdfs:range linkml:String ;
+    skos:definition "Human-readable name of the entity." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
+
+matrix_schema:object_aspect_qualifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "object_aspect_qualifier" ;
+    rdfs:range linkml:String ;
+    skos:definition "Aspect qualifier for the object." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
+
+matrix_schema:object_direction_qualifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "object_direction_qualifier" ;
+    rdfs:range linkml:String ;
+    skos:definition "Direction qualifier for the object." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
+
+matrix_schema:primary_knowledge_source a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "primary_knowledge_source" ;
+    rdfs:range linkml:String ;
+    skos:definition "Primary source of the knowledge in the edge." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
+
+matrix_schema:subject_aspect_qualifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subject_aspect_qualifier" ;
+    rdfs:range linkml:String ;
+    skos:definition "Aspect qualifier for the subject." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
+
+matrix_schema:subject_direction_qualifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subject_direction_qualifier" ;
+    rdfs:range linkml:String ;
+    skos:definition "Direction qualifier for the subject." ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
 matrix_schema:id a owl:ObjectProperty,
@@ -147,31 +317,40 @@ matrix_schema:id a owl:ObjectProperty,
     skos:definition "A unique identifier for a thing" ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
-matrix_schema:name a owl:ObjectProperty,
+matrix_schema:object a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "name" ;
-    skos:definition "A human-readable name for a thing" ;
+    rdfs:label "object" ;
+    rdfs:range linkml:String ;
+    skos:definition "The object entity in the edge." ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
-matrix_schema:primary_email a owl:ObjectProperty,
+matrix_schema:predicate a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "primary_email" ;
-    skos:definition "The main email address of a person" ;
+    rdfs:label "predicate" ;
+    rdfs:range linkml:String ;
+    skos:definition "The predicate defining the relationship." ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
-matrix_schema:vital_status a owl:ObjectProperty,
+matrix_schema:publications a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "vital_status" ;
-    rdfs:range matrix_schema:PersonStatus ;
-    skos:definition "living or dead status" ;
+    rdfs:label "publications" ;
+    rdfs:range linkml:String ;
+    skos:definition "Publications associated with the entity." ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
-matrix_schema:PersonStatus a owl:Class,
-        linkml:EnumDefinition ;
-    owl:unionOf ( PATO:0001421 PATO:0001422 <https://w3id.org/everycure-org/matrix-schema/PersonStatus#UNKNOWN> ) ;
-    linkml:permissible_values PATO:0001421,
-        PATO:0001422,
-        <https://w3id.org/everycure-org/matrix-schema/PersonStatus#UNKNOWN> .
+matrix_schema:subject a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "subject" ;
+    rdfs:range linkml:String ;
+    skos:definition "The subject entity in the edge." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
+
+matrix_schema:upstream_data_source a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "upstream_data_source" ;
+    rdfs:range linkml:String ;
+    skos:definition "Sources from which this entity's data originates." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
 <https://w3id.org/everycure-org/matrix-schema> a owl:Ontology ;
     rdfs:label "matrix-schema" ;

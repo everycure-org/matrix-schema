@@ -1,20 +1,18 @@
 # metamodel_version: 1.7.0
-enum PersonStatus
-  {
-    ALIVE
-    DEAD
-    UNKNOWN
-  }
-
 type MatrixEdge
   {
-    id: Uriorcurie!
-    name: String
-    description: String
-    primaryEmail: String
-    birthDate: Date
-    ageInYears: Integer
-    vitalStatus: PersonStatus
+    subject: String!
+    predicate: String!
+    object: String!
+    knowledgeLevel: String
+    primaryKnowledgeSource: String
+    aggregatorKnowledgeSource: String
+    publications: String
+    subjectAspectQualifier: String
+    subjectDirectionQualifier: String
+    objectAspectQualifier: String
+    objectDirectionQualifier: String
+    upstreamDataSource: String!
   }
 
 type MatrixEdgeCollection
@@ -22,10 +20,17 @@ type MatrixEdgeCollection
     entries: [MatrixEdge]
   }
 
-type NamedThing
+type MatrixNode
   {
-    id: Uriorcurie!
+    id: String!
     name: String
+    category: String!
     description: String
+    equivalentIdentifiers: String
+    allCategories: String
+    publications: String
+    labels: String
+    internationalResourceIdentifier: String
+    upstreamDataSource: String!
   }
 

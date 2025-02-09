@@ -1,26 +1,38 @@
  syntax="proto3";
  package
 // metamodel_version: 1.7.0
-// Represents a MatrixEdge
+// An edge representing a relationship between two nodes in the Biolink knowledge graph.
 message MatrixEdge
  {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string primaryEmail = 0
-  date birthDate = 0
-  integer ageInYears = 0
-  personStatus vitalStatus = 0
+  string subject = 0
+  string predicate = 0
+  string object = 0
+  string knowledgeLevel = 0
+  string primaryKnowledgeSource = 0
+  string aggregatorKnowledgeSource = 0
+  string publications = 0
+  string subjectAspectQualifier = 0
+  string subjectDirectionQualifier = 0
+  string objectAspectQualifier = 0
+  string objectDirectionQualifier = 0
+  string upstreamDataSource = 0
  }
-// A holder for MatrixEdge objects
+// A holder for MatrixEdge objects.
 message MatrixEdgeCollection
  {
  repeated  matrixEdge entries = 0
  }
-// A generic grouping for any identifiable entity
-message NamedThing
+// A node in the Biolink knowledge graph.
+message MatrixNode
  {
-  uriorcurie id = 0
+  string id = 0
   string name = 0
+  string category = 0
   string description = 0
+  string equivalentIdentifiers = 0
+  string allCategories = 0
+  string publications = 0
+  string labels = 0
+  string internationalResourceIdentifier = 0
+  string upstreamDataSource = 0
  }

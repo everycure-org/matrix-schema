@@ -2,77 +2,88 @@
     "$defs": {
         "MatrixEdge": {
             "additionalProperties": false,
-            "description": "Represents a MatrixEdge",
+            "description": "An edge representing a relationship between two nodes in the Biolink knowledge graph.",
             "properties": {
-                "age_in_years": {
-                    "description": "Number of years since birth",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "birth_date": {
-                    "description": "Date on which a person is born",
-                    "format": "date",
+                "aggregator_knowledge_source": {
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "description": {
-                    "description": "A human-readable description for a thing",
+                "knowledge_level": {
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "id": {
-                    "description": "A unique identifier for a thing",
+                "object": {
                     "type": "string"
                 },
-                "name": {
-                    "description": "A human-readable name for a thing",
+                "object_aspect_qualifier": {
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "primary_email": {
-                    "description": "The main email address of a person",
-                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
+                "object_direction_qualifier": {
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "vital_status": {
-                    "$ref": "#/$defs/PersonStatus",
-                    "description": "living or dead status"
+                "predicate": {
+                    "type": "string"
+                },
+                "primary_knowledge_source": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "publications": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "subject": {
+                    "type": "string"
+                },
+                "subject_aspect_qualifier": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "subject_direction_qualifier": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "upstream_data_source": {
+                    "type": "string"
                 }
             },
             "required": [
-                "id"
+                "subject",
+                "predicate",
+                "object",
+                "upstream_data_source"
             ],
             "title": "MatrixEdge",
             "type": "object"
         },
         "MatrixEdgeCollection": {
             "additionalProperties": false,
-            "description": "A holder for MatrixEdge objects",
+            "description": "A holder for MatrixEdge objects.",
             "properties": {
                 "entries": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/MatrixEdge__identifier_optional"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
+                    "items": {
+                        "$ref": "#/$defs/MatrixEdge"
                     },
                     "type": [
-                        "object",
+                        "array",
                         "null"
                     ]
                 }
@@ -80,122 +91,83 @@
             "title": "MatrixEdgeCollection",
             "type": "object"
         },
-        "MatrixEdge__identifier_optional": {
+        "MatrixNode": {
             "additionalProperties": false,
-            "description": "Represents a MatrixEdge",
+            "description": "A node in the Biolink knowledge graph.",
             "properties": {
-                "age_in_years": {
-                    "description": "Number of years since birth",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "birth_date": {
-                    "description": "Date on which a person is born",
-                    "format": "date",
+                "all_categories": {
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "description": {
-                    "description": "A human-readable description for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "A unique identifier for a thing",
+                "category": {
                     "type": "string"
                 },
-                "name": {
-                    "description": "A human-readable name for a thing",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "primary_email": {
-                    "description": "The main email address of a person",
-                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "vital_status": {
-                    "$ref": "#/$defs/PersonStatus",
-                    "description": "living or dead status"
-                }
-            },
-            "required": [],
-            "title": "MatrixEdge",
-            "type": "object"
-        },
-        "NamedThing": {
-            "additionalProperties": false,
-            "description": "A generic grouping for any identifiable entity",
-            "properties": {
                 "description": {
-                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
                     "type": [
                         "string",
                         "null"
                     ]
                 },
                 "id": {
-                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "international_resource_identifier": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "labels": {
                     "type": [
                         "string",
                         "null"
                     ]
                 },
                 "name": {
-                    "description": "A human-readable name for a thing",
                     "type": [
                         "string",
                         "null"
                     ]
+                },
+                "publications": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "upstream_data_source": {
+                    "type": "string"
                 }
             },
             "required": [
-                "id"
+                "id",
+                "category",
+                "upstream_data_source"
             ],
-            "title": "NamedThing",
+            "title": "MatrixNode",
             "type": "object"
-        },
-        "PersonStatus": {
-            "description": "",
-            "enum": [
-                "ALIVE",
-                "DEAD",
-                "UNKNOWN"
-            ],
-            "title": "PersonStatus",
-            "type": "string"
         }
     },
     "$id": "https://w3id.org/everycure-org/matrix-schema",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "description": "A holder for MatrixEdge objects",
+    "description": "A holder for MatrixEdge objects.",
     "metamodel_version": "1.7.0",
     "properties": {
         "entries": {
-            "additionalProperties": {
-                "anyOf": [
-                    {
-                        "$ref": "#/$defs/MatrixEdge__identifier_optional"
-                    },
-                    {
-                        "type": "null"
-                    }
-                ]
+            "items": {
+                "$ref": "#/$defs/MatrixEdge"
             },
             "type": [
-                "object",
+                "array",
                 "null"
             ]
         }
