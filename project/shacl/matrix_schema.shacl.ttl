@@ -13,64 +13,15 @@ matrix_schema:MatrixEdgeCollection a sh:NodeShape ;
             sh:path matrix_schema:entries ] ;
     sh:targetClass matrix_schema:MatrixEdgeCollection .
 
-matrix_schema:MatrixNode a sh:NodeShape ;
+matrix_schema:MatrixNodeCollection a sh:NodeShape ;
     sh:closed true ;
-    sh:description "A node in the Biolink knowledge graph." ;
+    sh:description "A holder for MatrixNode objects." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
+    sh:property [ sh:class matrix_schema:MatrixNode ;
+            sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path matrix_schema:id ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path matrix_schema:publications ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path matrix_schema:all_categories ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path matrix_schema:name ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path matrix_schema:labels ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path matrix_schema:category ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path matrix_schema:international_resource_identifier ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path matrix_schema:description ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path matrix_schema:upstream_data_source ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path matrix_schema:equivalent_identifiers ] ;
-    sh:targetClass matrix_schema:MatrixNode .
+            sh:path matrix_schema:entries ] ;
+    sh:targetClass matrix_schema:MatrixNodeCollection .
 
 matrix_schema:MatrixEdge a sh:NodeShape ;
     sh:closed true ;
@@ -79,13 +30,24 @@ matrix_schema:MatrixEdge a sh:NodeShape ;
     sh:property [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path matrix_schema:subject_direction_qualifier ],
+            sh:order 10 ;
+            sh:path matrix_schema:object_direction_qualifier ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path matrix_schema:publications ],
+            sh:order 7 ;
+            sh:path matrix_schema:subject_aspect_qualifier ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path matrix_schema:aggregator_knowledge_source ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path matrix_schema:predicate ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -95,8 +57,23 @@ matrix_schema:MatrixEdge a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path matrix_schema:predicate ],
+            sh:order 2 ;
+            sh:path matrix_schema:object ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path matrix_schema:subject_direction_qualifier ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path matrix_schema:knowledge_level ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path matrix_schema:publications ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -106,39 +83,70 @@ matrix_schema:MatrixEdge a sh:NodeShape ;
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path matrix_schema:object_direction_qualifier ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path matrix_schema:aggregator_knowledge_source ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path matrix_schema:object_aspect_qualifier ],
-        [ sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
             sh:order 11 ;
             sh:path matrix_schema:upstream_data_source ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path matrix_schema:knowledge_level ],
+            sh:order 9 ;
+            sh:path matrix_schema:object_aspect_qualifier ] ;
+    sh:targetClass matrix_schema:MatrixEdge .
+
+matrix_schema:MatrixNode a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A node in the Biolink knowledge graph." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path matrix_schema:international_resource_identifier ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path matrix_schema:name ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path matrix_schema:all_categories ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path matrix_schema:labels ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path matrix_schema:publications ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path matrix_schema:upstream_data_source ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path matrix_schema:id ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path matrix_schema:equivalent_identifiers ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path matrix_schema:object ],
+            sh:path matrix_schema:category ],
         [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path matrix_schema:subject_aspect_qualifier ] ;
-    sh:targetClass matrix_schema:MatrixEdge .
+            sh:order 3 ;
+            sh:path matrix_schema:description ] ;
+    sh:targetClass matrix_schema:MatrixNode .
 

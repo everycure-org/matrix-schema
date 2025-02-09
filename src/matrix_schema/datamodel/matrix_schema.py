@@ -1,5 +1,5 @@
 # Auto generated from matrix_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-09T09:47:57
+# Generation date: 2025-02-09T12:39:40
 # Schema: matrix-schema
 #
 # id: https://w3id.org/everycure-org/matrix-schema
@@ -97,7 +97,6 @@ class MatrixNode(YAMLRoot):
 
     id: Union[str, MatrixNodeId] = None
     category: str = None
-    upstream_data_source: str = None
     name: Optional[str] = None
     description: Optional[str] = None
     equivalent_identifiers: Optional[str] = None
@@ -105,6 +104,7 @@ class MatrixNode(YAMLRoot):
     publications: Optional[str] = None
     labels: Optional[str] = None
     international_resource_identifier: Optional[str] = None
+    upstream_data_source: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -116,11 +116,6 @@ class MatrixNode(YAMLRoot):
             self.MissingRequiredField("category")
         if not isinstance(self.category, str):
             self.category = str(self.category)
-
-        if self._is_empty(self.upstream_data_source):
-            self.MissingRequiredField("upstream_data_source")
-        if not isinstance(self.upstream_data_source, str):
-            self.upstream_data_source = str(self.upstream_data_source)
 
         if self.name is not None and not isinstance(self.name, str):
             self.name = str(self.name)
@@ -143,6 +138,9 @@ class MatrixNode(YAMLRoot):
         if self.international_resource_identifier is not None and not isinstance(self.international_resource_identifier, str):
             self.international_resource_identifier = str(self.international_resource_identifier)
 
+        if self.upstream_data_source is not None and not isinstance(self.upstream_data_source, str):
+            self.upstream_data_source = str(self.upstream_data_source)
+
         super().__post_init__(**kwargs)
 
 
@@ -161,7 +159,6 @@ class MatrixEdge(YAMLRoot):
     subject: str = None
     predicate: str = None
     object: str = None
-    upstream_data_source: str = None
     knowledge_level: Optional[str] = None
     primary_knowledge_source: Optional[str] = None
     aggregator_knowledge_source: Optional[str] = None
@@ -170,6 +167,7 @@ class MatrixEdge(YAMLRoot):
     subject_direction_qualifier: Optional[str] = None
     object_aspect_qualifier: Optional[str] = None
     object_direction_qualifier: Optional[str] = None
+    upstream_data_source: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.subject):
@@ -186,11 +184,6 @@ class MatrixEdge(YAMLRoot):
             self.MissingRequiredField("object")
         if not isinstance(self.object, str):
             self.object = str(self.object)
-
-        if self._is_empty(self.upstream_data_source):
-            self.MissingRequiredField("upstream_data_source")
-        if not isinstance(self.upstream_data_source, str):
-            self.upstream_data_source = str(self.upstream_data_source)
 
         if self.knowledge_level is not None and not isinstance(self.knowledge_level, str):
             self.knowledge_level = str(self.knowledge_level)
@@ -216,6 +209,9 @@ class MatrixEdge(YAMLRoot):
         if self.object_direction_qualifier is not None and not isinstance(self.object_direction_qualifier, str):
             self.object_direction_qualifier = str(self.object_direction_qualifier)
 
+        if self.upstream_data_source is not None and not isinstance(self.upstream_data_source, str):
+            self.upstream_data_source = str(self.upstream_data_source)
+
         super().__post_init__(**kwargs)
 
 
@@ -239,6 +235,26 @@ class MatrixEdgeCollection(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass(repr=False)
+class MatrixNodeCollection(YAMLRoot):
+    """
+    A holder for MatrixNode objects.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MATRIX_SCHEMA["MatrixNodeCollection"]
+    class_class_curie: ClassVar[str] = "matrix_schema:MatrixNodeCollection"
+    class_name: ClassVar[str] = "MatrixNodeCollection"
+    class_model_uri: ClassVar[URIRef] = MATRIX_SCHEMA.MatrixNodeCollection
+
+    entries: Optional[Union[Dict[Union[str, MatrixNodeId], Union[dict, MatrixNode]], List[Union[dict, MatrixNode]]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        self._normalize_inlined_as_dict(slot_name="entries", slot_type=MatrixNode, key_name="id", keyed=True)
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 
 
@@ -253,7 +269,7 @@ slots.name = Slot(uri=MATRIX_SCHEMA.name, name="name", curie=MATRIX_SCHEMA.curie
                    model_uri=MATRIX_SCHEMA.name, domain=None, range=Optional[str])
 
 slots.category = Slot(uri=MATRIX_SCHEMA.category, name="category", curie=MATRIX_SCHEMA.curie('category'),
-                   model_uri=MATRIX_SCHEMA.category, domain=None, range=str)
+                   model_uri=MATRIX_SCHEMA.category, domain=None, range=Optional[str])
 
 slots.description = Slot(uri=MATRIX_SCHEMA.description, name="description", curie=MATRIX_SCHEMA.curie('description'),
                    model_uri=MATRIX_SCHEMA.description, domain=None, range=Optional[str])
@@ -277,13 +293,13 @@ slots.upstream_data_source = Slot(uri=MATRIX_SCHEMA.upstream_data_source, name="
                    model_uri=MATRIX_SCHEMA.upstream_data_source, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.subject = Slot(uri=MATRIX_SCHEMA.subject, name="subject", curie=MATRIX_SCHEMA.curie('subject'),
-                   model_uri=MATRIX_SCHEMA.subject, domain=None, range=str)
+                   model_uri=MATRIX_SCHEMA.subject, domain=None, range=Optional[str])
 
 slots.predicate = Slot(uri=MATRIX_SCHEMA.predicate, name="predicate", curie=MATRIX_SCHEMA.curie('predicate'),
-                   model_uri=MATRIX_SCHEMA.predicate, domain=None, range=str)
+                   model_uri=MATRIX_SCHEMA.predicate, domain=None, range=Optional[str])
 
 slots.object = Slot(uri=MATRIX_SCHEMA.object, name="object", curie=MATRIX_SCHEMA.curie('object'),
-                   model_uri=MATRIX_SCHEMA.object, domain=None, range=str)
+                   model_uri=MATRIX_SCHEMA.object, domain=None, range=Optional[str])
 
 slots.knowledge_level = Slot(uri=MATRIX_SCHEMA.knowledge_level, name="knowledge_level", curie=MATRIX_SCHEMA.curie('knowledge_level'),
                    model_uri=MATRIX_SCHEMA.knowledge_level, domain=None, range=Optional[str])
@@ -334,7 +350,7 @@ slots.matrixNode__international_resource_identifier = Slot(uri=MATRIX_SCHEMA.int
                    model_uri=MATRIX_SCHEMA.matrixNode__international_resource_identifier, domain=None, range=Optional[str])
 
 slots.matrixNode__upstream_data_source = Slot(uri=MATRIX_SCHEMA.upstream_data_source, name="matrixNode__upstream_data_source", curie=MATRIX_SCHEMA.curie('upstream_data_source'),
-                   model_uri=MATRIX_SCHEMA.matrixNode__upstream_data_source, domain=None, range=str)
+                   model_uri=MATRIX_SCHEMA.matrixNode__upstream_data_source, domain=None, range=Optional[str])
 
 slots.matrixEdge__subject = Slot(uri=MATRIX_SCHEMA.subject, name="matrixEdge__subject", curie=MATRIX_SCHEMA.curie('subject'),
                    model_uri=MATRIX_SCHEMA.matrixEdge__subject, domain=None, range=str)
@@ -370,7 +386,10 @@ slots.matrixEdge__object_direction_qualifier = Slot(uri=MATRIX_SCHEMA.object_dir
                    model_uri=MATRIX_SCHEMA.matrixEdge__object_direction_qualifier, domain=None, range=Optional[str])
 
 slots.matrixEdge__upstream_data_source = Slot(uri=MATRIX_SCHEMA.upstream_data_source, name="matrixEdge__upstream_data_source", curie=MATRIX_SCHEMA.curie('upstream_data_source'),
-                   model_uri=MATRIX_SCHEMA.matrixEdge__upstream_data_source, domain=None, range=str)
+                   model_uri=MATRIX_SCHEMA.matrixEdge__upstream_data_source, domain=None, range=Optional[str])
 
 slots.matrixEdgeCollection__entries = Slot(uri=MATRIX_SCHEMA.entries, name="matrixEdgeCollection__entries", curie=MATRIX_SCHEMA.curie('entries'),
                    model_uri=MATRIX_SCHEMA.matrixEdgeCollection__entries, domain=None, range=Optional[Union[Union[dict, MatrixEdge], List[Union[dict, MatrixEdge]]]])
+
+slots.matrixNodeCollection__entries = Slot(uri=MATRIX_SCHEMA.entries, name="matrixNodeCollection__entries", curie=MATRIX_SCHEMA.curie('entries'),
+                   model_uri=MATRIX_SCHEMA.matrixNodeCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, MatrixNodeId], Union[dict, MatrixNode]], List[Union[dict, MatrixNode]]]])

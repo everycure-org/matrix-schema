@@ -18,6 +18,7 @@ dynamic = ["version"]
 
 dependencies = [
   "linkml-runtime >=1.8.0",
+  "jinjanator (>=24.4.0)",
 ]
 
 [tool.poetry]
@@ -27,6 +28,9 @@ version = "0.0.0"
 [tool.poetry.dependencies]
 python = "^3.9"
 linkml-runtime = "^1.1.24"
+
+[project.optional-dependencies]
+docs = ["jinjanator>=24.4.0"]
 
 [tool.poetry.requires-plugins]
 poetry-dynamic-versioning = ">=1.5.2"
@@ -43,3 +47,4 @@ mkdocs-mermaid2-plugin = ">=1.1.1"
 schemasheets = ">=0.1.14"
 jupyter = ">=1.0.0"
 mknotebooks = ">= 0.8.0"
+

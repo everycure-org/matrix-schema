@@ -19,192 +19,204 @@ matrix_schema:MatrixEdgeCollection a owl:Class,
     skos:definition "A holder for MatrixEdge objects." ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
-matrix_schema:MatrixNode a owl:Class,
+matrix_schema:MatrixNodeCollection a owl:Class,
         linkml:ClassDefinition ;
-    rdfs:label "MatrixNode" ;
+    rdfs:label "MatrixNodeCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:labels ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty matrix_schema:category ],
+            owl:allValuesFrom matrix_schema:MatrixNode ;
+            owl:onProperty matrix_schema:entries ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:publications ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:description ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty matrix_schema:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:equivalent_identifiers ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:name ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:category ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:all_categories ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:all_categories ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:labels ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:upstream_data_source ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:international_resource_identifier ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:description ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty matrix_schema:upstream_data_source ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:publications ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:international_resource_identifier ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:equivalent_identifiers ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:international_resource_identifier ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:category ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:description ] ;
-    owl:hasKey ( matrix_schema:id ) ;
-    skos:definition "A node in the Biolink knowledge graph." ;
+            owl:onProperty matrix_schema:entries ] ;
+    skos:definition "A holder for MatrixNode objects." ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
 matrix_schema:MatrixEdge a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "MatrixEdge" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:object_direction_qualifier ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:object ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:predicate ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:publications ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:predicate ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:knowledge_level ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty matrix_schema:upstream_data_source ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty matrix_schema:object_aspect_qualifier ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:object ],
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:subject_aspect_qualifier ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty matrix_schema:knowledge_level ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:object_aspect_qualifier ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty matrix_schema:subject ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:subject_aspect_qualifier ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty matrix_schema:predicate ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:predicate ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:aggregator_knowledge_source ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:subject_aspect_qualifier ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty matrix_schema:subject_direction_qualifier ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:publications ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:primary_knowledge_source ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:publications ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:predicate ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty matrix_schema:object_direction_qualifier ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:knowledge_level ],
+            owl:onProperty matrix_schema:object_aspect_qualifier ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:knowledge_level ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:publications ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:subject ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:predicate ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:object_direction_qualifier ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:primary_knowledge_source ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:subject_direction_qualifier ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:object_direction_qualifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:aggregator_knowledge_source ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:subject ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty matrix_schema:subject_aspect_qualifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:object_aspect_qualifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:subject_aspect_qualifier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:primary_knowledge_source ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:aggregator_knowledge_source ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:object ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:subject_direction_qualifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:primary_knowledge_source ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:subject ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:object ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty matrix_schema:upstream_data_source ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:subject ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty matrix_schema:object ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:object_direction_qualifier ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:subject_direction_qualifier ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:primary_knowledge_source ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:primary_knowledge_source ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:knowledge_level ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:aggregator_knowledge_source ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:subject_direction_qualifier ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:object_aspect_qualifier ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:subject ] ;
+            owl:onProperty matrix_schema:object ] ;
     owl:hasKey ( matrix_schema:subject matrix_schema:predicate matrix_schema:object ) ;
     skos:definition "An edge representing a relationship between two nodes in the Biolink knowledge graph." ;
+    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
+
+matrix_schema:MatrixNode a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "MatrixNode" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:all_categories ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:equivalent_identifiers ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:category ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:labels ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:international_resource_identifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:publications ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:upstream_data_source ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:equivalent_identifiers ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:international_resource_identifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:category ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:labels ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:category ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:publications ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:upstream_data_source ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:all_categories ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:international_resource_identifier ] ;
+    owl:hasKey ( matrix_schema:id ) ;
+    skos:definition "A node in the Biolink knowledge graph." ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
 matrix_schema:aggregator_knowledge_source a owl:ObjectProperty,
@@ -219,11 +231,6 @@ matrix_schema:all_categories a owl:ObjectProperty,
     rdfs:label "all_categories" ;
     rdfs:range linkml:String ;
     skos:definition "All categories associated with the entity." ;
-    skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
-
-matrix_schema:entries a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "entries" ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
 
 matrix_schema:equivalent_identifiers a owl:ObjectProperty,
@@ -309,6 +316,9 @@ matrix_schema:subject_direction_qualifier a owl:ObjectProperty,
     rdfs:range linkml:String ;
     skos:definition "Direction qualifier for the subject." ;
     skos:inScheme <https://w3id.org/everycure-org/matrix-schema> .
+
+matrix_schema:entries a owl:ObjectProperty,
+        linkml:SlotDefinition .
 
 matrix_schema:id a owl:ObjectProperty,
         linkml:SlotDefinition ;

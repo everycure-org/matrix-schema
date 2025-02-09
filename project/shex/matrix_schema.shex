@@ -55,7 +55,7 @@ linkml:Sparqlpath xsd:string
           <subject_direction_qualifier> @linkml:String ? ;
           <object_aspect_qualifier> @linkml:String ? ;
           <object_direction_qualifier> @linkml:String ? ;
-          <upstream_data_source> @linkml:String
+          <upstream_data_source> @linkml:String ?
        ) ;
        rdf:type [ <MatrixEdge> ] ?
     )
@@ -76,9 +76,15 @@ linkml:Sparqlpath xsd:string
           <publications> @linkml:String ? ;
           <labels> @linkml:String ? ;
           <international_resource_identifier> @linkml:String ? ;
-          <upstream_data_source> @linkml:String
+          <upstream_data_source> @linkml:String ?
        ) ;
        rdf:type [ <MatrixNode> ]
+    )
+}
+
+<MatrixNodeCollection> CLOSED {
+    (  $<MatrixNodeCollection_tes> <entries> @<MatrixNode> * ;
+       rdf:type [ <MatrixNodeCollection> ] ?
     )
 }
 

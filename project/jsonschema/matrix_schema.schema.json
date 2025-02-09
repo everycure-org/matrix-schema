@@ -62,14 +62,16 @@
                     ]
                 },
                 "upstream_data_source": {
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
                 "subject",
                 "predicate",
-                "object",
-                "upstream_data_source"
+                "object"
             ],
             "title": "MatrixEdge",
             "type": "object"
@@ -144,13 +146,104 @@
                     ]
                 },
                 "upstream_data_source": {
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
                 "id",
-                "category",
-                "upstream_data_source"
+                "category"
+            ],
+            "title": "MatrixNode",
+            "type": "object"
+        },
+        "MatrixNodeCollection": {
+            "additionalProperties": false,
+            "description": "A holder for MatrixNode objects.",
+            "properties": {
+                "entries": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/MatrixNode__identifier_optional"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                }
+            },
+            "title": "MatrixNodeCollection",
+            "type": "object"
+        },
+        "MatrixNode__identifier_optional": {
+            "additionalProperties": false,
+            "description": "A node in the Biolink knowledge graph.",
+            "properties": {
+                "all_categories": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "category": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "type": "string"
+                },
+                "international_resource_identifier": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "labels": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "publications": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "upstream_data_source": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "category"
             ],
             "title": "MatrixNode",
             "type": "object"
@@ -159,19 +252,7 @@
     "$id": "https://w3id.org/everycure-org/matrix-schema",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "description": "A holder for MatrixEdge objects.",
     "metamodel_version": "1.7.0",
-    "properties": {
-        "entries": {
-            "items": {
-                "$ref": "#/$defs/MatrixEdge"
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        }
-    },
     "title": "matrix-schema",
     "type": "object",
     "version": null
