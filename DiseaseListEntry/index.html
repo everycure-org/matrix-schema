@@ -1,812 +1,635 @@
 
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/DiseaseListEntry/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
+    
+    
+      
+        <title>Disease List Entry (schema class) - matrix-schema</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
+      
+      
 
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://everycure-org.github.io/matrix-schema/DiseaseListEntry/" rel="canonical"/>
-<link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.3" name="generator"/>
-<title>Class: DiseaseListEntry - matrix-schema</title>
-<link href="../assets/stylesheets/main.d7758b05.min.css" rel="stylesheet"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../css/ansi-colours.css" rel="stylesheet"/>
-<link href="../css/jupyter-cells.css" rel="stylesheet"/>
-<link href="../css/pandas-dataframe.css" rel="stylesheet"/>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
-<body dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#class-diseaselistentry">
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#disease-list-entry-schema-class" class="md-skip">
           Skip to content
         </a>
-</div>
-<div data-md-component="announce">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
 <header class="md-header md-header--shadow" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="matrix-schema" class="md-header__button md-logo" data-md-component="logo" href=".." title="matrix-schema">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="matrix-schema" class="md-header__button md-logo" aria-label="matrix-schema" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             matrix-schema
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
-              Class: DiseaseListEntry
+              Disease List Entry (schema class)
             
           </span>
-</div>
-</div>
-</div>
-<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list" role="presentation"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="md-header__source">
-<a class="md-source" data-md-component="source" href="https://github.com/everycure-org/matrix-schema" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
-</div>
-<div class="md-source__repository">
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/everycure-org/matrix-schema" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
     GitHub
   </div>
 </a>
-</div>
-</nav>
+      </div>
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="matrix-schema" class="md-nav__button md-logo" data-md-component="logo" href=".." title="matrix-schema">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
-</a>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="matrix-schema" class="md-nav__button md-logo" aria-label="matrix-schema" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
     matrix-schema
   </label>
-<div class="md-nav__source">
-<a class="md-source" data-md-component="source" href="https://github.com/everycure-org/matrix-schema" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
-</div>
-<div class="md-source__repository">
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/everycure-org/matrix-schema" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
     GitHub
   </div>
 </a>
-</div>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="..">
-<span class="md-ellipsis">
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Index
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../about/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     About
     
   </span>
-</a>
-</li>
-</ul>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
 </nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#slots">
-<span class="md-ellipsis">
-      Slots
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#usages" class="md-nav__link">
+    <span class="md-ellipsis">
       Usages
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#identifier-and-mapping-information">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#identifier-and-mapping-information" class="md-nav__link">
+    <span class="md-ellipsis">
       Identifier and Mapping Information
     </span>
-</a>
-<nav aria-label="Identifier and Mapping Information" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#schema-source">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="Identifier and Mapping Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-source" class="md-nav__link">
+    <span class="md-ellipsis">
       Schema Source
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#mappings">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#mappings" class="md-nav__link">
+    <span class="md-ellipsis">
       Mappings
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#linkml-source">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#linkml-source" class="md-nav__link">
+    <span class="md-ellipsis">
       LinkML Source
     </span>
-</a>
-<nav aria-label="LinkML Source" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#direct">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="LinkML Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct" class="md-nav__link">
+    <span class="md-ellipsis">
       Direct
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#induced">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#induced" class="md-nav__link">
+    <span class="md-ellipsis">
       Induced
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-</ul>
+      
+    </ul>
+  
 </nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
-<h1 id="class-diseaselistentry">Class: DiseaseListEntry</h1>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="disease-list-entry-schema-class">Disease List Entry (schema class)</h1>
 <p><em>A disease entry in the disease list.</em></p>
 <p>URI: <a href="https://w3id.org/everycure-org/matrix-schema/DiseaseListEntry">matrix_schema:DiseaseListEntry</a></p>
-<div class="mermaid"> classDiagram
-    class DiseaseListEntry
-      DiseaseListEntry : anatomical
-
-      DiseaseListEntry : category_class
-
-      DiseaseListEntry : crossreferences
-
-      DiseaseListEntry : definition
-
-      DiseaseListEntry : harrisons_view
-
-      DiseaseListEntry : is_acquired
-
-      DiseaseListEntry : is_andor
-
-      DiseaseListEntry : is_cancer
-
-      DiseaseListEntry : is_clingen
-
-      DiseaseListEntry : is_glucose_dysfunction
-
-      DiseaseListEntry : is_grouping_subset
-
-      DiseaseListEntry : is_grouping_subset_ancestor
-
-      DiseaseListEntry : is_icd_billable
-
-      DiseaseListEntry : is_icd_category
-
-      DiseaseListEntry : is_icd_chapter_code
-
-      DiseaseListEntry : is_icd_chapter_header
-
-      DiseaseListEntry : is_leaf
-
-      DiseaseListEntry : is_leaf_direct_parent
-
-      DiseaseListEntry : is_matrix_manually_excluded
-
-      DiseaseListEntry : is_matrix_manually_included
-
-      DiseaseListEntry : is_mondo_subtype
-
-      DiseaseListEntry : is_obsoletion_candidate
-
-      DiseaseListEntry : is_omim
-
-      DiseaseListEntry : is_omimps
-
-      DiseaseListEntry : is_omimps_descendant
-
-      DiseaseListEntry : is_orphanet_disorder
-
-      DiseaseListEntry : is_orphanet_subtype
-
-      DiseaseListEntry : is_orphanet_subtype_descendant
-
-      DiseaseListEntry : is_paraphilic
-
-      DiseaseListEntry : is_pathogen_caused
-
-      DiseaseListEntry : is_pathway_defect
-
-      DiseaseListEntry : is_susceptibility
-
-      DiseaseListEntry : is_unclassified_hereditary
-
-      DiseaseListEntry : is_withorwithout
-
-      DiseaseListEntry : label
-
-      DiseaseListEntry : medical_specialization
-
-      DiseaseListEntry : mondo_top_grouping
-
-      DiseaseListEntry : mondo_txgnn
-
-      DiseaseListEntry : official_matrix_filter
-
-      DiseaseListEntry : other_subsets_count
-
-      DiseaseListEntry : subset_group_id
-
-      DiseaseListEntry : subset_group_label
-
-      DiseaseListEntry : subsets
-
-      DiseaseListEntry : synonyms
-
-      DiseaseListEntry : tag_existing_treatment
-
-      DiseaseListEntry : tag_qaly_lost
-
-      DiseaseListEntry : txgnn
-
-
-</div>
-<!-- no inheritance hierarchy -->
-<h2 id="slots">Slots</h2>
+<h2 id="attributes">Attributes</h2>
 <table>
 <thead>
 <tr>
 <th>Name</th>
-<th>Cardinality and Range</th>
 <th>Description</th>
-<th>Inheritance</th>
+<th>Cardinality and Range</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="../category_class/">category_class</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The disase identifier. Slot name should probably be renamed?</td>
-<td>direct</td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../label/">label</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The name of the disease.</td>
-<td>direct</td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../definition/">definition</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The definition of the disease.</td>
-<td>direct</td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../synonyms/">synonyms</a></td>
-<td>* <br/> <a href="../String/">String</a></td>
 <td>Any exact synonyms of the disease.</td>
-<td>direct</td>
+<td>* <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../subsets/">subsets</a></td>
-<td>* <br/> <a href="../String/">String</a></td>
 <td>The subsets of the disease in which it is part.</td>
-<td>direct</td>
+<td>* <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../crossreferences/">crossreferences</a></td>
-<td>* <br/> <a href="../String/">String</a></td>
 <td>Cross-references to other databases and ontologies.</td>
-<td>direct</td>
+<td>* <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../is_matrix_manually_excluded/">is_matrix_manually_excluded</a></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Flag to denote this disease was manually excluded from the disease list by a Matrix medical expert.</td>
-<td>direct</td>
+<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_matrix_manually_included/">is_matrix_manually_included</a></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Flag to denote this disease was manually included from the disease list by a Matrix medical expert.</td>
-<td>direct</td>
+<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_clingen/">is_clingen</a></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Flag to denote that this disease term is used directly by https://clinicalgenome.org/ (a major authority on genetic diseases), which is a strong indication that it corresponds to a real disease entity.</td>
-<td>direct</td>
+<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_grouping_subset/">is_grouping_subset</a></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Flag to denote this disease is manually curated to be a grouping term.</td>
-<td>direct</td>
+<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_grouping_subset_ancestor/">is_grouping_subset_ancestor</a></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Flag to denote this disease is a parent of a disease that was manually curated to be a grouping term.</td>
-<td>direct</td>
+<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_orphanet_subtype/">is_orphanet_subtype</a></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Flag to denote this disease is manually curated to be a disease subtype according to Orphanet (https://www.orpha.net/), one of the most important rare disease authorities in the world.</td>
-<td>direct</td>
+<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_orphanet_subtype_descendant/">is_orphanet_subtype_descendant</a></td>
+<td>Flag to denote this disease is a child/descendant of a disease that is manually curated  to be a disease subtype according to Orphanet (https://www.orpha.net/), one of the most  important rare disease authorities in the world. If it is a descendant of a subtype, it most likely is a subtype itself.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease is a child/descendant of a disease that is manually curated  to be a disease subtype according to Orphanet (https://www.orpha.net/), one of the most  important rare disease authorities in the world. If it is a descendant of a subtype, it most likely is a subtype itself.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_omimps/">is_omimps</a></td>
+<td>Flag to denote this disease is manually curated to be a phenotypic series according to OMIM (https://www.omim.org/),  one of the most important genetic disease authorities in the world.  A Phenotypic Series is a grouping of genetic heterogeneity of similar phenotypes across the genome.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease is manually curated to be a phenotypic series according to OMIM (https://www.omim.org/),  one of the most important genetic disease authorities in the world.  A Phenotypic Series is a grouping of genetic heterogeneity of similar phenotypes across the genome.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_omimps_descendant/">is_omimps_descendant</a></td>
+<td>Flag to denote this disease is a child/descendant of a disease that is manually curated  to be a phenotypic series according to OMIM (https://www.omim.org/), one of the most  important genetic disease authorities in the world. If it is a descendant of a phenotypic series, it most likely is a proper genetic disease entity (or subtype).<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease is a child/descendant of a disease that is manually curated  to be a phenotypic series according to OMIM (https://www.omim.org/), one of the most  important genetic disease authorities in the world. If it is a descendant of a phenotypic series, it most likely is a proper genetic disease entity (or subtype).</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_leaf/">is_leaf</a></td>
+<td>Flag to denote this disease is a leaf node in the disease hierarchy.  A leaf node is a node that has no children in the hierarchy.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease is a leaf node in the disease hierarchy.  A leaf node is a node that has no children in the hierarchy.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_leaf_direct_parent/">is_leaf_direct_parent</a></td>
+<td>Flag to denote this disease is a direct parent of a leaf node in the disease hierarchy.  A direct parent of a leaf rarely corresponds to a grouping, and often is a proper disease entity.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease is a direct parent of a leaf node in the disease hierarchy.  A direct parent of a leaf rarely corresponds to a grouping, and often is a proper disease entity.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_orphanet_disorder/">is_orphanet_disorder</a></td>
+<td>Flag to denote this disease is manually curated to be a disease according to Orphanet (https://www.orpha.net/),  one of the most important rare disease authorities in the world.  A disorder according to Orphanet usually corresponds to a proper disease entity, not a grouping or a subtype.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease is manually curated to be a disease according to Orphanet (https://www.orpha.net/),  one of the most important rare disease authorities in the world.  A disorder according to Orphanet usually corresponds to a proper disease entity, not a grouping or a subtype.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_omim/">is_omim</a></td>
+<td>Flag to denote this disease is manually curated to be a disease according to OMIM (https://www.omim.org/),  one of the most important genetic disease authorities in the world.  A disease according to OMIM usually corresponds to a proper disease entity or a subtype, not a disease grouping.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease is manually curated to be a disease according to OMIM (https://www.omim.org/),  one of the most important genetic disease authorities in the world.  A disease according to OMIM usually corresponds to a proper disease entity or a subtype, not a disease grouping.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_icd_category/">is_icd_category</a></td>
+<td>Flag to denote this disease was corresponds to an ICD category. Category codes (or subcategory codes), for example A01.1 (Paratyphoid fever A),  can be recognised by containing a period (.) character and usually represent specific  diagnosable diseases.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease was corresponds to an ICD category. Category codes (or subcategory codes), for example A01.1 (Paratyphoid fever A),  can be recognised by containing a period (.) character and usually represent specific  diagnosable diseases.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_icd_chapter_code/">is_icd_chapter_code</a></td>
+<td>Flag to denote this disease was corresponds to an ICD chapter code. Chapter codes (or block codes), for example A00-B99 (Certain infectious and parasitic diseases).  These codes can be recognised by containing a dash (-) character, and usually represent broad categories of diseases.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease was corresponds to an ICD chapter code. Chapter codes (or block codes), for example A00-B99 (Certain infectious and parasitic diseases).  These codes can be recognised by containing a dash (-) character, and usually represent broad categories of diseases.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_icd_chapter_header/">is_icd_chapter_header</a></td>
+<td>Flag to denote this disease was corresponds to an ICD chapter header. Chapter headers (or chapter titles), for example A00 (Cholera) can be identified by codes without dashes or periods and are usually the top-level categories within each chapter. Most of the time, these are not proper diseases, but groupings of diseases.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease was corresponds to an ICD chapter header. Chapter headers (or chapter titles), for example A00 (Cholera) can be identified by codes without dashes or periods and are usually the top-level categories within each chapter. Most of the time, these are not proper diseases, but groupings of diseases.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_icd_billable/">is_icd_billable</a></td>
+<td>Flag to denote this disease was corresponds to an ICD code that is billable. Billable codes are usually the most specific codes that can be used for billing purposes, and are most of the time diagnosable diseases.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease was corresponds to an ICD code that is billable. Billable codes are usually the most specific codes that can be used for billing purposes, and are most of the time diagnosable diseases.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_mondo_subtype/">is_mondo_subtype</a></td>
+<td>Flag to denote this disease was identified to be a subtype through lexical matching. This method is maintained by the Every Cure medical team and the Disease List team.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease was identified to be a subtype through lexical matching. This method is maintained by the Every Cure medical team and the Disease List team.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_pathway_defect/">is_pathway_defect</a></td>
+<td>Flag to denote this disease corresponds to a pathway defect rather than a proper disease.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease corresponds to a pathway defect rather than a proper disease.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_susceptibility/">is_susceptibility</a></td>
+<td>Flag to denote this disease corresponds to a susceptibility rather than a proper disease.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease corresponds to a susceptibility rather than a proper disease.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_paraphilic/">is_paraphilic</a></td>
+<td>Flag to denote this disease corresponds to a paraphilic disorder rather than a proper disease.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease corresponds to a paraphilic disorder rather than a proper disease.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_acquired/">is_acquired</a></td>
+<td>Flag to denote this disease corresponds to an acquired form of a disease.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease corresponds to an acquired form of a disease.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_andor/">is_andor</a></td>
+<td>Flag to denote this disease corresponds to a disease that is a combination of two or more diseases.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease corresponds to a disease that is a combination of two or more diseases.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_withorwithout/">is_withorwithout</a></td>
+<td>Flag to denote this disease corresponds to a disease that can be present with or without some other pathological condition.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease corresponds to a disease that can be present with or without some other pathological condition.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_obsoletion_candidate/">is_obsoletion_candidate</a></td>
+<td>Flag to denote that this disease is marked for obsoletion in the (near) future. This status does not guarantee that the disease will be obsoleted, but it is a strong indication.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote that this disease is marked for obsoletion in the (near) future. This status does not guarantee that the disease will be obsoleted, but it is a strong indication.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_unclassified_hereditary/">is_unclassified_hereditary</a></td>
+<td>Flag to denote that this disease has no descendants (is a leaf) and  is classified broadly as an hereditary disease, but lacks any further classification.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote that this disease has no descendants (is a leaf) and  is classified broadly as an hereditary disease, but lacks any further classification.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../official_matrix_filter/">official_matrix_filter</a></td>
+<td>Flag to denote this disease corresponds to a disease that can be treated with small molecules or biologics. This flag is maintained as a combination of default filters by the Matrix team. Changes to this filter should be discussed on the Matrix disease list issue tracker (https://github.com/everycure-org/matrix-disease-list/issues). <strong>Warning</strong>. This flag is in early alpha state, and its use in production systems is not recommended.<br /></td>
 <td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote this disease corresponds to a disease that can be treated with small molecules or biologics. This flag is maintained as a combination of default filters by the Matrix team. Changes to this filter should be discussed on the Matrix disease list issue tracker (https://github.com/everycure-org/matrix-disease-list/issues). <strong>Warning</strong>. This flag is in early alpha state, and its use in production systems is not recommended.</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../harrisons_view/">harrisons_view</a></td>
+<td>Tag to denote this disease to be part of a grouping according to the Harrison's textbook. Top-level classes in Mondo are manually curated by the Mondo team to "belong" to a Harrison's textbook chapter. Disagreements should be reported on the Mondo issue tracker (https://github.com/monarch-initiative/mondo/issues).<br /></td>
 <td>* <br/> <a href="../String/">String</a></td>
-<td>Tag to denote this disease to be part of a grouping according to the Harrison's textbook. Top-level classes in Mondo are manually curated by the Mondo team to "belong" to a Harrison's textbook chapter. Disagreements should be reported on the Mondo issue tracker (https://github.com/monarch-initiative/mondo/issues).</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../mondo_txgnn/">mondo_txgnn</a></td>
+<td>Tag to denote this disease to be part of a grouping as defined by the txgnn paper. Disease classes in Mondo are manually curated by the Mondo team to "belong" to a txgnn category. Disagreements should be reported on the Mondo issue  tracker (https://github.com/monarch-initiative/mondo/issues).<br /></td>
 <td>* <br/> <a href="../String/">String</a></td>
-<td>Tag to denote this disease to be part of a grouping as defined by the txgnn paper. Disease classes in Mondo are manually curated by the Mondo team to "belong" to a txgnn category. Disagreements should be reported on the Mondo issue  tracker (https://github.com/monarch-initiative/mondo/issues).</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../mondo_top_grouping/">mondo_top_grouping</a></td>
+<td>Tag to denote this disease to be a . Disease classes in Mondo are manually curated by the Mondo team to "belong" to a txgnn category. Disagreements should be reported on the Mondo issue  tracker (https://github.com/monarch-initiative/mondo/issues).<br /></td>
 <td>* <br/> <a href="../String/">String</a></td>
-<td>Tag to denote this disease to be a . Disease classes in Mondo are manually curated by the Mondo team to "belong" to a txgnn category. Disagreements should be reported on the Mondo issue  tracker (https://github.com/monarch-initiative/mondo/issues).</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../medical_specialization/">medical_specialization</a></td>
+<td>Tag this disease with a medical specialisation. Disease classes are automatically tagged by an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
 <td>* <br/> <a href="../String/">String</a></td>
-<td>Tag this disease with a medical specialisation. Disease classes are automatically tagged by an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../txgnn/">txgnn</a></td>
+<td>Tag this disease to be part of a grouping as defined by the txgnn paper. Disease classes in Mondo are automatically assigned to a txgnn category using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
 <td>* <br/> <a href="../String/">String</a></td>
-<td>Tag this disease to be part of a grouping as defined by the txgnn paper. Disease classes in Mondo are automatically assigned to a txgnn category using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../anatomical/">anatomical</a></td>
+<td>Tag to denote this disease to be part of a grouping according to the anatomical location. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
 <td>* <br/> <a href="../String/">String</a></td>
-<td>Tag to denote this disease to be part of a grouping according to the anatomical location. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_pathogen_caused/">is_pathogen_caused</a></td>
+<td>Flag to denote if this disease is caused by a pathogen. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
 <td>* <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote if this disease is caused by a pathogen. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_cancer/">is_cancer</a></td>
+<td>Flag to denote if this disease corresponds to a cancer type. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
 <td>* <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote if this disease corresponds to a cancer type. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../is_glucose_dysfunction/">is_glucose_dysfunction</a></td>
+<td>Flag to denote if this disease corresponds to a glucose dysfunction. Disease classes are automatically flagged using an LLM. tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
 <td>* <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote if this disease corresponds to a glucose dysfunction. Disease classes are automatically flagged using an LLM. tracker (https://github.com/everycure-org/matrix-disease-list/issues).</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../tag_existing_treatment/">tag_existing_treatment</a></td>
+<td>Flag to denote if this disease has some existing treatment. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
 <td>* <br/> <a href="../Boolean/">Boolean</a></td>
-<td>Flag to denote if this disease has some existing treatment. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../tag_qaly_lost/">tag_qaly_lost</a></td>
+<td>Tag denoting the degree to which Quality-Adjusted Life Year (QALY) lost. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
 <td>1 <br/> <a href="../String/">String</a></td>
-<td>Tag denoting the degree to which Quality-Adjusted Life Year (QALY) lost. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).</td>
-<td></td>
-</tr>
-<tr>
-<td>direct</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="../subset_group_id/">subset_group_id</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The identifier of a disease representing the subtype series this disease belongs to.</td>
-<td>direct</td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../subset_group_label/">subset_group_label</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The name (label) of a disease representing the subtype series this disease belongs to.</td>
-<td>direct</td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../other_subsets_count/">other_subsets_count</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The number of other subtypes in the subset this disease belongs to.</td>
-<td>direct</td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
 </tr>
 </tbody>
 </table>
@@ -855,12 +678,14 @@
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
 <h3 id="direct">Direct</h3>
 <details>
+
 <pre><code class="language-yaml">name: DiseaseListEntry
 description: A disease entry in the disease list.
+title: Disease List Entry
 from_schema: https://w3id.org/everycure-org/matrix-schema
-rank: 1000
 slots:
 - category_class
 - label
@@ -911,13 +736,16 @@ slots:
 - other_subsets_count
 
 </code></pre>
+
 </details>
+
 <h3 id="induced">Induced</h3>
 <details>
+
 <pre><code class="language-yaml">name: DiseaseListEntry
 description: A disease entry in the disease list.
+title: Disease List Entry
 from_schema: https://w3id.org/everycure-org/matrix-schema
-rank: 1000
 attributes:
   category_class:
     name: category_class
@@ -1624,7 +1452,7 @@ attributes:
         value: manual_mondo
     description: 'Tag to denote this disease to be part of a grouping according to
       the Harrison''s textbook. Top-level classes in Mondo are manually curated by
-      the Mondo team to "belong" to a Harrison''s textbook chapter. Disagreements
+      the Mondo team to &quot;belong&quot; to a Harrison''s textbook chapter. Disagreements
       should be reported on the Mondo issue tracker (https://github.com/monarch-initiative/mondo/issues).
 
       '
@@ -1649,7 +1477,7 @@ attributes:
         value: manual_mondo
     description: 'Tag to denote this disease to be part of a grouping as defined by
       the txgnn paper. Disease classes in Mondo are manually curated by the Mondo
-      team to "belong" to a txgnn category. Disagreements should be reported on the
+      team to &quot;belong&quot; to a txgnn category. Disagreements should be reported on the
       Mondo issue  tracker (https://github.com/monarch-initiative/mondo/issues).
 
       '
@@ -1673,7 +1501,7 @@ attributes:
         tag: curation_type
         value: manual_mondo
     description: 'Tag to denote this disease to be a . Disease classes in Mondo are
-      manually curated by the Mondo team to "belong" to a txgnn category. Disagreements
+      manually curated by the Mondo team to &quot;belong&quot; to a txgnn category. Disagreements
       should be reported on the Mondo issue  tracker (https://github.com/monarch-initiative/mondo/issues).
 
       '
@@ -1896,33 +1724,61 @@ attributes:
     range: integer
 
 </code></pre>
+
 </details>
-</article>
-</div>
-<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-</div>
-</main>
-<footer class="md-footer">
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
+  
 </div>
-</div>
-</div>
+      
+    </div>
+  </div>
 </footer>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.9.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({});</script></body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
 </html>
