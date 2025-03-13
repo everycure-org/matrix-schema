@@ -240,7 +240,7 @@
 <tr>
 <td><a href="../nodes/">nodes</a></td>
 <td>* <br/> <a href="../MatrixNode/">MatrixNode</a></td>
-<td></td>
+<td>A list of edges.</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -277,12 +277,11 @@
 description: A holder for MatrixNode objects.
 from_schema: https://w3id.org/everycure-org/matrix-schema
 rank: 1000
-attributes:
+slots:
+- nodes
+slot_usage:
   nodes:
     name: nodes
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixNodeCollection
     range: MatrixNode
     multivalued: true
     inlined: true
@@ -295,10 +294,18 @@ attributes:
 description: A holder for MatrixNode objects.
 from_schema: https://w3id.org/everycure-org/matrix-schema
 rank: 1000
+slot_usage:
+  nodes:
+    name: nodes
+    range: MatrixNode
+    multivalued: true
+    inlined: true
 attributes:
   nodes:
     name: nodes
+    description: A list of edges.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: nodes
     owner: MatrixNodeCollection
     domain_of:

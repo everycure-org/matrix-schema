@@ -267,73 +267,73 @@
 <tr>
 <td><a href="../subject/">subject</a></td>
 <td>1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>The subject entity in the edge.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../predicate/">predicate</a></td>
 <td>1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>The predicate defining the relationship.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../object/">object</a></td>
 <td>1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>The object entity in the edge.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../knowledge_level/">knowledge_level</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>Knowledge level of the relationship.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../primary_knowledge_source/">primary_knowledge_source</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>Primary source of the knowledge in the edge.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../aggregator_knowledge_source/">aggregator_knowledge_source</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Aggregators of the knowledge.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../publications/">publications</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Publications associated with the entity.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../subject_aspect_qualifier/">subject_aspect_qualifier</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>Aspect qualifier for the subject.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../subject_direction_qualifier/">subject_direction_qualifier</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>Direction qualifier for the subject.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../object_aspect_qualifier/">object_aspect_qualifier</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>Aspect qualifier for the object.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../object_direction_qualifier/">object_direction_qualifier</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>Direction qualifier for the object.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../upstream_data_source/">upstream_data_source</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Sources from which this entity's data originates.</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -390,72 +390,29 @@ description: An edge representing a relationship between two nodes in the Biolin
   knowledge graph.
 from_schema: https://w3id.org/everycure-org/matrix-schema
 rank: 1000
-attributes:
+slots:
+- subject
+- predicate
+- object
+- knowledge_level
+- primary_knowledge_source
+- aggregator_knowledge_source
+- publications
+- subject_aspect_qualifier
+- subject_direction_qualifier
+- object_aspect_qualifier
+- object_direction_qualifier
+- upstream_data_source
+slot_usage:
   subject:
     name: subject
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixEdge
     required: true
   predicate:
     name: predicate
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixEdge
     required: true
   object:
     name: object
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixEdge
     required: true
-  knowledge_level:
-    name: knowledge_level
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixEdge
-  primary_knowledge_source:
-    name: primary_knowledge_source
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixEdge
-  aggregator_knowledge_source:
-    name: aggregator_knowledge_source
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixEdge
-  publications:
-    name: publications
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixNode
-    - MatrixEdge
-  subject_aspect_qualifier:
-    name: subject_aspect_qualifier
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixEdge
-  subject_direction_qualifier:
-    name: subject_direction_qualifier
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixEdge
-  object_aspect_qualifier:
-    name: object_aspect_qualifier
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixEdge
-  object_direction_qualifier:
-    name: object_direction_qualifier
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixEdge
-  upstream_data_source:
-    name: upstream_data_source
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixNode
-    - MatrixEdge
 unique_keys:
   unique_edge:
     unique_key_name: unique_edge
@@ -473,10 +430,22 @@ description: An edge representing a relationship between two nodes in the Biolin
   knowledge graph.
 from_schema: https://w3id.org/everycure-org/matrix-schema
 rank: 1000
+slot_usage:
+  subject:
+    name: subject
+    required: true
+  predicate:
+    name: predicate
+    required: true
+  object:
+    name: object
+    required: true
 attributes:
   subject:
     name: subject
+    description: The subject entity in the edge.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: subject
     owner: MatrixEdge
     domain_of:
@@ -485,7 +454,9 @@ attributes:
     required: true
   predicate:
     name: predicate
+    description: The predicate defining the relationship.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: predicate
     owner: MatrixEdge
     domain_of:
@@ -494,7 +465,9 @@ attributes:
     required: true
   object:
     name: object
+    description: The object entity in the edge.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: object
     owner: MatrixEdge
     domain_of:
@@ -503,7 +476,9 @@ attributes:
     required: true
   knowledge_level:
     name: knowledge_level
+    description: Knowledge level of the relationship.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: knowledge_level
     owner: MatrixEdge
     domain_of:
@@ -511,7 +486,9 @@ attributes:
     range: string
   primary_knowledge_source:
     name: primary_knowledge_source
+    description: Primary source of the knowledge in the edge.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: primary_knowledge_source
     owner: MatrixEdge
     domain_of:
@@ -519,24 +496,32 @@ attributes:
     range: string
   aggregator_knowledge_source:
     name: aggregator_knowledge_source
+    description: Aggregators of the knowledge.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: aggregator_knowledge_source
     owner: MatrixEdge
     domain_of:
     - MatrixEdge
     range: string
+    multivalued: true
   publications:
     name: publications
+    description: Publications associated with the entity.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: publications
     owner: MatrixEdge
     domain_of:
     - MatrixNode
     - MatrixEdge
     range: string
+    multivalued: true
   subject_aspect_qualifier:
     name: subject_aspect_qualifier
+    description: Aspect qualifier for the subject.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: subject_aspect_qualifier
     owner: MatrixEdge
     domain_of:
@@ -544,7 +529,9 @@ attributes:
     range: string
   subject_direction_qualifier:
     name: subject_direction_qualifier
+    description: Direction qualifier for the subject.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: subject_direction_qualifier
     owner: MatrixEdge
     domain_of:
@@ -552,7 +539,9 @@ attributes:
     range: string
   object_aspect_qualifier:
     name: object_aspect_qualifier
+    description: Aspect qualifier for the object.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: object_aspect_qualifier
     owner: MatrixEdge
     domain_of:
@@ -560,7 +549,9 @@ attributes:
     range: string
   object_direction_qualifier:
     name: object_direction_qualifier
+    description: Direction qualifier for the object.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: object_direction_qualifier
     owner: MatrixEdge
     domain_of:
@@ -568,13 +559,16 @@ attributes:
     range: string
   upstream_data_source:
     name: upstream_data_source
+    description: Sources from which this entity's data originates.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: upstream_data_source
     owner: MatrixEdge
     domain_of:
     - MatrixNode
     - MatrixEdge
     range: string
+    multivalued: true
 unique_keys:
   unique_edge:
     unique_key_name: unique_edge

@@ -262,62 +262,62 @@
 <tbody>
 <tr>
 <td><a href="../id/">id</a></td>
-<td>1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>A unique identifier for a thing</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>Human-readable name of the entity.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../category/">category</a></td>
 <td>1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>Biolink category of the entity.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>Detailed description of the entity.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../equivalent_identifiers/">equivalent_identifiers</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>List of equivalent identifiers for the entity.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../all_categories/">all_categories</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>All categories associated with the entity.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../publications/">publications</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Publications associated with the entity.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../labels/">labels</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Alternative labels for the entity.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../international_resource_identifier/">international_resource_identifier</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>IRI of the entity.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../upstream_data_source/">upstream_data_source</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Sources from which this entity's data originates.</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -373,62 +373,25 @@
 description: A node in the Biolink knowledge graph.
 from_schema: https://w3id.org/everycure-org/matrix-schema
 rank: 1000
-attributes:
-  id:
-    name: id
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    identifier: true
-    domain_of:
-    - MatrixNode
-    required: true
-  name:
-    name: name
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixNode
+slots:
+- id
+- name
+- category
+- description
+- equivalent_identifiers
+- all_categories
+- publications
+- labels
+- international_resource_identifier
+- upstream_data_source
+slot_usage:
   category:
     name: category
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixNode
     required: true
-  description:
-    name: description
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixNode
-  equivalent_identifiers:
-    name: equivalent_identifiers
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixNode
-  all_categories:
-    name: all_categories
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixNode
-  publications:
-    name: publications
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixNode
-    - MatrixEdge
-  labels:
-    name: labels
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixNode
-  international_resource_identifier:
-    name: international_resource_identifier
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixNode
-  upstream_data_source:
-    name: upstream_data_source
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    domain_of:
-    - MatrixNode
-    - MatrixEdge
+  id:
+    name: id
+    identifier: true
+    required: true
 unique_keys:
   unique_id:
     unique_key_name: unique_id
@@ -443,20 +406,33 @@ unique_keys:
 description: A node in the Biolink knowledge graph.
 from_schema: https://w3id.org/everycure-org/matrix-schema
 rank: 1000
+slot_usage:
+  category:
+    name: category
+    required: true
+  id:
+    name: id
+    identifier: true
+    required: true
 attributes:
   id:
     name: id
+    description: A unique identifier for a thing
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    slot_uri: schema:identifier
     identifier: true
     alias: id
     owner: MatrixNode
     domain_of:
     - MatrixNode
-    range: string
+    range: uriorcurie
     required: true
   name:
     name: name
+    description: Human-readable name of the entity.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: name
     owner: MatrixNode
     domain_of:
@@ -464,7 +440,9 @@ attributes:
     range: string
   category:
     name: category
+    description: Biolink category of the entity.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: category
     owner: MatrixNode
     domain_of:
@@ -473,7 +451,9 @@ attributes:
     required: true
   description:
     name: description
+    description: Detailed description of the entity.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: description
     owner: MatrixNode
     domain_of:
@@ -481,40 +461,54 @@ attributes:
     range: string
   equivalent_identifiers:
     name: equivalent_identifiers
+    description: List of equivalent identifiers for the entity.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: equivalent_identifiers
     owner: MatrixNode
     domain_of:
     - MatrixNode
     range: string
+    multivalued: true
   all_categories:
     name: all_categories
+    description: All categories associated with the entity.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: all_categories
     owner: MatrixNode
     domain_of:
     - MatrixNode
     range: string
+    multivalued: true
   publications:
     name: publications
+    description: Publications associated with the entity.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: publications
     owner: MatrixNode
     domain_of:
     - MatrixNode
     - MatrixEdge
     range: string
+    multivalued: true
   labels:
     name: labels
+    description: Alternative labels for the entity.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: labels
     owner: MatrixNode
     domain_of:
     - MatrixNode
     range: string
+    multivalued: true
   international_resource_identifier:
     name: international_resource_identifier
+    description: IRI of the entity.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: international_resource_identifier
     owner: MatrixNode
     domain_of:
@@ -522,13 +516,16 @@ attributes:
     range: string
   upstream_data_source:
     name: upstream_data_source
+    description: Sources from which this entity's data originates.
     from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
     alias: upstream_data_source
     owner: MatrixNode
     domain_of:
     - MatrixNode
     - MatrixEdge
     range: string
+    multivalued: true
 unique_keys:
   unique_id:
     unique_key_name: unique_id
