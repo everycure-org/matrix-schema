@@ -7,7 +7,9 @@
   ],
   "id": "https://w3id.org/everycure-org/matrix-schema",
   "imports": [
-    "linkml:types"
+    "linkml:types",
+    "matrix_kg",
+    "disease_list"
   ],
   "license": "BSD-3",
   "prefixes": [
@@ -342,10 +344,10 @@
   ],
   "enums": [
     {
-      "name": "attribute_type_enum",
+      "name": "AttributeTypeEnum",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/AttributeTypeEnum",
       "description": "Code used to describe the nature of a slot, for documentative purposes.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "permissible_values": [
         {
           "text": "filter",
@@ -358,10 +360,10 @@
       ]
     },
     {
-      "name": "curation_type_enum",
+      "name": "CurationTypeEnum",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/CurationTypeEnum",
       "description": "Code used to describe how a slot / attribute was curated.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "permissible_values": [
         {
           "text": "manual_everycure",
@@ -392,11 +394,288 @@
   ],
   "slots": [
     {
+      "name": "id",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/id",
+      "description": "A unique identifier for a thing",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "mappings": [
+        "http://schema.org/identifier"
+      ],
+      "slot_uri": "http://schema.org/identifier",
+      "identifier": true,
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "uriorcurie",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "name",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/name",
+      "description": "Human-readable name of the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/name",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "category",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/category",
+      "description": "Biolink category of the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/category",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "description",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/description",
+      "description": "Detailed description of the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/description",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "equivalent_identifiers",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/equivalent_identifiers",
+      "description": "List of equivalent identifiers for the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/equivalent_identifiers",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "all_categories",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/all_categories",
+      "description": "All categories associated with the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/all_categories",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "publications",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/publications",
+      "description": "Publications associated with the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/publications",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixNode",
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "labels",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/labels",
+      "description": "Alternative labels for the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/labels",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "international_resource_identifier",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/international_resource_identifier",
+      "description": "IRI of the entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/international_resource_identifier",
+      "owner": "MatrixNode",
+      "domain_of": [
+        "MatrixNode"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "upstream_data_source",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/upstream_data_source",
+      "description": "Sources from which this entity's data originates.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/upstream_data_source",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixNode",
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subject",
+      "description": "The subject entity in the edge.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "predicate",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/predicate",
+      "description": "The predicate defining the relationship.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/predicate",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/object",
+      "description": "The object entity in the edge.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "knowledge_level",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/knowledge_level",
+      "description": "Knowledge level of the relationship.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/knowledge_level",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "primary_knowledge_source",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/primary_knowledge_source",
+      "description": "Primary source of the knowledge in the edge.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/primary_knowledge_source",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "aggregator_knowledge_source",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/aggregator_knowledge_source",
+      "description": "Aggregators of the knowledge.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/aggregator_knowledge_source",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject_aspect_qualifier",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subject_aspect_qualifier",
+      "description": "Aspect qualifier for the subject.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject_aspect_qualifier",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject_direction_qualifier",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subject_direction_qualifier",
+      "description": "Direction qualifier for the subject.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject_direction_qualifier",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object_aspect_qualifier",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/object_aspect_qualifier",
+      "description": "Aspect qualifier for the object.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object_aspect_qualifier",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "object_direction_qualifier",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/object_direction_qualifier",
+      "description": "Direction qualifier for the object.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object_direction_qualifier",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "category_class",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/category_class",
       "description": "The disase identifier. Slot name should probably be renamed?",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/category_class",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "@type": "SlotDefinition"
     },
@@ -404,8 +683,12 @@
       "name": "label",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/label",
       "description": "The name of the disease.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/label",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "@type": "SlotDefinition"
     },
@@ -413,8 +696,12 @@
       "name": "definition",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/definition",
       "description": "The definition of the disease.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/definition",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "@type": "SlotDefinition"
     },
@@ -422,8 +709,12 @@
       "name": "synonyms",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/synonyms",
       "description": "Any exact synonyms of the disease.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/synonyms",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -432,8 +723,12 @@
       "name": "subsets",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subsets",
       "description": "The subsets of the disease in which it is part.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subsets",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -442,8 +737,12 @@
       "name": "crossreferences",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/crossreferences",
       "description": "Cross-references to other databases and ontologies.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/crossreferences",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -452,8 +751,12 @@
       "name": "subset_group_id",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subset_group_id",
       "description": "The identifier of a disease representing the subtype series this disease belongs to.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subset_group_id",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "@type": "SlotDefinition"
     },
@@ -461,8 +764,12 @@
       "name": "subset_group_label",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subset_group_label",
       "description": "The name (label) of a disease representing the subtype series this disease belongs to.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subset_group_label",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "@type": "SlotDefinition"
     },
@@ -470,17 +777,49 @@
       "name": "other_subsets_count",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/other_subsets_count",
       "description": "The number of other subtypes in the subset this disease belongs to.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/other_subsets_count",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "integer",
       "@type": "SlotDefinition"
     },
     {
-      "name": "entries",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/entries",
-      "description": "A list property for collections of things.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/entries",
+      "name": "edges",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/edges",
+      "description": "A list of edges.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/edges",
+      "owner": "MatrixEdgeCollection",
+      "domain_of": [
+        "MatrixEdgeCollection"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nodes",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/nodes",
+      "description": "A list of edges.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/nodes",
+      "owner": "MatrixNodeCollection",
+      "domain_of": [
+        "MatrixNodeCollection"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "diseases_list_entries",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/diseases_list_entries",
+      "description": "A list of disease list entries.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/diseases_list_entries",
       "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -489,18 +828,18 @@
       "name": "attribute_type",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/attribute_type",
       "description": "The type of attribute.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/attribute_type",
-      "range": "attribute_type_enum",
+      "range": "AttributeTypeEnum",
       "@type": "SlotDefinition"
     },
     {
       "name": "curation_type",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/curation_type",
       "description": "The type of curation (manual / automatic).",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/curation_type",
-      "range": "curation_type_enum",
+      "range": "CurationTypeEnum",
       "@type": "SlotDefinition"
     },
     {
@@ -519,11 +858,15 @@
         }
       ],
       "description": "Flag to denote this disease was manually excluded from the disease list by a Matrix medical expert.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/src/excluded-diseases.robot.tsv"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_matrix_manually_excluded",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -543,11 +886,15 @@
         }
       ],
       "description": "Flag to denote this disease was manually included from the disease list by a Matrix medical expert.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/src/included-diseases.robot.tsv"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_matrix_manually_included",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -567,12 +914,16 @@
         }
       ],
       "description": "Flag to denote that this disease term is used directly by https://clinicalgenome.org/ (a major authority on genetic diseases), which is a strong indication that it corresponds to a real disease entity.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
         "https://clinicalgenome.org/"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_clingen",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -592,11 +943,15 @@
         }
       ],
       "description": "Flag to denote this disease is manually curated to be a grouping term.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_grouping_subset",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -616,11 +971,15 @@
         }
       ],
       "description": "Flag to denote this disease is a parent of a disease that was manually curated to be a grouping term.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_grouping_subset_ancestor",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -640,13 +999,17 @@
         }
       ],
       "description": "Flag to denote this disease is manually curated to be a disease subtype according to Orphanet (https://www.orpha.net/), one of the most important rare disease authorities in the world.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
         "https://www.orpha.net/",
         "https://www.orpha.net/pdfs/orphacom/cahiers/docs/GB/eproc_disease_inventory_R1_Nom_Dis_EP_04.pdf"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_orphanet_subtype",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -666,12 +1029,16 @@
         }
       ],
       "description": "Flag to denote this disease is a child/descendant of a disease that is manually curated  to be a disease subtype according to Orphanet (https://www.orpha.net/), one of the most  important rare disease authorities in the world. If it is a descendant of a subtype, it most likely is a subtype itself.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "http://dev.everycure.org/schema/is_orphanet_subtype",
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_orphanet_subtype_descendant",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -691,13 +1058,17 @@
         }
       ],
       "description": "Flag to denote this disease is manually curated to be a phenotypic series according to OMIM (https://www.omim.org/),  one of the most important genetic disease authorities in the world.  A Phenotypic Series is a grouping of genetic heterogeneity of similar phenotypes across the genome.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
         "https://www.omim.org/",
         "https://www.omim.org/help/faq#1_14"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_omimps",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -717,7 +1088,7 @@
         }
       ],
       "description": "Flag to denote this disease is a child/descendant of a disease that is manually curated  to be a phenotypic series according to OMIM (https://www.omim.org/), one of the most  important genetic disease authorities in the world. If it is a descendant of a phenotypic series, it most likely is a proper genetic disease entity (or subtype).\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
         "https://www.omim.org/",
@@ -725,6 +1096,10 @@
         "http://dev.everycure.org/schema/is_omimps"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_omimps_descendant",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -744,11 +1119,15 @@
         }
       ],
       "description": "Flag to denote this disease is a leaf node in the disease hierarchy.  A leaf node is a node that has no children in the hierarchy.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_leaf",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -768,11 +1147,15 @@
         }
       ],
       "description": "Flag to denote this disease is a direct parent of a leaf node in the disease hierarchy.  A direct parent of a leaf rarely corresponds to a grouping, and often is a proper disease entity.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_leaf_direct_parent",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -792,13 +1175,17 @@
         }
       ],
       "description": "Flag to denote this disease is manually curated to be a disease according to Orphanet (https://www.orpha.net/),  one of the most important rare disease authorities in the world.  A disorder according to Orphanet usually corresponds to a proper disease entity, not a grouping or a subtype.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://www.orpha.net/",
         "https://www.orpha.net/pdfs/orphacom/cahiers/docs/GB/eproc_disease_inventory_R1_Nom_Dis_EP_04.pdf",
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_orphanet_disorder",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -818,12 +1205,16 @@
         }
       ],
       "description": "Flag to denote this disease is manually curated to be a disease according to OMIM (https://www.omim.org/),  one of the most important genetic disease authorities in the world.  A disease according to OMIM usually corresponds to a proper disease entity or a subtype, not a disease grouping.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
         "https://www.omim.org/"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_omim",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -843,12 +1234,16 @@
         }
       ],
       "description": "Flag to denote this disease was corresponds to an ICD category. Category codes (or subcategory codes), for example A01.1 (Paratyphoid fever A),  can be recognised by containing a period (.) character and usually represent specific  diagnosable diseases.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
         "https://en.wikipedia.org/wiki/ICD-10"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_category",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -868,12 +1263,16 @@
         }
       ],
       "description": "Flag to denote this disease was corresponds to an ICD chapter code. Chapter codes (or block codes), for example A00-B99 (Certain infectious and parasitic diseases).  These codes can be recognised by containing a dash (-) character, and usually represent broad categories of diseases.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
         "https://en.wikipedia.org/wiki/ICD-10"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_chapter_code",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -893,12 +1292,16 @@
         }
       ],
       "description": "Flag to denote this disease was corresponds to an ICD chapter header. Chapter headers (or chapter titles), for example A00 (Cholera) can be identified by codes without dashes or periods and are usually the top-level categories within each chapter. Most of the time, these are not proper diseases, but groupings of diseases.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
         "https://en.wikipedia.org/wiki/ICD-10"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_chapter_header",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -918,12 +1321,16 @@
         }
       ],
       "description": "Flag to denote this disease was corresponds to an ICD code that is billable. Billable codes are usually the most specific codes that can be used for billing purposes, and are most of the time diagnosable diseases.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
         "https://www.cms.gov/files/document/valid-icd-10-list.xlsx"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_billable",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -943,12 +1350,16 @@
         }
       ],
       "description": "Flag to denote this disease was identified to be a subtype through lexical matching. This method is maintained by the Every Cure medical team and the Disease List team.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/issues/46",
         "https://github.com/everycure-org/matrix-disease-list/blob/febc3358a446cc36321ff44ae74064c49011fd5c/scripts/matrix-disease-list.py#L478C5-L478C51"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_mondo_subtype",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -968,12 +1379,16 @@
         }
       ],
       "description": "Flag to denote this disease corresponds to a pathway defect rather than a proper disease.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/issues/51",
         "https://github.com/everycure-org/matrix-disease-list/blob/main/src/excluded-diseases.robot.tsv"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_pathway_defect",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -993,12 +1408,16 @@
         }
       ],
       "description": "Flag to denote this disease corresponds to a susceptibility rather than a proper disease.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/issues/36",
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/inject-susceptibility-subset.ru"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_susceptibility",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -1018,12 +1437,16 @@
         }
       ],
       "description": "Flag to denote this disease corresponds to a paraphilic disorder rather than a proper disease.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/issues/42",
         "https://github.com/everycure-org/matrix-disease-list/blob/main/src/excluded-diseases.robot.tsv"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_paraphilic",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -1043,12 +1466,16 @@
         }
       ],
       "description": "Flag to denote this disease corresponds to an acquired form of a disease.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
         "https://github.com/everycure-org/matrix-disease-list/issues/53"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_acquired",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -1068,12 +1495,16 @@
         }
       ],
       "description": "Flag to denote this disease corresponds to a disease that is a combination of two or more diseases.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
         "https://github.com/everycure-org/matrix-disease-list/issues/39"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_andor",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -1093,12 +1524,16 @@
         }
       ],
       "description": "Flag to denote this disease corresponds to a disease that can be present with or without some other pathological condition.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
         "https://github.com/everycure-org/matrix-disease-list/issues/40"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_withorwithout",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -1118,8 +1553,12 @@
         }
       ],
       "description": "Flag to denote that this disease is marked for obsoletion in the (near) future. This status does not guarantee that the disease will be obsoleted, but it is a strong indication.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_obsoletion_candidate",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -1139,11 +1578,15 @@
         }
       ],
       "description": "Flag to denote that this disease has no descendants (is a leaf) and  is classified broadly as an hereditary disease, but lacks any further classification.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_unclassified_hereditary",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -1167,8 +1610,12 @@
         }
       ],
       "description": "Flag to denote this disease corresponds to a disease that can be treated with small molecules or biologics. This flag is maintained as a combination of default filters by the Matrix team. Changes to this filter should be discussed on the Matrix disease list issue tracker (https://github.com/everycure-org/matrix-disease-list/issues). **Warning**. This flag is in early alpha state, and its use in production systems is not recommended.\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/official_matrix_filter",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "@type": "SlotDefinition"
     },
@@ -1188,8 +1635,12 @@
         }
       ],
       "description": "Flag to denote if this disease is caused by a pathogen. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_pathogen_caused",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -1210,8 +1661,12 @@
         }
       ],
       "description": "Flag to denote if this disease corresponds to a cancer type. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_cancer",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -1232,8 +1687,12 @@
         }
       ],
       "description": "Flag to denote if this disease corresponds to a glucose dysfunction. Disease classes are automatically flagged using an LLM. tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_glucose_dysfunction",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -1254,8 +1713,12 @@
         }
       ],
       "description": "Flag to denote if this disease has some existing treatment. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/tag_existing_treatment",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "boolean",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -1276,11 +1739,15 @@
         }
       ],
       "description": "Tag to denote this disease to be part of a grouping according to the Harrison's textbook. Top-level classes in Mondo are manually curated by the Mondo team to \"belong\" to a Harrison's textbook chapter. Disagreements should be reported on the Mondo issue tracker (https://github.com/monarch-initiative/mondo/issues).\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://accessmedicine.mhmedical.com/book.aspx?bookID=3095"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/harrisons_view",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -1301,11 +1768,15 @@
         }
       ],
       "description": "Tag to denote this disease to be part of a grouping as defined by the txgnn paper. Disease classes in Mondo are manually curated by the Mondo team to \"belong\" to a txgnn category. Disagreements should be reported on the Mondo issue  tracker (https://github.com/monarch-initiative/mondo/issues).\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC11645266/"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/mondo_txgnn",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -1326,8 +1797,12 @@
         }
       ],
       "description": "Tag to denote this disease to be a . Disease classes in Mondo are manually curated by the Mondo team to \"belong\" to a txgnn category. Disagreements should be reported on the Mondo issue  tracker (https://github.com/monarch-initiative/mondo/issues).\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/mondo_top_grouping",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -1348,8 +1823,12 @@
         }
       ],
       "description": "Tag this disease with a medical specialisation. Disease classes are automatically tagged by an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/medical_specialization",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -1370,11 +1849,15 @@
         }
       ],
       "description": "Tag this disease to be part of a grouping as defined by the txgnn paper. Disease classes in Mondo are automatically assigned to a txgnn category using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "see_also": [
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC11645266/"
       ],
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/txgnn",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -1395,8 +1878,12 @@
         }
       ],
       "description": "Tag to denote this disease to be part of a grouping according to the anatomical location. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/anatomical",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -1412,1076 +1899,166 @@
         }
       ],
       "description": "Tag denoting the degree to which Quality-Adjusted Life Year (QALY) lost. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/tag_qaly_lost",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
       "range": "string",
       "required": true,
       "pattern": "^(low|medium|high|very_high|none)$",
       "@type": "SlotDefinition"
     },
     {
-      "name": "id",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/id",
-      "description": "A unique identifier for a thing",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "mappings": [
-        "http://schema.org/identifier"
+      "name": "matrixDiseaseList__diseases_list_entries",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/diseases_list_entries",
+      "alias": "diseases_list_entries",
+      "owner": "MatrixDiseaseList",
+      "domain_of": [
+        "MatrixDiseaseList"
       ],
-      "slot_uri": "http://schema.org/identifier",
-      "identifier": true,
-      "range": "uriorcurie",
-      "required": true,
+      "range": "DiseaseListEntry",
+      "multivalued": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "name",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/name",
-      "description": "Human-readable name of the entity.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/name",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "category",
+      "name": "MatrixNode_category",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/category",
       "description": "Biolink category of the entity.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/category",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "description",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/description",
-      "description": "Detailed description of the entity.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/description",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "equivalent_identifiers",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/equivalent_identifiers",
-      "description": "List of equivalent identifiers for the entity.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/equivalent_identifiers",
-      "range": "string",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "all_categories",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/all_categories",
-      "description": "All categories associated with the entity.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/all_categories",
-      "range": "string",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "publications",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/publications",
-      "description": "Publications associated with the entity.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/publications",
-      "range": "string",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "labels",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/labels",
-      "description": "Alternative labels for the entity.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/labels",
-      "range": "string",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "international_resource_identifier",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/international_resource_identifier",
-      "description": "IRI of the entity.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/international_resource_identifier",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "upstream_data_source",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/upstream_data_source",
-      "description": "Sources from which this entity's data originates.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/upstream_data_source",
-      "range": "string",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subject",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subject",
-      "description": "The subject entity in the edge.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "predicate",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/predicate",
-      "description": "The predicate defining the relationship.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/predicate",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "object",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/object",
-      "description": "The object entity in the edge.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "knowledge_level",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/knowledge_level",
-      "description": "Knowledge level of the relationship.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/knowledge_level",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "primary_knowledge_source",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/primary_knowledge_source",
-      "description": "Primary source of the knowledge in the edge.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/primary_knowledge_source",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "aggregator_knowledge_source",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/aggregator_knowledge_source",
-      "description": "Aggregators of the knowledge.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/aggregator_knowledge_source",
-      "range": "string",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subject_aspect_qualifier",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subject_aspect_qualifier",
-      "description": "Aspect qualifier for the subject.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject_aspect_qualifier",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "subject_direction_qualifier",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subject_direction_qualifier",
-      "description": "Direction qualifier for the subject.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject_direction_qualifier",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "object_aspect_qualifier",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/object_aspect_qualifier",
-      "description": "Aspect qualifier for the object.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object_aspect_qualifier",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "object_direction_qualifier",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/object_direction_qualifier",
-      "description": "Direction qualifier for the object.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object_direction_qualifier",
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixNode__id",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/id",
-      "identifier": true,
-      "alias": "id",
-      "owner": "MatrixNode",
-      "domain_of": [
-        "MatrixNode"
-      ],
-      "range": "string",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixNode__name",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/name",
-      "alias": "name",
-      "owner": "MatrixNode",
-      "domain_of": [
-        "MatrixNode"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixNode__category",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "is_a": "category",
+      "domain": "MatrixNode",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/category",
       "alias": "category",
       "owner": "MatrixNode",
       "domain_of": [
         "MatrixNode"
       ],
+      "is_usage_slot": true,
+      "usage_slot_name": "category",
       "range": "string",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "matrixNode__description",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/description",
-      "alias": "description",
+      "name": "MatrixNode_id",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/id",
+      "description": "A unique identifier for a thing",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "mappings": [
+        "http://schema.org/identifier"
+      ],
+      "is_a": "id",
+      "domain": "MatrixNode",
+      "slot_uri": "http://schema.org/identifier",
+      "identifier": true,
+      "alias": "id",
       "owner": "MatrixNode",
       "domain_of": [
         "MatrixNode"
       ],
-      "range": "string",
+      "is_usage_slot": true,
+      "usage_slot_name": "id",
+      "range": "uriorcurie",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "matrixNode__equivalent_identifiers",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/equivalent_identifiers",
-      "alias": "equivalent_identifiers",
-      "owner": "MatrixNode",
-      "domain_of": [
-        "MatrixNode"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixNode__all_categories",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/all_categories",
-      "alias": "all_categories",
-      "owner": "MatrixNode",
-      "domain_of": [
-        "MatrixNode"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixNode__publications",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/publications",
-      "alias": "publications",
-      "owner": "MatrixNode",
-      "domain_of": [
-        "MatrixNode"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixNode__labels",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/labels",
-      "alias": "labels",
-      "owner": "MatrixNode",
-      "domain_of": [
-        "MatrixNode"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixNode__international_resource_identifier",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/international_resource_identifier",
-      "alias": "international_resource_identifier",
-      "owner": "MatrixNode",
-      "domain_of": [
-        "MatrixNode"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixNode__upstream_data_source",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/upstream_data_source",
-      "alias": "upstream_data_source",
-      "owner": "MatrixNode",
-      "domain_of": [
-        "MatrixNode"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixEdge__subject",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "name": "MatrixEdge_subject",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subject",
+      "description": "The subject entity in the edge.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "is_a": "subject",
+      "domain": "MatrixEdge",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject",
       "alias": "subject",
       "owner": "MatrixEdge",
       "domain_of": [
         "MatrixEdge"
       ],
+      "is_usage_slot": true,
+      "usage_slot_name": "subject",
       "range": "string",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "matrixEdge__predicate",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "name": "MatrixEdge_predicate",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/predicate",
+      "description": "The predicate defining the relationship.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "is_a": "predicate",
+      "domain": "MatrixEdge",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/predicate",
       "alias": "predicate",
       "owner": "MatrixEdge",
       "domain_of": [
         "MatrixEdge"
       ],
+      "is_usage_slot": true,
+      "usage_slot_name": "predicate",
       "range": "string",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "matrixEdge__object",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "name": "MatrixEdge_object",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/object",
+      "description": "The object entity in the edge.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "is_a": "object",
+      "domain": "MatrixEdge",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object",
       "alias": "object",
       "owner": "MatrixEdge",
       "domain_of": [
         "MatrixEdge"
       ],
+      "is_usage_slot": true,
+      "usage_slot_name": "object",
       "range": "string",
       "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "matrixEdge__knowledge_level",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/knowledge_level",
-      "alias": "knowledge_level",
-      "owner": "MatrixEdge",
-      "domain_of": [
-        "MatrixEdge"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixEdge__primary_knowledge_source",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/primary_knowledge_source",
-      "alias": "primary_knowledge_source",
-      "owner": "MatrixEdge",
-      "domain_of": [
-        "MatrixEdge"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixEdge__aggregator_knowledge_source",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/aggregator_knowledge_source",
-      "alias": "aggregator_knowledge_source",
-      "owner": "MatrixEdge",
-      "domain_of": [
-        "MatrixEdge"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixEdge__publications",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/publications",
-      "alias": "publications",
-      "owner": "MatrixEdge",
-      "domain_of": [
-        "MatrixEdge"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixEdge__subject_aspect_qualifier",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject_aspect_qualifier",
-      "alias": "subject_aspect_qualifier",
-      "owner": "MatrixEdge",
-      "domain_of": [
-        "MatrixEdge"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixEdge__subject_direction_qualifier",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subject_direction_qualifier",
-      "alias": "subject_direction_qualifier",
-      "owner": "MatrixEdge",
-      "domain_of": [
-        "MatrixEdge"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixEdge__object_aspect_qualifier",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object_aspect_qualifier",
-      "alias": "object_aspect_qualifier",
-      "owner": "MatrixEdge",
-      "domain_of": [
-        "MatrixEdge"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixEdge__object_direction_qualifier",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/object_direction_qualifier",
-      "alias": "object_direction_qualifier",
-      "owner": "MatrixEdge",
-      "domain_of": [
-        "MatrixEdge"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixEdge__upstream_data_source",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/upstream_data_source",
-      "alias": "upstream_data_source",
-      "owner": "MatrixEdge",
-      "domain_of": [
-        "MatrixEdge"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixEdgeCollection__entries",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/entries",
-      "alias": "entries",
+      "name": "MatrixEdgeCollection_edges",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/edges",
+      "description": "A list of edges.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "edges",
+      "domain": "MatrixEdgeCollection",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/edges",
+      "alias": "edges",
       "owner": "MatrixEdgeCollection",
       "domain_of": [
         "MatrixEdgeCollection"
       ],
+      "is_usage_slot": true,
+      "usage_slot_name": "edges",
       "range": "MatrixEdge",
       "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "matrixNodeCollection__entries",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/entries",
-      "alias": "entries",
+      "name": "MatrixNodeCollection_nodes",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/nodes",
+      "description": "A list of edges.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "nodes",
+      "domain": "MatrixNodeCollection",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/nodes",
+      "alias": "nodes",
       "owner": "MatrixNodeCollection",
       "domain_of": [
         "MatrixNodeCollection"
       ],
+      "is_usage_slot": true,
+      "usage_slot_name": "nodes",
       "range": "MatrixNode",
-      "multivalued": true,
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__category_class",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/category_class",
-      "alias": "category_class",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__label",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/label",
-      "alias": "label",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__definition",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/definition",
-      "alias": "definition",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__synonyms",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/synonyms",
-      "alias": "synonyms",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__subsets",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subsets",
-      "alias": "subsets",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__crossreferences",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/crossreferences",
-      "alias": "crossreferences",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_matrix_manually_excluded",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_matrix_manually_excluded",
-      "alias": "is_matrix_manually_excluded",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_matrix_manually_included",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_matrix_manually_included",
-      "alias": "is_matrix_manually_included",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_clingen",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_clingen",
-      "alias": "is_clingen",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_grouping_subset",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_grouping_subset",
-      "alias": "is_grouping_subset",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_grouping_subset_ancestor",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_grouping_subset_ancestor",
-      "alias": "is_grouping_subset_ancestor",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_orphanet_subtype",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_orphanet_subtype",
-      "alias": "is_orphanet_subtype",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_orphanet_subtype_descendant",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_orphanet_subtype_descendant",
-      "alias": "is_orphanet_subtype_descendant",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_omimps",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_omimps",
-      "alias": "is_omimps",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_omimps_descendant",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_omimps_descendant",
-      "alias": "is_omimps_descendant",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_leaf",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_leaf",
-      "alias": "is_leaf",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_leaf_direct_parent",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_leaf_direct_parent",
-      "alias": "is_leaf_direct_parent",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_orphanet_disorder",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_orphanet_disorder",
-      "alias": "is_orphanet_disorder",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_omim",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_omim",
-      "alias": "is_omim",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_icd_category",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_category",
-      "alias": "is_icd_category",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_icd_chapter_code",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_chapter_code",
-      "alias": "is_icd_chapter_code",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_icd_chapter_header",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_chapter_header",
-      "alias": "is_icd_chapter_header",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_icd_billable",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_billable",
-      "alias": "is_icd_billable",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_mondo_subtype",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_mondo_subtype",
-      "alias": "is_mondo_subtype",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_pathway_defect",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_pathway_defect",
-      "alias": "is_pathway_defect",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_susceptibility",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_susceptibility",
-      "alias": "is_susceptibility",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_paraphilic",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_paraphilic",
-      "alias": "is_paraphilic",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_acquired",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_acquired",
-      "alias": "is_acquired",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_andor",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_andor",
-      "alias": "is_andor",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_withorwithout",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_withorwithout",
-      "alias": "is_withorwithout",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_obsoletion_candidate",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_obsoletion_candidate",
-      "alias": "is_obsoletion_candidate",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_unclassified_hereditary",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_unclassified_hereditary",
-      "alias": "is_unclassified_hereditary",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__official_matrix_filter",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/official_matrix_filter",
-      "alias": "official_matrix_filter",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__harrisons_view",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/harrisons_view",
-      "alias": "harrisons_view",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__mondo_txgnn",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/mondo_txgnn",
-      "alias": "mondo_txgnn",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__mondo_top_grouping",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/mondo_top_grouping",
-      "alias": "mondo_top_grouping",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__medical_specialization",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/medical_specialization",
-      "alias": "medical_specialization",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__txgnn",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/txgnn",
-      "alias": "txgnn",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__anatomical",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/anatomical",
-      "alias": "anatomical",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_pathogen_caused",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_pathogen_caused",
-      "alias": "is_pathogen_caused",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_cancer",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_cancer",
-      "alias": "is_cancer",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__is_glucose_dysfunction",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_glucose_dysfunction",
-      "alias": "is_glucose_dysfunction",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__tag_existing_treatment",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/tag_existing_treatment",
-      "alias": "tag_existing_treatment",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__tag_qaly_lost",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/tag_qaly_lost",
-      "alias": "tag_qaly_lost",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__subset_group_id",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subset_group_id",
-      "alias": "subset_group_id",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__subset_group_label",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subset_group_label",
-      "alias": "subset_group_label",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "diseaseListEntry__other_subsets_count",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/other_subsets_count",
-      "alias": "other_subsets_count",
-      "owner": "DiseaseListEntry",
-      "domain_of": [
-        "DiseaseListEntry"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixDiseaseList__entries",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/entries",
-      "alias": "entries",
-      "owner": "MatrixDiseaseList",
-      "domain_of": [
-        "MatrixDiseaseList"
-      ],
-      "range": "DiseaseListEntry",
       "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
@@ -2492,65 +2069,20 @@
       "name": "MatrixNode",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixNode",
       "description": "A node in the Biolink knowledge graph.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
       "slots": [
-        "matrixNode__id",
-        "matrixNode__name",
-        "matrixNode__category",
-        "matrixNode__description",
-        "matrixNode__equivalent_identifiers",
-        "matrixNode__all_categories",
-        "matrixNode__publications",
-        "matrixNode__labels",
-        "matrixNode__international_resource_identifier",
-        "matrixNode__upstream_data_source"
+        "MatrixNode_id",
+        "name",
+        "MatrixNode_category",
+        "description",
+        "equivalent_identifiers",
+        "all_categories",
+        "publications",
+        "labels",
+        "international_resource_identifier",
+        "upstream_data_source"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "id",
-          "identifier": true,
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "name",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "category",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "description",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "equivalent_identifiers",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "all_categories",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "publications",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "labels",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "international_resource_identifier",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "upstream_data_source",
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixNode",
       "unique_keys": [
         {
@@ -2567,75 +2099,22 @@
       "name": "MatrixEdge",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdge",
       "description": "An edge representing a relationship between two nodes in the Biolink knowledge graph.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
       "slots": [
-        "matrixEdge__subject",
-        "matrixEdge__predicate",
-        "matrixEdge__object",
-        "matrixEdge__knowledge_level",
-        "matrixEdge__primary_knowledge_source",
-        "matrixEdge__aggregator_knowledge_source",
-        "matrixEdge__publications",
-        "matrixEdge__subject_aspect_qualifier",
-        "matrixEdge__subject_direction_qualifier",
-        "matrixEdge__object_aspect_qualifier",
-        "matrixEdge__object_direction_qualifier",
-        "matrixEdge__upstream_data_source"
+        "MatrixEdge_subject",
+        "MatrixEdge_predicate",
+        "MatrixEdge_object",
+        "knowledge_level",
+        "primary_knowledge_source",
+        "aggregator_knowledge_source",
+        "publications",
+        "subject_aspect_qualifier",
+        "subject_direction_qualifier",
+        "object_aspect_qualifier",
+        "object_direction_qualifier",
+        "upstream_data_source"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "subject",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "predicate",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "object",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "knowledge_level",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "primary_knowledge_source",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "aggregator_knowledge_source",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "publications",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "subject_aspect_qualifier",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "subject_direction_qualifier",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "object_aspect_qualifier",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "object_direction_qualifier",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "upstream_data_source",
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdge",
       "unique_keys": [
         {
@@ -2654,20 +2133,11 @@
       "name": "MatrixEdgeCollection",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdgeCollection",
       "description": "A holder for MatrixEdge objects.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
       "slots": [
-        "matrixEdgeCollection__entries"
+        "MatrixEdgeCollection_edges"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "entries",
-          "range": "MatrixEdge",
-          "multivalued": true,
-          "inlined": true,
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdgeCollection",
       "@type": "ClassDefinition"
     },
@@ -2675,20 +2145,11 @@
       "name": "MatrixNodeCollection",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixNodeCollection",
       "description": "A holder for MatrixNode objects.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
       "slots": [
-        "matrixNodeCollection__entries"
+        "MatrixNodeCollection_nodes"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "entries",
-          "range": "MatrixNode",
-          "multivalued": true,
-          "inlined": true,
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixNodeCollection",
       "@type": "ClassDefinition"
     },
@@ -2696,247 +2157,58 @@
       "name": "DiseaseListEntry",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/DiseaseListEntry",
       "description": "A disease entry in the disease list.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "title": "Disease List Entry",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slots": [
-        "diseaseListEntry__category_class",
-        "diseaseListEntry__label",
-        "diseaseListEntry__definition",
-        "diseaseListEntry__synonyms",
-        "diseaseListEntry__subsets",
-        "diseaseListEntry__crossreferences",
-        "diseaseListEntry__is_matrix_manually_excluded",
-        "diseaseListEntry__is_matrix_manually_included",
-        "diseaseListEntry__is_clingen",
-        "diseaseListEntry__is_grouping_subset",
-        "diseaseListEntry__is_grouping_subset_ancestor",
-        "diseaseListEntry__is_orphanet_subtype",
-        "diseaseListEntry__is_orphanet_subtype_descendant",
-        "diseaseListEntry__is_omimps",
-        "diseaseListEntry__is_omimps_descendant",
-        "diseaseListEntry__is_leaf",
-        "diseaseListEntry__is_leaf_direct_parent",
-        "diseaseListEntry__is_orphanet_disorder",
-        "diseaseListEntry__is_omim",
-        "diseaseListEntry__is_icd_category",
-        "diseaseListEntry__is_icd_chapter_code",
-        "diseaseListEntry__is_icd_chapter_header",
-        "diseaseListEntry__is_icd_billable",
-        "diseaseListEntry__is_mondo_subtype",
-        "diseaseListEntry__is_pathway_defect",
-        "diseaseListEntry__is_susceptibility",
-        "diseaseListEntry__is_paraphilic",
-        "diseaseListEntry__is_acquired",
-        "diseaseListEntry__is_andor",
-        "diseaseListEntry__is_withorwithout",
-        "diseaseListEntry__is_obsoletion_candidate",
-        "diseaseListEntry__is_unclassified_hereditary",
-        "diseaseListEntry__official_matrix_filter",
-        "diseaseListEntry__harrisons_view",
-        "diseaseListEntry__mondo_txgnn",
-        "diseaseListEntry__mondo_top_grouping",
-        "diseaseListEntry__medical_specialization",
-        "diseaseListEntry__txgnn",
-        "diseaseListEntry__anatomical",
-        "diseaseListEntry__is_pathogen_caused",
-        "diseaseListEntry__is_cancer",
-        "diseaseListEntry__is_glucose_dysfunction",
-        "diseaseListEntry__tag_existing_treatment",
-        "diseaseListEntry__tag_qaly_lost",
-        "diseaseListEntry__subset_group_id",
-        "diseaseListEntry__subset_group_label",
-        "diseaseListEntry__other_subsets_count"
+        "category_class",
+        "label",
+        "definition",
+        "synonyms",
+        "subsets",
+        "crossreferences",
+        "is_matrix_manually_excluded",
+        "is_matrix_manually_included",
+        "is_clingen",
+        "is_grouping_subset",
+        "is_grouping_subset_ancestor",
+        "is_orphanet_subtype",
+        "is_orphanet_subtype_descendant",
+        "is_omimps",
+        "is_omimps_descendant",
+        "is_leaf",
+        "is_leaf_direct_parent",
+        "is_orphanet_disorder",
+        "is_omim",
+        "is_icd_category",
+        "is_icd_chapter_code",
+        "is_icd_chapter_header",
+        "is_icd_billable",
+        "is_mondo_subtype",
+        "is_pathway_defect",
+        "is_susceptibility",
+        "is_paraphilic",
+        "is_acquired",
+        "is_andor",
+        "is_withorwithout",
+        "is_obsoletion_candidate",
+        "is_unclassified_hereditary",
+        "official_matrix_filter",
+        "harrisons_view",
+        "mondo_txgnn",
+        "mondo_top_grouping",
+        "medical_specialization",
+        "txgnn",
+        "anatomical",
+        "is_pathogen_caused",
+        "is_cancer",
+        "is_glucose_dysfunction",
+        "tag_existing_treatment",
+        "tag_qaly_lost",
+        "subset_group_id",
+        "subset_group_label",
+        "other_subsets_count"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "category_class",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "label",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "definition",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "synonyms",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "subsets",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "crossreferences",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_matrix_manually_excluded",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_matrix_manually_included",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_clingen",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_grouping_subset",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_grouping_subset_ancestor",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_orphanet_subtype",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_orphanet_subtype_descendant",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_omimps",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_omimps_descendant",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_leaf",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_leaf_direct_parent",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_orphanet_disorder",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_omim",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_icd_category",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_icd_chapter_code",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_icd_chapter_header",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_icd_billable",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_mondo_subtype",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_pathway_defect",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_susceptibility",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_paraphilic",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_acquired",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_andor",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_withorwithout",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_obsoletion_candidate",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_unclassified_hereditary",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "official_matrix_filter",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "harrisons_view",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "mondo_txgnn",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "mondo_top_grouping",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "medical_specialization",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "txgnn",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "anatomical",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_pathogen_caused",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_cancer",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "is_glucose_dysfunction",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "tag_existing_treatment",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "tag_qaly_lost",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "subset_group_id",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "subset_group_label",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "other_subsets_count",
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://w3id.org/everycure-org/matrix-schema/DiseaseListEntry",
       "@type": "ClassDefinition"
     },
@@ -2944,14 +2216,14 @@
       "name": "MatrixDiseaseList",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixDiseaseList",
       "description": "A list of diseases.",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slots": [
-        "matrixDiseaseList__entries"
+        "matrixDiseaseList__diseases_list_entries"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "entries",
+          "name": "diseases_list_entries",
           "range": "DiseaseListEntry",
           "multivalued": true,
           "inlined": true,
@@ -2964,13 +2236,15 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "matrix_schema.yaml",
-  "source_file_date": "2025-03-13T14:40:14",
-  "source_file_size": 26564,
-  "generation_date": "2025-03-13T14:43:54",
+  "source_file_date": "2025-03-13T23:52:05",
+  "source_file_size": 508,
+  "generation_date": "2025-03-14T00:50:17",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/matrix_schema.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
+    "matrix_kg.context.jsonld",
+    "disease_list.context.jsonld",
     {
       "@base": "https://w3id.org/everycure-org/matrix-schema/"
     }
