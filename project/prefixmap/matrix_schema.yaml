@@ -1,7 +1,5 @@
 {
-   "PATO": "http://purl.obolibrary.org/obo/PATO_",
-   "biolink": "https://w3id.org/biolink/",
-   "example": "https://example.org/",
+   "biolink": "https://w3id.org/biolink/vocab/",
    "linkml": "https://w3id.org/linkml/",
    "matrix_schema": "https://w3id.org/everycure-org/matrix-schema/",
    "schema": "http://schema.org/"

@@ -1,5 +1,334 @@
 {
     "$defs": {
+        "AttributeTypeEnum": {
+            "description": "Code used to describe the nature of a slot, for documentative purposes.",
+            "enum": [
+                "filter",
+                "grouping"
+            ],
+            "title": "AttributeTypeEnum",
+            "type": "string"
+        },
+        "CurationTypeEnum": {
+            "description": "Code used to describe how a slot / attribute was curated.",
+            "enum": [
+                "manual_everycure",
+                "manual_mondo",
+                "llm",
+                "ontology_hierarchy",
+                "external_source",
+                "lexical_matching"
+            ],
+            "title": "CurationTypeEnum",
+            "type": "string"
+        },
+        "DiseaseListEntry": {
+            "additionalProperties": false,
+            "description": "A disease entry in the disease list.",
+            "properties": {
+                "anatomical": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "category_class": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "crossreferences": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "definition": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "harrisons_view": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_acquired": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_andor": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_cancer": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_clingen": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_glucose_dysfunction": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_grouping_subset": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_grouping_subset_ancestor": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_icd_billable": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_icd_category": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_icd_chapter_code": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_icd_chapter_header": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_leaf": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_leaf_direct_parent": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_matrix_manually_excluded": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_matrix_manually_included": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_mondo_subtype": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_obsoletion_candidate": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_omim": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_omimps": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_omimps_descendant": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_orphanet_disorder": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_orphanet_subtype": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_orphanet_subtype_descendant": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_paraphilic": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_pathogen_caused": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_pathway_defect": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_susceptibility": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_unclassified_hereditary": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "is_withorwithout": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "label": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "medical_specialization": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mondo_top_grouping": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mondo_txgnn": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "official_matrix_filter": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "other_subsets_count": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "subset_group_id": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "subset_group_label": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "subsets": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "synonyms": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tag_existing_treatment": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tag_qaly_lost": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "txgnn": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "DiseaseListEntry",
+            "type": "object"
+        },
+        "MatrixDiseaseList": {
+            "additionalProperties": false,
+            "description": "A list of diseases.",
+            "properties": {
+                "entries": {
+                    "items": {
+                        "$ref": "#/$defs/DiseaseListEntry"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "MatrixDiseaseList",
+            "type": "object"
+        },
         "MatrixEdge": {
             "additionalProperties": false,
             "description": "An edge representing a relationship between two nodes in the Biolink knowledge graph.",

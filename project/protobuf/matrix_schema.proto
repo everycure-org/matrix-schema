@@ -1,6 +1,62 @@
  syntax="proto3";
  package
 // metamodel_version: 1.7.0
+// A disease entry in the disease list.
+message DiseaseListEntry
+ {
+  string categoryClass = 0
+  string label = 0
+  string definition = 0
+  string synonyms = 0
+  string subsets = 0
+  string crossreferences = 0
+  string isMatrixManuallyExcluded = 0
+  string isMatrixManuallyIncluded = 0
+  string isClingen = 0
+  string isGroupingSubset = 0
+  string isGroupingSubsetAncestor = 0
+  string isOrphanetSubtype = 0
+  string isOrphanetSubtypeDescendant = 0
+  string isOmimps = 0
+  string isOmimpsDescendant = 0
+  string isLeaf = 0
+  string isLeafDirectParent = 0
+  string isOrphanetDisorder = 0
+  string isOmim = 0
+  string isIcdCategory = 0
+  string isIcdChapterCode = 0
+  string isIcdChapterHeader = 0
+  string isIcdBillable = 0
+  string isMondoSubtype = 0
+  string isPathwayDefect = 0
+  string isSusceptibility = 0
+  string isParaphilic = 0
+  string isAcquired = 0
+  string isAndor = 0
+  string isWithorwithout = 0
+  string isObsoletionCandidate = 0
+  string isUnclassifiedHereditary = 0
+  string officialMatrixFilter = 0
+  string harrisonsView = 0
+  string mondoTxgnn = 0
+  string mondoTopGrouping = 0
+  string medicalSpecialization = 0
+  string txgnn = 0
+  string anatomical = 0
+  string isPathogenCaused = 0
+  string isCancer = 0
+  string isGlucoseDysfunction = 0
+  string tagExistingTreatment = 0
+  string tagQalyLost = 0
+  string subsetGroupId = 0
+  string subsetGroupLabel = 0
+  string otherSubsetsCount = 0
+ }
+// A list of diseases.
+message MatrixDiseaseList
+ {
+ repeated  diseaseListEntry entries = 0
+ }
 // An edge representing a relationship between two nodes in the Biolink knowledge graph.
 message MatrixEdge
  {

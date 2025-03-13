@@ -43,6 +43,65 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
+<DiseaseListEntry> CLOSED {
+    (  $<DiseaseListEntry_tes> (  <category_class> @linkml:String ? ;
+          <label> @linkml:String ? ;
+          <definition> @linkml:String ? ;
+          <synonyms> @linkml:String ? ;
+          <subsets> @linkml:String ? ;
+          <crossreferences> @linkml:String ? ;
+          <is_matrix_manually_excluded> @linkml:String ? ;
+          <is_matrix_manually_included> @linkml:String ? ;
+          <is_clingen> @linkml:String ? ;
+          <is_grouping_subset> @linkml:String ? ;
+          <is_grouping_subset_ancestor> @linkml:String ? ;
+          <is_orphanet_subtype> @linkml:String ? ;
+          <is_orphanet_subtype_descendant> @linkml:String ? ;
+          <is_omimps> @linkml:String ? ;
+          <is_omimps_descendant> @linkml:String ? ;
+          <is_leaf> @linkml:String ? ;
+          <is_leaf_direct_parent> @linkml:String ? ;
+          <is_orphanet_disorder> @linkml:String ? ;
+          <is_omim> @linkml:String ? ;
+          <is_icd_category> @linkml:String ? ;
+          <is_icd_chapter_code> @linkml:String ? ;
+          <is_icd_chapter_header> @linkml:String ? ;
+          <is_icd_billable> @linkml:String ? ;
+          <is_mondo_subtype> @linkml:String ? ;
+          <is_pathway_defect> @linkml:String ? ;
+          <is_susceptibility> @linkml:String ? ;
+          <is_paraphilic> @linkml:String ? ;
+          <is_acquired> @linkml:String ? ;
+          <is_andor> @linkml:String ? ;
+          <is_withorwithout> @linkml:String ? ;
+          <is_obsoletion_candidate> @linkml:String ? ;
+          <is_unclassified_hereditary> @linkml:String ? ;
+          <official_matrix_filter> @linkml:String ? ;
+          <harrisons_view> @linkml:String ? ;
+          <mondo_txgnn> @linkml:String ? ;
+          <mondo_top_grouping> @linkml:String ? ;
+          <medical_specialization> @linkml:String ? ;
+          <txgnn> @linkml:String ? ;
+          <anatomical> @linkml:String ? ;
+          <is_pathogen_caused> @linkml:String ? ;
+          <is_cancer> @linkml:String ? ;
+          <is_glucose_dysfunction> @linkml:String ? ;
+          <tag_existing_treatment> @linkml:String ? ;
+          <tag_qaly_lost> @linkml:String ? ;
+          <subset_group_id> @linkml:String ? ;
+          <subset_group_label> @linkml:String ? ;
+          <other_subsets_count> @linkml:String ?
+       ) ;
+       rdf:type [ <DiseaseListEntry> ] ?
+    )
+}
+
+<MatrixDiseaseList> CLOSED {
+    (  $<MatrixDiseaseList_tes> <entries> @<DiseaseListEntry> * ;
+       rdf:type [ <MatrixDiseaseList> ] ?
+    )
+}
+
 <MatrixEdge> CLOSED {
     (  $<MatrixEdge_tes> (  <subject> @linkml:String ;
           <predicate> @linkml:String ;

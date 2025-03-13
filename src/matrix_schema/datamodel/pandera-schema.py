@@ -70,3 +70,107 @@ class MatrixNodeCollectionSchema(pa.DataFrameModel):
     
     entries: Optional[Series[str]] = pa.Field(nullable=True)
 
+
+class DiseaseListEntrySchema(pa.DataFrameModel):
+    """Schema for diseaselistentry TSV file."""
+    
+    category_class: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    label: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    definition: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    synonyms: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    subsets: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    crossreferences: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_matrix_manually_excluded: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_matrix_manually_included: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_clingen: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_grouping_subset: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_grouping_subset_ancestor: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_orphanet_subtype: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_orphanet_subtype_descendant: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_omimps: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_omimps_descendant: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_leaf: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_leaf_direct_parent: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_orphanet_disorder: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_omim: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_icd_category: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_icd_chapter_code: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_icd_chapter_header: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_icd_billable: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_mondo_subtype: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_pathway_defect: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_susceptibility: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_paraphilic: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_acquired: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_andor: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_withorwithout: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_obsoletion_candidate: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_unclassified_hereditary: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    official_matrix_filter: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    harrisons_view: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    mondo_txgnn: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    mondo_top_grouping: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    medical_specialization: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    txgnn: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    anatomical: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_pathogen_caused: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_cancer: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    is_glucose_dysfunction: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    tag_existing_treatment: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    tag_qaly_lost: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    subset_group_id: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    subset_group_label: Optional[Series[str]] = pa.Field(nullable=True)
+    
+    other_subsets_count: Optional[Series[str]] = pa.Field(nullable=True)
+
+
+class MatrixDiseaseListSchema(pa.DataFrameModel):
+    """Schema for matrixdiseaselist TSV file."""
+    
+    entries: Optional[Series[str]] = pa.Field(nullable=True)
+

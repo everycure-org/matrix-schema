@@ -1,4 +1,76 @@
 # metamodel_version: 1.7.0
+enum AttributeTypeEnum
+  {
+    filter
+    grouping
+  }
+
+enum CurationTypeEnum
+  {
+    manual_everycure
+    manual_mondo
+    llm
+    ontology_hierarchy
+    external_source
+    lexical_matching
+  }
+
+type DiseaseListEntry
+  {
+    categoryClass: String
+    label: String
+    definition: String
+    synonyms: String
+    subsets: String
+    crossreferences: String
+    isMatrixManuallyExcluded: String
+    isMatrixManuallyIncluded: String
+    isClingen: String
+    isGroupingSubset: String
+    isGroupingSubsetAncestor: String
+    isOrphanetSubtype: String
+    isOrphanetSubtypeDescendant: String
+    isOmimps: String
+    isOmimpsDescendant: String
+    isLeaf: String
+    isLeafDirectParent: String
+    isOrphanetDisorder: String
+    isOmim: String
+    isIcdCategory: String
+    isIcdChapterCode: String
+    isIcdChapterHeader: String
+    isIcdBillable: String
+    isMondoSubtype: String
+    isPathwayDefect: String
+    isSusceptibility: String
+    isParaphilic: String
+    isAcquired: String
+    isAndor: String
+    isWithorwithout: String
+    isObsoletionCandidate: String
+    isUnclassifiedHereditary: String
+    officialMatrixFilter: String
+    harrisonsView: String
+    mondoTxgnn: String
+    mondoTopGrouping: String
+    medicalSpecialization: String
+    txgnn: String
+    anatomical: String
+    isPathogenCaused: String
+    isCancer: String
+    isGlucoseDysfunction: String
+    tagExistingTreatment: String
+    tagQalyLost: String
+    subsetGroupId: String
+    subsetGroupLabel: String
+    otherSubsetsCount: String
+  }
+
+type MatrixDiseaseList
+  {
+    entries: [DiseaseListEntry]
+  }
+
 type MatrixEdge
   {
     subject: String!
