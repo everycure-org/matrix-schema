@@ -219,9 +219,9 @@
 <p>URI: <a href="https://w3id.org/everycure-org/matrix-schema/MatrixNodeCollection">matrix_schema:MatrixNodeCollection</a></p>
 <div class="mermaid"> classDiagram
     class MatrixNodeCollection
-      MatrixNodeCollection : entries
+      MatrixNodeCollection : nodes
 
-          MatrixNodeCollection --|&gt; MatrixNode : entries
+          MatrixNodeCollection --|&gt; MatrixNode : nodes
 
 
 </div>
@@ -238,7 +238,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../entries/">entries</a></td>
+<td><a href="../nodes/">nodes</a></td>
 <td>* <br/> <a href="../MatrixNode/">MatrixNode</a></td>
 <td></td>
 <td>direct</td>
@@ -278,13 +278,11 @@ description: A holder for MatrixNode objects.
 from_schema: https://w3id.org/everycure-org/matrix-schema
 rank: 1000
 attributes:
-  entries:
-    name: entries
+  nodes:
+    name: nodes
     from_schema: https://w3id.org/everycure-org/matrix-schema
     domain_of:
-    - MatrixEdgeCollection
     - MatrixNodeCollection
-    - MatrixDiseaseList
     range: MatrixNode
     multivalued: true
     inlined: true
@@ -298,15 +296,13 @@ description: A holder for MatrixNode objects.
 from_schema: https://w3id.org/everycure-org/matrix-schema
 rank: 1000
 attributes:
-  entries:
-    name: entries
+  nodes:
+    name: nodes
     from_schema: https://w3id.org/everycure-org/matrix-schema
-    alias: entries
+    alias: nodes
     owner: MatrixNodeCollection
     domain_of:
-    - MatrixEdgeCollection
     - MatrixNodeCollection
-    - MatrixDiseaseList
     range: MatrixNode
     multivalued: true
     inlined: true

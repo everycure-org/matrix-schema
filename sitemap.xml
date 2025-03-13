@@ -173,6 +173,14 @@
          <lastmod>2025-03-13</lastmod>
     </url>
     <url>
+         <loc>https://everycure-org.github.io/matrix-schema/diseases_list_entries/</loc>
+         <lastmod>2025-03-13</lastmod>
+    </url>
+    <url>
+         <loc>https://everycure-org.github.io/matrix-schema/edges/</loc>
+         <lastmod>2025-03-13</lastmod>
+    </url>
+    <url>
          <loc>https://everycure-org.github.io/matrix-schema/entries/</loc>
          <lastmod>2025-03-13</lastmod>
     </url>
@@ -342,6 +350,10 @@
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/name/</loc>
+         <lastmod>2025-03-13</lastmod>
+    </url>
+    <url>
+         <loc>https://everycure-org.github.io/matrix-schema/nodes/</loc>
          <lastmod>2025-03-13</lastmod>
     </url>
     <url>

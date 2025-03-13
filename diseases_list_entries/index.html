@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/upstream_data_source/">
+        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/diseases_list_entries/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>upstream_data_source - matrix-schema</title>
+        <title>diseases_list_entries - matrix-schema</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#upstream_data_source" class="md-skip">
+        <a href="#diseases_list_entries" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              upstream_data_source
+              diseases_list_entries
             
           </span>
         </div>
@@ -317,11 +317,11 @@
   
 
 
-<h1 id="upstream_data_source">upstream_data_source</h1>
-<p><strong>URI</strong>: <a href="https://w3id.org/everycure-org/matrix-schema/upstream_data_source">matrix_schema:upstream_data_source</a></p>
-<p><strong>Applicable to</strong>: <a href="../MatrixEdge/">MatrixEdge</a>, <a href="../MatrixNode/">MatrixNode</a>
+<h1 id="diseases_list_entries">diseases_list_entries</h1>
+<p><strong>URI</strong>: <a href="https://w3id.org/everycure-org/matrix-schema/diseases_list_entries">matrix_schema:diseases_list_entries</a></p>
+<p><strong>Applicable to</strong>: <a href="../MatrixDiseaseList/">MatrixDiseaseList</a>
 !!! info "Description"</p>
-<pre><code>_Sources from which this entity's data originates._
+<pre><code>_A list of disease list entries._
 </code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
@@ -333,14 +333,13 @@
 <details><summary>LinkML source</summary>
 
 
-<pre><code class="language-yaml">name: upstream_data_source
-description: Sources from which this entity's data originates.
+<pre><code class="language-yaml">name: diseases_list_entries
+description: A list of disease list entries.
 from_schema: https://w3id.org/everycure-org/matrix-schema
 rank: 1000
-alias: upstream_data_source
+alias: diseases_list_entries
 domain_of:
-- MatrixNode
-- MatrixEdge
+- MatrixDiseaseList
 range: string
 multivalued: true
 

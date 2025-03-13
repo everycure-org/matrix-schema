@@ -219,9 +219,9 @@
 <p>URI: <a href="https://w3id.org/everycure-org/matrix-schema/MatrixDiseaseList">matrix_schema:MatrixDiseaseList</a></p>
 <div class="mermaid"> classDiagram
     class MatrixDiseaseList
-      MatrixDiseaseList : entries
+      MatrixDiseaseList : diseases_list_entries
 
-          MatrixDiseaseList --|&gt; DiseaseListEntry : entries
+          MatrixDiseaseList --|&gt; DiseaseListEntry : diseases_list_entries
 
 
 </div>
@@ -238,7 +238,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../entries/">entries</a></td>
+<td><a href="../diseases_list_entries/">diseases_list_entries</a></td>
 <td>* <br/> <a href="../DiseaseListEntry/">DiseaseListEntry</a></td>
 <td></td>
 <td>direct</td>
@@ -278,12 +278,10 @@ description: A list of diseases.
 from_schema: https://w3id.org/everycure-org/matrix-schema
 rank: 1000
 attributes:
-  entries:
-    name: entries
+  diseases_list_entries:
+    name: diseases_list_entries
     from_schema: https://w3id.org/everycure-org/matrix-schema
     domain_of:
-    - MatrixEdgeCollection
-    - MatrixNodeCollection
     - MatrixDiseaseList
     range: DiseaseListEntry
     multivalued: true
@@ -298,14 +296,12 @@ description: A list of diseases.
 from_schema: https://w3id.org/everycure-org/matrix-schema
 rank: 1000
 attributes:
-  entries:
-    name: entries
+  diseases_list_entries:
+    name: diseases_list_entries
     from_schema: https://w3id.org/everycure-org/matrix-schema
-    alias: entries
+    alias: diseases_list_entries
     owner: MatrixDiseaseList
     domain_of:
-    - MatrixEdgeCollection
-    - MatrixNodeCollection
     - MatrixDiseaseList
     range: DiseaseListEntry
     multivalued: true
