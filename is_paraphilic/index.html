@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: is_paraphilic - matrix-schema</title>
+        <title>is_paraphilic - matrix-schema</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-is_paraphilic" class="md-skip">
+        <a href="#is_paraphilic" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: is_paraphilic
+              is_paraphilic
             
           </span>
         </div>
@@ -281,15 +281,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Applicable Classes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
       Properties
@@ -308,51 +299,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#identifier-and-mapping-information" class="md-nav__link">
+  <a href="#schema-developer-documentation" class="md-nav__link">
     <span class="md-ellipsis">
-      Identifier and Mapping Information
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#annotations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Annotations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      Schema Source
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mappings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mappings
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linkml-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      LinkML Source
+      Schema developer documentation
     </span>
   </a>
   
@@ -377,79 +326,32 @@
   
 
 
-<h1 id="slot-is_paraphilic">Slot: is_paraphilic</h1>
-<p><em>Flag to denote this disease corresponds to a paraphilic disorder rather than a proper disease.</em></p>
-<p>__</p>
-<p>URI: <a href="https://w3id.org/everycure-org/matrix-schema/is_paraphilic">matrix_schema:is_paraphilic</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Modifies Slot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../DiseaseListEntry/">DiseaseListEntry</a></td>
-<td>A disease entry in the disease list</td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
+<h1 id="is_paraphilic">is_paraphilic</h1>
+<p><strong>URI</strong>: <a href="https://w3id.org/everycure-org/matrix-schema/is_paraphilic">matrix_schema:is_paraphilic</a></p>
+<p><strong>Applicable to</strong>: <a href="../DiseaseListEntry/">DiseaseListEntry</a>
+!!! info "Description"</p>
+<pre><code>_Flag to denote this disease corresponds to a paraphilic disorder rather than a proper disease._
+__
+</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Boolean/">Boolean</a></li>
+<li>
+<p><strong>Range</strong>: <a href="../Boolean/">Boolean</a>. The range of the element is the type of the value that can be assigned to it.</p>
+</li>
+<li>
+<p><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</p>
+</li>
 </ul>
 <h2 id="see-also">See Also</h2>
+<p>These are some relevant resources you might find useful to get additional information about the element,
+such as example implementations, issues and pull requests.</p>
 <ul>
 <li><a href="https://github.com/everycure-org/matrix-disease-list/issues/42">https://github.com/everycure-org/matrix-disease-list/issues/42</a></li>
 <li><a href="https://github.com/everycure-org/matrix-disease-list/blob/main/src/excluded-diseases.robot.tsv">https://github.com/everycure-org/matrix-disease-list/blob/main/src/excluded-diseases.robot.tsv</a></li>
 </ul>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="annotations">Annotations</h3>
-<table>
-<thead>
-<tr>
-<th>property</th>
-<th>value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>attribute_type</td>
-<td>filter</td>
-</tr>
-</tbody>
-</table>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://w3id.org/everycure-org/matrix-schema</li>
-</ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>matrix_schema:is_paraphilic</td>
-</tr>
-<tr>
-<td>native</td>
-<td>matrix_schema:is_paraphilic</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linkml-source">LinkML Source</h2>
-<details>
+<h2 id="schema-developer-documentation">Schema developer documentation</h2>
+<details><summary>LinkML source</summary>
+
 
 <pre><code class="language-yaml">name: is_paraphilic
 annotations:

@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: entries - matrix-schema</title>
+        <title>entries - matrix-schema</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-entries" class="md-skip">
+        <a href="#entries" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: entries
+              entries
             
           </span>
         </div>
@@ -281,15 +281,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Applicable Classes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
       Properties
@@ -299,42 +290,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#identifier-and-mapping-information" class="md-nav__link">
+  <a href="#schema-developer-documentation" class="md-nav__link">
     <span class="md-ellipsis">
-      Identifier and Mapping Information
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      Schema Source
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mappings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mappings
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linkml-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      LinkML Source
+      Schema developer documentation
     </span>
   </a>
   
@@ -359,73 +317,21 @@
   
 
 
-<h1 id="slot-entries">Slot: entries</h1>
-<p><em>A list property for collections of things.</em></p>
-<p>URI: <a href="https://w3id.org/everycure-org/matrix-schema/entries">matrix_schema:entries</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Modifies Slot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../MatrixEdgeCollection/">MatrixEdgeCollection</a></td>
-<td>A holder for MatrixEdge objects</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../MatrixNodeCollection/">MatrixNodeCollection</a></td>
-<td>A holder for MatrixNode objects</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../MatrixDiseaseList/">MatrixDiseaseList</a></td>
-<td>A list of diseases</td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
+<h1 id="entries">entries</h1>
+<p><strong>URI</strong>: <a href="https://w3id.org/everycure-org/matrix-schema/entries">matrix_schema:entries</a></p>
+<p><strong>Applicable to</strong>: <a href="../MatrixEdgeCollection/">MatrixEdgeCollection</a>, <a href="../MatrixNodeCollection/">MatrixNodeCollection</a>, <a href="../MatrixDiseaseList/">MatrixDiseaseList</a>
+!!! info "Description"</p>
+<pre><code>_A list property for collections of things._
+</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../String/">String</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
+<li><strong>Range</strong>: <a href="../String/">String</a>. The range of the element is the type of the value that can be assigned to it.</li>
+<li><strong>Multivalued</strong>: True. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are <code>|</code> separated.</li>
+<li><strong>Required?</strong>: Optional (You can add this element to the mapping or mapping set, but it is not required.)</li>
 </ul>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://w3id.org/everycure-org/matrix-schema</li>
-</ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>matrix_schema:entries</td>
-</tr>
-<tr>
-<td>native</td>
-<td>matrix_schema:entries</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linkml-source">LinkML Source</h2>
-<details>
+<h2 id="schema-developer-documentation">Schema developer documentation</h2>
+<details><summary>LinkML source</summary>
+
 
 <pre><code class="language-yaml">name: entries
 description: A list property for collections of things.
