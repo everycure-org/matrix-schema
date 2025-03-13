@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sssom-official-data-model-documentation" class="md-skip">
+        <a href="#matrix-official-data-model-documentation" class="md-skip">
           Skip to content
         </a>
       
@@ -498,92 +498,11 @@
   
 
 
-<h1 id="sssom-official-data-model-documentation">SSSOM Official Data Model Documentation</h1>
-<p><img alt="SSSOM banner" src="images/sssom-banner.png" /></p>
+<h1 id="matrix-official-data-model-documentation">MATRIX Official Data Model Documentation</h1>
 <p>The collected MATRIX schemas</p>
 <p><strong>Schema PURL</strong>: https://w3id.org/everycure-org/matrix-schema</p>
 <h2 id="introduction">Introduction</h2>
-<p>While the SSSOM model is quite general and mappings can be shared in different formats, the most common format is the <a href="spec-formats-tsv.md">SSSOM/TSV format</a>.
-Here is a tabular representation of some example mappings for illustration purposes:</p>
-<table>
-<thead>
-<tr>
-<th>subject_id</th>
-<th>subject_label</th>
-<th>predicate_id</th>
-<th>object_id</th>
-<th>object_label</th>
-<th>mapping_justification</th>
-<th>author_id</th>
-<th>confidence</th>
-<th>comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>KF_FOOD:F001</td>
-<td>apple</td>
-<td>skos:exactMatch</td>
-<td>FOODON:00002473</td>
-<td>apple (whole)</td>
-<td>semapv:ManualMappingCuration</td>
-<td>orcid:0000-0002-7356-1779</td>
-<td>0.95</td>
-<td>"We could map to FOODON:03310788 instead to cover sliced apples, but only 'whole' apple types exist."</td>
-</tr>
-<tr>
-<td>KF_FOOD:F002</td>
-<td>gala</td>
-<td>skos:exactMatch</td>
-<td>FOODON:00003348</td>
-<td>Gala apple (whole)</td>
-<td>semapv:ManualMappingCuration</td>
-<td>orcid:0000-0002-7356-1779</td>
-<td>1.0</td>
-<td></td>
-</tr>
-<tr>
-<td>KF_FOOD:F003</td>
-<td>pink</td>
-<td>skos:exactMatch</td>
-<td>FOODON:00004186</td>
-<td>Pink apple (whole)</td>
-<td>semapv:ManualMappingCuration</td>
-<td>orcid:0000-0002-7356-1779</td>
-<td>0.9</td>
-<td>"We could map to FOODON:00004187 instead which more specifically refers to 'raw' Pink apples. Decided against to be consistent with other mapping choices."</td>
-</tr>
-<tr>
-<td>KF_FOOD:F004</td>
-<td>braeburn</td>
-<td>skos:broadMatch</td>
-<td>FOODON:00002473</td>
-<td>apple (whole)</td>
-<td>semapv:ManualMappingCuration</td>
-<td>orcid:0000-0002-7356-1779</td>
-<td>1.0</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>In the TSV format, mapping set metadata is included at the top of the file, before the mappings themselves, in yaml-like key-value pairs:</p>
-<p>!!! info "Example header (YAML format)"</p>
-<pre><code>&lt;pre&gt;
-curie_map:
-  FOODON: http://purl.obolibrary.org/obo/FOODON_
-  KF_FOOD: https://kewl-foodie.inc/food/
-  orcid: https://orcid.org/
-mapping_set_id: https://w3id.org/sssom/tutorial/example1.sssom.tsv
-mapping_set_description: &gt;
-  Manually curated alignment of KEWL FOODIE INC internal food and 
-  nutrition database with Food Ontology (FOODON). Intended to be 
-  used for ontological analysis and grouping of KEWL FOODIE INC 
-  related data.
-license: https://creativecommons.org/licenses/by/4.0/
-mapping_date: 2022-05-02
-&lt;/pre&gt;
-</code></pre>
-<p>See <a href="https://github.com/mapping-commons/sssom/tree/master/examples/schema">here</a> for concrete examples.</p>
+<p>TBD.</p>
 <h2 id="mapping-metadata-elements">Mapping metadata elements</h2>
 <h2 id="mappings-set-metadata-elements">Mappings set metadata elements</h2>
 <h2 id="index-all-classes-enums-and-elements">Index (all classes, enums and elements)</h2>
