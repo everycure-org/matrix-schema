@@ -319,8 +319,8 @@
 
 <h1 id="tag_qaly_lost">tag_qaly_lost</h1>
 <p><strong>URI</strong>: <a href="https://w3id.org/everycure-org/matrix-schema/tag_qaly_lost">matrix_schema:tag_qaly_lost</a></p>
-<p><strong>Applicable to</strong>: <a href="../DiseaseListEntry/">DiseaseListEntry</a>
-!!! info "Description"</p>
+<p><strong>Applicable to</strong>: <a href="../DiseaseListEntry/">DiseaseListEntry</a></p>
+<p>!!! info "Description"</p>
 <pre><code>_Tag denoting the degree to which Quality-Adjusted Life Year (QALY) lost. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues)._
 __
 </code></pre>
@@ -330,9 +330,8 @@ __
 <p><strong>Range</strong>: <a href="../String/">String</a>. The range of the element is the type of the value that can be assigned to it.</p>
 </li>
 <li>
-<p><strong>Required?</strong>: Required (element has to be added to the mapping or mapping set.)</p>
+<p><strong>Required?</strong>: Required<em> </em><em>Regex pattern</em>*: <code>^(low|medium|high|very_high|none)$</code></p>
 </li>
-<li><strong>Regex pattern</strong>: <code>^(low|medium|high|very_high|none)$</code></li>
 </ul>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
