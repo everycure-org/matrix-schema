@@ -446,6 +446,14 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="DiseaseListEntry/">DiseaseListEntry</a></td>
+<td>A disease entry in the disease list.</td>
+</tr>
+<tr>
+<td><a href="MatrixDiseaseList/">MatrixDiseaseList</a></td>
+<td>A list of diseases.</td>
+</tr>
+<tr>
 <td><a href="MatrixEdge/">MatrixEdge</a></td>
 <td>An edge representing a relationship between two nodes in the Biolink knowledge graph.</td>
 </tr>
@@ -481,8 +489,32 @@
 <td>All categories associated with the entity</td>
 </tr>
 <tr>
+<td><a href="anatomical/">anatomical</a></td>
+<td>Tag to denote this disease to be part of a grouping according to the anatomic...</td>
+</tr>
+<tr>
+<td><a href="attribute_type/">attribute_type</a></td>
+<td>The type of attribute</td>
+</tr>
+<tr>
 <td><a href="category/">category</a></td>
 <td>Biolink category of the entity</td>
+</tr>
+<tr>
+<td><a href="category_class/">category_class</a></td>
+<td>The disase identifier</td>
+</tr>
+<tr>
+<td><a href="crossreferences/">crossreferences</a></td>
+<td>Cross-references to other databases and ontologies</td>
+</tr>
+<tr>
+<td><a href="curation_type/">curation_type</a></td>
+<td>The type of curation (manual / automatic)</td>
+</tr>
+<tr>
+<td><a href="definition/">definition</a></td>
+<td>The definition of the disease</td>
 </tr>
 <tr>
 <td><a href="description/">description</a></td>
@@ -490,11 +522,15 @@
 </tr>
 <tr>
 <td><a href="entries/">entries</a></td>
-<td></td>
+<td>A list property for collections of things</td>
 </tr>
 <tr>
 <td><a href="equivalent_identifiers/">equivalent_identifiers</a></td>
 <td>List of equivalent identifiers for the entity</td>
+</tr>
+<tr>
+<td><a href="harrisons_view/">harrisons_view</a></td>
+<td>Tag to denote this disease to be part of a grouping according to the Harrison...</td>
 </tr>
 <tr>
 <td><a href="id/">id</a></td>
@@ -505,12 +541,144 @@
 <td>IRI of the entity</td>
 </tr>
 <tr>
+<td><a href="is_acquired/">is_acquired</a></td>
+<td>Flag to denote this disease corresponds to an acquired form of a disease</td>
+</tr>
+<tr>
+<td><a href="is_andor/">is_andor</a></td>
+<td>Flag to denote this disease corresponds to a disease that is a combination of...</td>
+</tr>
+<tr>
+<td><a href="is_cancer/">is_cancer</a></td>
+<td>Flag to denote if this disease corresponds to a cancer type</td>
+</tr>
+<tr>
+<td><a href="is_clingen/">is_clingen</a></td>
+<td>Flag to denote that this disease term is used directly by https://clinicalgen...</td>
+</tr>
+<tr>
+<td><a href="is_glucose_dysfunction/">is_glucose_dysfunction</a></td>
+<td>Flag to denote if this disease corresponds to a glucose dysfunction</td>
+</tr>
+<tr>
+<td><a href="is_grouping_subset/">is_grouping_subset</a></td>
+<td>Flag to denote this disease is manually curated to be a grouping term</td>
+</tr>
+<tr>
+<td><a href="is_grouping_subset_ancestor/">is_grouping_subset_ancestor</a></td>
+<td>Flag to denote this disease is a parent of a disease that was manually curate...</td>
+</tr>
+<tr>
+<td><a href="is_icd_billable/">is_icd_billable</a></td>
+<td>Flag to denote this disease was corresponds to an ICD code that is billable</td>
+</tr>
+<tr>
+<td><a href="is_icd_category/">is_icd_category</a></td>
+<td>Flag to denote this disease was corresponds to an ICD category</td>
+</tr>
+<tr>
+<td><a href="is_icd_chapter_code/">is_icd_chapter_code</a></td>
+<td>Flag to denote this disease was corresponds to an ICD chapter code</td>
+</tr>
+<tr>
+<td><a href="is_icd_chapter_header/">is_icd_chapter_header</a></td>
+<td>Flag to denote this disease was corresponds to an ICD chapter header</td>
+</tr>
+<tr>
+<td><a href="is_leaf/">is_leaf</a></td>
+<td>Flag to denote this disease is a leaf node in the disease hierarchy</td>
+</tr>
+<tr>
+<td><a href="is_leaf_direct_parent/">is_leaf_direct_parent</a></td>
+<td>Flag to denote this disease is a direct parent of a leaf node in the disease ...</td>
+</tr>
+<tr>
+<td><a href="is_matrix_manually_excluded/">is_matrix_manually_excluded</a></td>
+<td>Flag to denote this disease was manually excluded from the disease list by a ...</td>
+</tr>
+<tr>
+<td><a href="is_matrix_manually_included/">is_matrix_manually_included</a></td>
+<td>Flag to denote this disease was manually included from the disease list by a ...</td>
+</tr>
+<tr>
+<td><a href="is_mondo_subtype/">is_mondo_subtype</a></td>
+<td>Flag to denote this disease was identified to be a subtype through lexical ma...</td>
+</tr>
+<tr>
+<td><a href="is_obsoletion_candidate/">is_obsoletion_candidate</a></td>
+<td>Flag to denote that this disease is marked for obsoletion in the (near) futur...</td>
+</tr>
+<tr>
+<td><a href="is_omim/">is_omim</a></td>
+<td>Flag to denote this disease is manually curated to be a disease according to ...</td>
+</tr>
+<tr>
+<td><a href="is_omimps/">is_omimps</a></td>
+<td>Flag to denote this disease is manually curated to be a phenotypic series acc...</td>
+</tr>
+<tr>
+<td><a href="is_omimps_descendant/">is_omimps_descendant</a></td>
+<td>Flag to denote this disease is a child/descendant of a disease that is manual...</td>
+</tr>
+<tr>
+<td><a href="is_orphanet_disorder/">is_orphanet_disorder</a></td>
+<td>Flag to denote this disease is manually curated to be a disease according to ...</td>
+</tr>
+<tr>
+<td><a href="is_orphanet_subtype/">is_orphanet_subtype</a></td>
+<td>Flag to denote this disease is manually curated to be a disease subtype accor...</td>
+</tr>
+<tr>
+<td><a href="is_orphanet_subtype_descendant/">is_orphanet_subtype_descendant</a></td>
+<td>Flag to denote this disease is a child/descendant of a disease that is manual...</td>
+</tr>
+<tr>
+<td><a href="is_paraphilic/">is_paraphilic</a></td>
+<td>Flag to denote this disease corresponds to a paraphilic disorder rather than ...</td>
+</tr>
+<tr>
+<td><a href="is_pathogen_caused/">is_pathogen_caused</a></td>
+<td>Flag to denote if this disease is caused by a pathogen</td>
+</tr>
+<tr>
+<td><a href="is_pathway_defect/">is_pathway_defect</a></td>
+<td>Flag to denote this disease corresponds to a pathway defect rather than a pro...</td>
+</tr>
+<tr>
+<td><a href="is_susceptibility/">is_susceptibility</a></td>
+<td>Flag to denote this disease corresponds to a susceptibility rather than a pro...</td>
+</tr>
+<tr>
+<td><a href="is_unclassified_hereditary/">is_unclassified_hereditary</a></td>
+<td>Flag to denote that this disease has no descendants (is a leaf) and  is class...</td>
+</tr>
+<tr>
+<td><a href="is_withorwithout/">is_withorwithout</a></td>
+<td>Flag to denote this disease corresponds to a disease that can be present with...</td>
+</tr>
+<tr>
 <td><a href="knowledge_level/">knowledge_level</a></td>
 <td>Knowledge level of the relationship</td>
 </tr>
 <tr>
+<td><a href="label/">label</a></td>
+<td>The name of the disease</td>
+</tr>
+<tr>
 <td><a href="labels/">labels</a></td>
 <td>Alternative labels for the entity</td>
+</tr>
+<tr>
+<td><a href="medical_specialization/">medical_specialization</a></td>
+<td>Tag this disease with a medical specialisation</td>
+</tr>
+<tr>
+<td><a href="mondo_top_grouping/">mondo_top_grouping</a></td>
+<td>Tag to denote this disease to be a</td>
+</tr>
+<tr>
+<td><a href="mondo_txgnn/">mondo_txgnn</a></td>
+<td>Tag to denote this disease to be part of a grouping as defined by the txgnn p...</td>
 </tr>
 <tr>
 <td><a href="name/">name</a></td>
@@ -527,6 +695,14 @@
 <tr>
 <td><a href="object_direction_qualifier/">object_direction_qualifier</a></td>
 <td>Direction qualifier for the object</td>
+</tr>
+<tr>
+<td><a href="official_matrix_filter/">official_matrix_filter</a></td>
+<td>Flag to denote this disease corresponds to a disease that can be treated with...</td>
+</tr>
+<tr>
+<td><a href="other_subsets_count/">other_subsets_count</a></td>
+<td>The number of other subtypes in the subset this disease belongs to</td>
 </tr>
 <tr>
 <td><a href="predicate/">predicate</a></td>
@@ -553,6 +729,34 @@
 <td>Direction qualifier for the subject</td>
 </tr>
 <tr>
+<td><a href="subset_group_id/">subset_group_id</a></td>
+<td>The identifier of a disease representing the subtype series this disease belo...</td>
+</tr>
+<tr>
+<td><a href="subset_group_label/">subset_group_label</a></td>
+<td>The name (label) of a disease representing the subtype series this disease be...</td>
+</tr>
+<tr>
+<td><a href="subsets/">subsets</a></td>
+<td>The subsets of the disease in which it is part</td>
+</tr>
+<tr>
+<td><a href="synonyms/">synonyms</a></td>
+<td>Any exact synonyms of the disease</td>
+</tr>
+<tr>
+<td><a href="tag_existing_treatment/">tag_existing_treatment</a></td>
+<td>Flag to denote if this disease has some existing treatment</td>
+</tr>
+<tr>
+<td><a href="tag_qaly_lost/">tag_qaly_lost</a></td>
+<td>Tag denoting the degree to which Quality-Adjusted Life Year (QALY) lost</td>
+</tr>
+<tr>
+<td><a href="txgnn/">txgnn</a></td>
+<td>Tag this disease to be part of a grouping as defined by the txgnn paper</td>
+</tr>
+<tr>
 <td><a href="upstream_data_source/">upstream_data_source</a></td>
 <td>Sources from which this entity's data originates</td>
 </tr>
@@ -568,8 +772,12 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
+<td><a href="AttributeTypeEnum/">AttributeTypeEnum</a></td>
+<td>Code used to describe the nature of a slot, for documentative purposes</td>
+</tr>
+<tr>
+<td><a href="CurationTypeEnum/">CurationTypeEnum</a></td>
+<td>Code used to describe how a slot / attribute was curated</td>
 </tr>
 </tbody>
 </table>

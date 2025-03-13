@@ -1,0 +1,1325 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://everycure-org.github.io/matrix-schema/DiseaseListEntry/" rel="canonical"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.3" name="generator"/>
+<title>Class: DiseaseListEntry - matrix-schema</title>
+<link href="../assets/stylesheets/main.d7758b05.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../css/ansi-colours.css" rel="stylesheet"/>
+<link href="../css/jupyter-cells.css" rel="stylesheet"/>
+<link href="../css/pandas-dataframe.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#class-diseaselistentry">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="matrix-schema" class="md-header__button md-logo" data-md-component="logo" href=".." title="matrix-schema">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            matrix-schema
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Class: DiseaseListEntry
+            
+          </span>
+</div>
+</div>
+</div>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/everycure-org/matrix-schema" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="matrix-schema" class="md-nav__button md-logo" data-md-component="logo" href=".." title="matrix-schema">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    matrix-schema
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/everycure-org/matrix-schema" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    Index
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../about/">
+<span class="md-ellipsis">
+    About
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slots">
+<span class="md-ellipsis">
+      Slots
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usages">
+<span class="md-ellipsis">
+      Usages
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#identifier-and-mapping-information">
+<span class="md-ellipsis">
+      Identifier and Mapping Information
+    </span>
+</a>
+<nav aria-label="Identifier and Mapping Information" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#schema-source">
+<span class="md-ellipsis">
+      Schema Source
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mappings">
+<span class="md-ellipsis">
+      Mappings
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linkml-source">
+<span class="md-ellipsis">
+      LinkML Source
+    </span>
+</a>
+<nav aria-label="LinkML Source" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#direct">
+<span class="md-ellipsis">
+      Direct
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#induced">
+<span class="md-ellipsis">
+      Induced
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="class-diseaselistentry">Class: DiseaseListEntry</h1>
+<p><em>A disease entry in the disease list.</em></p>
+<p>URI: <a href="https://w3id.org/everycure-org/matrix-schema/DiseaseListEntry">matrix_schema:DiseaseListEntry</a></p>
+<div class="mermaid"> classDiagram
+    class DiseaseListEntry
+    click DiseaseListEntry href "../DiseaseListEntry"
+      DiseaseListEntry : anatomical
+
+      DiseaseListEntry : category_class
+
+      DiseaseListEntry : crossreferences
+
+      DiseaseListEntry : definition
+
+      DiseaseListEntry : harrisons_view
+
+      DiseaseListEntry : is_acquired
+
+      DiseaseListEntry : is_andor
+
+      DiseaseListEntry : is_cancer
+
+      DiseaseListEntry : is_clingen
+
+      DiseaseListEntry : is_glucose_dysfunction
+
+      DiseaseListEntry : is_grouping_subset
+
+      DiseaseListEntry : is_grouping_subset_ancestor
+
+      DiseaseListEntry : is_icd_billable
+
+      DiseaseListEntry : is_icd_category
+
+      DiseaseListEntry : is_icd_chapter_code
+
+      DiseaseListEntry : is_icd_chapter_header
+
+      DiseaseListEntry : is_leaf
+
+      DiseaseListEntry : is_leaf_direct_parent
+
+      DiseaseListEntry : is_matrix_manually_excluded
+
+      DiseaseListEntry : is_matrix_manually_included
+
+      DiseaseListEntry : is_mondo_subtype
+
+      DiseaseListEntry : is_obsoletion_candidate
+
+      DiseaseListEntry : is_omim
+
+      DiseaseListEntry : is_omimps
+
+      DiseaseListEntry : is_omimps_descendant
+
+      DiseaseListEntry : is_orphanet_disorder
+
+      DiseaseListEntry : is_orphanet_subtype
+
+      DiseaseListEntry : is_orphanet_subtype_descendant
+
+      DiseaseListEntry : is_paraphilic
+
+      DiseaseListEntry : is_pathogen_caused
+
+      DiseaseListEntry : is_pathway_defect
+
+      DiseaseListEntry : is_susceptibility
+
+      DiseaseListEntry : is_unclassified_hereditary
+
+      DiseaseListEntry : is_withorwithout
+
+      DiseaseListEntry : label
+
+      DiseaseListEntry : medical_specialization
+
+      DiseaseListEntry : mondo_top_grouping
+
+      DiseaseListEntry : mondo_txgnn
+
+      DiseaseListEntry : official_matrix_filter
+
+      DiseaseListEntry : other_subsets_count
+
+      DiseaseListEntry : subset_group_id
+
+      DiseaseListEntry : subset_group_label
+
+      DiseaseListEntry : subsets
+
+      DiseaseListEntry : synonyms
+
+      DiseaseListEntry : tag_existing_treatment
+
+      DiseaseListEntry : tag_qaly_lost
+
+      DiseaseListEntry : txgnn
+
+
+</div>
+<!-- no inheritance hierarchy -->
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../category_class/">category_class</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../label/">label</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../definition/">definition</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../synonyms/">synonyms</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../subsets/">subsets</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../crossreferences/">crossreferences</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_matrix_manually_excluded/">is_matrix_manually_excluded</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_matrix_manually_included/">is_matrix_manually_included</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_clingen/">is_clingen</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_grouping_subset/">is_grouping_subset</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_grouping_subset_ancestor/">is_grouping_subset_ancestor</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_orphanet_subtype/">is_orphanet_subtype</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_orphanet_subtype_descendant/">is_orphanet_subtype_descendant</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_omimps/">is_omimps</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_omimps_descendant/">is_omimps_descendant</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_leaf/">is_leaf</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_leaf_direct_parent/">is_leaf_direct_parent</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_orphanet_disorder/">is_orphanet_disorder</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_omim/">is_omim</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_icd_category/">is_icd_category</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_icd_chapter_code/">is_icd_chapter_code</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_icd_chapter_header/">is_icd_chapter_header</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_icd_billable/">is_icd_billable</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_mondo_subtype/">is_mondo_subtype</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_pathway_defect/">is_pathway_defect</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_susceptibility/">is_susceptibility</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_paraphilic/">is_paraphilic</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_acquired/">is_acquired</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_andor/">is_andor</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_withorwithout/">is_withorwithout</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_obsoletion_candidate/">is_obsoletion_candidate</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_unclassified_hereditary/">is_unclassified_hereditary</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../official_matrix_filter/">official_matrix_filter</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../harrisons_view/">harrisons_view</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mondo_txgnn/">mondo_txgnn</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../mondo_top_grouping/">mondo_top_grouping</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../medical_specialization/">medical_specialization</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../txgnn/">txgnn</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../anatomical/">anatomical</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_pathogen_caused/">is_pathogen_caused</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_cancer/">is_cancer</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_glucose_dysfunction/">is_glucose_dysfunction</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../tag_existing_treatment/">tag_existing_treatment</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../tag_qaly_lost/">tag_qaly_lost</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../subset_group_id/">subset_group_id</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../subset_group_label/">subset_group_label</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../other_subsets_count/">other_subsets_count</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../MatrixDiseaseList/">MatrixDiseaseList</a></td>
+<td><a href="../entries/">entries</a></td>
+<td>range</td>
+<td><a href="./">DiseaseListEntry</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://w3id.org/everycure-org/matrix-schema</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>matrix_schema:DiseaseListEntry</td>
+</tr>
+<tr>
+<td>native</td>
+<td>matrix_schema:DiseaseListEntry</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+<h3 id="direct">Direct</h3>
+<details>
+<pre><code class="language-yaml">name: DiseaseListEntry
+description: A disease entry in the disease list.
+from_schema: https://w3id.org/everycure-org/matrix-schema
+attributes:
+  category_class:
+    name: category_class
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  label:
+    name: label
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  definition:
+    name: definition
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  synonyms:
+    name: synonyms
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  subsets:
+    name: subsets
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  crossreferences:
+    name: crossreferences
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_matrix_manually_excluded:
+    name: is_matrix_manually_excluded
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_matrix_manually_included:
+    name: is_matrix_manually_included
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_clingen:
+    name: is_clingen
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_grouping_subset:
+    name: is_grouping_subset
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_grouping_subset_ancestor:
+    name: is_grouping_subset_ancestor
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_orphanet_subtype:
+    name: is_orphanet_subtype
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_orphanet_subtype_descendant:
+    name: is_orphanet_subtype_descendant
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_omimps:
+    name: is_omimps
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_omimps_descendant:
+    name: is_omimps_descendant
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_leaf:
+    name: is_leaf
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_leaf_direct_parent:
+    name: is_leaf_direct_parent
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_orphanet_disorder:
+    name: is_orphanet_disorder
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_omim:
+    name: is_omim
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_icd_category:
+    name: is_icd_category
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_icd_chapter_code:
+    name: is_icd_chapter_code
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_icd_chapter_header:
+    name: is_icd_chapter_header
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_icd_billable:
+    name: is_icd_billable
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_mondo_subtype:
+    name: is_mondo_subtype
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_pathway_defect:
+    name: is_pathway_defect
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_susceptibility:
+    name: is_susceptibility
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_paraphilic:
+    name: is_paraphilic
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_acquired:
+    name: is_acquired
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_andor:
+    name: is_andor
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_withorwithout:
+    name: is_withorwithout
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_obsoletion_candidate:
+    name: is_obsoletion_candidate
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_unclassified_hereditary:
+    name: is_unclassified_hereditary
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  official_matrix_filter:
+    name: official_matrix_filter
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  harrisons_view:
+    name: harrisons_view
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  mondo_txgnn:
+    name: mondo_txgnn
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  mondo_top_grouping:
+    name: mondo_top_grouping
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  medical_specialization:
+    name: medical_specialization
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  txgnn:
+    name: txgnn
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  anatomical:
+    name: anatomical
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_pathogen_caused:
+    name: is_pathogen_caused
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_cancer:
+    name: is_cancer
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  is_glucose_dysfunction:
+    name: is_glucose_dysfunction
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  tag_existing_treatment:
+    name: tag_existing_treatment
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  tag_qaly_lost:
+    name: tag_qaly_lost
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  subset_group_id:
+    name: subset_group_id
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  subset_group_label:
+    name: subset_group_label
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+  other_subsets_count:
+    name: other_subsets_count
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    domain_of:
+    - DiseaseListEntry
+
+</code></pre>
+</details>
+<h3 id="induced">Induced</h3>
+<details>
+<pre><code class="language-yaml">name: DiseaseListEntry
+description: A disease entry in the disease list.
+from_schema: https://w3id.org/everycure-org/matrix-schema
+attributes:
+  category_class:
+    name: category_class
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: category_class
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  label:
+    name: label
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: label
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  definition:
+    name: definition
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: definition
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  synonyms:
+    name: synonyms
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: synonyms
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  subsets:
+    name: subsets
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: subsets
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  crossreferences:
+    name: crossreferences
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: crossreferences
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_matrix_manually_excluded:
+    name: is_matrix_manually_excluded
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_matrix_manually_excluded
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_matrix_manually_included:
+    name: is_matrix_manually_included
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_matrix_manually_included
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_clingen:
+    name: is_clingen
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_clingen
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_grouping_subset:
+    name: is_grouping_subset
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_grouping_subset
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_grouping_subset_ancestor:
+    name: is_grouping_subset_ancestor
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_grouping_subset_ancestor
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_orphanet_subtype:
+    name: is_orphanet_subtype
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_orphanet_subtype
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_orphanet_subtype_descendant:
+    name: is_orphanet_subtype_descendant
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_orphanet_subtype_descendant
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_omimps:
+    name: is_omimps
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_omimps
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_omimps_descendant:
+    name: is_omimps_descendant
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_omimps_descendant
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_leaf:
+    name: is_leaf
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_leaf
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_leaf_direct_parent:
+    name: is_leaf_direct_parent
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_leaf_direct_parent
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_orphanet_disorder:
+    name: is_orphanet_disorder
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_orphanet_disorder
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_omim:
+    name: is_omim
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_omim
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_icd_category:
+    name: is_icd_category
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_icd_category
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_icd_chapter_code:
+    name: is_icd_chapter_code
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_icd_chapter_code
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_icd_chapter_header:
+    name: is_icd_chapter_header
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_icd_chapter_header
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_icd_billable:
+    name: is_icd_billable
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_icd_billable
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_mondo_subtype:
+    name: is_mondo_subtype
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_mondo_subtype
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_pathway_defect:
+    name: is_pathway_defect
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_pathway_defect
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_susceptibility:
+    name: is_susceptibility
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_susceptibility
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_paraphilic:
+    name: is_paraphilic
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_paraphilic
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_acquired:
+    name: is_acquired
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_acquired
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_andor:
+    name: is_andor
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_andor
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_withorwithout:
+    name: is_withorwithout
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_withorwithout
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_obsoletion_candidate:
+    name: is_obsoletion_candidate
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_obsoletion_candidate
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_unclassified_hereditary:
+    name: is_unclassified_hereditary
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_unclassified_hereditary
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  official_matrix_filter:
+    name: official_matrix_filter
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: official_matrix_filter
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  harrisons_view:
+    name: harrisons_view
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: harrisons_view
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  mondo_txgnn:
+    name: mondo_txgnn
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: mondo_txgnn
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  mondo_top_grouping:
+    name: mondo_top_grouping
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: mondo_top_grouping
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  medical_specialization:
+    name: medical_specialization
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: medical_specialization
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  txgnn:
+    name: txgnn
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: txgnn
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  anatomical:
+    name: anatomical
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: anatomical
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_pathogen_caused:
+    name: is_pathogen_caused
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_pathogen_caused
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_cancer:
+    name: is_cancer
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_cancer
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  is_glucose_dysfunction:
+    name: is_glucose_dysfunction
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: is_glucose_dysfunction
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  tag_existing_treatment:
+    name: tag_existing_treatment
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: tag_existing_treatment
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  tag_qaly_lost:
+    name: tag_qaly_lost
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: tag_qaly_lost
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  subset_group_id:
+    name: subset_group_id
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: subset_group_id
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  subset_group_label:
+    name: subset_group_label
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: subset_group_label
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+  other_subsets_count:
+    name: other_subsets_count
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    alias: other_subsets_count
+    owner: DiseaseListEntry
+    domain_of:
+    - DiseaseListEntry
+    range: string
+
+</code></pre>
+</details>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script><script type="module">import mermaid from "https://unpkg.com/mermaid@10.9.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>
