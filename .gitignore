@@ -132,3 +132,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .DS_Store
+src/matrix_schema/schema/disease_list.yaml
