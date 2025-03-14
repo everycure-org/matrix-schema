@@ -1,0 +1,124 @@
+{
+  "disease_list_entries": [
+    {
+      "category_class": "MONDO:12345",
+      "label": "zygodactyly type 4",
+      "synonyms": [
+        "syndactyly type 1, Castilla type",
+        "SD1d",
+        "syndactyly type 1d",
+        "Zygodactyly, Castilla type",
+        "SD1, Castilla type"
+      ],
+      "subsets": [
+        "mondo:harrisons_view_hereditary_disease",
+        "mondo:mondo_top_grouping_disorder_of_development_or_morphogenesis",
+        "mondo:tag_qualy_lost_other",
+        "mondo:tag_qaly_lost_member",
+        "mondo:harrisons_view_chromosomal_disorder",
+        "mondo:harrisons_view_musculoskeletal_system_disorder",
+        "mondo:medical_specialization_orthopaedic",
+        "mondo:ordo_subtype_of_a_disorder",
+        "mondo:is_glucose_dysfunction_member",
+        "mondo:txgnn_metabolic_disorder",
+        "mondo:medical_specialization_member",
+        "mondo:gard_rare",
+        "mondo:harrisons_view_disorder_of_development_or_morphogenesis",
+        "mondo:mondo_top_grouping_member",
+        "mondo:is_cancer_member",
+        "mondo:mondo_top_grouping_musculoskeletal_system_disorder",
+        "mondo:txgnn_member",
+        "mondo:is_pathogen_caused_false",
+        "mondo:is_glucose_dysfunction_false",
+        "mondo:tag_existing_treatment_false",
+        "mondo:anatomical_member",
+        "mondo:tag_existing_treatment_member",
+        "mondo:mondo_top_grouping_chromosomal_disorder",
+        "mondo:nord_rare",
+        "mondo:is_cancer_false",
+        "mondo:tag_qaly_lost_medium",
+        "mondo:anatomical_bone_disorder",
+        "mondo:mondo_txgnn_other",
+        "mondo:harrisons_view_member",
+        "mondo:anatomical_other",
+        "mondo:is_pathogen_caused_member",
+        "mondo:txgnn_autoimmune_diseases",
+        "mondo:mondo_top_grouping_hereditary_disease",
+        "mondo:anatomical_joint_disorder",
+        "mondo:medical_specialization_genetics_and_genomics",
+        "mondo:rare"
+      ],
+      "crossreferences": [
+        "MEDGEN:1843119",
+        "UMLS:C5679981",
+        "GARD:21216",
+        "Orphanet:295193",
+        "icd11.foundation:1391914407"
+      ],
+      "is_matrix_manually_excluded": false,
+      "is_matrix_manually_included": false,
+      "is_clingen": false,
+      "is_grouping_subset": false,
+      "is_grouping_subset_ancestor": false,
+      "is_orphanet_subtype": true,
+      "is_orphanet_subtype_descendant": false,
+      "is_omimps": false,
+      "is_omimps_descendant": false,
+      "is_leaf": true,
+      "is_leaf_direct_parent": false,
+      "is_orphanet_disorder": false,
+      "is_omim": false,
+      "is_icd_category": false,
+      "is_icd_chapter_code": false,
+      "is_icd_chapter_header": false,
+      "is_icd_billable": false,
+      "is_mondo_subtype": false,
+      "is_pathway_defect": false,
+      "is_susceptibility": false,
+      "is_paraphilic": false,
+      "is_acquired": false,
+      "is_andor": false,
+      "is_withorwithout": false,
+      "is_obsoletion_candidate": false,
+      "is_unclassified_hereditary": false,
+      "official_matrix_filter": true,
+      "harrisons_view": [
+        "hereditary_disease",
+        "chromosomal_disorder",
+        "musculoskeletal_system_disorder",
+        "disorder_of_development_or_morphogenesis"
+      ],
+      "mondo_txgnn": [
+        "other"
+      ],
+      "mondo_top_grouping": [
+        "disorder_of_development_or_morphogenesis",
+        "musculoskeletal_system_disorder",
+        "chromosomal_disorder",
+        "hereditary_disease"
+      ],
+      "medical_specialization": [
+        "orthopaedic",
+        "genetics_and_genomics"
+      ],
+      "txgnn": [
+        "metabolic_disorder",
+        "autoimmune_diseases"
+      ],
+      "anatomical": [
+        "bone_disorder",
+        "joint_disorder"
+      ],
+      "is_pathogen_caused": false,
+      "is_cancer": false,
+      "is_glucose_dysfunction": false,
+      "tag_existing_treatment": false,
+      "tag_qaly_lost": "medium",
+      "definition": "",
+      "subset_group_id": "MONDO:12345",
+      "subset_group_label": "",
+      "other_subsets_count": 9
+    }
+  ],
+  "@type": "MatrixDiseaseList"
+}
