@@ -1,0 +1,42 @@
+edges:
+- subject: example:Node001
+  predicate: biolink:treats
+  object: example:Node002
+  knowledge_level: high
+  primary_knowledge_source: DrugBank
+  aggregator_knowledge_source:
+  - OMIM
+  publications:
+  - PMID:98765432
+  subject_aspect_qualifier: mode of action
+  subject_direction_qualifier: inhibits
+  object_aspect_qualifier: treatment
+  object_direction_qualifier: reduces
+  upstream_data_source:
+  - DrugBank
+- subject: example:Node002
+  predicate: biolink:has_phenotype
+  object: example:Node003
+  knowledge_level: moderate
+  primary_knowledge_source: OMIM
+  aggregator_knowledge_source:
+  - MONDO
+  publications:
+  - PMID:56789012
+  subject_aspect_qualifier: disease manifestation
+  object_aspect_qualifier: molecular mechanism
+  upstream_data_source:
+  - OMIM
+- subject: example:Node003
+  predicate: biolink:interacts_with
+  object: example:Node001
+  knowledge_level: low
+  primary_knowledge_source: ChEBI
+  aggregator_knowledge_source:
+  - DrugBank
+  publications:
+  - PMID:45678901
+  subject_aspect_qualifier: biochemical interaction
+  object_aspect_qualifier: drug effect
+  upstream_data_source:
+  - ChEBI

@@ -1,7 +1,7 @@
 # Test data for nodes schema class
 
 ---
-entries:
+nodes:
   - id: example:Node001
     name: "Aspirin"
     category: "biolink:Drug"

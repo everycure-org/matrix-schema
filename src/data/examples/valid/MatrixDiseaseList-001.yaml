@@ -1,0 +1,112 @@
+# Test data for MatrixDiseaseList schema class
+
+---
+disease_list_entries:
+  - category_class: MONDO:12345
+    anatomical:
+      - bone_disorder
+      - joint_disorder
+    crossreferences:
+      - MEDGEN:1843119
+      - UMLS:C5679981
+      - GARD:21216
+      - Orphanet:295193
+      - icd11.foundation:1391914407
+    definition: ''
+    harrisons_view:
+      - hereditary_disease
+      - chromosomal_disorder
+      - musculoskeletal_system_disorder
+      - disorder_of_development_or_morphogenesis
+    is_acquired: False
+    is_andor: False
+    is_cancer: False
+    is_clingen: False
+    is_glucose_dysfunction: False
+    is_grouping_subset: False
+    is_grouping_subset_ancestor: False
+    is_icd_billable: False
+    is_icd_category: False
+    is_icd_chapter_code: False
+    is_icd_chapter_header: False
+    is_leaf: True
+    is_leaf_direct_parent: False
+    is_matrix_manually_excluded: False
+    is_matrix_manually_included: False
+    is_mondo_subtype: False
+    is_obsoletion_candidate: False
+    is_omim: False
+    is_omimps: False
+    is_omimps_descendant: False
+    is_orphanet_disorder: False
+    is_orphanet_subtype: True
+    is_orphanet_subtype_descendant: False
+    is_paraphilic: False
+    is_pathogen_caused: False
+    is_pathway_defect: False
+    is_susceptibility: False
+    is_unclassified_hereditary: False
+    is_withorwithout: False
+    label: zygodactyly type 4
+    medical_specialization:
+      - orthopaedic
+      - genetics_and_genomics
+    mondo_top_grouping:
+      - disorder_of_development_or_morphogenesis
+      - musculoskeletal_system_disorder
+      - chromosomal_disorder
+      - hereditary_disease
+    mondo_txgnn:
+      - other
+    official_matrix_filter: True
+    other_subsets_count: 9
+    subset_group_id: MONDO:12345
+    subset_group_label: ''
+    subsets:
+      - mondo:harrisons_view_hereditary_disease
+      - mondo:mondo_top_grouping_disorder_of_development_or_morphogenesis
+      - mondo:tag_qualy_lost_other
+      - mondo:tag_qaly_lost_member
+      - mondo:harrisons_view_chromosomal_disorder
+      - mondo:harrisons_view_musculoskeletal_system_disorder
+      - mondo:medical_specialization_orthopaedic
+      - mondo:ordo_subtype_of_a_disorder
+      - mondo:is_glucose_dysfunction_member
+      - mondo:txgnn_metabolic_disorder
+      - mondo:medical_specialization_member
+      - mondo:gard_rare
+      - mondo:harrisons_view_disorder_of_development_or_morphogenesis
+      - mondo:mondo_top_grouping_member
+      - mondo:is_cancer_member
+      - mondo:mondo_top_grouping_musculoskeletal_system_disorder
+      - mondo:txgnn_member
+      - mondo:is_pathogen_caused_false
+      - mondo:is_glucose_dysfunction_false
+      - mondo:tag_existing_treatment_false
+      - mondo:anatomical_member
+      - mondo:tag_existing_treatment_member
+      - mondo:mondo_top_grouping_chromosomal_disorder
+      - mondo:nord_rare
+      - mondo:is_cancer_false
+      - mondo:tag_qaly_lost_medium
+      - mondo:anatomical_bone_disorder
+      - mondo:mondo_txgnn_other
+      - mondo:harrisons_view_member
+      - mondo:anatomical_other
+      - mondo:is_pathogen_caused_member
+      - mondo:txgnn_autoimmune_diseases
+      - mondo:mondo_top_grouping_hereditary_disease
+      - mondo:anatomical_joint_disorder
+      - mondo:medical_specialization_genetics_and_genomics
+      - mondo:rare
+    synonyms:
+      - syndactyly type 1, Castilla type
+      - SD1d
+      - syndactyly type 1d
+      - Zygodactyly, Castilla type
+      - SD1, Castilla type
+    tag_existing_treatment: False
+    tag_qaly_lost: medium
+    txgnn:
+      - metabolic_disorder
+      - autoimmune_diseases

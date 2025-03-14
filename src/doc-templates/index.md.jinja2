@@ -1,0 +1,52 @@
+# MATRIX Data Model Documentation
+
+{% if schema.description %}{{ schema.description }}{% endif %}
+
+**Schema PURL**: {{ schema.id }}
+
+## Introduction
+
+Here, you can find the collected documentation of all public data products created by the Matrix project.
+This includes the schemas for our KG products and the disease list.
+
+## Index (all classes, enums and elements)
+
+### Classes
+
+| Class | Description |
+| --- | --- |
+{% if gen.hierarchical_class_view -%}
+{% for u, v in gen.class_hierarchy_as_tuples() -%}
+| {{ "&nbsp;"|safe*u*8 }}{{ gen.link(schemaview.get_class(v)) }} | {{ schemaview.get_class(v).description }} |
+{% endfor %}
+{% else -%}
+{% for c in gen.all_class_objects()|sort(attribute=sort_by) -%}
+| {{gen.link(c)}} | {{c.description|enshorten}} |
+{% endfor %}
+{% endif %}
+
+### Columns/Slots/Fields
+
+| Slot | Description |
+| --- | --- |
+{% for s in gen.all_slot_objects()|sort(attribute=sort_by) -%}
+| {{gen.link(s)}} | {{s.description|enshorten}} |
+{% endfor %}
+
+### Enumerations
+
+| Enumeration | Description |
+| --- | --- |
+{% for e in gen.all_enum_objects()|sort(attribute=sort_by) -%}
+| {{gen.link(e)}} | {{e.description|enshorten}} |
+{% endfor %}
+
+{#
+### Types
+
+| Type | Description |
+| --- | --- |
+{% for t in gen.all_type_objects()|sort(attribute=sort_by) -%}
+| {{gen.link(t)}} | {{t.description|enshorten}} |
+{% endfor %}
+#}

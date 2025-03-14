@@ -1,7 +1,7 @@
 # Test data for edges schema class
 
 ---
-entries:
+edges:
   - subject: example:Node001
     predicate: "biolink:treats"
     object: example:Node002
