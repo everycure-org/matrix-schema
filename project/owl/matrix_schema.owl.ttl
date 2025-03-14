@@ -19,35 +19,35 @@ matrix_schema:MatrixDiseaseList a owl:Class,
     rdfs:label "MatrixDiseaseList" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom matrix_schema:DiseaseListEntry ;
-            owl:onProperty matrix_schema:diseases_list_entries ],
+            owl:onProperty matrix_schema:disease_list_entries ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:diseases_list_entries ] ;
+            owl:onProperty matrix_schema:disease_list_entries ] ;
     skos:definition "A list of diseases." ;
     skos:inScheme matrix_schema:disease-list .
 
-matrix_schema:MatrixEdgeCollection a owl:Class,
+matrix_schema:MatrixEdgeList a owl:Class,
         linkml:ClassDefinition ;
-    rdfs:label "MatrixEdgeCollection" ;
+    rdfs:label "MatrixEdgeList" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom matrix_schema:MatrixEdge ;
             owl:onProperty matrix_schema:edges ],
         [ a owl:Restriction ;
-            owl:allValuesFrom matrix_schema:MatrixEdge ;
+            owl:minCardinality 0 ;
             owl:onProperty matrix_schema:edges ] ;
-    skos:definition "A holder for MatrixEdge objects." ;
+    skos:definition "A container for MatrixEdge objects." ;
     skos:inScheme matrix_schema:kg .
 
-matrix_schema:MatrixNodeCollection a owl:Class,
+matrix_schema:MatrixNodeList a owl:Class,
         linkml:ClassDefinition ;
-    rdfs:label "MatrixNodeCollection" ;
+    rdfs:label "MatrixNodeList" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom matrix_schema:MatrixNode ;
             owl:onProperty matrix_schema:nodes ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty matrix_schema:nodes ] ;
-    skos:definition "A holder for MatrixNode objects." ;
+    skos:definition "A container for MatrixNode objects." ;
     skos:inScheme matrix_schema:kg .
 
 matrix_schema:attribute_type a owl:ObjectProperty,
@@ -64,435 +64,56 @@ matrix_schema:curation_type a owl:ObjectProperty,
     skos:definition "The type of curation (manual / automatic)." ;
     skos:inScheme matrix_schema:disease-list .
 
-matrix_schema:DiseaseListEntry a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "DiseaseListEntry" ;
-    dcterms:title "Disease List Entry" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:subset_group_label ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_matrix_manually_included ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:mondo_txgnn ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:crossreferences ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_pathway_defect ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_obsoletion_candidate ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:crossreferences ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_andor ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_orphanet_disorder ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_withorwithout ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:synonyms ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_andor ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_andor ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:txgnn ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_glucose_dysfunction ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:harrisons_view ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_icd_category ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_omimps ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:harrisons_view ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_icd_category ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_omimps_descendant ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_omim ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_paraphilic ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_unclassified_hereditary ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_leaf_direct_parent ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_leaf ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:label ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_omimps_descendant ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_icd_chapter_code ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:category_class ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:medical_specialization ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_matrix_manually_included ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:subset_group_id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_pathogen_caused ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:txgnn ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_orphanet_disorder ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_icd_billable ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_icd_chapter_code ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_susceptibility ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_matrix_manually_excluded ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_clingen ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_glucose_dysfunction ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_icd_billable ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:official_matrix_filter ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_obsoletion_candidate ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:definition ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_clingen ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_withorwithout ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_paraphilic ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_matrix_manually_excluded ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty matrix_schema:tag_qaly_lost ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_susceptibility ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_grouping_subset_ancestor ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_leaf ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:official_matrix_filter ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:mondo_txgnn ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:category_class ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:category_class ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Integer ;
-            owl:onProperty matrix_schema:other_subsets_count ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:official_matrix_filter ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:medical_specialization ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_matrix_manually_excluded ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:tag_qaly_lost ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:subsets ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_omim ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_icd_billable ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:subsets ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_clingen ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:subset_group_id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_leaf ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_omimps ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:intersectionOf ( linkml:String [ a rdfs:Datatype ;
-                                owl:onDatatype xsd:string ;
-                                owl:withRestrictions ( [ xsd:pattern "^(low|medium|high|very_high|none)$" ] ) ] ) ] ;
-            owl:onProperty matrix_schema:tag_qaly_lost ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_orphanet_subtype ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_mondo_subtype ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_withorwithout ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:label ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_orphanet_subtype ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_icd_chapter_header ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_acquired ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:subset_group_id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_cancer ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_orphanet_subtype_descendant ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_leaf_direct_parent ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_grouping_subset_ancestor ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_omim ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_icd_category ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_pathway_defect ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_pathogen_caused ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:definition ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_acquired ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_unclassified_hereditary ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_mondo_subtype ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_matrix_manually_included ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:anatomical ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_cancer ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:anatomical ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_grouping_subset ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_icd_chapter_header ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_orphanet_subtype_descendant ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_susceptibility ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:subset_group_label ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:mondo_top_grouping ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:synonyms ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_icd_chapter_header ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_icd_chapter_code ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_unclassified_hereditary ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_orphanet_subtype_descendant ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_grouping_subset ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:definition ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_omimps_descendant ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:tag_existing_treatment ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_paraphilic ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_pathway_defect ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_omimps ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:is_obsoletion_candidate ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:other_subsets_count ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_grouping_subset ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_orphanet_subtype ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_acquired ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:label ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_grouping_subset_ancestor ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:tag_existing_treatment ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_leaf_direct_parent ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:subset_group_label ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:other_subsets_count ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:is_orphanet_disorder ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:mondo_top_grouping ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Boolean ;
-            owl:onProperty matrix_schema:is_mondo_subtype ] ;
-    skos:definition "A disease entry in the disease list." ;
-    skos:inScheme matrix_schema:disease-list .
-
 matrix_schema:MatrixEdge a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "MatrixEdge" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
+            owl:maxCardinality 1 ;
             owl:onProperty matrix_schema:subject ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:upstream_data_source ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:publications ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:subject_direction_qualifier ],
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:primary_knowledge_source ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty matrix_schema:object_direction_qualifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:object ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty matrix_schema:object ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:knowledge_level ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:publications ],
+            owl:onProperty matrix_schema:upstream_data_source ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:subject ],
+            owl:onProperty matrix_schema:primary_knowledge_source ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:subject_direction_qualifier ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:predicate ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty matrix_schema:object_aspect_qualifier ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:predicate ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:upstream_data_source ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty matrix_schema:subject_aspect_qualifier ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:aggregator_knowledge_source ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty matrix_schema:predicate ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
@@ -502,28 +123,40 @@ matrix_schema:MatrixEdge a owl:Class,
             owl:onProperty matrix_schema:aggregator_knowledge_source ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:upstream_data_source ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty matrix_schema:primary_knowledge_source ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:subject ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:knowledge_level ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty matrix_schema:knowledge_level ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:publications ],
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:object_aspect_qualifier ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty matrix_schema:object ],
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:subject_aspect_qualifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:subject_direction_qualifier ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty matrix_schema:subject ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty matrix_schema:subject_aspect_qualifier ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:subject_aspect_qualifier ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:object_direction_qualifier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:publications ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:object_aspect_qualifier ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty matrix_schema:subject_direction_qualifier ],
@@ -531,35 +164,8 @@ matrix_schema:MatrixEdge a owl:Class,
             owl:minCardinality 0 ;
             owl:onProperty matrix_schema:knowledge_level ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:primary_knowledge_source ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:object_direction_qualifier ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:subject_direction_qualifier ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:predicate ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty matrix_schema:predicate ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:object_direction_qualifier ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:object_aspect_qualifier ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:object_aspect_qualifier ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:aggregator_knowledge_source ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:primary_knowledge_source ] ;
+            owl:onProperty matrix_schema:object_direction_qualifier ] ;
     owl:hasKey ( matrix_schema:subject matrix_schema:predicate matrix_schema:object ) ;
     skos:definition "An edge representing a relationship between two nodes in the Biolink knowledge graph." ;
     skos:inScheme matrix_schema:kg .
@@ -569,79 +175,79 @@ matrix_schema:MatrixNode a owl:Class,
     rdfs:label "MatrixNode" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:all_categories ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:publications ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:international_resource_identifier ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:publications ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty matrix_schema:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:international_resource_identifier ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:category ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:name ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:description ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:equivalent_identifiers ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty matrix_schema:upstream_data_source ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:labels ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:all_categories ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:labels ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty matrix_schema:equivalent_identifiers ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty matrix_schema:category ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty matrix_schema:category ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty matrix_schema:id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty matrix_schema:international_resource_identifier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:publications ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty matrix_schema:id ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:publications ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:international_resource_identifier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:labels ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:upstream_data_source ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:category ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:equivalent_identifiers ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:labels ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:international_resource_identifier ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty matrix_schema:description ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty matrix_schema:upstream_data_source ] ;
+            owl:onProperty matrix_schema:equivalent_identifiers ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:all_categories ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:all_categories ] ;
     owl:hasKey ( matrix_schema:id ) ;
     skos:definition "A node in the Biolink knowledge graph." ;
     skos:inScheme matrix_schema:kg .
@@ -686,6 +292,412 @@ matrix_schema:MatrixNode a owl:Class,
     rdfs:label "ontology_hierarchy" ;
     rdfs:subClassOf matrix_schema:CurationTypeEnum .
 
+matrix_schema:DiseaseListEntry a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "DiseaseListEntry" ;
+    dcterms:title "Disease List Entry" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:mondo_top_grouping ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:definition ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:other_subsets_count ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:definition ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:category_class ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_matrix_manually_excluded ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_susceptibility ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_icd_category ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:label ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_leaf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_pathway_defect ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:tag_existing_treatment ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:subset_group_label ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_unclassified_hereditary ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:harrisons_view ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_omim ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_omimps_descendant ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_orphanet_subtype_descendant ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:subsets ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_leaf_direct_parent ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_omimps ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_withorwithout ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_obsoletion_candidate ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:tag_qaly_lost ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_orphanet_subtype ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_withorwithout ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_icd_chapter_header ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_icd_chapter_code ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_orphanet_disorder ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_omimps ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_cancer ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_clingen ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_glucose_dysfunction ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_icd_billable ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_grouping_subset_ancestor ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty matrix_schema:other_subsets_count ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_mondo_subtype ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_paraphilic ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_unclassified_hereditary ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_grouping_subset_ancestor ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_orphanet_disorder ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:tag_existing_treatment ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:subset_group_id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_leaf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_leaf_direct_parent ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:category_class ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_pathway_defect ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:subset_group_label ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_orphanet_subtype_descendant ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_icd_chapter_code ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:tag_qaly_lost ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_leaf_direct_parent ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:subsets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_pathogen_caused ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_clingen ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty matrix_schema:subset_group_id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_cancer ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_cancer ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_orphanet_subtype ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:mondo_top_grouping ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:medical_specialization ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_matrix_manually_included ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_pathogen_caused ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_acquired ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:label ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_withorwithout ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_icd_chapter_header ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_orphanet_subtype_descendant ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_omim ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_matrix_manually_included ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_andor ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_icd_chapter_code ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:medical_specialization ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:category_class ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_glucose_dysfunction ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_paraphilic ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_andor ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_icd_category ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_mondo_subtype ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_acquired ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:harrisons_view ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_icd_billable ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_susceptibility ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:tag_existing_treatment ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_unclassified_hereditary ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_omimps_descendant ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:definition ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_pathogen_caused ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_obsoletion_candidate ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_matrix_manually_excluded ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_icd_billable ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:crossreferences ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_orphanet_subtype ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:intersectionOf ( linkml:String [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:string ;
+                                owl:withRestrictions ( [ xsd:pattern "^(low|medium|high|very_high|none)$" ] ) ] ) ] ;
+            owl:onProperty matrix_schema:tag_qaly_lost ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:anatomical ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_matrix_manually_excluded ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_grouping_subset_ancestor ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_andor ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_susceptibility ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_glucose_dysfunction ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:official_matrix_filter ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:synonyms ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:mondo_txgnn ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_omimps_descendant ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:crossreferences ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_grouping_subset ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_acquired ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_clingen ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_grouping_subset ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_paraphilic ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_icd_chapter_header ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:mondo_txgnn ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:label ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:official_matrix_filter ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_leaf ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_omimps ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_obsoletion_candidate ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:is_matrix_manually_included ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:txgnn ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:other_subsets_count ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_omim ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_icd_category ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:txgnn ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:synonyms ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_mondo_subtype ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty matrix_schema:subset_group_label ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty matrix_schema:is_grouping_subset ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty matrix_schema:subset_group_id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:anatomical ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:official_matrix_filter ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_pathway_defect ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty matrix_schema:is_orphanet_disorder ] ;
+    skos:definition "A disease entry in the disease list." ;
+    skos:inScheme matrix_schema:disease-list .
+
 matrix_schema:aggregator_knowledge_source a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "aggregator_knowledge_source" ;
@@ -716,9 +728,10 @@ matrix_schema:crossreferences a owl:ObjectProperty,
     skos:definition "Cross-references to other databases and ontologies." ;
     skos:inScheme matrix_schema:disease-list .
 
-matrix_schema:diseases_list_entries a owl:ObjectProperty,
+matrix_schema:disease_list_entries a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "diseases_list_entries" ;
+    rdfs:label "disease_list_entries" ;
+    rdfs:range matrix_schema:DiseaseListEntry ;
     skos:definition "A list of disease list entries." ;
     skos:inScheme matrix_schema:disease-list .
 
@@ -745,36 +758,6 @@ matrix_schema:harrisons_view a owl:ObjectProperty,
     skos:inScheme matrix_schema:disease-list ;
     matrix_schema:attribute_type "grouping" ;
     matrix_schema:curation_type "manual_mondo" .
-
-matrix_schema:is_cancer a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "is_cancer" ;
-    rdfs:range linkml:Boolean ;
-    skos:definition """Flag to denote if this disease corresponds to a cancer type. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
-""" ;
-    skos:inScheme matrix_schema:disease-list ;
-    matrix_schema:attribute_type "filter" ;
-    matrix_schema:curation_type "llm" .
-
-matrix_schema:is_glucose_dysfunction a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "is_glucose_dysfunction" ;
-    rdfs:range linkml:Boolean ;
-    skos:definition """Flag to denote if this disease corresponds to a glucose dysfunction. Disease classes are automatically flagged using an LLM. tracker (https://github.com/everycure-org/matrix-disease-list/issues).
-""" ;
-    skos:inScheme matrix_schema:disease-list ;
-    matrix_schema:attribute_type "filter" ;
-    matrix_schema:curation_type "llm" .
-
-matrix_schema:is_pathogen_caused a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "is_pathogen_caused" ;
-    rdfs:range linkml:Boolean ;
-    skos:definition """Flag to denote if this disease is caused by a pathogen. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
-""" ;
-    skos:inScheme matrix_schema:disease-list ;
-    matrix_schema:attribute_type "filter" ;
-    matrix_schema:curation_type "llm" .
 
 matrix_schema:labels a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -831,16 +814,6 @@ matrix_schema:synonyms a owl:ObjectProperty,
     rdfs:label "synonyms" ;
     skos:definition "Any exact synonyms of the disease." ;
     skos:inScheme matrix_schema:disease-list .
-
-matrix_schema:tag_existing_treatment a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "tag_existing_treatment" ;
-    rdfs:range linkml:Boolean ;
-    skos:definition """Flag to denote if this disease has some existing treatment. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
-""" ;
-    skos:inScheme matrix_schema:disease-list ;
-    matrix_schema:attribute_type "filter" ;
-    matrix_schema:curation_type "llm" .
 
 matrix_schema:txgnn a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -910,6 +883,16 @@ matrix_schema:is_andor a owl:ObjectProperty,
     matrix_schema:attribute_type "filter" ;
     matrix_schema:curation_type "lexical_matching" .
 
+matrix_schema:is_cancer a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "is_cancer" ;
+    rdfs:range linkml:Boolean ;
+    skos:definition """Flag to denote if this disease corresponds to a cancer type. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
+""" ;
+    skos:inScheme matrix_schema:disease-list ;
+    matrix_schema:attribute_type "filter" ;
+    matrix_schema:curation_type "llm" .
+
 matrix_schema:is_clingen a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "is_clingen" ;
@@ -920,6 +903,16 @@ matrix_schema:is_clingen a owl:ObjectProperty,
     skos:inScheme matrix_schema:disease-list ;
     matrix_schema:attribute_type "filter" ;
     matrix_schema:curation_type "external_source" .
+
+matrix_schema:is_glucose_dysfunction a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "is_glucose_dysfunction" ;
+    rdfs:range linkml:Boolean ;
+    skos:definition """Flag to denote if this disease corresponds to a glucose dysfunction. Disease classes are automatically flagged using an LLM. tracker (https://github.com/everycure-org/matrix-disease-list/issues).
+""" ;
+    skos:inScheme matrix_schema:disease-list ;
+    matrix_schema:attribute_type "filter" ;
+    matrix_schema:curation_type "llm" .
 
 matrix_schema:is_grouping_subset a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -1141,6 +1134,16 @@ matrix_schema:is_paraphilic a owl:ObjectProperty,
     matrix_schema:attribute_type "filter" ;
     matrix_schema:curation_type "manual_everycure" .
 
+matrix_schema:is_pathogen_caused a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "is_pathogen_caused" ;
+    rdfs:range linkml:Boolean ;
+    skos:definition """Flag to denote if this disease is caused by a pathogen. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
+""" ;
+    skos:inScheme matrix_schema:disease-list ;
+    matrix_schema:attribute_type "filter" ;
+    matrix_schema:curation_type "llm" .
+
 matrix_schema:is_pathway_defect a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "is_pathway_defect" ;
@@ -1274,6 +1277,16 @@ matrix_schema:subset_group_label a owl:ObjectProperty,
     rdfs:range linkml:String ;
     skos:definition "The name (label) of a disease representing the subtype series this disease belongs to." ;
     skos:inScheme matrix_schema:disease-list .
+
+matrix_schema:tag_existing_treatment a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "tag_existing_treatment" ;
+    rdfs:range linkml:Boolean ;
+    skos:definition """Flag to denote if this disease has some existing treatment. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
+""" ;
+    skos:inScheme matrix_schema:disease-list ;
+    matrix_schema:attribute_type "filter" ;
+    matrix_schema:curation_type "llm" .
 
 matrix_schema:tag_qaly_lost a owl:ObjectProperty,
         linkml:SlotDefinition ;

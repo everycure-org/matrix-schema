@@ -4,7 +4,7 @@
 --     * Slot: category Description: Biolink category of the entity.
 --     * Slot: description Description: Detailed description of the entity.
 --     * Slot: international_resource_identifier Description: IRI of the entity.
---     * Slot: MatrixNodeCollection_id Description: Autocreated FK slot
+--     * Slot: MatrixNodeList_id Description: Autocreated FK slot
 -- # Class: "MatrixEdge" Description: "An edge representing a relationship between two nodes in the Biolink knowledge graph."
 --     * Slot: id Description: 
 --     * Slot: subject Description: The subject entity in the edge.
@@ -16,10 +16,10 @@
 --     * Slot: subject_direction_qualifier Description: Direction qualifier for the subject.
 --     * Slot: object_aspect_qualifier Description: Aspect qualifier for the object.
 --     * Slot: object_direction_qualifier Description: Direction qualifier for the object.
---     * Slot: MatrixEdgeCollection_id Description: Autocreated FK slot
--- # Class: "MatrixEdgeCollection" Description: "A holder for MatrixEdge objects."
+--     * Slot: MatrixEdgeList_id Description: Autocreated FK slot
+-- # Class: "MatrixEdgeList" Description: "A container for MatrixEdge objects."
 --     * Slot: id Description: 
--- # Class: "MatrixNodeCollection" Description: "A holder for MatrixNode objects."
+-- # Class: "MatrixNodeList" Description: "A container for MatrixNode objects."
 --     * Slot: id Description: 
 -- # Class: "DiseaseListEntry" Description: "A disease entry in the disease list."
 --     * Slot: id Description: 
@@ -53,11 +53,14 @@
 --     * Slot: is_obsoletion_candidate Description: Flag to denote that this disease is marked for obsoletion in the (near) future. This status does not guarantee that the disease will be obsoleted, but it is a strong indication.
 --     * Slot: is_unclassified_hereditary Description: Flag to denote that this disease has no descendants (is a leaf) and  is classified broadly as an hereditary disease, but lacks any further classification.
 --     * Slot: official_matrix_filter Description: Flag to denote this disease corresponds to a disease that can be treated with small molecules or biologics. This flag is maintained as a combination of default filters by the Matrix team. Changes to this filter should be discussed on the Matrix disease list issue tracker (https://github.com/everycure-org/matrix-disease-list/issues). **Warning**. This flag is in early alpha state, and its use in production systems is not recommended.
+--     * Slot: is_pathogen_caused Description: Flag to denote if this disease is caused by a pathogen. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
+--     * Slot: is_cancer Description: Flag to denote if this disease corresponds to a cancer type. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
+--     * Slot: is_glucose_dysfunction Description: Flag to denote if this disease corresponds to a glucose dysfunction. Disease classes are automatically flagged using an LLM. tracker (https://github.com/everycure-org/matrix-disease-list/issues).
+--     * Slot: tag_existing_treatment Description: Flag to denote if this disease has some existing treatment. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
 --     * Slot: tag_qaly_lost Description: Tag denoting the degree to which Quality-Adjusted Life Year (QALY) lost. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
 --     * Slot: subset_group_id Description: The identifier of a disease representing the subtype series this disease belongs to.
 --     * Slot: subset_group_label Description: The name (label) of a disease representing the subtype series this disease belongs to.
 --     * Slot: other_subsets_count Description: The number of other subtypes in the subset this disease belongs to.
---     * Slot: MatrixDiseaseList_id Description: Autocreated FK slot
 -- # Class: "MatrixDiseaseList" Description: "A list of diseases."
 --     * Slot: id Description: 
 -- # Class: "MatrixNode_equivalent_identifiers" Description: ""
@@ -111,25 +114,58 @@
 -- # Class: "DiseaseListEntry_anatomical" Description: ""
 --     * Slot: DiseaseListEntry_id Description: Autocreated FK slot
 --     * Slot: anatomical Description: Tag to denote this disease to be part of a grouping according to the anatomical location. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
--- # Class: "DiseaseListEntry_is_pathogen_caused" Description: ""
---     * Slot: DiseaseListEntry_id Description: Autocreated FK slot
---     * Slot: is_pathogen_caused Description: Flag to denote if this disease is caused by a pathogen. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
--- # Class: "DiseaseListEntry_is_cancer" Description: ""
---     * Slot: DiseaseListEntry_id Description: Autocreated FK slot
---     * Slot: is_cancer Description: Flag to denote if this disease corresponds to a cancer type. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
--- # Class: "DiseaseListEntry_is_glucose_dysfunction" Description: ""
---     * Slot: DiseaseListEntry_id Description: Autocreated FK slot
---     * Slot: is_glucose_dysfunction Description: Flag to denote if this disease corresponds to a glucose dysfunction. Disease classes are automatically flagged using an LLM. tracker (https://github.com/everycure-org/matrix-disease-list/issues).
--- # Class: "DiseaseListEntry_tag_existing_treatment" Description: ""
---     * Slot: DiseaseListEntry_id Description: Autocreated FK slot
---     * Slot: tag_existing_treatment Description: Flag to denote if this disease has some existing treatment. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
+-- # Class: "MatrixDiseaseList_disease_list_entries" Description: ""
+--     * Slot: MatrixDiseaseList_id Description: Autocreated FK slot
+--     * Slot: disease_list_entries_id Description: A list of disease list entries.
 
-CREATE TABLE "MatrixEdgeCollection" (
+CREATE TABLE "MatrixEdgeList" (
 	id INTEGER NOT NULL, 
 	PRIMARY KEY (id)
 );
-CREATE TABLE "MatrixNodeCollection" (
+CREATE TABLE "MatrixNodeList" (
 	id INTEGER NOT NULL, 
+	PRIMARY KEY (id)
+);
+CREATE TABLE "DiseaseListEntry" (
+	id INTEGER NOT NULL, 
+	category_class TEXT NOT NULL, 
+	label TEXT NOT NULL, 
+	definition TEXT, 
+	is_matrix_manually_excluded BOOLEAN NOT NULL, 
+	is_matrix_manually_included BOOLEAN NOT NULL, 
+	is_clingen BOOLEAN NOT NULL, 
+	is_grouping_subset BOOLEAN NOT NULL, 
+	is_grouping_subset_ancestor BOOLEAN NOT NULL, 
+	is_orphanet_subtype BOOLEAN NOT NULL, 
+	is_orphanet_subtype_descendant BOOLEAN NOT NULL, 
+	is_omimps BOOLEAN NOT NULL, 
+	is_omimps_descendant BOOLEAN NOT NULL, 
+	is_leaf BOOLEAN NOT NULL, 
+	is_leaf_direct_parent BOOLEAN NOT NULL, 
+	is_orphanet_disorder BOOLEAN NOT NULL, 
+	is_omim BOOLEAN NOT NULL, 
+	is_icd_category BOOLEAN NOT NULL, 
+	is_icd_chapter_code BOOLEAN NOT NULL, 
+	is_icd_chapter_header BOOLEAN NOT NULL, 
+	is_icd_billable BOOLEAN NOT NULL, 
+	is_mondo_subtype BOOLEAN NOT NULL, 
+	is_pathway_defect BOOLEAN NOT NULL, 
+	is_susceptibility BOOLEAN NOT NULL, 
+	is_paraphilic BOOLEAN NOT NULL, 
+	is_acquired BOOLEAN NOT NULL, 
+	is_andor BOOLEAN NOT NULL, 
+	is_withorwithout BOOLEAN NOT NULL, 
+	is_obsoletion_candidate BOOLEAN NOT NULL, 
+	is_unclassified_hereditary BOOLEAN NOT NULL, 
+	official_matrix_filter BOOLEAN NOT NULL, 
+	is_pathogen_caused BOOLEAN NOT NULL, 
+	is_cancer BOOLEAN NOT NULL, 
+	is_glucose_dysfunction BOOLEAN NOT NULL, 
+	tag_existing_treatment BOOLEAN NOT NULL, 
+	tag_qaly_lost TEXT NOT NULL, 
+	subset_group_id TEXT, 
+	subset_group_label TEXT, 
+	other_subsets_count INTEGER, 
 	PRIMARY KEY (id)
 );
 CREATE TABLE "MatrixDiseaseList" (
@@ -142,10 +178,10 @@ CREATE TABLE "MatrixNode" (
 	category TEXT NOT NULL, 
 	description TEXT, 
 	international_resource_identifier TEXT, 
-	"MatrixNodeCollection_id" INTEGER, 
+	"MatrixNodeList_id" INTEGER, 
 	PRIMARY KEY (id), 
 	UNIQUE (id), 
-	FOREIGN KEY("MatrixNodeCollection_id") REFERENCES "MatrixNodeCollection" (id)
+	FOREIGN KEY("MatrixNodeList_id") REFERENCES "MatrixNodeList" (id)
 );
 CREATE TABLE "MatrixEdge" (
 	id INTEGER NOT NULL, 
@@ -158,50 +194,71 @@ CREATE TABLE "MatrixEdge" (
 	subject_direction_qualifier TEXT, 
 	object_aspect_qualifier TEXT, 
 	object_direction_qualifier TEXT, 
-	"MatrixEdgeCollection_id" INTEGER, 
+	"MatrixEdgeList_id" INTEGER, 
 	PRIMARY KEY (id), 
 	UNIQUE (subject, predicate, object), 
-	FOREIGN KEY("MatrixEdgeCollection_id") REFERENCES "MatrixEdgeCollection" (id)
+	FOREIGN KEY("MatrixEdgeList_id") REFERENCES "MatrixEdgeList" (id)
 );
-CREATE TABLE "DiseaseListEntry" (
-	id INTEGER NOT NULL, 
-	category_class TEXT, 
-	label TEXT, 
-	definition TEXT, 
-	is_matrix_manually_excluded BOOLEAN, 
-	is_matrix_manually_included BOOLEAN, 
-	is_clingen BOOLEAN, 
-	is_grouping_subset BOOLEAN, 
-	is_grouping_subset_ancestor BOOLEAN, 
-	is_orphanet_subtype BOOLEAN, 
-	is_orphanet_subtype_descendant BOOLEAN, 
-	is_omimps BOOLEAN, 
-	is_omimps_descendant BOOLEAN, 
-	is_leaf BOOLEAN, 
-	is_leaf_direct_parent BOOLEAN, 
-	is_orphanet_disorder BOOLEAN, 
-	is_omim BOOLEAN, 
-	is_icd_category BOOLEAN, 
-	is_icd_chapter_code BOOLEAN, 
-	is_icd_chapter_header BOOLEAN, 
-	is_icd_billable BOOLEAN, 
-	is_mondo_subtype BOOLEAN, 
-	is_pathway_defect BOOLEAN, 
-	is_susceptibility BOOLEAN, 
-	is_paraphilic BOOLEAN, 
-	is_acquired BOOLEAN, 
-	is_andor BOOLEAN, 
-	is_withorwithout BOOLEAN, 
-	is_obsoletion_candidate BOOLEAN, 
-	is_unclassified_hereditary BOOLEAN, 
-	official_matrix_filter BOOLEAN, 
-	tag_qaly_lost TEXT NOT NULL, 
-	subset_group_id TEXT, 
-	subset_group_label TEXT, 
-	other_subsets_count INTEGER, 
+CREATE TABLE "DiseaseListEntry_synonyms" (
+	"DiseaseListEntry_id" INTEGER, 
+	synonyms TEXT NOT NULL, 
+	PRIMARY KEY ("DiseaseListEntry_id", synonyms), 
+	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
+);
+CREATE TABLE "DiseaseListEntry_subsets" (
+	"DiseaseListEntry_id" INTEGER, 
+	subsets TEXT NOT NULL, 
+	PRIMARY KEY ("DiseaseListEntry_id", subsets), 
+	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
+);
+CREATE TABLE "DiseaseListEntry_crossreferences" (
+	"DiseaseListEntry_id" INTEGER, 
+	crossreferences TEXT NOT NULL, 
+	PRIMARY KEY ("DiseaseListEntry_id", crossreferences), 
+	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
+);
+CREATE TABLE "DiseaseListEntry_harrisons_view" (
+	"DiseaseListEntry_id" INTEGER, 
+	harrisons_view TEXT NOT NULL, 
+	PRIMARY KEY ("DiseaseListEntry_id", harrisons_view), 
+	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
+);
+CREATE TABLE "DiseaseListEntry_mondo_txgnn" (
+	"DiseaseListEntry_id" INTEGER, 
+	mondo_txgnn TEXT NOT NULL, 
+	PRIMARY KEY ("DiseaseListEntry_id", mondo_txgnn), 
+	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
+);
+CREATE TABLE "DiseaseListEntry_mondo_top_grouping" (
+	"DiseaseListEntry_id" INTEGER, 
+	mondo_top_grouping TEXT NOT NULL, 
+	PRIMARY KEY ("DiseaseListEntry_id", mondo_top_grouping), 
+	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
+);
+CREATE TABLE "DiseaseListEntry_medical_specialization" (
+	"DiseaseListEntry_id" INTEGER, 
+	medical_specialization TEXT NOT NULL, 
+	PRIMARY KEY ("DiseaseListEntry_id", medical_specialization), 
+	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
+);
+CREATE TABLE "DiseaseListEntry_txgnn" (
+	"DiseaseListEntry_id" INTEGER, 
+	txgnn TEXT NOT NULL, 
+	PRIMARY KEY ("DiseaseListEntry_id", txgnn), 
+	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
+);
+CREATE TABLE "DiseaseListEntry_anatomical" (
+	"DiseaseListEntry_id" INTEGER, 
+	anatomical TEXT NOT NULL, 
+	PRIMARY KEY ("DiseaseListEntry_id", anatomical), 
+	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
+);
+CREATE TABLE "MatrixDiseaseList_disease_list_entries" (
 	"MatrixDiseaseList_id" INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY("MatrixDiseaseList_id") REFERENCES "MatrixDiseaseList" (id)
+	disease_list_entries_id INTEGER, 
+	PRIMARY KEY ("MatrixDiseaseList_id", disease_list_entries_id), 
+	FOREIGN KEY("MatrixDiseaseList_id") REFERENCES "MatrixDiseaseList" (id), 
+	FOREIGN KEY(disease_list_entries_id) REFERENCES "DiseaseListEntry" (id)
 );
 CREATE TABLE "MatrixNode_equivalent_identifiers" (
 	"MatrixNode_id" TEXT, 
@@ -250,82 +307,4 @@ CREATE TABLE "MatrixEdge_upstream_data_source" (
 	upstream_data_source TEXT, 
 	PRIMARY KEY ("MatrixEdge_id", upstream_data_source), 
 	FOREIGN KEY("MatrixEdge_id") REFERENCES "MatrixEdge" (id)
-);
-CREATE TABLE "DiseaseListEntry_synonyms" (
-	"DiseaseListEntry_id" INTEGER, 
-	synonyms TEXT, 
-	PRIMARY KEY ("DiseaseListEntry_id", synonyms), 
-	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "DiseaseListEntry_subsets" (
-	"DiseaseListEntry_id" INTEGER, 
-	subsets TEXT, 
-	PRIMARY KEY ("DiseaseListEntry_id", subsets), 
-	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "DiseaseListEntry_crossreferences" (
-	"DiseaseListEntry_id" INTEGER, 
-	crossreferences TEXT, 
-	PRIMARY KEY ("DiseaseListEntry_id", crossreferences), 
-	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "DiseaseListEntry_harrisons_view" (
-	"DiseaseListEntry_id" INTEGER, 
-	harrisons_view TEXT, 
-	PRIMARY KEY ("DiseaseListEntry_id", harrisons_view), 
-	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "DiseaseListEntry_mondo_txgnn" (
-	"DiseaseListEntry_id" INTEGER, 
-	mondo_txgnn TEXT, 
-	PRIMARY KEY ("DiseaseListEntry_id", mondo_txgnn), 
-	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "DiseaseListEntry_mondo_top_grouping" (
-	"DiseaseListEntry_id" INTEGER, 
-	mondo_top_grouping TEXT, 
-	PRIMARY KEY ("DiseaseListEntry_id", mondo_top_grouping), 
-	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "DiseaseListEntry_medical_specialization" (
-	"DiseaseListEntry_id" INTEGER, 
-	medical_specialization TEXT, 
-	PRIMARY KEY ("DiseaseListEntry_id", medical_specialization), 
-	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "DiseaseListEntry_txgnn" (
-	"DiseaseListEntry_id" INTEGER, 
-	txgnn TEXT, 
-	PRIMARY KEY ("DiseaseListEntry_id", txgnn), 
-	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "DiseaseListEntry_anatomical" (
-	"DiseaseListEntry_id" INTEGER, 
-	anatomical TEXT, 
-	PRIMARY KEY ("DiseaseListEntry_id", anatomical), 
-	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "DiseaseListEntry_is_pathogen_caused" (
-	"DiseaseListEntry_id" INTEGER, 
-	is_pathogen_caused BOOLEAN, 
-	PRIMARY KEY ("DiseaseListEntry_id", is_pathogen_caused), 
-	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "DiseaseListEntry_is_cancer" (
-	"DiseaseListEntry_id" INTEGER, 
-	is_cancer BOOLEAN, 
-	PRIMARY KEY ("DiseaseListEntry_id", is_cancer), 
-	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "DiseaseListEntry_is_glucose_dysfunction" (
-	"DiseaseListEntry_id" INTEGER, 
-	is_glucose_dysfunction BOOLEAN, 
-	PRIMARY KEY ("DiseaseListEntry_id", is_glucose_dysfunction), 
-	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "DiseaseListEntry_tag_existing_treatment" (
-	"DiseaseListEntry_id" INTEGER, 
-	tag_existing_treatment BOOLEAN, 
-	PRIMARY KEY ("DiseaseListEntry_id", tag_existing_treatment), 
-	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
 );

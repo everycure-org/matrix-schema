@@ -17,49 +17,49 @@ enum CurationTypeEnum
 
 type DiseaseListEntry
   {
-    categoryClass: String
-    label: String
+    categoryClass: String!
+    label: String!
     definition: String
-    synonyms: [String]
-    subsets: [String]
-    crossreferences: [String]
-    isMatrixManuallyExcluded: Boolean
-    isMatrixManuallyIncluded: Boolean
-    isClingen: Boolean
-    isGroupingSubset: Boolean
-    isGroupingSubsetAncestor: Boolean
-    isOrphanetSubtype: Boolean
-    isOrphanetSubtypeDescendant: Boolean
-    isOmimps: Boolean
-    isOmimpsDescendant: Boolean
-    isLeaf: Boolean
-    isLeafDirectParent: Boolean
-    isOrphanetDisorder: Boolean
-    isOmim: Boolean
-    isIcdCategory: Boolean
-    isIcdChapterCode: Boolean
-    isIcdChapterHeader: Boolean
-    isIcdBillable: Boolean
-    isMondoSubtype: Boolean
-    isPathwayDefect: Boolean
-    isSusceptibility: Boolean
-    isParaphilic: Boolean
-    isAcquired: Boolean
-    isAndor: Boolean
-    isWithorwithout: Boolean
-    isObsoletionCandidate: Boolean
-    isUnclassifiedHereditary: Boolean
-    officialMatrixFilter: Boolean
-    harrisonsView: [String]
-    mondoTxgnn: [String]
-    mondoTopGrouping: [String]
-    medicalSpecialization: [String]
-    txgnn: [String]
-    anatomical: [String]
-    isPathogenCaused: [Boolean]
-    isCancer: [Boolean]
-    isGlucoseDysfunction: [Boolean]
-    tagExistingTreatment: [Boolean]
+    synonyms: [String]!
+    subsets: [String]!
+    crossreferences: [String]!
+    isMatrixManuallyExcluded: Boolean!
+    isMatrixManuallyIncluded: Boolean!
+    isClingen: Boolean!
+    isGroupingSubset: Boolean!
+    isGroupingSubsetAncestor: Boolean!
+    isOrphanetSubtype: Boolean!
+    isOrphanetSubtypeDescendant: Boolean!
+    isOmimps: Boolean!
+    isOmimpsDescendant: Boolean!
+    isLeaf: Boolean!
+    isLeafDirectParent: Boolean!
+    isOrphanetDisorder: Boolean!
+    isOmim: Boolean!
+    isIcdCategory: Boolean!
+    isIcdChapterCode: Boolean!
+    isIcdChapterHeader: Boolean!
+    isIcdBillable: Boolean!
+    isMondoSubtype: Boolean!
+    isPathwayDefect: Boolean!
+    isSusceptibility: Boolean!
+    isParaphilic: Boolean!
+    isAcquired: Boolean!
+    isAndor: Boolean!
+    isWithorwithout: Boolean!
+    isObsoletionCandidate: Boolean!
+    isUnclassifiedHereditary: Boolean!
+    officialMatrixFilter: Boolean!
+    harrisonsView: [String]!
+    mondoTxgnn: [String]!
+    mondoTopGrouping: [String]!
+    medicalSpecialization: [String]!
+    txgnn: [String]!
+    anatomical: [String]!
+    isPathogenCaused: Boolean!
+    isCancer: Boolean!
+    isGlucoseDysfunction: Boolean!
+    tagExistingTreatment: Boolean!
     tagQalyLost: String!
     subsetGroupId: String
     subsetGroupLabel: String
@@ -68,7 +68,7 @@ type DiseaseListEntry
 
 type MatrixDiseaseList
   {
-    diseasesListEntries: [DiseaseListEntry]
+    diseaseListEntries: [DiseaseListEntry]
   }
 
 type MatrixEdge
@@ -87,7 +87,7 @@ type MatrixEdge
     upstreamDataSource: [String]
   }
 
-type MatrixEdgeCollection
+type MatrixEdgeList
   {
     edges: [MatrixEdge]
   }
@@ -106,7 +106,7 @@ type MatrixNode
     upstreamDataSource: [String]
   }
 
-type MatrixNodeCollection
+type MatrixNodeList
   {
     nodes: [MatrixNode]
   }

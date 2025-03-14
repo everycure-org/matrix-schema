@@ -717,6 +717,7 @@
       ],
       "range": "string",
       "multivalued": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -731,6 +732,7 @@
       ],
       "range": "string",
       "multivalued": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -745,6 +747,7 @@
       ],
       "range": "string",
       "multivalued": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -792,9 +795,9 @@
       "description": "A list of edges.",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/edges",
-      "owner": "MatrixEdgeCollection",
+      "owner": "MatrixEdgeList",
       "domain_of": [
-        "MatrixEdgeCollection"
+        "MatrixEdgeList"
       ],
       "range": "string",
       "multivalued": true,
@@ -806,22 +809,27 @@
       "description": "A list of edges.",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/nodes",
-      "owner": "MatrixNodeCollection",
+      "owner": "MatrixNodeList",
       "domain_of": [
-        "MatrixNodeCollection"
+        "MatrixNodeList"
       ],
       "range": "string",
       "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "diseases_list_entries",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/diseases_list_entries",
+      "name": "disease_list_entries",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/disease_list_entries",
       "description": "A list of disease list entries.",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/diseases_list_entries",
-      "range": "string",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/disease_list_entries",
+      "owner": "MatrixDiseaseList",
+      "domain_of": [
+        "MatrixDiseaseList"
+      ],
+      "range": "DiseaseListEntry",
       "multivalued": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1642,7 +1650,6 @@
         "DiseaseListEntry"
       ],
       "range": "boolean",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1668,7 +1675,6 @@
         "DiseaseListEntry"
       ],
       "range": "boolean",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1694,7 +1700,6 @@
         "DiseaseListEntry"
       ],
       "range": "boolean",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1720,7 +1725,6 @@
         "DiseaseListEntry"
       ],
       "range": "boolean",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1805,6 +1809,7 @@
       ],
       "range": "string",
       "multivalued": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1860,6 +1865,7 @@
       ],
       "range": "string",
       "multivalued": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1886,6 +1892,7 @@
       ],
       "range": "string",
       "multivalued": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1908,20 +1915,6 @@
       "range": "string",
       "required": true,
       "pattern": "^(low|medium|high|very_high|none)$",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "matrixDiseaseList__diseases_list_entries",
-      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
-      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/diseases_list_entries",
-      "alias": "diseases_list_entries",
-      "owner": "MatrixDiseaseList",
-      "domain_of": [
-        "MatrixDiseaseList"
-      ],
-      "range": "DiseaseListEntry",
-      "multivalued": true,
-      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2024,17 +2017,17 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "MatrixEdgeCollection_edges",
+      "name": "MatrixEdgeList_edges",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/edges",
       "description": "A list of edges.",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "is_a": "edges",
-      "domain": "MatrixEdgeCollection",
+      "domain": "MatrixEdgeList",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/edges",
       "alias": "edges",
-      "owner": "MatrixEdgeCollection",
+      "owner": "MatrixEdgeList",
       "domain_of": [
-        "MatrixEdgeCollection"
+        "MatrixEdgeList"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "edges",
@@ -2044,23 +2037,1567 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "MatrixNodeCollection_nodes",
+      "name": "MatrixNodeList_nodes",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/nodes",
       "description": "A list of edges.",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "is_a": "nodes",
-      "domain": "MatrixNodeCollection",
+      "domain": "MatrixNodeList",
       "slot_uri": "https://w3id.org/everycure-org/matrix-schema/nodes",
       "alias": "nodes",
-      "owner": "MatrixNodeCollection",
+      "owner": "MatrixNodeList",
       "domain_of": [
-        "MatrixNodeCollection"
+        "MatrixNodeList"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "nodes",
       "range": "MatrixNode",
       "multivalued": true,
       "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_category_class",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/category_class",
+      "description": "The disase identifier. Slot name should probably be renamed?",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "category_class",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/category_class",
+      "alias": "category_class",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "category_class",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_label",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/label",
+      "description": "The name of the disease.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "label",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/label",
+      "alias": "label",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "label",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_definition",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/definition",
+      "description": "The definition of the disease.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "definition",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/definition",
+      "alias": "definition",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "definition",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_synonyms",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/synonyms",
+      "description": "Any exact synonyms of the disease.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "synonyms",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/synonyms",
+      "alias": "synonyms",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "synonyms",
+      "range": "string",
+      "required": true,
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_subsets",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subsets",
+      "description": "The subsets of the disease in which it is part.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "subsets",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subsets",
+      "alias": "subsets",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "subsets",
+      "range": "string",
+      "required": true,
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_crossreferences",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/crossreferences",
+      "description": "Cross-references to other databases and ontologies.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "crossreferences",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/crossreferences",
+      "alias": "crossreferences",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "crossreferences",
+      "range": "string",
+      "required": true,
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_matrix_manually_excluded",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_matrix_manually_excluded",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_everycure",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease was manually excluded from the disease list by a Matrix medical expert.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/src/excluded-diseases.robot.tsv"
+      ],
+      "is_a": "is_matrix_manually_excluded",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_matrix_manually_excluded",
+      "alias": "is_matrix_manually_excluded",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_matrix_manually_excluded",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_matrix_manually_included",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_matrix_manually_included",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_everycure",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease was manually included from the disease list by a Matrix medical expert.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/src/included-diseases.robot.tsv"
+      ],
+      "is_a": "is_matrix_manually_included",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_matrix_manually_included",
+      "alias": "is_matrix_manually_included",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_matrix_manually_included",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_clingen",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_clingen",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "external_source",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote that this disease term is used directly by https://clinicalgenome.org/ (a major authority on genetic diseases), which is a strong indication that it corresponds to a real disease entity.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
+        "https://clinicalgenome.org/"
+      ],
+      "is_a": "is_clingen",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_clingen",
+      "alias": "is_clingen",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_clingen",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_grouping_subset",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_grouping_subset",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_mondo",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease is manually curated to be a grouping term.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
+      ],
+      "is_a": "is_grouping_subset",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_grouping_subset",
+      "alias": "is_grouping_subset",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_grouping_subset",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_grouping_subset_ancestor",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_grouping_subset_ancestor",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "ontology_hierarchy",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease is a parent of a disease that was manually curated to be a grouping term.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
+      ],
+      "is_a": "is_grouping_subset_ancestor",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_grouping_subset_ancestor",
+      "alias": "is_grouping_subset_ancestor",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_grouping_subset_ancestor",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_orphanet_subtype",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_orphanet_subtype",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_mondo",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease is manually curated to be a disease subtype according to Orphanet (https://www.orpha.net/), one of the most important rare disease authorities in the world.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
+        "https://www.orpha.net/",
+        "https://www.orpha.net/pdfs/orphacom/cahiers/docs/GB/eproc_disease_inventory_R1_Nom_Dis_EP_04.pdf"
+      ],
+      "is_a": "is_orphanet_subtype",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_orphanet_subtype",
+      "alias": "is_orphanet_subtype",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_orphanet_subtype",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_orphanet_subtype_descendant",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_orphanet_subtype_descendant",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "ontology_hierarchy",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease is a child/descendant of a disease that is manually curated  to be a disease subtype according to Orphanet (https://www.orpha.net/), one of the most  important rare disease authorities in the world. If it is a descendant of a subtype, it most likely is a subtype itself.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "http://dev.everycure.org/schema/is_orphanet_subtype",
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
+      ],
+      "is_a": "is_orphanet_subtype_descendant",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_orphanet_subtype_descendant",
+      "alias": "is_orphanet_subtype_descendant",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_orphanet_subtype_descendant",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_omimps",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_omimps",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_mondo",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease is manually curated to be a phenotypic series according to OMIM (https://www.omim.org/),  one of the most important genetic disease authorities in the world.  A Phenotypic Series is a grouping of genetic heterogeneity of similar phenotypes across the genome.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
+        "https://www.omim.org/",
+        "https://www.omim.org/help/faq#1_14"
+      ],
+      "is_a": "is_omimps",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_omimps",
+      "alias": "is_omimps",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_omimps",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_omimps_descendant",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_omimps_descendant",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "ontology_hierarchy",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease is a child/descendant of a disease that is manually curated  to be a phenotypic series according to OMIM (https://www.omim.org/), one of the most  important genetic disease authorities in the world. If it is a descendant of a phenotypic series, it most likely is a proper genetic disease entity (or subtype).\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
+        "https://www.omim.org/",
+        "https://www.omim.org/help/faq#1_14",
+        "http://dev.everycure.org/schema/is_omimps"
+      ],
+      "is_a": "is_omimps_descendant",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_omimps_descendant",
+      "alias": "is_omimps_descendant",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_omimps_descendant",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_leaf",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_leaf",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "ontology_hierarchy",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease is a leaf node in the disease hierarchy.  A leaf node is a node that has no children in the hierarchy.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
+      ],
+      "is_a": "is_leaf",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_leaf",
+      "alias": "is_leaf",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_leaf",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_leaf_direct_parent",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_leaf_direct_parent",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "ontology_hierarchy",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease is a direct parent of a leaf node in the disease hierarchy.  A direct parent of a leaf rarely corresponds to a grouping, and often is a proper disease entity.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
+      ],
+      "is_a": "is_leaf_direct_parent",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_leaf_direct_parent",
+      "alias": "is_leaf_direct_parent",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_leaf_direct_parent",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_orphanet_disorder",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_orphanet_disorder",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_mondo",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease is manually curated to be a disease according to Orphanet (https://www.orpha.net/),  one of the most important rare disease authorities in the world.  A disorder according to Orphanet usually corresponds to a proper disease entity, not a grouping or a subtype.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://www.orpha.net/",
+        "https://www.orpha.net/pdfs/orphacom/cahiers/docs/GB/eproc_disease_inventory_R1_Nom_Dis_EP_04.pdf",
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
+      ],
+      "is_a": "is_orphanet_disorder",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_orphanet_disorder",
+      "alias": "is_orphanet_disorder",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_orphanet_disorder",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_omim",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_omim",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_mondo",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease is manually curated to be a disease according to OMIM (https://www.omim.org/),  one of the most important genetic disease authorities in the world.  A disease according to OMIM usually corresponds to a proper disease entity or a subtype, not a disease grouping.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
+        "https://www.omim.org/"
+      ],
+      "is_a": "is_omim",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_omim",
+      "alias": "is_omim",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_omim",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_icd_category",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_category",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_mondo",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease was corresponds to an ICD category. Category codes (or subcategory codes), for example A01.1 (Paratyphoid fever A),  can be recognised by containing a period (.) character and usually represent specific  diagnosable diseases.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
+        "https://en.wikipedia.org/wiki/ICD-10"
+      ],
+      "is_a": "is_icd_category",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_category",
+      "alias": "is_icd_category",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_icd_category",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_icd_chapter_code",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_chapter_code",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_mondo",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease was corresponds to an ICD chapter code. Chapter codes (or block codes), for example A00-B99 (Certain infectious and parasitic diseases).  These codes can be recognised by containing a dash (-) character, and usually represent broad categories of diseases.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
+        "https://en.wikipedia.org/wiki/ICD-10"
+      ],
+      "is_a": "is_icd_chapter_code",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_chapter_code",
+      "alias": "is_icd_chapter_code",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_icd_chapter_code",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_icd_chapter_header",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_chapter_header",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_mondo",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease was corresponds to an ICD chapter header. Chapter headers (or chapter titles), for example A00 (Cholera) can be identified by codes without dashes or periods and are usually the top-level categories within each chapter. Most of the time, these are not proper diseases, but groupings of diseases.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
+        "https://en.wikipedia.org/wiki/ICD-10"
+      ],
+      "is_a": "is_icd_chapter_header",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_chapter_header",
+      "alias": "is_icd_chapter_header",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_icd_chapter_header",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_icd_billable",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_billable",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "external_source",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease was corresponds to an ICD code that is billable. Billable codes are usually the most specific codes that can be used for billing purposes, and are most of the time diagnosable diseases.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
+        "https://www.cms.gov/files/document/valid-icd-10-list.xlsx"
+      ],
+      "is_a": "is_icd_billable",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_icd_billable",
+      "alias": "is_icd_billable",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_icd_billable",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_mondo_subtype",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_mondo_subtype",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_everycure",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease was identified to be a subtype through lexical matching. This method is maintained by the Every Cure medical team and the Disease List team.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/issues/46",
+        "https://github.com/everycure-org/matrix-disease-list/blob/febc3358a446cc36321ff44ae74064c49011fd5c/scripts/matrix-disease-list.py#L478C5-L478C51"
+      ],
+      "is_a": "is_mondo_subtype",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_mondo_subtype",
+      "alias": "is_mondo_subtype",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_mondo_subtype",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_pathway_defect",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_pathway_defect",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_everycure",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease corresponds to a pathway defect rather than a proper disease.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/issues/51",
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/src/excluded-diseases.robot.tsv"
+      ],
+      "is_a": "is_pathway_defect",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_pathway_defect",
+      "alias": "is_pathway_defect",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_pathway_defect",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_susceptibility",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_susceptibility",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "lexical_matching",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease corresponds to a susceptibility rather than a proper disease.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/issues/36",
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/inject-susceptibility-subset.ru"
+      ],
+      "is_a": "is_susceptibility",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_susceptibility",
+      "alias": "is_susceptibility",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_susceptibility",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_paraphilic",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_paraphilic",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_everycure",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease corresponds to a paraphilic disorder rather than a proper disease.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/issues/42",
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/src/excluded-diseases.robot.tsv"
+      ],
+      "is_a": "is_paraphilic",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_paraphilic",
+      "alias": "is_paraphilic",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_paraphilic",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_acquired",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_acquired",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "lexical_matching",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease corresponds to an acquired form of a disease.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
+        "https://github.com/everycure-org/matrix-disease-list/issues/53"
+      ],
+      "is_a": "is_acquired",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_acquired",
+      "alias": "is_acquired",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_acquired",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_andor",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_andor",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "lexical_matching",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease corresponds to a disease that is a combination of two or more diseases.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
+        "https://github.com/everycure-org/matrix-disease-list/issues/39"
+      ],
+      "is_a": "is_andor",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_andor",
+      "alias": "is_andor",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_andor",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_withorwithout",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_withorwithout",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "lexical_matching",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease corresponds to a disease that can be present with or without some other pathological condition.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql",
+        "https://github.com/everycure-org/matrix-disease-list/issues/40"
+      ],
+      "is_a": "is_withorwithout",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_withorwithout",
+      "alias": "is_withorwithout",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_withorwithout",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_obsoletion_candidate",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_obsoletion_candidate",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_mondo",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote that this disease is marked for obsoletion in the (near) future. This status does not guarantee that the disease will be obsoleted, but it is a strong indication.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "is_obsoletion_candidate",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_obsoletion_candidate",
+      "alias": "is_obsoletion_candidate",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_obsoletion_candidate",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_unclassified_hereditary",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_unclassified_hereditary",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "ontology_hierarchy",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote that this disease has no descendants (is a leaf) and  is classified broadly as an hereditary disease, but lacks any further classification.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://github.com/everycure-org/matrix-disease-list/blob/main/sparql/matrix-disease-list-filters.sparql"
+      ],
+      "is_a": "is_unclassified_hereditary",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_unclassified_hereditary",
+      "alias": "is_unclassified_hereditary",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_unclassified_hereditary",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_official_matrix_filter",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/official_matrix_filter",
+      "annotations": {
+        "annotations": {
+          "tag": "annotations",
+          "value": null,
+          "extensions": {},
+          "annotations": {}
+        },
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_everycure",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote this disease corresponds to a disease that can be treated with small molecules or biologics. This flag is maintained as a combination of default filters by the Matrix team. Changes to this filter should be discussed on the Matrix disease list issue tracker (https://github.com/everycure-org/matrix-disease-list/issues). **Warning**. This flag is in early alpha state, and its use in production systems is not recommended.\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "official_matrix_filter",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/official_matrix_filter",
+      "alias": "official_matrix_filter",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "official_matrix_filter",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_harrisons_view",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/harrisons_view",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "grouping",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_mondo",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Tag to denote this disease to be part of a grouping according to the Harrison's textbook. Top-level classes in Mondo are manually curated by the Mondo team to \"belong\" to a Harrison's textbook chapter. Disagreements should be reported on the Mondo issue tracker (https://github.com/monarch-initiative/mondo/issues).\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://accessmedicine.mhmedical.com/book.aspx?bookID=3095"
+      ],
+      "is_a": "harrisons_view",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/harrisons_view",
+      "alias": "harrisons_view",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "harrisons_view",
+      "range": "string",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_mondo_txgnn",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/mondo_txgnn",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "grouping",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_mondo",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Tag to denote this disease to be part of a grouping as defined by the txgnn paper. Disease classes in Mondo are manually curated by the Mondo team to \"belong\" to a txgnn category. Disagreements should be reported on the Mondo issue  tracker (https://github.com/monarch-initiative/mondo/issues).\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11645266/"
+      ],
+      "is_a": "mondo_txgnn",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/mondo_txgnn",
+      "alias": "mondo_txgnn",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "mondo_txgnn",
+      "range": "string",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_mondo_top_grouping",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/mondo_top_grouping",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "grouping",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "manual_mondo",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Tag to denote this disease to be a . Disease classes in Mondo are manually curated by the Mondo team to \"belong\" to a txgnn category. Disagreements should be reported on the Mondo issue  tracker (https://github.com/monarch-initiative/mondo/issues).\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "mondo_top_grouping",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/mondo_top_grouping",
+      "alias": "mondo_top_grouping",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "mondo_top_grouping",
+      "range": "string",
+      "required": true,
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_medical_specialization",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/medical_specialization",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "grouping",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "llm",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Tag this disease with a medical specialisation. Disease classes are automatically tagged by an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "medical_specialization",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/medical_specialization",
+      "alias": "medical_specialization",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "medical_specialization",
+      "range": "string",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_txgnn",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/txgnn",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "grouping",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "llm",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Tag this disease to be part of a grouping as defined by the txgnn paper. Disease classes in Mondo are automatically assigned to a txgnn category using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "see_also": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11645266/"
+      ],
+      "is_a": "txgnn",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/txgnn",
+      "alias": "txgnn",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "txgnn",
+      "range": "string",
+      "required": true,
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_anatomical",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/anatomical",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "grouping",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "llm",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Tag to denote this disease to be part of a grouping according to the anatomical location. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "anatomical",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/anatomical",
+      "alias": "anatomical",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "anatomical",
+      "range": "string",
+      "required": true,
+      "multivalued": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_pathogen_caused",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_pathogen_caused",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "llm",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote if this disease is caused by a pathogen. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "is_pathogen_caused",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_pathogen_caused",
+      "alias": "is_pathogen_caused",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_pathogen_caused",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_cancer",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_cancer",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "llm",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote if this disease corresponds to a cancer type. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "is_cancer",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_cancer",
+      "alias": "is_cancer",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_cancer",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_is_glucose_dysfunction",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/is_glucose_dysfunction",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "llm",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote if this disease corresponds to a glucose dysfunction. Disease classes are automatically flagged using an LLM. tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "is_glucose_dysfunction",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/is_glucose_dysfunction",
+      "alias": "is_glucose_dysfunction",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_glucose_dysfunction",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_tag_existing_treatment",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/tag_existing_treatment",
+      "annotations": {
+        "attribute_type": {
+          "tag": "attribute_type",
+          "value": "filter",
+          "extensions": {},
+          "annotations": {}
+        },
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "llm",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Flag to denote if this disease has some existing treatment. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "tag_existing_treatment",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/tag_existing_treatment",
+      "alias": "tag_existing_treatment",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "tag_existing_treatment",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_tag_qaly_lost",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/tag_qaly_lost",
+      "annotations": {
+        "curation_type": {
+          "tag": "curation_type",
+          "value": "llm",
+          "extensions": {},
+          "annotations": {}
+        }
+      },
+      "description": "Tag denoting the degree to which Quality-Adjusted Life Year (QALY) lost. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).\n",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "tag_qaly_lost",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/tag_qaly_lost",
+      "alias": "tag_qaly_lost",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "tag_qaly_lost",
+      "range": "string",
+      "required": true,
+      "pattern": "^(low|medium|high|very_high|none)$",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_subset_group_id",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subset_group_id",
+      "description": "The identifier of a disease representing the subtype series this disease belongs to.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "subset_group_id",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subset_group_id",
+      "alias": "subset_group_id",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "subset_group_id",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_subset_group_label",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subset_group_label",
+      "description": "The name (label) of a disease representing the subtype series this disease belongs to.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "subset_group_label",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/subset_group_label",
+      "alias": "subset_group_label",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "subset_group_label",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DiseaseListEntry_other_subsets_count",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/other_subsets_count",
+      "description": "The number of other subtypes in the subset this disease belongs to.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
+      "is_a": "other_subsets_count",
+      "domain": "DiseaseListEntry",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/other_subsets_count",
+      "alias": "other_subsets_count",
+      "owner": "DiseaseListEntry",
+      "domain_of": [
+        "DiseaseListEntry"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "other_subsets_count",
+      "range": "integer",
       "@type": "SlotDefinition"
     }
   ],
@@ -2130,27 +3667,27 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "MatrixEdgeCollection",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdgeCollection",
-      "description": "A holder for MatrixEdge objects.",
+      "name": "MatrixEdgeList",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdgeList",
+      "description": "A container for MatrixEdge objects.",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
       "slots": [
-        "MatrixEdgeCollection_edges"
+        "MatrixEdgeList_edges"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdgeCollection",
+      "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdgeList",
       "@type": "ClassDefinition"
     },
     {
-      "name": "MatrixNodeCollection",
-      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixNodeCollection",
-      "description": "A holder for MatrixNode objects.",
+      "name": "MatrixNodeList",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixNodeList",
+      "description": "A container for MatrixNode objects.",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
       "slots": [
-        "MatrixNodeCollection_nodes"
+        "MatrixNodeList_nodes"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixNodeCollection",
+      "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixNodeList",
       "@type": "ClassDefinition"
     },
     {
@@ -2160,53 +3697,53 @@
       "title": "Disease List Entry",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slots": [
-        "category_class",
-        "label",
-        "definition",
-        "synonyms",
-        "subsets",
-        "crossreferences",
-        "is_matrix_manually_excluded",
-        "is_matrix_manually_included",
-        "is_clingen",
-        "is_grouping_subset",
-        "is_grouping_subset_ancestor",
-        "is_orphanet_subtype",
-        "is_orphanet_subtype_descendant",
-        "is_omimps",
-        "is_omimps_descendant",
-        "is_leaf",
-        "is_leaf_direct_parent",
-        "is_orphanet_disorder",
-        "is_omim",
-        "is_icd_category",
-        "is_icd_chapter_code",
-        "is_icd_chapter_header",
-        "is_icd_billable",
-        "is_mondo_subtype",
-        "is_pathway_defect",
-        "is_susceptibility",
-        "is_paraphilic",
-        "is_acquired",
-        "is_andor",
-        "is_withorwithout",
-        "is_obsoletion_candidate",
-        "is_unclassified_hereditary",
-        "official_matrix_filter",
-        "harrisons_view",
-        "mondo_txgnn",
-        "mondo_top_grouping",
-        "medical_specialization",
-        "txgnn",
-        "anatomical",
-        "is_pathogen_caused",
-        "is_cancer",
-        "is_glucose_dysfunction",
-        "tag_existing_treatment",
-        "tag_qaly_lost",
-        "subset_group_id",
-        "subset_group_label",
-        "other_subsets_count"
+        "DiseaseListEntry_category_class",
+        "DiseaseListEntry_label",
+        "DiseaseListEntry_definition",
+        "DiseaseListEntry_synonyms",
+        "DiseaseListEntry_subsets",
+        "DiseaseListEntry_crossreferences",
+        "DiseaseListEntry_is_matrix_manually_excluded",
+        "DiseaseListEntry_is_matrix_manually_included",
+        "DiseaseListEntry_is_clingen",
+        "DiseaseListEntry_is_grouping_subset",
+        "DiseaseListEntry_is_grouping_subset_ancestor",
+        "DiseaseListEntry_is_orphanet_subtype",
+        "DiseaseListEntry_is_orphanet_subtype_descendant",
+        "DiseaseListEntry_is_omimps",
+        "DiseaseListEntry_is_omimps_descendant",
+        "DiseaseListEntry_is_leaf",
+        "DiseaseListEntry_is_leaf_direct_parent",
+        "DiseaseListEntry_is_orphanet_disorder",
+        "DiseaseListEntry_is_omim",
+        "DiseaseListEntry_is_icd_category",
+        "DiseaseListEntry_is_icd_chapter_code",
+        "DiseaseListEntry_is_icd_chapter_header",
+        "DiseaseListEntry_is_icd_billable",
+        "DiseaseListEntry_is_mondo_subtype",
+        "DiseaseListEntry_is_pathway_defect",
+        "DiseaseListEntry_is_susceptibility",
+        "DiseaseListEntry_is_paraphilic",
+        "DiseaseListEntry_is_acquired",
+        "DiseaseListEntry_is_andor",
+        "DiseaseListEntry_is_withorwithout",
+        "DiseaseListEntry_is_obsoletion_candidate",
+        "DiseaseListEntry_is_unclassified_hereditary",
+        "DiseaseListEntry_official_matrix_filter",
+        "DiseaseListEntry_harrisons_view",
+        "DiseaseListEntry_mondo_txgnn",
+        "DiseaseListEntry_mondo_top_grouping",
+        "DiseaseListEntry_medical_specialization",
+        "DiseaseListEntry_txgnn",
+        "DiseaseListEntry_anatomical",
+        "DiseaseListEntry_is_pathogen_caused",
+        "DiseaseListEntry_is_cancer",
+        "DiseaseListEntry_is_glucose_dysfunction",
+        "DiseaseListEntry_tag_existing_treatment",
+        "DiseaseListEntry_tag_qaly_lost",
+        "DiseaseListEntry_subset_group_id",
+        "DiseaseListEntry_subset_group_label",
+        "DiseaseListEntry_other_subsets_count"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/everycure-org/matrix-schema/DiseaseListEntry",
@@ -2218,18 +3755,9 @@
       "description": "A list of diseases.",
       "from_schema": "https://w3id.org/everycure-org/matrix-schema/disease-list",
       "slots": [
-        "matrixDiseaseList__diseases_list_entries"
+        "disease_list_entries"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "diseases_list_entries",
-          "range": "DiseaseListEntry",
-          "multivalued": true,
-          "inlined": true,
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixDiseaseList",
       "@type": "ClassDefinition"
     }
@@ -2238,7 +3766,7 @@
   "source_file": "matrix_schema.yaml",
   "source_file_date": "2025-03-13T23:52:05",
   "source_file_size": 508,
-  "generation_date": "2025-03-14T00:50:17",
+  "generation_date": "2025-03-14T12:01:21",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/matrix_schema.context.jsonld",

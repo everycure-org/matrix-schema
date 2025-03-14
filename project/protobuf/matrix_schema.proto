@@ -43,10 +43,10 @@ message DiseaseListEntry
  repeated  string medicalSpecialization = 0
  repeated  string txgnn = 0
  repeated  string anatomical = 0
- repeated  boolean isPathogenCaused = 0
- repeated  boolean isCancer = 0
- repeated  boolean isGlucoseDysfunction = 0
- repeated  boolean tagExistingTreatment = 0
+  boolean isPathogenCaused = 0
+  boolean isCancer = 0
+  boolean isGlucoseDysfunction = 0
+  boolean tagExistingTreatment = 0
   string tagQalyLost = 0
   string subsetGroupId = 0
   string subsetGroupLabel = 0
@@ -55,7 +55,7 @@ message DiseaseListEntry
 // A list of diseases.
 message MatrixDiseaseList
  {
- repeated  diseaseListEntry diseasesListEntries = 0
+ repeated  diseaseListEntry diseaseListEntries = 0
  }
 // An edge representing a relationship between two nodes in the Biolink knowledge graph.
 message MatrixEdge
@@ -73,8 +73,8 @@ message MatrixEdge
   string objectDirectionQualifier = 0
  repeated  string upstreamDataSource = 0
  }
-// A holder for MatrixEdge objects.
-message MatrixEdgeCollection
+// A container for MatrixEdge objects.
+message MatrixEdgeList
  {
  repeated  matrixEdge edges = 0
  }
@@ -92,8 +92,8 @@ message MatrixNode
   string internationalResourceIdentifier = 0
  repeated  string upstreamDataSource = 0
  }
-// A holder for MatrixNode objects.
-message MatrixNodeCollection
+// A container for MatrixNode objects.
+message MatrixNodeList
  {
  repeated  matrixNode nodes = 0
  }

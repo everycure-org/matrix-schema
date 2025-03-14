@@ -1,5 +1,5 @@
 # Auto generated from matrix_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-14T00:50:17
+# Generation date: 2025-03-14T12:01:22
 # Schema: matrix-schema
 #
 # id: https://w3id.org/everycure-org/matrix-schema
@@ -222,16 +222,16 @@ class MatrixEdge(YAMLRoot):
 
 
 @dataclass(repr=False)
-class MatrixEdgeCollection(YAMLRoot):
+class MatrixEdgeList(YAMLRoot):
     """
-    A holder for MatrixEdge objects.
+    A container for MatrixEdge objects.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MATRIX_SCHEMA["MatrixEdgeCollection"]
-    class_class_curie: ClassVar[str] = "matrix_schema:MatrixEdgeCollection"
-    class_name: ClassVar[str] = "MatrixEdgeCollection"
-    class_model_uri: ClassVar[URIRef] = MATRIX_SCHEMA.MatrixEdgeCollection
+    class_class_uri: ClassVar[URIRef] = MATRIX_SCHEMA["MatrixEdgeList"]
+    class_class_curie: ClassVar[str] = "matrix_schema:MatrixEdgeList"
+    class_name: ClassVar[str] = "MatrixEdgeList"
+    class_model_uri: ClassVar[URIRef] = MATRIX_SCHEMA.MatrixEdgeList
 
     edges: Optional[Union[Union[dict, MatrixEdge], List[Union[dict, MatrixEdge]]]] = empty_list()
 
@@ -242,16 +242,16 @@ class MatrixEdgeCollection(YAMLRoot):
 
 
 @dataclass(repr=False)
-class MatrixNodeCollection(YAMLRoot):
+class MatrixNodeList(YAMLRoot):
     """
-    A holder for MatrixNode objects.
+    A container for MatrixNode objects.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MATRIX_SCHEMA["MatrixNodeCollection"]
-    class_class_curie: ClassVar[str] = "matrix_schema:MatrixNodeCollection"
-    class_name: ClassVar[str] = "MatrixNodeCollection"
-    class_model_uri: ClassVar[URIRef] = MATRIX_SCHEMA.MatrixNodeCollection
+    class_class_uri: ClassVar[URIRef] = MATRIX_SCHEMA["MatrixNodeList"]
+    class_class_curie: ClassVar[str] = "matrix_schema:MatrixNodeList"
+    class_name: ClassVar[str] = "MatrixNodeList"
+    class_model_uri: ClassVar[URIRef] = MATRIX_SCHEMA.MatrixNodeList
 
     nodes: Optional[Union[Dict[Union[str, MatrixNodeId], Union[dict, MatrixNode]], List[Union[dict, MatrixNode]]]] = empty_dict()
 
@@ -273,201 +273,281 @@ class DiseaseListEntry(YAMLRoot):
     class_name: ClassVar[str] = "DiseaseListEntry"
     class_model_uri: ClassVar[URIRef] = MATRIX_SCHEMA.DiseaseListEntry
 
+    category_class: str = None
+    label: str = None
+    synonyms: Union[str, List[str]] = None
+    subsets: Union[str, List[str]] = None
+    crossreferences: Union[str, List[str]] = None
+    is_matrix_manually_excluded: Union[bool, Bool] = None
+    is_matrix_manually_included: Union[bool, Bool] = None
+    is_clingen: Union[bool, Bool] = None
+    is_grouping_subset: Union[bool, Bool] = None
+    is_grouping_subset_ancestor: Union[bool, Bool] = None
+    is_orphanet_subtype: Union[bool, Bool] = None
+    is_orphanet_subtype_descendant: Union[bool, Bool] = None
+    is_omimps: Union[bool, Bool] = None
+    is_omimps_descendant: Union[bool, Bool] = None
+    is_leaf: Union[bool, Bool] = None
+    is_leaf_direct_parent: Union[bool, Bool] = None
+    is_orphanet_disorder: Union[bool, Bool] = None
+    is_omim: Union[bool, Bool] = None
+    is_icd_category: Union[bool, Bool] = None
+    is_icd_chapter_code: Union[bool, Bool] = None
+    is_icd_chapter_header: Union[bool, Bool] = None
+    is_icd_billable: Union[bool, Bool] = None
+    is_mondo_subtype: Union[bool, Bool] = None
+    is_pathway_defect: Union[bool, Bool] = None
+    is_susceptibility: Union[bool, Bool] = None
+    is_paraphilic: Union[bool, Bool] = None
+    is_acquired: Union[bool, Bool] = None
+    is_andor: Union[bool, Bool] = None
+    is_withorwithout: Union[bool, Bool] = None
+    is_obsoletion_candidate: Union[bool, Bool] = None
+    is_unclassified_hereditary: Union[bool, Bool] = None
+    official_matrix_filter: Union[bool, Bool] = None
+    harrisons_view: Union[str, List[str]] = None
+    mondo_txgnn: Union[str, List[str]] = None
+    mondo_top_grouping: Union[str, List[str]] = None
+    medical_specialization: Union[str, List[str]] = None
+    txgnn: Union[str, List[str]] = None
+    anatomical: Union[str, List[str]] = None
+    is_pathogen_caused: Union[bool, Bool] = None
+    is_cancer: Union[bool, Bool] = None
+    is_glucose_dysfunction: Union[bool, Bool] = None
+    tag_existing_treatment: Union[bool, Bool] = None
     tag_qaly_lost: str = None
-    category_class: Optional[str] = None
-    label: Optional[str] = None
     definition: Optional[str] = None
-    synonyms: Optional[Union[str, List[str]]] = empty_list()
-    subsets: Optional[Union[str, List[str]]] = empty_list()
-    crossreferences: Optional[Union[str, List[str]]] = empty_list()
-    is_matrix_manually_excluded: Optional[Union[bool, Bool]] = None
-    is_matrix_manually_included: Optional[Union[bool, Bool]] = None
-    is_clingen: Optional[Union[bool, Bool]] = None
-    is_grouping_subset: Optional[Union[bool, Bool]] = None
-    is_grouping_subset_ancestor: Optional[Union[bool, Bool]] = None
-    is_orphanet_subtype: Optional[Union[bool, Bool]] = None
-    is_orphanet_subtype_descendant: Optional[Union[bool, Bool]] = None
-    is_omimps: Optional[Union[bool, Bool]] = None
-    is_omimps_descendant: Optional[Union[bool, Bool]] = None
-    is_leaf: Optional[Union[bool, Bool]] = None
-    is_leaf_direct_parent: Optional[Union[bool, Bool]] = None
-    is_orphanet_disorder: Optional[Union[bool, Bool]] = None
-    is_omim: Optional[Union[bool, Bool]] = None
-    is_icd_category: Optional[Union[bool, Bool]] = None
-    is_icd_chapter_code: Optional[Union[bool, Bool]] = None
-    is_icd_chapter_header: Optional[Union[bool, Bool]] = None
-    is_icd_billable: Optional[Union[bool, Bool]] = None
-    is_mondo_subtype: Optional[Union[bool, Bool]] = None
-    is_pathway_defect: Optional[Union[bool, Bool]] = None
-    is_susceptibility: Optional[Union[bool, Bool]] = None
-    is_paraphilic: Optional[Union[bool, Bool]] = None
-    is_acquired: Optional[Union[bool, Bool]] = None
-    is_andor: Optional[Union[bool, Bool]] = None
-    is_withorwithout: Optional[Union[bool, Bool]] = None
-    is_obsoletion_candidate: Optional[Union[bool, Bool]] = None
-    is_unclassified_hereditary: Optional[Union[bool, Bool]] = None
-    official_matrix_filter: Optional[Union[bool, Bool]] = None
-    harrisons_view: Optional[Union[str, List[str]]] = empty_list()
-    mondo_txgnn: Optional[Union[str, List[str]]] = empty_list()
-    mondo_top_grouping: Optional[Union[str, List[str]]] = empty_list()
-    medical_specialization: Optional[Union[str, List[str]]] = empty_list()
-    txgnn: Optional[Union[str, List[str]]] = empty_list()
-    anatomical: Optional[Union[str, List[str]]] = empty_list()
-    is_pathogen_caused: Optional[Union[Union[bool, Bool], List[Union[bool, Bool]]]] = empty_list()
-    is_cancer: Optional[Union[Union[bool, Bool], List[Union[bool, Bool]]]] = empty_list()
-    is_glucose_dysfunction: Optional[Union[Union[bool, Bool], List[Union[bool, Bool]]]] = empty_list()
-    tag_existing_treatment: Optional[Union[Union[bool, Bool], List[Union[bool, Bool]]]] = empty_list()
     subset_group_id: Optional[str] = None
     subset_group_label: Optional[str] = None
     other_subsets_count: Optional[int] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.category_class):
+            self.MissingRequiredField("category_class")
+        if not isinstance(self.category_class, str):
+            self.category_class = str(self.category_class)
+
+        if self._is_empty(self.label):
+            self.MissingRequiredField("label")
+        if not isinstance(self.label, str):
+            self.label = str(self.label)
+
+        if self._is_empty(self.synonyms):
+            self.MissingRequiredField("synonyms")
+        if not isinstance(self.synonyms, list):
+            self.synonyms = [self.synonyms] if self.synonyms is not None else []
+        self.synonyms = [v if isinstance(v, str) else str(v) for v in self.synonyms]
+
+        if self._is_empty(self.subsets):
+            self.MissingRequiredField("subsets")
+        if not isinstance(self.subsets, list):
+            self.subsets = [self.subsets] if self.subsets is not None else []
+        self.subsets = [v if isinstance(v, str) else str(v) for v in self.subsets]
+
+        if self._is_empty(self.crossreferences):
+            self.MissingRequiredField("crossreferences")
+        if not isinstance(self.crossreferences, list):
+            self.crossreferences = [self.crossreferences] if self.crossreferences is not None else []
+        self.crossreferences = [v if isinstance(v, str) else str(v) for v in self.crossreferences]
+
+        if self._is_empty(self.is_matrix_manually_excluded):
+            self.MissingRequiredField("is_matrix_manually_excluded")
+        if not isinstance(self.is_matrix_manually_excluded, Bool):
+            self.is_matrix_manually_excluded = Bool(self.is_matrix_manually_excluded)
+
+        if self._is_empty(self.is_matrix_manually_included):
+            self.MissingRequiredField("is_matrix_manually_included")
+        if not isinstance(self.is_matrix_manually_included, Bool):
+            self.is_matrix_manually_included = Bool(self.is_matrix_manually_included)
+
+        if self._is_empty(self.is_clingen):
+            self.MissingRequiredField("is_clingen")
+        if not isinstance(self.is_clingen, Bool):
+            self.is_clingen = Bool(self.is_clingen)
+
+        if self._is_empty(self.is_grouping_subset):
+            self.MissingRequiredField("is_grouping_subset")
+        if not isinstance(self.is_grouping_subset, Bool):
+            self.is_grouping_subset = Bool(self.is_grouping_subset)
+
+        if self._is_empty(self.is_grouping_subset_ancestor):
+            self.MissingRequiredField("is_grouping_subset_ancestor")
+        if not isinstance(self.is_grouping_subset_ancestor, Bool):
+            self.is_grouping_subset_ancestor = Bool(self.is_grouping_subset_ancestor)
+
+        if self._is_empty(self.is_orphanet_subtype):
+            self.MissingRequiredField("is_orphanet_subtype")
+        if not isinstance(self.is_orphanet_subtype, Bool):
+            self.is_orphanet_subtype = Bool(self.is_orphanet_subtype)
+
+        if self._is_empty(self.is_orphanet_subtype_descendant):
+            self.MissingRequiredField("is_orphanet_subtype_descendant")
+        if not isinstance(self.is_orphanet_subtype_descendant, Bool):
+            self.is_orphanet_subtype_descendant = Bool(self.is_orphanet_subtype_descendant)
+
+        if self._is_empty(self.is_omimps):
+            self.MissingRequiredField("is_omimps")
+        if not isinstance(self.is_omimps, Bool):
+            self.is_omimps = Bool(self.is_omimps)
+
+        if self._is_empty(self.is_omimps_descendant):
+            self.MissingRequiredField("is_omimps_descendant")
+        if not isinstance(self.is_omimps_descendant, Bool):
+            self.is_omimps_descendant = Bool(self.is_omimps_descendant)
+
+        if self._is_empty(self.is_leaf):
+            self.MissingRequiredField("is_leaf")
+        if not isinstance(self.is_leaf, Bool):
+            self.is_leaf = Bool(self.is_leaf)
+
+        if self._is_empty(self.is_leaf_direct_parent):
+            self.MissingRequiredField("is_leaf_direct_parent")
+        if not isinstance(self.is_leaf_direct_parent, Bool):
+            self.is_leaf_direct_parent = Bool(self.is_leaf_direct_parent)
+
+        if self._is_empty(self.is_orphanet_disorder):
+            self.MissingRequiredField("is_orphanet_disorder")
+        if not isinstance(self.is_orphanet_disorder, Bool):
+            self.is_orphanet_disorder = Bool(self.is_orphanet_disorder)
+
+        if self._is_empty(self.is_omim):
+            self.MissingRequiredField("is_omim")
+        if not isinstance(self.is_omim, Bool):
+            self.is_omim = Bool(self.is_omim)
+
+        if self._is_empty(self.is_icd_category):
+            self.MissingRequiredField("is_icd_category")
+        if not isinstance(self.is_icd_category, Bool):
+            self.is_icd_category = Bool(self.is_icd_category)
+
+        if self._is_empty(self.is_icd_chapter_code):
+            self.MissingRequiredField("is_icd_chapter_code")
+        if not isinstance(self.is_icd_chapter_code, Bool):
+            self.is_icd_chapter_code = Bool(self.is_icd_chapter_code)
+
+        if self._is_empty(self.is_icd_chapter_header):
+            self.MissingRequiredField("is_icd_chapter_header")
+        if not isinstance(self.is_icd_chapter_header, Bool):
+            self.is_icd_chapter_header = Bool(self.is_icd_chapter_header)
+
+        if self._is_empty(self.is_icd_billable):
+            self.MissingRequiredField("is_icd_billable")
+        if not isinstance(self.is_icd_billable, Bool):
+            self.is_icd_billable = Bool(self.is_icd_billable)
+
+        if self._is_empty(self.is_mondo_subtype):
+            self.MissingRequiredField("is_mondo_subtype")
+        if not isinstance(self.is_mondo_subtype, Bool):
+            self.is_mondo_subtype = Bool(self.is_mondo_subtype)
+
+        if self._is_empty(self.is_pathway_defect):
+            self.MissingRequiredField("is_pathway_defect")
+        if not isinstance(self.is_pathway_defect, Bool):
+            self.is_pathway_defect = Bool(self.is_pathway_defect)
+
+        if self._is_empty(self.is_susceptibility):
+            self.MissingRequiredField("is_susceptibility")
+        if not isinstance(self.is_susceptibility, Bool):
+            self.is_susceptibility = Bool(self.is_susceptibility)
+
+        if self._is_empty(self.is_paraphilic):
+            self.MissingRequiredField("is_paraphilic")
+        if not isinstance(self.is_paraphilic, Bool):
+            self.is_paraphilic = Bool(self.is_paraphilic)
+
+        if self._is_empty(self.is_acquired):
+            self.MissingRequiredField("is_acquired")
+        if not isinstance(self.is_acquired, Bool):
+            self.is_acquired = Bool(self.is_acquired)
+
+        if self._is_empty(self.is_andor):
+            self.MissingRequiredField("is_andor")
+        if not isinstance(self.is_andor, Bool):
+            self.is_andor = Bool(self.is_andor)
+
+        if self._is_empty(self.is_withorwithout):
+            self.MissingRequiredField("is_withorwithout")
+        if not isinstance(self.is_withorwithout, Bool):
+            self.is_withorwithout = Bool(self.is_withorwithout)
+
+        if self._is_empty(self.is_obsoletion_candidate):
+            self.MissingRequiredField("is_obsoletion_candidate")
+        if not isinstance(self.is_obsoletion_candidate, Bool):
+            self.is_obsoletion_candidate = Bool(self.is_obsoletion_candidate)
+
+        if self._is_empty(self.is_unclassified_hereditary):
+            self.MissingRequiredField("is_unclassified_hereditary")
+        if not isinstance(self.is_unclassified_hereditary, Bool):
+            self.is_unclassified_hereditary = Bool(self.is_unclassified_hereditary)
+
+        if self._is_empty(self.official_matrix_filter):
+            self.MissingRequiredField("official_matrix_filter")
+        if not isinstance(self.official_matrix_filter, Bool):
+            self.official_matrix_filter = Bool(self.official_matrix_filter)
+
+        if self._is_empty(self.harrisons_view):
+            self.MissingRequiredField("harrisons_view")
+        if not isinstance(self.harrisons_view, list):
+            self.harrisons_view = [self.harrisons_view] if self.harrisons_view is not None else []
+        self.harrisons_view = [v if isinstance(v, str) else str(v) for v in self.harrisons_view]
+
+        if self._is_empty(self.mondo_txgnn):
+            self.MissingRequiredField("mondo_txgnn")
+        if not isinstance(self.mondo_txgnn, list):
+            self.mondo_txgnn = [self.mondo_txgnn] if self.mondo_txgnn is not None else []
+        self.mondo_txgnn = [v if isinstance(v, str) else str(v) for v in self.mondo_txgnn]
+
+        if self._is_empty(self.mondo_top_grouping):
+            self.MissingRequiredField("mondo_top_grouping")
+        if not isinstance(self.mondo_top_grouping, list):
+            self.mondo_top_grouping = [self.mondo_top_grouping] if self.mondo_top_grouping is not None else []
+        self.mondo_top_grouping = [v if isinstance(v, str) else str(v) for v in self.mondo_top_grouping]
+
+        if self._is_empty(self.medical_specialization):
+            self.MissingRequiredField("medical_specialization")
+        if not isinstance(self.medical_specialization, list):
+            self.medical_specialization = [self.medical_specialization] if self.medical_specialization is not None else []
+        self.medical_specialization = [v if isinstance(v, str) else str(v) for v in self.medical_specialization]
+
+        if self._is_empty(self.txgnn):
+            self.MissingRequiredField("txgnn")
+        if not isinstance(self.txgnn, list):
+            self.txgnn = [self.txgnn] if self.txgnn is not None else []
+        self.txgnn = [v if isinstance(v, str) else str(v) for v in self.txgnn]
+
+        if self._is_empty(self.anatomical):
+            self.MissingRequiredField("anatomical")
+        if not isinstance(self.anatomical, list):
+            self.anatomical = [self.anatomical] if self.anatomical is not None else []
+        self.anatomical = [v if isinstance(v, str) else str(v) for v in self.anatomical]
+
+        if self._is_empty(self.is_pathogen_caused):
+            self.MissingRequiredField("is_pathogen_caused")
+        if not isinstance(self.is_pathogen_caused, Bool):
+            self.is_pathogen_caused = Bool(self.is_pathogen_caused)
+
+        if self._is_empty(self.is_cancer):
+            self.MissingRequiredField("is_cancer")
+        if not isinstance(self.is_cancer, Bool):
+            self.is_cancer = Bool(self.is_cancer)
+
+        if self._is_empty(self.is_glucose_dysfunction):
+            self.MissingRequiredField("is_glucose_dysfunction")
+        if not isinstance(self.is_glucose_dysfunction, Bool):
+            self.is_glucose_dysfunction = Bool(self.is_glucose_dysfunction)
+
+        if self._is_empty(self.tag_existing_treatment):
+            self.MissingRequiredField("tag_existing_treatment")
+        if not isinstance(self.tag_existing_treatment, Bool):
+            self.tag_existing_treatment = Bool(self.tag_existing_treatment)
+
         if self._is_empty(self.tag_qaly_lost):
             self.MissingRequiredField("tag_qaly_lost")
         if not isinstance(self.tag_qaly_lost, str):
             self.tag_qaly_lost = str(self.tag_qaly_lost)
 
-        if self.category_class is not None and not isinstance(self.category_class, str):
-            self.category_class = str(self.category_class)
-
-        if self.label is not None and not isinstance(self.label, str):
-            self.label = str(self.label)
-
         if self.definition is not None and not isinstance(self.definition, str):
             self.definition = str(self.definition)
-
-        if not isinstance(self.synonyms, list):
-            self.synonyms = [self.synonyms] if self.synonyms is not None else []
-        self.synonyms = [v if isinstance(v, str) else str(v) for v in self.synonyms]
-
-        if not isinstance(self.subsets, list):
-            self.subsets = [self.subsets] if self.subsets is not None else []
-        self.subsets = [v if isinstance(v, str) else str(v) for v in self.subsets]
-
-        if not isinstance(self.crossreferences, list):
-            self.crossreferences = [self.crossreferences] if self.crossreferences is not None else []
-        self.crossreferences = [v if isinstance(v, str) else str(v) for v in self.crossreferences]
-
-        if self.is_matrix_manually_excluded is not None and not isinstance(self.is_matrix_manually_excluded, Bool):
-            self.is_matrix_manually_excluded = Bool(self.is_matrix_manually_excluded)
-
-        if self.is_matrix_manually_included is not None and not isinstance(self.is_matrix_manually_included, Bool):
-            self.is_matrix_manually_included = Bool(self.is_matrix_manually_included)
-
-        if self.is_clingen is not None and not isinstance(self.is_clingen, Bool):
-            self.is_clingen = Bool(self.is_clingen)
-
-        if self.is_grouping_subset is not None and not isinstance(self.is_grouping_subset, Bool):
-            self.is_grouping_subset = Bool(self.is_grouping_subset)
-
-        if self.is_grouping_subset_ancestor is not None and not isinstance(self.is_grouping_subset_ancestor, Bool):
-            self.is_grouping_subset_ancestor = Bool(self.is_grouping_subset_ancestor)
-
-        if self.is_orphanet_subtype is not None and not isinstance(self.is_orphanet_subtype, Bool):
-            self.is_orphanet_subtype = Bool(self.is_orphanet_subtype)
-
-        if self.is_orphanet_subtype_descendant is not None and not isinstance(self.is_orphanet_subtype_descendant, Bool):
-            self.is_orphanet_subtype_descendant = Bool(self.is_orphanet_subtype_descendant)
-
-        if self.is_omimps is not None and not isinstance(self.is_omimps, Bool):
-            self.is_omimps = Bool(self.is_omimps)
-
-        if self.is_omimps_descendant is not None and not isinstance(self.is_omimps_descendant, Bool):
-            self.is_omimps_descendant = Bool(self.is_omimps_descendant)
-
-        if self.is_leaf is not None and not isinstance(self.is_leaf, Bool):
-            self.is_leaf = Bool(self.is_leaf)
-
-        if self.is_leaf_direct_parent is not None and not isinstance(self.is_leaf_direct_parent, Bool):
-            self.is_leaf_direct_parent = Bool(self.is_leaf_direct_parent)
-
-        if self.is_orphanet_disorder is not None and not isinstance(self.is_orphanet_disorder, Bool):
-            self.is_orphanet_disorder = Bool(self.is_orphanet_disorder)
-
-        if self.is_omim is not None and not isinstance(self.is_omim, Bool):
-            self.is_omim = Bool(self.is_omim)
-
-        if self.is_icd_category is not None and not isinstance(self.is_icd_category, Bool):
-            self.is_icd_category = Bool(self.is_icd_category)
-
-        if self.is_icd_chapter_code is not None and not isinstance(self.is_icd_chapter_code, Bool):
-            self.is_icd_chapter_code = Bool(self.is_icd_chapter_code)
-
-        if self.is_icd_chapter_header is not None and not isinstance(self.is_icd_chapter_header, Bool):
-            self.is_icd_chapter_header = Bool(self.is_icd_chapter_header)
-
-        if self.is_icd_billable is not None and not isinstance(self.is_icd_billable, Bool):
-            self.is_icd_billable = Bool(self.is_icd_billable)
-
-        if self.is_mondo_subtype is not None and not isinstance(self.is_mondo_subtype, Bool):
-            self.is_mondo_subtype = Bool(self.is_mondo_subtype)
-
-        if self.is_pathway_defect is not None and not isinstance(self.is_pathway_defect, Bool):
-            self.is_pathway_defect = Bool(self.is_pathway_defect)
-
-        if self.is_susceptibility is not None and not isinstance(self.is_susceptibility, Bool):
-            self.is_susceptibility = Bool(self.is_susceptibility)
-
-        if self.is_paraphilic is not None and not isinstance(self.is_paraphilic, Bool):
-            self.is_paraphilic = Bool(self.is_paraphilic)
-
-        if self.is_acquired is not None and not isinstance(self.is_acquired, Bool):
-            self.is_acquired = Bool(self.is_acquired)
-
-        if self.is_andor is not None and not isinstance(self.is_andor, Bool):
-            self.is_andor = Bool(self.is_andor)
-
-        if self.is_withorwithout is not None and not isinstance(self.is_withorwithout, Bool):
-            self.is_withorwithout = Bool(self.is_withorwithout)
-
-        if self.is_obsoletion_candidate is not None and not isinstance(self.is_obsoletion_candidate, Bool):
-            self.is_obsoletion_candidate = Bool(self.is_obsoletion_candidate)
-
-        if self.is_unclassified_hereditary is not None and not isinstance(self.is_unclassified_hereditary, Bool):
-            self.is_unclassified_hereditary = Bool(self.is_unclassified_hereditary)
-
-        if self.official_matrix_filter is not None and not isinstance(self.official_matrix_filter, Bool):
-            self.official_matrix_filter = Bool(self.official_matrix_filter)
-
-        if not isinstance(self.harrisons_view, list):
-            self.harrisons_view = [self.harrisons_view] if self.harrisons_view is not None else []
-        self.harrisons_view = [v if isinstance(v, str) else str(v) for v in self.harrisons_view]
-
-        if not isinstance(self.mondo_txgnn, list):
-            self.mondo_txgnn = [self.mondo_txgnn] if self.mondo_txgnn is not None else []
-        self.mondo_txgnn = [v if isinstance(v, str) else str(v) for v in self.mondo_txgnn]
-
-        if not isinstance(self.mondo_top_grouping, list):
-            self.mondo_top_grouping = [self.mondo_top_grouping] if self.mondo_top_grouping is not None else []
-        self.mondo_top_grouping = [v if isinstance(v, str) else str(v) for v in self.mondo_top_grouping]
-
-        if not isinstance(self.medical_specialization, list):
-            self.medical_specialization = [self.medical_specialization] if self.medical_specialization is not None else []
-        self.medical_specialization = [v if isinstance(v, str) else str(v) for v in self.medical_specialization]
-
-        if not isinstance(self.txgnn, list):
-            self.txgnn = [self.txgnn] if self.txgnn is not None else []
-        self.txgnn = [v if isinstance(v, str) else str(v) for v in self.txgnn]
-
-        if not isinstance(self.anatomical, list):
-            self.anatomical = [self.anatomical] if self.anatomical is not None else []
-        self.anatomical = [v if isinstance(v, str) else str(v) for v in self.anatomical]
-
-        if not isinstance(self.is_pathogen_caused, list):
-            self.is_pathogen_caused = [self.is_pathogen_caused] if self.is_pathogen_caused is not None else []
-        self.is_pathogen_caused = [v if isinstance(v, Bool) else Bool(v) for v in self.is_pathogen_caused]
-
-        if not isinstance(self.is_cancer, list):
-            self.is_cancer = [self.is_cancer] if self.is_cancer is not None else []
-        self.is_cancer = [v if isinstance(v, Bool) else Bool(v) for v in self.is_cancer]
-
-        if not isinstance(self.is_glucose_dysfunction, list):
-            self.is_glucose_dysfunction = [self.is_glucose_dysfunction] if self.is_glucose_dysfunction is not None else []
-        self.is_glucose_dysfunction = [v if isinstance(v, Bool) else Bool(v) for v in self.is_glucose_dysfunction]
-
-        if not isinstance(self.tag_existing_treatment, list):
-            self.tag_existing_treatment = [self.tag_existing_treatment] if self.tag_existing_treatment is not None else []
-        self.tag_existing_treatment = [v if isinstance(v, Bool) else Bool(v) for v in self.tag_existing_treatment]
 
         if self.subset_group_id is not None and not isinstance(self.subset_group_id, str):
             self.subset_group_id = str(self.subset_group_id)
@@ -493,10 +573,10 @@ class MatrixDiseaseList(YAMLRoot):
     class_name: ClassVar[str] = "MatrixDiseaseList"
     class_model_uri: ClassVar[URIRef] = MATRIX_SCHEMA.MatrixDiseaseList
 
-    diseases_list_entries: Optional[Union[Union[dict, DiseaseListEntry], List[Union[dict, DiseaseListEntry]]]] = empty_list()
+    disease_list_entries: Optional[Union[Union[dict, DiseaseListEntry], List[Union[dict, DiseaseListEntry]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="diseases_list_entries", slot_type=DiseaseListEntry, key_name="tag_qaly_lost", keyed=False)
+        self._normalize_inlined_as_dict(slot_name="disease_list_entries", slot_type=DiseaseListEntry, key_name="category_class", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -643,8 +723,8 @@ slots.edges = Slot(uri=MATRIX_SCHEMA.edges, name="edges", curie=MATRIX_SCHEMA.cu
 slots.nodes = Slot(uri=MATRIX_SCHEMA.nodes, name="nodes", curie=MATRIX_SCHEMA.curie('nodes'),
                    model_uri=MATRIX_SCHEMA.nodes, domain=None, range=Optional[Union[str, List[str]]])
 
-slots.diseases_list_entries = Slot(uri=MATRIX_SCHEMA.diseases_list_entries, name="diseases_list_entries", curie=MATRIX_SCHEMA.curie('diseases_list_entries'),
-                   model_uri=MATRIX_SCHEMA.diseases_list_entries, domain=None, range=Optional[Union[str, List[str]]])
+slots.disease_list_entries = Slot(uri=MATRIX_SCHEMA.disease_list_entries, name="disease_list_entries", curie=MATRIX_SCHEMA.curie('disease_list_entries'),
+                   model_uri=MATRIX_SCHEMA.disease_list_entries, domain=None, range=Optional[Union[Union[dict, DiseaseListEntry], List[Union[dict, DiseaseListEntry]]]])
 
 slots.attribute_type = Slot(uri=MATRIX_SCHEMA.attribute_type, name="attribute_type", curie=MATRIX_SCHEMA.curie('attribute_type'),
                    model_uri=MATRIX_SCHEMA.attribute_type, domain=None, range=Optional[Union[str, "AttributeTypeEnum"]])
@@ -734,16 +814,16 @@ slots.official_matrix_filter = Slot(uri=MATRIX_SCHEMA.official_matrix_filter, na
                    model_uri=MATRIX_SCHEMA.official_matrix_filter, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.is_pathogen_caused = Slot(uri=MATRIX_SCHEMA.is_pathogen_caused, name="is_pathogen_caused", curie=MATRIX_SCHEMA.curie('is_pathogen_caused'),
-                   model_uri=MATRIX_SCHEMA.is_pathogen_caused, domain=None, range=Optional[Union[Union[bool, Bool], List[Union[bool, Bool]]]])
+                   model_uri=MATRIX_SCHEMA.is_pathogen_caused, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.is_cancer = Slot(uri=MATRIX_SCHEMA.is_cancer, name="is_cancer", curie=MATRIX_SCHEMA.curie('is_cancer'),
-                   model_uri=MATRIX_SCHEMA.is_cancer, domain=None, range=Optional[Union[Union[bool, Bool], List[Union[bool, Bool]]]])
+                   model_uri=MATRIX_SCHEMA.is_cancer, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.is_glucose_dysfunction = Slot(uri=MATRIX_SCHEMA.is_glucose_dysfunction, name="is_glucose_dysfunction", curie=MATRIX_SCHEMA.curie('is_glucose_dysfunction'),
-                   model_uri=MATRIX_SCHEMA.is_glucose_dysfunction, domain=None, range=Optional[Union[Union[bool, Bool], List[Union[bool, Bool]]]])
+                   model_uri=MATRIX_SCHEMA.is_glucose_dysfunction, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.tag_existing_treatment = Slot(uri=MATRIX_SCHEMA.tag_existing_treatment, name="tag_existing_treatment", curie=MATRIX_SCHEMA.curie('tag_existing_treatment'),
-                   model_uri=MATRIX_SCHEMA.tag_existing_treatment, domain=None, range=Optional[Union[Union[bool, Bool], List[Union[bool, Bool]]]])
+                   model_uri=MATRIX_SCHEMA.tag_existing_treatment, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.harrisons_view = Slot(uri=MATRIX_SCHEMA.harrisons_view, name="harrisons_view", curie=MATRIX_SCHEMA.curie('harrisons_view'),
                    model_uri=MATRIX_SCHEMA.harrisons_view, domain=None, range=Optional[Union[str, List[str]]])
@@ -767,9 +847,6 @@ slots.tag_qaly_lost = Slot(uri=MATRIX_SCHEMA.tag_qaly_lost, name="tag_qaly_lost"
                    model_uri=MATRIX_SCHEMA.tag_qaly_lost, domain=None, range=str,
                    pattern=re.compile(r'^(low|medium|high|very_high|none)$'))
 
-slots.matrixDiseaseList__diseases_list_entries = Slot(uri=MATRIX_SCHEMA.diseases_list_entries, name="matrixDiseaseList__diseases_list_entries", curie=MATRIX_SCHEMA.curie('diseases_list_entries'),
-                   model_uri=MATRIX_SCHEMA.matrixDiseaseList__diseases_list_entries, domain=None, range=Optional[Union[Union[dict, DiseaseListEntry], List[Union[dict, DiseaseListEntry]]]])
-
 slots.MatrixNode_category = Slot(uri=MATRIX_SCHEMA.category, name="MatrixNode_category", curie=MATRIX_SCHEMA.curie('category'),
                    model_uri=MATRIX_SCHEMA.MatrixNode_category, domain=MatrixNode, range=str)
 
@@ -785,8 +862,150 @@ slots.MatrixEdge_predicate = Slot(uri=MATRIX_SCHEMA.predicate, name="MatrixEdge_
 slots.MatrixEdge_object = Slot(uri=MATRIX_SCHEMA.object, name="MatrixEdge_object", curie=MATRIX_SCHEMA.curie('object'),
                    model_uri=MATRIX_SCHEMA.MatrixEdge_object, domain=MatrixEdge, range=str)
 
-slots.MatrixEdgeCollection_edges = Slot(uri=MATRIX_SCHEMA.edges, name="MatrixEdgeCollection_edges", curie=MATRIX_SCHEMA.curie('edges'),
-                   model_uri=MATRIX_SCHEMA.MatrixEdgeCollection_edges, domain=MatrixEdgeCollection, range=Optional[Union[Union[dict, MatrixEdge], List[Union[dict, MatrixEdge]]]])
+slots.MatrixEdgeList_edges = Slot(uri=MATRIX_SCHEMA.edges, name="MatrixEdgeList_edges", curie=MATRIX_SCHEMA.curie('edges'),
+                   model_uri=MATRIX_SCHEMA.MatrixEdgeList_edges, domain=MatrixEdgeList, range=Optional[Union[Union[dict, MatrixEdge], List[Union[dict, MatrixEdge]]]])
 
-slots.MatrixNodeCollection_nodes = Slot(uri=MATRIX_SCHEMA.nodes, name="MatrixNodeCollection_nodes", curie=MATRIX_SCHEMA.curie('nodes'),
-                   model_uri=MATRIX_SCHEMA.MatrixNodeCollection_nodes, domain=MatrixNodeCollection, range=Optional[Union[Dict[Union[str, MatrixNodeId], Union[dict, MatrixNode]], List[Union[dict, MatrixNode]]]])
+slots.MatrixNodeList_nodes = Slot(uri=MATRIX_SCHEMA.nodes, name="MatrixNodeList_nodes", curie=MATRIX_SCHEMA.curie('nodes'),
+                   model_uri=MATRIX_SCHEMA.MatrixNodeList_nodes, domain=MatrixNodeList, range=Optional[Union[Dict[Union[str, MatrixNodeId], Union[dict, MatrixNode]], List[Union[dict, MatrixNode]]]])
+
+slots.DiseaseListEntry_category_class = Slot(uri=MATRIX_SCHEMA.category_class, name="DiseaseListEntry_category_class", curie=MATRIX_SCHEMA.curie('category_class'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_category_class, domain=DiseaseListEntry, range=str)
+
+slots.DiseaseListEntry_label = Slot(uri=MATRIX_SCHEMA.label, name="DiseaseListEntry_label", curie=MATRIX_SCHEMA.curie('label'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_label, domain=DiseaseListEntry, range=str)
+
+slots.DiseaseListEntry_definition = Slot(uri=MATRIX_SCHEMA.definition, name="DiseaseListEntry_definition", curie=MATRIX_SCHEMA.curie('definition'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_definition, domain=DiseaseListEntry, range=Optional[str])
+
+slots.DiseaseListEntry_synonyms = Slot(uri=MATRIX_SCHEMA.synonyms, name="DiseaseListEntry_synonyms", curie=MATRIX_SCHEMA.curie('synonyms'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_synonyms, domain=DiseaseListEntry, range=Union[str, List[str]])
+
+slots.DiseaseListEntry_subsets = Slot(uri=MATRIX_SCHEMA.subsets, name="DiseaseListEntry_subsets", curie=MATRIX_SCHEMA.curie('subsets'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_subsets, domain=DiseaseListEntry, range=Union[str, List[str]])
+
+slots.DiseaseListEntry_crossreferences = Slot(uri=MATRIX_SCHEMA.crossreferences, name="DiseaseListEntry_crossreferences", curie=MATRIX_SCHEMA.curie('crossreferences'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_crossreferences, domain=DiseaseListEntry, range=Union[str, List[str]])
+
+slots.DiseaseListEntry_is_matrix_manually_excluded = Slot(uri=MATRIX_SCHEMA.is_matrix_manually_excluded, name="DiseaseListEntry_is_matrix_manually_excluded", curie=MATRIX_SCHEMA.curie('is_matrix_manually_excluded'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_matrix_manually_excluded, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_matrix_manually_included = Slot(uri=MATRIX_SCHEMA.is_matrix_manually_included, name="DiseaseListEntry_is_matrix_manually_included", curie=MATRIX_SCHEMA.curie('is_matrix_manually_included'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_matrix_manually_included, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_clingen = Slot(uri=MATRIX_SCHEMA.is_clingen, name="DiseaseListEntry_is_clingen", curie=MATRIX_SCHEMA.curie('is_clingen'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_clingen, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_grouping_subset = Slot(uri=MATRIX_SCHEMA.is_grouping_subset, name="DiseaseListEntry_is_grouping_subset", curie=MATRIX_SCHEMA.curie('is_grouping_subset'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_grouping_subset, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_grouping_subset_ancestor = Slot(uri=MATRIX_SCHEMA.is_grouping_subset_ancestor, name="DiseaseListEntry_is_grouping_subset_ancestor", curie=MATRIX_SCHEMA.curie('is_grouping_subset_ancestor'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_grouping_subset_ancestor, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_orphanet_subtype = Slot(uri=MATRIX_SCHEMA.is_orphanet_subtype, name="DiseaseListEntry_is_orphanet_subtype", curie=MATRIX_SCHEMA.curie('is_orphanet_subtype'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_orphanet_subtype, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_orphanet_subtype_descendant = Slot(uri=MATRIX_SCHEMA.is_orphanet_subtype_descendant, name="DiseaseListEntry_is_orphanet_subtype_descendant", curie=MATRIX_SCHEMA.curie('is_orphanet_subtype_descendant'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_orphanet_subtype_descendant, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_omimps = Slot(uri=MATRIX_SCHEMA.is_omimps, name="DiseaseListEntry_is_omimps", curie=MATRIX_SCHEMA.curie('is_omimps'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_omimps, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_omimps_descendant = Slot(uri=MATRIX_SCHEMA.is_omimps_descendant, name="DiseaseListEntry_is_omimps_descendant", curie=MATRIX_SCHEMA.curie('is_omimps_descendant'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_omimps_descendant, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_leaf = Slot(uri=MATRIX_SCHEMA.is_leaf, name="DiseaseListEntry_is_leaf", curie=MATRIX_SCHEMA.curie('is_leaf'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_leaf, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_leaf_direct_parent = Slot(uri=MATRIX_SCHEMA.is_leaf_direct_parent, name="DiseaseListEntry_is_leaf_direct_parent", curie=MATRIX_SCHEMA.curie('is_leaf_direct_parent'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_leaf_direct_parent, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_orphanet_disorder = Slot(uri=MATRIX_SCHEMA.is_orphanet_disorder, name="DiseaseListEntry_is_orphanet_disorder", curie=MATRIX_SCHEMA.curie('is_orphanet_disorder'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_orphanet_disorder, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_omim = Slot(uri=MATRIX_SCHEMA.is_omim, name="DiseaseListEntry_is_omim", curie=MATRIX_SCHEMA.curie('is_omim'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_omim, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_icd_category = Slot(uri=MATRIX_SCHEMA.is_icd_category, name="DiseaseListEntry_is_icd_category", curie=MATRIX_SCHEMA.curie('is_icd_category'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_icd_category, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_icd_chapter_code = Slot(uri=MATRIX_SCHEMA.is_icd_chapter_code, name="DiseaseListEntry_is_icd_chapter_code", curie=MATRIX_SCHEMA.curie('is_icd_chapter_code'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_icd_chapter_code, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_icd_chapter_header = Slot(uri=MATRIX_SCHEMA.is_icd_chapter_header, name="DiseaseListEntry_is_icd_chapter_header", curie=MATRIX_SCHEMA.curie('is_icd_chapter_header'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_icd_chapter_header, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_icd_billable = Slot(uri=MATRIX_SCHEMA.is_icd_billable, name="DiseaseListEntry_is_icd_billable", curie=MATRIX_SCHEMA.curie('is_icd_billable'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_icd_billable, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_mondo_subtype = Slot(uri=MATRIX_SCHEMA.is_mondo_subtype, name="DiseaseListEntry_is_mondo_subtype", curie=MATRIX_SCHEMA.curie('is_mondo_subtype'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_mondo_subtype, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_pathway_defect = Slot(uri=MATRIX_SCHEMA.is_pathway_defect, name="DiseaseListEntry_is_pathway_defect", curie=MATRIX_SCHEMA.curie('is_pathway_defect'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_pathway_defect, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_susceptibility = Slot(uri=MATRIX_SCHEMA.is_susceptibility, name="DiseaseListEntry_is_susceptibility", curie=MATRIX_SCHEMA.curie('is_susceptibility'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_susceptibility, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_paraphilic = Slot(uri=MATRIX_SCHEMA.is_paraphilic, name="DiseaseListEntry_is_paraphilic", curie=MATRIX_SCHEMA.curie('is_paraphilic'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_paraphilic, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_acquired = Slot(uri=MATRIX_SCHEMA.is_acquired, name="DiseaseListEntry_is_acquired", curie=MATRIX_SCHEMA.curie('is_acquired'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_acquired, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_andor = Slot(uri=MATRIX_SCHEMA.is_andor, name="DiseaseListEntry_is_andor", curie=MATRIX_SCHEMA.curie('is_andor'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_andor, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_withorwithout = Slot(uri=MATRIX_SCHEMA.is_withorwithout, name="DiseaseListEntry_is_withorwithout", curie=MATRIX_SCHEMA.curie('is_withorwithout'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_withorwithout, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_obsoletion_candidate = Slot(uri=MATRIX_SCHEMA.is_obsoletion_candidate, name="DiseaseListEntry_is_obsoletion_candidate", curie=MATRIX_SCHEMA.curie('is_obsoletion_candidate'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_obsoletion_candidate, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_unclassified_hereditary = Slot(uri=MATRIX_SCHEMA.is_unclassified_hereditary, name="DiseaseListEntry_is_unclassified_hereditary", curie=MATRIX_SCHEMA.curie('is_unclassified_hereditary'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_unclassified_hereditary, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_official_matrix_filter = Slot(uri=MATRIX_SCHEMA.official_matrix_filter, name="DiseaseListEntry_official_matrix_filter", curie=MATRIX_SCHEMA.curie('official_matrix_filter'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_official_matrix_filter, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_harrisons_view = Slot(uri=MATRIX_SCHEMA.harrisons_view, name="DiseaseListEntry_harrisons_view", curie=MATRIX_SCHEMA.curie('harrisons_view'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_harrisons_view, domain=DiseaseListEntry, range=Union[str, List[str]])
+
+slots.DiseaseListEntry_mondo_txgnn = Slot(uri=MATRIX_SCHEMA.mondo_txgnn, name="DiseaseListEntry_mondo_txgnn", curie=MATRIX_SCHEMA.curie('mondo_txgnn'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_mondo_txgnn, domain=DiseaseListEntry, range=Union[str, List[str]])
+
+slots.DiseaseListEntry_mondo_top_grouping = Slot(uri=MATRIX_SCHEMA.mondo_top_grouping, name="DiseaseListEntry_mondo_top_grouping", curie=MATRIX_SCHEMA.curie('mondo_top_grouping'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_mondo_top_grouping, domain=DiseaseListEntry, range=Union[str, List[str]])
+
+slots.DiseaseListEntry_medical_specialization = Slot(uri=MATRIX_SCHEMA.medical_specialization, name="DiseaseListEntry_medical_specialization", curie=MATRIX_SCHEMA.curie('medical_specialization'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_medical_specialization, domain=DiseaseListEntry, range=Union[str, List[str]])
+
+slots.DiseaseListEntry_txgnn = Slot(uri=MATRIX_SCHEMA.txgnn, name="DiseaseListEntry_txgnn", curie=MATRIX_SCHEMA.curie('txgnn'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_txgnn, domain=DiseaseListEntry, range=Union[str, List[str]])
+
+slots.DiseaseListEntry_anatomical = Slot(uri=MATRIX_SCHEMA.anatomical, name="DiseaseListEntry_anatomical", curie=MATRIX_SCHEMA.curie('anatomical'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_anatomical, domain=DiseaseListEntry, range=Union[str, List[str]])
+
+slots.DiseaseListEntry_is_pathogen_caused = Slot(uri=MATRIX_SCHEMA.is_pathogen_caused, name="DiseaseListEntry_is_pathogen_caused", curie=MATRIX_SCHEMA.curie('is_pathogen_caused'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_pathogen_caused, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_cancer = Slot(uri=MATRIX_SCHEMA.is_cancer, name="DiseaseListEntry_is_cancer", curie=MATRIX_SCHEMA.curie('is_cancer'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_cancer, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_is_glucose_dysfunction = Slot(uri=MATRIX_SCHEMA.is_glucose_dysfunction, name="DiseaseListEntry_is_glucose_dysfunction", curie=MATRIX_SCHEMA.curie('is_glucose_dysfunction'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_is_glucose_dysfunction, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_tag_existing_treatment = Slot(uri=MATRIX_SCHEMA.tag_existing_treatment, name="DiseaseListEntry_tag_existing_treatment", curie=MATRIX_SCHEMA.curie('tag_existing_treatment'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_tag_existing_treatment, domain=DiseaseListEntry, range=Union[bool, Bool])
+
+slots.DiseaseListEntry_tag_qaly_lost = Slot(uri=MATRIX_SCHEMA.tag_qaly_lost, name="DiseaseListEntry_tag_qaly_lost", curie=MATRIX_SCHEMA.curie('tag_qaly_lost'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_tag_qaly_lost, domain=DiseaseListEntry, range=str,
+                   pattern=re.compile(r'^(low|medium|high|very_high|none)$'))
+
+slots.DiseaseListEntry_subset_group_id = Slot(uri=MATRIX_SCHEMA.subset_group_id, name="DiseaseListEntry_subset_group_id", curie=MATRIX_SCHEMA.curie('subset_group_id'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_subset_group_id, domain=DiseaseListEntry, range=Optional[str])
+
+slots.DiseaseListEntry_subset_group_label = Slot(uri=MATRIX_SCHEMA.subset_group_label, name="DiseaseListEntry_subset_group_label", curie=MATRIX_SCHEMA.curie('subset_group_label'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_subset_group_label, domain=DiseaseListEntry, range=Optional[str])
+
+slots.DiseaseListEntry_other_subsets_count = Slot(uri=MATRIX_SCHEMA.other_subsets_count, name="DiseaseListEntry_other_subsets_count", curie=MATRIX_SCHEMA.curie('other_subsets_count'),
+                   model_uri=MATRIX_SCHEMA.DiseaseListEntry_other_subsets_count, domain=DiseaseListEntry, range=Optional[int])
