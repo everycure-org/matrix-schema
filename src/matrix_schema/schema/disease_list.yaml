@@ -70,7 +70,8 @@ slots:
   nodes:
     description: "A list of edges."
     multivalued: true
-  diseases_list_entries:
+  disease_list_entries:
+    range: DiseaseListEntry
     description: "A list of disease list entries."
     multivalued: true
   attribute_type:
@@ -648,8 +649,9 @@ classes:
   
   MatrixDiseaseList:
     description: "A list of diseases."
-    attributes:
-      diseases_list_entries:
-        range: DiseaseListEntry
-        multivalued: true
-        inlined: true
+    slots:
+      - disease_list_entries
+    slot_usage:
+      disease_list_entries:
+        inlined_as_list: true
+    

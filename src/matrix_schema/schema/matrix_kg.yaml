@@ -145,22 +145,22 @@ classes:
           - predicate
           - object
 
-  MatrixEdgeCollection:
-    description: "A holder for MatrixEdge objects."
+  MatrixEdgeList:
+    description: "A container for MatrixEdge objects."
     slots:
       - edges
     slot_usage:
       edges:
         range: MatrixEdge
         multivalued: true
-        inlined: true
+        inlined_as_list: true
 
-  MatrixNodeCollection:
-    description: "A holder for MatrixNode objects."
+  MatrixNodeList:
+    description: "A container for MatrixNode objects."
     slots:
       - nodes
     slot_usage:
       nodes:
         range: MatrixNode
         multivalued: true
-        inlined: true
+        inlined_as_list: true
