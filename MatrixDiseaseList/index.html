@@ -261,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
+      <a href="../about.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -409,8 +409,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../diseases_list_entries/">diseases_list_entries</a></td>
-<td>None</td>
+<td><a href="../disease_list_entries/">disease_list_entries</a></td>
+<td>A list of disease list entries.</td>
 <td>* <br/> <a href="../DiseaseListEntry/">DiseaseListEntry</a></td>
 </tr>
 </tbody>
@@ -448,15 +448,12 @@
 <pre><code class="language-yaml">name: MatrixDiseaseList
 description: A list of diseases.
 from_schema: https://w3id.org/everycure-org/matrix-schema
-attributes:
-  diseases_list_entries:
-    name: diseases_list_entries
-    from_schema: https://w3id.org/everycure-org/matrix-schema/disease-list
-    domain_of:
-    - MatrixDiseaseList
-    range: DiseaseListEntry
-    multivalued: true
-    inlined: true
+slots:
+- disease_list_entries
+slot_usage:
+  disease_list_entries:
+    name: disease_list_entries
+    inlined_as_list: true
 
 </code></pre>
 
@@ -468,17 +465,23 @@ attributes:
 <pre><code class="language-yaml">name: MatrixDiseaseList
 description: A list of diseases.
 from_schema: https://w3id.org/everycure-org/matrix-schema
+slot_usage:
+  disease_list_entries:
+    name: disease_list_entries
+    inlined_as_list: true
 attributes:
-  diseases_list_entries:
-    name: diseases_list_entries
-    from_schema: https://w3id.org/everycure-org/matrix-schema/disease-list
-    alias: diseases_list_entries
+  disease_list_entries:
+    name: disease_list_entries
+    description: A list of disease list entries.
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    alias: disease_list_entries
     owner: MatrixDiseaseList
     domain_of:
     - MatrixDiseaseList
     range: DiseaseListEntry
     multivalued: true
-    inlined: true
+    inlined_as_list: true
 
 </code></pre>
 

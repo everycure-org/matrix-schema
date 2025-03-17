@@ -2,446 +2,410 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/AttributeTypeEnum/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Boolean/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/CurationTypeEnum/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Curie/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Date/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/DateOrDatetime/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Datetime/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Decimal/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/DiseaseListEntry/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Double/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Float/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Integer/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Jsonpath/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Jsonpointer/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/MatrixDiseaseList/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/MatrixEdge/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
-         <loc>https://everycure-org.github.io/matrix-schema/MatrixEdgeCollection/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <loc>https://everycure-org.github.io/matrix-schema/MatrixEdgeList/</loc>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/MatrixNode/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
-         <loc>https://everycure-org.github.io/matrix-schema/MatrixNodeCollection/</loc>
-         <lastmod>2025-03-13</lastmod>
-    </url>
-    <url>
-         <loc>https://everycure-org.github.io/matrix-schema/NamedThing/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <loc>https://everycure-org.github.io/matrix-schema/MatrixNodeList/</loc>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Ncname/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Nodeidentifier/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Objectidentifier/</loc>
-         <lastmod>2025-03-13</lastmod>
-    </url>
-    <url>
-         <loc>https://everycure-org.github.io/matrix-schema/PersonStatus/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Sparqlpath/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/String/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Time/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Uri/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/Uriorcurie/</loc>
-         <lastmod>2025-03-13</lastmod>
-    </url>
-    <url>
-         <loc>https://everycure-org.github.io/matrix-schema/about/</loc>
-         <lastmod>2025-03-13</lastmod>
-    </url>
-    <url>
-         <loc>https://everycure-org.github.io/matrix-schema/age_in_years/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/aggregator_knowledge_source/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/all_categories/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/anatomical/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/attribute_type/</loc>
-         <lastmod>2025-03-13</lastmod>
-    </url>
-    <url>
-         <loc>https://everycure-org.github.io/matrix-schema/birth_date/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/category/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/category_class/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/crossreferences/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/curation_type/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/definition/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/description/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
-         <loc>https://everycure-org.github.io/matrix-schema/diseases_list_entries/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <loc>https://everycure-org.github.io/matrix-schema/disease_list_entries/</loc>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/edges/</loc>
-         <lastmod>2025-03-13</lastmod>
-    </url>
-    <url>
-         <loc>https://everycure-org.github.io/matrix-schema/entries/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/equivalent_identifiers/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/harrisons_view/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/id/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/international_resource_identifier/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_acquired/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_andor/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_cancer/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_clingen/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_glucose_dysfunction/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_grouping_subset/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_grouping_subset_ancestor/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_icd_billable/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_icd_category/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_icd_chapter_code/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_icd_chapter_header/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_leaf/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_leaf_direct_parent/</loc>
-         <lastmod>2025-03-13</lastmod>
-    </url>
-    <url>
-         <loc>https://everycure-org.github.io/matrix-schema/is_leais_direct_parent/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_matrix_manually_excluded/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_matrix_manually_included/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_mondo_subtype/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_obsoletion_candidate/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_omim/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_omimps/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_omimps_descendant/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_orphanet_disorder/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_orphanet_subtype/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_orphanet_subtype_descendant/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_paraphilic/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_pathogen_caused/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_pathway_defect/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_susceptibility/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_unclassified_hereditary/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/is_withorwithout/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/knowledge_level/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/label/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/labels/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/matrix-schema/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/medical_specialization/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/mondo_top_grouping/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/mondo_txgnn/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/name/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/nodes/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/object/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/object_aspect_qualifier/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/object_direction_qualifier/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/official_matrix_filter/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/other_subsets_count/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/predicate/</loc>
-         <lastmod>2025-03-13</lastmod>
-    </url>
-    <url>
-         <loc>https://everycure-org.github.io/matrix-schema/primary_email/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/primary_knowledge_source/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/publications/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/subject/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/subject_aspect_qualifier/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/subject_direction_qualifier/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/subset_group_id/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/subset_group_label/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/subsets/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/synonyms/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/tag_existing_treatment/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/tag_qaly_lost/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/txgnn/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/upstream_data_source/</loc>
-         <lastmod>2025-03-13</lastmod>
-    </url>
-    <url>
-         <loc>https://everycure-org.github.io/matrix-schema/vital_status/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
          <loc>https://everycure-org.github.io/matrix-schema/files/about/</loc>
-         <lastmod>2025-03-13</lastmod>
+         <lastmod>2025-03-17</lastmod>
     </url>
 </urlset>

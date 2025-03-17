@@ -8,10 +8,8 @@
       
       
       
-        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/about/">
+        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/disease_list_entries/">
       
-      
-        <link rel="prev" href="../DiseaseListEntry/">
       
       
       
@@ -20,7 +18,7 @@
     
     
       
-        <title>About - matrix-schema</title>
+        <title>disease_list_entries - matrix-schema</title>
       
     
     
@@ -68,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#matrix-schema" class="md-skip">
+        <a href="#disease_list_entries" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              About
+              disease_list_entries
             
           </span>
         </div>
@@ -260,19 +258,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../about.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -282,7 +271,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -307,6 +295,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-developer-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema developer documentation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -324,8 +338,36 @@
   
 
 
-<h1 id="matrix-schema">matrix-schema</h1>
-<p>The collected MATRIX schemas</p>
+<h1 id="disease_list_entries">disease_list_entries</h1>
+<p><strong>URI</strong>: <a href="https://w3id.org/everycure-org/matrix-schema/disease_list_entries">matrix_schema:disease_list_entries</a></p>
+<p><strong>Applicable to</strong>: <a href="../MatrixDiseaseList/">MatrixDiseaseList</a></p>
+<div class="admonition info">
+<p class="admonition-title">Description</p>
+<p><em>A list of disease list entries.</em></p>
+</div>
+<h2 id="properties">Properties</h2>
+<ul>
+<li><strong>Range</strong>: <a href="../DiseaseListEntry/">DiseaseListEntry</a>. The range of the element is the type of the value that can be assigned to it.</li>
+<li><strong>Multivalued</strong>: True. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are <code>|</code> separated.</li>
+<li><strong>Required?</strong>: Optional</li>
+</ul>
+<h2 id="schema-developer-documentation">Schema developer documentation</h2>
+<details><summary>LinkML source</summary>
+
+
+<pre><code class="language-yaml">name: disease_list_entries
+description: A list of disease list entries.
+from_schema: https://w3id.org/everycure-org/matrix-schema
+rank: 1000
+alias: disease_list_entries
+domain_of:
+- MatrixDiseaseList
+range: DiseaseListEntry
+multivalued: true
+
+</code></pre>
+
+</details>
 
 
 

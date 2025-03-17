@@ -14,8 +14,6 @@
         <link rel="prev" href="..">
       
       
-        <link rel="next" href="../about/">
-      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
@@ -390,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
+      <a href="../about.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -549,12 +547,12 @@
 <tr>
 <td><a href="../category_class/">category_class</a></td>
 <td>The disase identifier. Slot name should probably be renamed?</td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../label/">label</a></td>
 <td>The name of the disease.</td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../definition/">definition</a></td>
@@ -564,202 +562,202 @@
 <tr>
 <td><a href="../synonyms/">synonyms</a></td>
 <td>Any exact synonyms of the disease.</td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../subsets/">subsets</a></td>
 <td>The subsets of the disease in which it is part.</td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../crossreferences/">crossreferences</a></td>
 <td>Cross-references to other databases and ontologies.</td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../is_matrix_manually_excluded/">is_matrix_manually_excluded</a></td>
 <td>Flag to denote this disease was manually excluded from the disease list by a Matrix medical expert.</td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_matrix_manually_included/">is_matrix_manually_included</a></td>
 <td>Flag to denote this disease was manually included from the disease list by a Matrix medical expert.</td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_clingen/">is_clingen</a></td>
 <td>Flag to denote that this disease term is used directly by https://clinicalgenome.org/ (a major authority on genetic diseases), which is a strong indication that it corresponds to a real disease entity.</td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_grouping_subset/">is_grouping_subset</a></td>
 <td>Flag to denote this disease is manually curated to be a grouping term.</td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_grouping_subset_ancestor/">is_grouping_subset_ancestor</a></td>
 <td>Flag to denote this disease is a parent of a disease that was manually curated to be a grouping term.</td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_orphanet_subtype/">is_orphanet_subtype</a></td>
 <td>Flag to denote this disease is manually curated to be a disease subtype according to Orphanet (https://www.orpha.net/), one of the most important rare disease authorities in the world.</td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_orphanet_subtype_descendant/">is_orphanet_subtype_descendant</a></td>
 <td>Flag to denote this disease is a child/descendant of a disease that is manually curated  to be a disease subtype according to Orphanet (https://www.orpha.net/), one of the most  important rare disease authorities in the world. If it is a descendant of a subtype, it most likely is a subtype itself.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_omimps/">is_omimps</a></td>
 <td>Flag to denote this disease is manually curated to be a phenotypic series according to OMIM (https://www.omim.org/),  one of the most important genetic disease authorities in the world.  A Phenotypic Series is a grouping of genetic heterogeneity of similar phenotypes across the genome.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_omimps_descendant/">is_omimps_descendant</a></td>
 <td>Flag to denote this disease is a child/descendant of a disease that is manually curated  to be a phenotypic series according to OMIM (https://www.omim.org/), one of the most  important genetic disease authorities in the world. If it is a descendant of a phenotypic series, it most likely is a proper genetic disease entity (or subtype).<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_leaf/">is_leaf</a></td>
 <td>Flag to denote this disease is a leaf node in the disease hierarchy.  A leaf node is a node that has no children in the hierarchy.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_leaf_direct_parent/">is_leaf_direct_parent</a></td>
 <td>Flag to denote this disease is a direct parent of a leaf node in the disease hierarchy.  A direct parent of a leaf rarely corresponds to a grouping, and often is a proper disease entity.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_orphanet_disorder/">is_orphanet_disorder</a></td>
 <td>Flag to denote this disease is manually curated to be a disease according to Orphanet (https://www.orpha.net/),  one of the most important rare disease authorities in the world.  A disorder according to Orphanet usually corresponds to a proper disease entity, not a grouping or a subtype.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_omim/">is_omim</a></td>
 <td>Flag to denote this disease is manually curated to be a disease according to OMIM (https://www.omim.org/),  one of the most important genetic disease authorities in the world.  A disease according to OMIM usually corresponds to a proper disease entity or a subtype, not a disease grouping.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_icd_category/">is_icd_category</a></td>
 <td>Flag to denote this disease was corresponds to an ICD category. Category codes (or subcategory codes), for example A01.1 (Paratyphoid fever A),  can be recognised by containing a period (.) character and usually represent specific  diagnosable diseases.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_icd_chapter_code/">is_icd_chapter_code</a></td>
 <td>Flag to denote this disease was corresponds to an ICD chapter code. Chapter codes (or block codes), for example A00-B99 (Certain infectious and parasitic diseases).  These codes can be recognised by containing a dash (-) character, and usually represent broad categories of diseases.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_icd_chapter_header/">is_icd_chapter_header</a></td>
 <td>Flag to denote this disease was corresponds to an ICD chapter header. Chapter headers (or chapter titles), for example A00 (Cholera) can be identified by codes without dashes or periods and are usually the top-level categories within each chapter. Most of the time, these are not proper diseases, but groupings of diseases.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_icd_billable/">is_icd_billable</a></td>
 <td>Flag to denote this disease was corresponds to an ICD code that is billable. Billable codes are usually the most specific codes that can be used for billing purposes, and are most of the time diagnosable diseases.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_mondo_subtype/">is_mondo_subtype</a></td>
 <td>Flag to denote this disease was identified to be a subtype through lexical matching. This method is maintained by the Every Cure medical team and the Disease List team.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_pathway_defect/">is_pathway_defect</a></td>
 <td>Flag to denote this disease corresponds to a pathway defect rather than a proper disease.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_susceptibility/">is_susceptibility</a></td>
 <td>Flag to denote this disease corresponds to a susceptibility rather than a proper disease.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_paraphilic/">is_paraphilic</a></td>
 <td>Flag to denote this disease corresponds to a paraphilic disorder rather than a proper disease.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_acquired/">is_acquired</a></td>
 <td>Flag to denote this disease corresponds to an acquired form of a disease.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_andor/">is_andor</a></td>
 <td>Flag to denote this disease corresponds to a disease that is a combination of two or more diseases.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_withorwithout/">is_withorwithout</a></td>
 <td>Flag to denote this disease corresponds to a disease that can be present with or without some other pathological condition.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_obsoletion_candidate/">is_obsoletion_candidate</a></td>
 <td>Flag to denote that this disease is marked for obsoletion in the (near) future. This status does not guarantee that the disease will be obsoleted, but it is a strong indication.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_unclassified_hereditary/">is_unclassified_hereditary</a></td>
 <td>Flag to denote that this disease has no descendants (is a leaf) and  is classified broadly as an hereditary disease, but lacks any further classification.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../official_matrix_filter/">official_matrix_filter</a></td>
 <td>Flag to denote this disease corresponds to a disease that can be treated with small molecules or biologics. This flag is maintained as a combination of default filters by the Matrix team. Changes to this filter should be discussed on the Matrix disease list issue tracker (https://github.com/everycure-org/matrix-disease-list/issues). <strong>Warning</strong>. This flag is in early alpha state, and its use in production systems is not recommended.<br /></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../harrisons_view/">harrisons_view</a></td>
 <td>Tag to denote this disease to be part of a grouping according to the Harrison's textbook. Top-level classes in Mondo are manually curated by the Mondo team to "belong" to a Harrison's textbook chapter. Disagreements should be reported on the Mondo issue tracker (https://github.com/monarch-initiative/mondo/issues).<br /></td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../mondo_txgnn/">mondo_txgnn</a></td>
 <td>Tag to denote this disease to be part of a grouping as defined by the txgnn paper. Disease classes in Mondo are manually curated by the Mondo team to "belong" to a txgnn category. Disagreements should be reported on the Mondo issue  tracker (https://github.com/monarch-initiative/mondo/issues).<br /></td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../mondo_top_grouping/">mondo_top_grouping</a></td>
 <td>Tag to denote this disease to be a . Disease classes in Mondo are manually curated by the Mondo team to "belong" to a txgnn category. Disagreements should be reported on the Mondo issue  tracker (https://github.com/monarch-initiative/mondo/issues).<br /></td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../medical_specialization/">medical_specialization</a></td>
 <td>Tag this disease with a medical specialisation. Disease classes are automatically tagged by an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../txgnn/">txgnn</a></td>
 <td>Tag this disease to be part of a grouping as defined by the txgnn paper. Disease classes in Mondo are automatically assigned to a txgnn category using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../anatomical/">anatomical</a></td>
 <td>Tag to denote this disease to be part of a grouping according to the anatomical location. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
 </tr>
 <tr>
 <td><a href="../is_pathogen_caused/">is_pathogen_caused</a></td>
 <td>Flag to denote if this disease is caused by a pathogen. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
-<td>* <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_cancer/">is_cancer</a></td>
 <td>Flag to denote if this disease corresponds to a cancer type. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
-<td>* <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../is_glucose_dysfunction/">is_glucose_dysfunction</a></td>
 <td>Flag to denote if this disease corresponds to a glucose dysfunction. Disease classes are automatically flagged using an LLM. tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
-<td>* <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../tag_existing_treatment/">tag_existing_treatment</a></td>
 <td>Flag to denote if this disease has some existing treatment. Disease classes are automatically flagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).<br /></td>
-<td>* <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 </tr>
 <tr>
 <td><a href="../tag_qaly_lost/">tag_qaly_lost</a></td>
@@ -796,7 +794,7 @@
 <tbody>
 <tr>
 <td><a href="../MatrixDiseaseList/">MatrixDiseaseList</a></td>
-<td><a href="../diseases_list_entries/">diseases_list_entries</a></td>
+<td><a href="../disease_list_entries/">disease_list_entries</a></td>
 <td>range</td>
 <td><a href="./">DiseaseListEntry</a></td>
 </tr>
@@ -884,6 +882,148 @@ slots:
 - subset_group_id
 - subset_group_label
 - other_subsets_count
+slot_usage:
+  category_class:
+    name: category_class
+    required: true
+  label:
+    name: label
+    required: true
+  definition:
+    name: definition
+    required: false
+  synonyms:
+    name: synonyms
+    required: true
+  subsets:
+    name: subsets
+    required: true
+  crossreferences:
+    name: crossreferences
+    required: true
+  is_matrix_manually_excluded:
+    name: is_matrix_manually_excluded
+    required: true
+  is_matrix_manually_included:
+    name: is_matrix_manually_included
+    required: true
+  is_clingen:
+    name: is_clingen
+    required: true
+  is_grouping_subset:
+    name: is_grouping_subset
+    required: true
+  is_grouping_subset_ancestor:
+    name: is_grouping_subset_ancestor
+    required: true
+  is_orphanet_subtype:
+    name: is_orphanet_subtype
+    required: true
+  is_orphanet_subtype_descendant:
+    name: is_orphanet_subtype_descendant
+    required: true
+  is_omimps:
+    name: is_omimps
+    required: true
+  is_omimps_descendant:
+    name: is_omimps_descendant
+    required: true
+  is_leaf:
+    name: is_leaf
+    required: true
+  is_leaf_direct_parent:
+    name: is_leaf_direct_parent
+    required: true
+  is_orphanet_disorder:
+    name: is_orphanet_disorder
+    required: true
+  is_omim:
+    name: is_omim
+    required: true
+  is_icd_category:
+    name: is_icd_category
+    required: true
+  is_icd_chapter_code:
+    name: is_icd_chapter_code
+    required: true
+  is_icd_chapter_header:
+    name: is_icd_chapter_header
+    required: true
+  is_icd_billable:
+    name: is_icd_billable
+    required: true
+  is_mondo_subtype:
+    name: is_mondo_subtype
+    required: true
+  is_pathway_defect:
+    name: is_pathway_defect
+    required: true
+  is_susceptibility:
+    name: is_susceptibility
+    required: true
+  is_paraphilic:
+    name: is_paraphilic
+    required: true
+  is_acquired:
+    name: is_acquired
+    required: true
+  is_andor:
+    name: is_andor
+    required: true
+  is_withorwithout:
+    name: is_withorwithout
+    required: true
+  is_obsoletion_candidate:
+    name: is_obsoletion_candidate
+    required: true
+  is_unclassified_hereditary:
+    name: is_unclassified_hereditary
+    required: true
+  official_matrix_filter:
+    name: official_matrix_filter
+    required: true
+  harrisons_view:
+    name: harrisons_view
+    required: true
+  mondo_txgnn:
+    name: mondo_txgnn
+    required: true
+  mondo_top_grouping:
+    name: mondo_top_grouping
+    required: true
+  medical_specialization:
+    name: medical_specialization
+    required: true
+  txgnn:
+    name: txgnn
+    required: true
+  anatomical:
+    name: anatomical
+    required: true
+  is_pathogen_caused:
+    name: is_pathogen_caused
+    required: true
+  is_cancer:
+    name: is_cancer
+    required: true
+  is_glucose_dysfunction:
+    name: is_glucose_dysfunction
+    required: true
+  tag_existing_treatment:
+    name: tag_existing_treatment
+    required: true
+  tag_qaly_lost:
+    name: tag_qaly_lost
+    required: true
+  subset_group_id:
+    name: subset_group_id
+    required: false
+  subset_group_label:
+    name: subset_group_label
+    required: false
+  other_subsets_count:
+    name: other_subsets_count
+    required: false
 
 </code></pre>
 
@@ -896,6 +1036,148 @@ slots:
 description: A disease entry in the disease list.
 title: Disease List Entry
 from_schema: https://w3id.org/everycure-org/matrix-schema
+slot_usage:
+  category_class:
+    name: category_class
+    required: true
+  label:
+    name: label
+    required: true
+  definition:
+    name: definition
+    required: false
+  synonyms:
+    name: synonyms
+    required: true
+  subsets:
+    name: subsets
+    required: true
+  crossreferences:
+    name: crossreferences
+    required: true
+  is_matrix_manually_excluded:
+    name: is_matrix_manually_excluded
+    required: true
+  is_matrix_manually_included:
+    name: is_matrix_manually_included
+    required: true
+  is_clingen:
+    name: is_clingen
+    required: true
+  is_grouping_subset:
+    name: is_grouping_subset
+    required: true
+  is_grouping_subset_ancestor:
+    name: is_grouping_subset_ancestor
+    required: true
+  is_orphanet_subtype:
+    name: is_orphanet_subtype
+    required: true
+  is_orphanet_subtype_descendant:
+    name: is_orphanet_subtype_descendant
+    required: true
+  is_omimps:
+    name: is_omimps
+    required: true
+  is_omimps_descendant:
+    name: is_omimps_descendant
+    required: true
+  is_leaf:
+    name: is_leaf
+    required: true
+  is_leaf_direct_parent:
+    name: is_leaf_direct_parent
+    required: true
+  is_orphanet_disorder:
+    name: is_orphanet_disorder
+    required: true
+  is_omim:
+    name: is_omim
+    required: true
+  is_icd_category:
+    name: is_icd_category
+    required: true
+  is_icd_chapter_code:
+    name: is_icd_chapter_code
+    required: true
+  is_icd_chapter_header:
+    name: is_icd_chapter_header
+    required: true
+  is_icd_billable:
+    name: is_icd_billable
+    required: true
+  is_mondo_subtype:
+    name: is_mondo_subtype
+    required: true
+  is_pathway_defect:
+    name: is_pathway_defect
+    required: true
+  is_susceptibility:
+    name: is_susceptibility
+    required: true
+  is_paraphilic:
+    name: is_paraphilic
+    required: true
+  is_acquired:
+    name: is_acquired
+    required: true
+  is_andor:
+    name: is_andor
+    required: true
+  is_withorwithout:
+    name: is_withorwithout
+    required: true
+  is_obsoletion_candidate:
+    name: is_obsoletion_candidate
+    required: true
+  is_unclassified_hereditary:
+    name: is_unclassified_hereditary
+    required: true
+  official_matrix_filter:
+    name: official_matrix_filter
+    required: true
+  harrisons_view:
+    name: harrisons_view
+    required: true
+  mondo_txgnn:
+    name: mondo_txgnn
+    required: true
+  mondo_top_grouping:
+    name: mondo_top_grouping
+    required: true
+  medical_specialization:
+    name: medical_specialization
+    required: true
+  txgnn:
+    name: txgnn
+    required: true
+  anatomical:
+    name: anatomical
+    required: true
+  is_pathogen_caused:
+    name: is_pathogen_caused
+    required: true
+  is_cancer:
+    name: is_cancer
+    required: true
+  is_glucose_dysfunction:
+    name: is_glucose_dysfunction
+    required: true
+  tag_existing_treatment:
+    name: tag_existing_treatment
+    required: true
+  tag_qaly_lost:
+    name: tag_qaly_lost
+    required: true
+  subset_group_id:
+    name: subset_group_id
+    required: false
+  subset_group_label:
+    name: subset_group_label
+    required: false
+  other_subsets_count:
+    name: other_subsets_count
+    required: false
 attributes:
   category_class:
     name: category_class
@@ -907,6 +1189,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: true
   label:
     name: label
     description: The name of the disease.
@@ -917,6 +1200,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: true
   definition:
     name: definition
     description: The definition of the disease.
@@ -927,6 +1211,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: false
   synonyms:
     name: synonyms
     description: Any exact synonyms of the disease.
@@ -937,7 +1222,10 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: true
     multivalued: true
+    inlined: true
+    inlined_as_list: true
   subsets:
     name: subsets
     description: The subsets of the disease in which it is part.
@@ -948,7 +1236,10 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: true
     multivalued: true
+    inlined: true
+    inlined_as_list: true
   crossreferences:
     name: crossreferences
     description: Cross-references to other databases and ontologies.
@@ -959,7 +1250,10 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: true
     multivalued: true
+    inlined: true
+    inlined_as_list: true
   is_matrix_manually_excluded:
     name: is_matrix_manually_excluded
     annotations:
@@ -980,6 +1274,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_matrix_manually_included:
     name: is_matrix_manually_included
     annotations:
@@ -1000,6 +1295,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_clingen:
     name: is_clingen
     annotations:
@@ -1022,6 +1318,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_grouping_subset:
     name: is_grouping_subset
     annotations:
@@ -1042,6 +1339,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_grouping_subset_ancestor:
     name: is_grouping_subset_ancestor
     annotations:
@@ -1062,6 +1360,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_orphanet_subtype:
     name: is_orphanet_subtype
     annotations:
@@ -1085,6 +1384,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_orphanet_subtype_descendant:
     name: is_orphanet_subtype_descendant
     annotations:
@@ -1110,6 +1410,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_omimps:
     name: is_omimps
     annotations:
@@ -1136,6 +1437,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_omimps_descendant:
     name: is_omimps_descendant
     annotations:
@@ -1164,6 +1466,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_leaf:
     name: is_leaf
     annotations:
@@ -1186,6 +1489,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_leaf_direct_parent:
     name: is_leaf_direct_parent
     annotations:
@@ -1209,6 +1513,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_orphanet_disorder:
     name: is_orphanet_disorder
     annotations:
@@ -1235,6 +1540,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_omim:
     name: is_omim
     annotations:
@@ -1260,6 +1566,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_icd_category:
     name: is_icd_category
     annotations:
@@ -1285,6 +1592,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_icd_chapter_code:
     name: is_icd_chapter_code
     annotations:
@@ -1310,6 +1618,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_icd_chapter_header:
     name: is_icd_chapter_header
     annotations:
@@ -1336,6 +1645,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_icd_billable:
     name: is_icd_billable
     annotations:
@@ -1360,6 +1670,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_mondo_subtype:
     name: is_mondo_subtype
     annotations:
@@ -1384,6 +1695,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_pathway_defect:
     name: is_pathway_defect
     annotations:
@@ -1407,6 +1719,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_susceptibility:
     name: is_susceptibility
     annotations:
@@ -1430,6 +1743,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_paraphilic:
     name: is_paraphilic
     annotations:
@@ -1453,6 +1767,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_acquired:
     name: is_acquired
     annotations:
@@ -1476,6 +1791,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_andor:
     name: is_andor
     annotations:
@@ -1499,6 +1815,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_withorwithout:
     name: is_withorwithout
     annotations:
@@ -1522,6 +1839,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_obsoletion_candidate:
     name: is_obsoletion_candidate
     annotations:
@@ -1543,6 +1861,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   is_unclassified_hereditary:
     name: is_unclassified_hereditary
     annotations:
@@ -1565,6 +1884,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   official_matrix_filter:
     name: official_matrix_filter
     annotations:
@@ -1591,6 +1911,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
+    required: true
   harrisons_view:
     name: harrisons_view
     annotations:
@@ -1615,6 +1936,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: true
     multivalued: true
   mondo_txgnn:
     name: mondo_txgnn
@@ -1640,6 +1962,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: true
     multivalued: true
   mondo_top_grouping:
     name: mondo_top_grouping
@@ -1662,7 +1985,10 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: true
     multivalued: true
+    inlined: true
+    inlined_as_list: true
   medical_specialization:
     name: medical_specialization
     annotations:
@@ -1684,6 +2010,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: true
     multivalued: true
   txgnn:
     name: txgnn
@@ -1709,7 +2036,10 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: true
     multivalued: true
+    inlined: true
+    inlined_as_list: true
   anatomical:
     name: anatomical
     annotations:
@@ -1732,7 +2062,10 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: true
     multivalued: true
+    inlined: true
+    inlined_as_list: true
   is_pathogen_caused:
     name: is_pathogen_caused
     annotations:
@@ -1754,7 +2087,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
-    multivalued: true
+    required: true
   is_cancer:
     name: is_cancer
     annotations:
@@ -1776,7 +2109,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
-    multivalued: true
+    required: true
   is_glucose_dysfunction:
     name: is_glucose_dysfunction
     annotations:
@@ -1797,7 +2130,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
-    multivalued: true
+    required: true
   tag_existing_treatment:
     name: tag_existing_treatment
     annotations:
@@ -1819,7 +2152,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: boolean
-    multivalued: true
+    required: true
   tag_qaly_lost:
     name: tag_qaly_lost
     annotations:
@@ -1851,6 +2184,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: false
   subset_group_label:
     name: subset_group_label
     description: The name (label) of a disease representing the subtype series this
@@ -1862,6 +2196,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: string
+    required: false
   other_subsets_count:
     name: other_subsets_count
     description: The number of other subtypes in the subset this disease belongs to.
@@ -1872,6 +2207,7 @@ attributes:
     domain_of:
     - DiseaseListEntry
     range: integer
+    required: false
 
 </code></pre>
 

@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/birth_date/">
+        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/MatrixEdgeList/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: birth_date - matrix-schema</title>
+        <title>None (schema class) - matrix-schema</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-birth_date" class="md-skip">
+        <a href="#none-schema-class" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: birth_date
+              None (schema class)
             
           </span>
         </div>
@@ -261,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
+      <a href="../about.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -302,18 +302,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
+  <a href="#attributes" class="md-nav__link">
     <span class="md-ellipsis">
-      Applicable Classes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Properties
+      Attributes
     </span>
   </a>
   
@@ -359,6 +350,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="LinkML Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#induced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Induced
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -380,32 +395,26 @@
   
 
 
-<h1 id="slot-birth_date">Slot: birth_date</h1>
-<p><em>Date on which a person is born</em></p>
-<p>URI: <a href="http://schema.org/birthDate">schema:birthDate</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="applicable-classes">Applicable Classes</h2>
+<h1 id="none-schema-class">None (schema class)</h1>
+<p><em>A container for MatrixEdge objects.</em></p>
+<p>URI: <a href="https://w3id.org/everycure-org/matrix-schema/MatrixEdgeList">matrix_schema:MatrixEdgeList</a></p>
+<h2 id="attributes">Attributes</h2>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
-<th>Modifies Slot</th>
+<th>Cardinality and Range</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../MatrixEdge/">MatrixEdge</a></td>
-<td>Represents a MatrixEdge</td>
-<td>no</td>
+<td><a href="../edges/">edges</a></td>
+<td>A list of edges.</td>
+<td>* <br/> <a href="../MatrixEdge/">MatrixEdge</a></td>
 </tr>
 </tbody>
 </table>
-<h2 id="properties">Properties</h2>
-<ul>
-<li>Range: <a href="../Date/">Date</a></li>
-</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -422,26 +431,61 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>schema:birthDate</td>
+<td>matrix_schema:MatrixEdgeList</td>
 </tr>
 <tr>
 <td>native</td>
-<td>matrix_schema:birth_date</td>
+<td>matrix_schema:MatrixEdgeList</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+<h3 id="direct">Direct</h3>
 <details>
 
-<pre><code class="language-yaml">name: birth_date
-description: Date on which a person is born
+<pre><code class="language-yaml">name: MatrixEdgeList
+description: A container for MatrixEdge objects.
 from_schema: https://w3id.org/everycure-org/matrix-schema
-rank: 1000
-slot_uri: schema:birthDate
-alias: birth_date
-domain_of:
-- MatrixEdge
-range: date
+slots:
+- edges
+slot_usage:
+  edges:
+    name: edges
+    range: MatrixEdge
+    multivalued: true
+    inlined_as_list: true
+
+</code></pre>
+
+</details>
+
+<h3 id="induced">Induced</h3>
+<details>
+
+<pre><code class="language-yaml">name: MatrixEdgeList
+description: A container for MatrixEdge objects.
+from_schema: https://w3id.org/everycure-org/matrix-schema
+slot_usage:
+  edges:
+    name: edges
+    range: MatrixEdge
+    multivalued: true
+    inlined_as_list: true
+attributes:
+  edges:
+    name: edges
+    description: A list of edges.
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    alias: edges
+    owner: MatrixEdgeList
+    domain_of:
+    - MatrixEdgeList
+    range: MatrixEdge
+    multivalued: true
+    inlined_as_list: true
 
 </code></pre>
 

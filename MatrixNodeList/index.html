@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/vital_status/">
+        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/MatrixNodeList/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: vital_status - matrix-schema</title>
+        <title>None (schema class) - matrix-schema</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-vital_status" class="md-skip">
+        <a href="#none-schema-class" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: vital_status
+              None (schema class)
             
           </span>
         </div>
@@ -261,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
+      <a href="../about.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -302,18 +302,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
+  <a href="#attributes" class="md-nav__link">
     <span class="md-ellipsis">
-      Applicable Classes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Properties
+      Attributes
     </span>
   </a>
   
@@ -359,6 +350,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="LinkML Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#induced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Induced
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -380,32 +395,26 @@
   
 
 
-<h1 id="slot-vital_status">Slot: vital_status</h1>
-<p><em>living or dead status</em></p>
-<p>URI: <a href="https://w3id.org/everycure-org/matrix-schema/vital_status">matrix_schema:vital_status</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="applicable-classes">Applicable Classes</h2>
+<h1 id="none-schema-class">None (schema class)</h1>
+<p><em>A container for MatrixNode objects.</em></p>
+<p>URI: <a href="https://w3id.org/everycure-org/matrix-schema/MatrixNodeList">matrix_schema:MatrixNodeList</a></p>
+<h2 id="attributes">Attributes</h2>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
-<th>Modifies Slot</th>
+<th>Cardinality and Range</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../MatrixEdge/">MatrixEdge</a></td>
-<td>Represents a MatrixEdge</td>
-<td>no</td>
+<td><a href="../nodes/">nodes</a></td>
+<td>A list of edges.</td>
+<td>* <br/> <a href="../MatrixNode/">MatrixNode</a></td>
 </tr>
 </tbody>
 </table>
-<h2 id="properties">Properties</h2>
-<ul>
-<li>Range: <a href="../PersonStatus/">PersonStatus</a></li>
-</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -422,25 +431,61 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>matrix_schema:vital_status</td>
+<td>matrix_schema:MatrixNodeList</td>
 </tr>
 <tr>
 <td>native</td>
-<td>matrix_schema:vital_status</td>
+<td>matrix_schema:MatrixNodeList</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+<h3 id="direct">Direct</h3>
 <details>
 
-<pre><code class="language-yaml">name: vital_status
-description: living or dead status
+<pre><code class="language-yaml">name: MatrixNodeList
+description: A container for MatrixNode objects.
 from_schema: https://w3id.org/everycure-org/matrix-schema
-rank: 1000
-alias: vital_status
-domain_of:
-- MatrixEdge
-range: PersonStatus
+slots:
+- nodes
+slot_usage:
+  nodes:
+    name: nodes
+    range: MatrixNode
+    multivalued: true
+    inlined_as_list: true
+
+</code></pre>
+
+</details>
+
+<h3 id="induced">Induced</h3>
+<details>
+
+<pre><code class="language-yaml">name: MatrixNodeList
+description: A container for MatrixNode objects.
+from_schema: https://w3id.org/everycure-org/matrix-schema
+slot_usage:
+  nodes:
+    name: nodes
+    range: MatrixNode
+    multivalued: true
+    inlined_as_list: true
+attributes:
+  nodes:
+    name: nodes
+    description: A list of edges.
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    alias: nodes
+    owner: MatrixNodeList
+    domain_of:
+    - MatrixNodeList
+    range: MatrixNode
+    multivalued: true
+    inlined_as_list: true
 
 </code></pre>
 
