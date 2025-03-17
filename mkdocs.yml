@@ -7,23 +7,31 @@ theme:
   #  primary: cyan
   features:
     - content.tabs.link
+
+markdown_extensions:
+  - pymdownx.highlight:
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - admonition
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
 plugins:
   - search
-  - mermaid2
   - mknotebooks:
       execute: false
   - mermaid2:
       version: 10.9.0
 nav:
-  # - Home: home.md
-  - Index: index.md
+  - Overview: index.md
+  - Disease List: DiseaseListEntry.md
   - About: about.md
 site_url: https://everycure-org.github.io/matrix-schema
 repo_url: https://github.com/everycure-org/matrix-schema
-
-# Uncomment this block to enable use of Google Analytics.
-# Replace the property value with your own ID.
-# extra:
-#   analytics:
-#     provider: google
-#     property: G-XXXXXXXXXX

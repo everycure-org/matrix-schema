@@ -1,0 +1,49 @@
+nodes:
+- id: example:Node001
+  category: biolink:Drug
+  name: Aspirin
+  description: A drug used to reduce pain, fever, and inflammation.
+  equivalent_identifiers:
+  - CHEBI:15365
+  - DRUGBANK:DB00945
+  all_categories:
+  - biolink:ChemicalEntity
+  - biolink:Drug
+  publications:
+  - PMID:12345678
+  labels:
+  - Acetylsalicylic Acid
+  international_resource_identifier: http://purl.obolibrary.org/obo/CHEBI_15365
+  upstream_data_source:
+  - DrugBank
+- id: example:Node002
+  category: biolink:Disease
+  name: Myocardial Infarction
+  description: A condition caused by reduced blood flow to the heart.
+  equivalent_identifiers:
+  - MONDO:0005061
+  all_categories:
+  - biolink:Disease
+  - biolink:PhenotypicFeature
+  publications:
+  - PMID:87654321
+  labels:
+  - Heart Attack
+  international_resource_identifier: http://purl.obolibrary.org/obo/MONDO_0005061
+  upstream_data_source:
+  - OMIM
+- id: example:Node003
+  category: biolink:ChemicalEntity
+  name: COX Inhibitor
+  description: A substance that inhibits the cyclooxygenase enzyme.
+  equivalent_identifiers:
+  - CHEBI:35544
+  all_categories:
+  - biolink:ChemicalEntity
+  publications:
+  - PMID:23456789
+  labels:
+  - Cyclooxygenase Inhibitor
+  international_resource_identifier: http://purl.obolibrary.org/obo/CHEBI_35544
+  upstream_data_source:
+  - ChEBI

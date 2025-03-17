@@ -193,9 +193,11 @@ $(PYMODEL):
 $(DOCDIR):
 	mkdir -p $@
 
+TEMPLATE_DIR=src/doc-templates
+# 	$(RUN) jinjanate $(SRC)/doc-templates/diseaselist.md.jinja2 $(SOURCE_SCHEMA_PATH) -o $(DOCDIR)/index.md
 gendoc: $(DOCDIR)
-	cp -rf $(SRC)/docs/files/* $(DOCDIR) ; \
-	$(RUN) gen-doc ${GEN_DOC_ARGS} -d $(DOCDIR) $(SOURCE_SCHEMA_PATH)
+	cp -rf $(SRC)/docs/* $(DOCDIR) ; \
+	$(RUN) gen-doc -d $(DOCDIR) $(SOURCE_SCHEMA_PATH) --template-directory $(TEMPLATE_DIR)
 
 testdoc: gendoc serve
 
