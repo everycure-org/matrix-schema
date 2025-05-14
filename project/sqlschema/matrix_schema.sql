@@ -10,7 +10,8 @@
 --     * Slot: subject Description: The subject entity in the edge.
 --     * Slot: predicate Description: The predicate defining the relationship.
 --     * Slot: object Description: The object entity in the edge.
---     * Slot: knowledge_level Description: Knowledge level of the relationship.
+--     * Slot: knowledge_level Description: Knowledge level of the relationship
+--     * Slot: agent_type Description: Type of agent involved in the relationship.
 --     * Slot: primary_knowledge_source Description: Primary source of the knowledge in the edge.
 --     * Slot: subject_aspect_qualifier Description: Aspect qualifier for the subject.
 --     * Slot: subject_direction_qualifier Description: Direction qualifier for the subject.
@@ -61,6 +62,7 @@
 --     * Slot: subset_group_id Description: The identifier of a disease representing the subtype series this disease belongs to.
 --     * Slot: subset_group_label Description: The name (label) of a disease representing the subtype series this disease belongs to.
 --     * Slot: other_subsets_count Description: The number of other subtypes in the subset this disease belongs to.
+--     * Slot: MatrixDiseaseList_id Description: Autocreated FK slot
 -- # Class: "MatrixDiseaseList" Description: "A list of diseases."
 --     * Slot: id Description: 
 -- # Class: "MatrixNode_equivalent_identifiers" Description: ""
@@ -114,9 +116,6 @@
 -- # Class: "DiseaseListEntry_anatomical" Description: ""
 --     * Slot: DiseaseListEntry_id Description: Autocreated FK slot
 --     * Slot: anatomical Description: Tag to denote this disease to be part of a grouping according to the anatomical location. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
--- # Class: "MatrixDiseaseList_disease_list_entries" Description: ""
---     * Slot: MatrixDiseaseList_id Description: Autocreated FK slot
---     * Slot: disease_list_entries_id Description: A list of disease list entries.
 
 CREATE TABLE "MatrixEdgeList" (
 	id INTEGER NOT NULL, 
@@ -125,6 +124,38 @@ CREATE TABLE "MatrixEdgeList" (
 CREATE TABLE "MatrixNodeList" (
 	id INTEGER NOT NULL, 
 	PRIMARY KEY (id)
+);
+CREATE TABLE "MatrixDiseaseList" (
+	id INTEGER NOT NULL, 
+	PRIMARY KEY (id)
+);
+CREATE TABLE "MatrixNode" (
+	id TEXT NOT NULL, 
+	name TEXT, 
+	category VARCHAR(47) NOT NULL, 
+	description TEXT, 
+	international_resource_identifier TEXT, 
+	"MatrixNodeList_id" INTEGER, 
+	PRIMARY KEY (id), 
+	UNIQUE (id), 
+	FOREIGN KEY("MatrixNodeList_id") REFERENCES "MatrixNodeList" (id)
+);
+CREATE TABLE "MatrixEdge" (
+	id INTEGER NOT NULL, 
+	subject TEXT NOT NULL, 
+	predicate VARCHAR(66) NOT NULL, 
+	object TEXT NOT NULL, 
+	knowledge_level VARCHAR(23), 
+	agent_type VARCHAR(36), 
+	primary_knowledge_source TEXT, 
+	subject_aspect_qualifier TEXT, 
+	subject_direction_qualifier TEXT, 
+	object_aspect_qualifier TEXT, 
+	object_direction_qualifier TEXT, 
+	"MatrixEdgeList_id" INTEGER, 
+	PRIMARY KEY (id), 
+	UNIQUE (subject, predicate, object), 
+	FOREIGN KEY("MatrixEdgeList_id") REFERENCES "MatrixEdgeList" (id)
 );
 CREATE TABLE "DiseaseListEntry" (
 	id INTEGER NOT NULL, 
@@ -166,38 +197,57 @@ CREATE TABLE "DiseaseListEntry" (
 	subset_group_id TEXT, 
 	subset_group_label TEXT, 
 	other_subsets_count INTEGER, 
-	PRIMARY KEY (id)
-);
-CREATE TABLE "MatrixDiseaseList" (
-	id INTEGER NOT NULL, 
-	PRIMARY KEY (id)
-);
-CREATE TABLE "MatrixNode" (
-	id TEXT NOT NULL, 
-	name TEXT, 
-	category TEXT NOT NULL, 
-	description TEXT, 
-	international_resource_identifier TEXT, 
-	"MatrixNodeList_id" INTEGER, 
+	"MatrixDiseaseList_id" INTEGER, 
 	PRIMARY KEY (id), 
-	UNIQUE (id), 
-	FOREIGN KEY("MatrixNodeList_id") REFERENCES "MatrixNodeList" (id)
+	FOREIGN KEY("MatrixDiseaseList_id") REFERENCES "MatrixDiseaseList" (id)
 );
-CREATE TABLE "MatrixEdge" (
-	id INTEGER NOT NULL, 
-	subject TEXT NOT NULL, 
-	predicate TEXT NOT NULL, 
-	object TEXT NOT NULL, 
-	knowledge_level TEXT, 
-	primary_knowledge_source TEXT, 
-	subject_aspect_qualifier TEXT, 
-	subject_direction_qualifier TEXT, 
-	object_aspect_qualifier TEXT, 
-	object_direction_qualifier TEXT, 
-	"MatrixEdgeList_id" INTEGER, 
-	PRIMARY KEY (id), 
-	UNIQUE (subject, predicate, object), 
-	FOREIGN KEY("MatrixEdgeList_id") REFERENCES "MatrixEdgeList" (id)
+CREATE TABLE "MatrixNode_equivalent_identifiers" (
+	"MatrixNode_id" TEXT, 
+	equivalent_identifiers TEXT, 
+	PRIMARY KEY ("MatrixNode_id", equivalent_identifiers), 
+	FOREIGN KEY("MatrixNode_id") REFERENCES "MatrixNode" (id)
+);
+CREATE TABLE "MatrixNode_all_categories" (
+	"MatrixNode_id" TEXT, 
+	all_categories VARCHAR(47), 
+	PRIMARY KEY ("MatrixNode_id", all_categories), 
+	FOREIGN KEY("MatrixNode_id") REFERENCES "MatrixNode" (id)
+);
+CREATE TABLE "MatrixNode_publications" (
+	"MatrixNode_id" TEXT, 
+	publications TEXT, 
+	PRIMARY KEY ("MatrixNode_id", publications), 
+	FOREIGN KEY("MatrixNode_id") REFERENCES "MatrixNode" (id)
+);
+CREATE TABLE "MatrixNode_labels" (
+	"MatrixNode_id" TEXT, 
+	labels TEXT, 
+	PRIMARY KEY ("MatrixNode_id", labels), 
+	FOREIGN KEY("MatrixNode_id") REFERENCES "MatrixNode" (id)
+);
+CREATE TABLE "MatrixNode_upstream_data_source" (
+	"MatrixNode_id" TEXT, 
+	upstream_data_source TEXT, 
+	PRIMARY KEY ("MatrixNode_id", upstream_data_source), 
+	FOREIGN KEY("MatrixNode_id") REFERENCES "MatrixNode" (id)
+);
+CREATE TABLE "MatrixEdge_aggregator_knowledge_source" (
+	"MatrixEdge_id" INTEGER, 
+	aggregator_knowledge_source TEXT, 
+	PRIMARY KEY ("MatrixEdge_id", aggregator_knowledge_source), 
+	FOREIGN KEY("MatrixEdge_id") REFERENCES "MatrixEdge" (id)
+);
+CREATE TABLE "MatrixEdge_publications" (
+	"MatrixEdge_id" INTEGER, 
+	publications TEXT, 
+	PRIMARY KEY ("MatrixEdge_id", publications), 
+	FOREIGN KEY("MatrixEdge_id") REFERENCES "MatrixEdge" (id)
+);
+CREATE TABLE "MatrixEdge_upstream_data_source" (
+	"MatrixEdge_id" INTEGER, 
+	upstream_data_source TEXT, 
+	PRIMARY KEY ("MatrixEdge_id", upstream_data_source), 
+	FOREIGN KEY("MatrixEdge_id") REFERENCES "MatrixEdge" (id)
 );
 CREATE TABLE "DiseaseListEntry_synonyms" (
 	"DiseaseListEntry_id" INTEGER, 
@@ -252,59 +302,4 @@ CREATE TABLE "DiseaseListEntry_anatomical" (
 	anatomical TEXT NOT NULL, 
 	PRIMARY KEY ("DiseaseListEntry_id", anatomical), 
 	FOREIGN KEY("DiseaseListEntry_id") REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "MatrixDiseaseList_disease_list_entries" (
-	"MatrixDiseaseList_id" INTEGER, 
-	disease_list_entries_id INTEGER, 
-	PRIMARY KEY ("MatrixDiseaseList_id", disease_list_entries_id), 
-	FOREIGN KEY("MatrixDiseaseList_id") REFERENCES "MatrixDiseaseList" (id), 
-	FOREIGN KEY(disease_list_entries_id) REFERENCES "DiseaseListEntry" (id)
-);
-CREATE TABLE "MatrixNode_equivalent_identifiers" (
-	"MatrixNode_id" TEXT, 
-	equivalent_identifiers TEXT, 
-	PRIMARY KEY ("MatrixNode_id", equivalent_identifiers), 
-	FOREIGN KEY("MatrixNode_id") REFERENCES "MatrixNode" (id)
-);
-CREATE TABLE "MatrixNode_all_categories" (
-	"MatrixNode_id" TEXT, 
-	all_categories TEXT, 
-	PRIMARY KEY ("MatrixNode_id", all_categories), 
-	FOREIGN KEY("MatrixNode_id") REFERENCES "MatrixNode" (id)
-);
-CREATE TABLE "MatrixNode_publications" (
-	"MatrixNode_id" TEXT, 
-	publications TEXT, 
-	PRIMARY KEY ("MatrixNode_id", publications), 
-	FOREIGN KEY("MatrixNode_id") REFERENCES "MatrixNode" (id)
-);
-CREATE TABLE "MatrixNode_labels" (
-	"MatrixNode_id" TEXT, 
-	labels TEXT, 
-	PRIMARY KEY ("MatrixNode_id", labels), 
-	FOREIGN KEY("MatrixNode_id") REFERENCES "MatrixNode" (id)
-);
-CREATE TABLE "MatrixNode_upstream_data_source" (
-	"MatrixNode_id" TEXT, 
-	upstream_data_source TEXT, 
-	PRIMARY KEY ("MatrixNode_id", upstream_data_source), 
-	FOREIGN KEY("MatrixNode_id") REFERENCES "MatrixNode" (id)
-);
-CREATE TABLE "MatrixEdge_aggregator_knowledge_source" (
-	"MatrixEdge_id" INTEGER, 
-	aggregator_knowledge_source TEXT, 
-	PRIMARY KEY ("MatrixEdge_id", aggregator_knowledge_source), 
-	FOREIGN KEY("MatrixEdge_id") REFERENCES "MatrixEdge" (id)
-);
-CREATE TABLE "MatrixEdge_publications" (
-	"MatrixEdge_id" INTEGER, 
-	publications TEXT, 
-	PRIMARY KEY ("MatrixEdge_id", publications), 
-	FOREIGN KEY("MatrixEdge_id") REFERENCES "MatrixEdge" (id)
-);
-CREATE TABLE "MatrixEdge_upstream_data_source" (
-	"MatrixEdge_id" INTEGER, 
-	upstream_data_source TEXT, 
-	PRIMARY KEY ("MatrixEdge_id", upstream_data_source), 
-	FOREIGN KEY("MatrixEdge_id") REFERENCES "MatrixEdge" (id)
 );

@@ -5,7 +5,7 @@ edges:
   - subject: example:Node001
     predicate: "biolink:treats"
     object: example:Node002
-    knowledge_level: "high"
+    knowledge_level: "knowledge_assertion"
     primary_knowledge_source: "DrugBank"
     aggregator_knowledge_source:
       - "OMIM"
@@ -21,7 +21,7 @@ edges:
   - subject: example:Node002
     predicate: "biolink:has_phenotype"
     object: example:Node003
-    knowledge_level: "moderate"
+    knowledge_level: "prediction"
     primary_knowledge_source: "OMIM"
     aggregator_knowledge_source:
       - "MONDO"
@@ -35,7 +35,7 @@ edges:
   - subject: example:Node003
     predicate: "biolink:interacts_with"
     object: example:Node001
-    knowledge_level: "low"
+    knowledge_level: "not_provided"
     primary_knowledge_source: "ChEBI"
     aggregator_knowledge_source:
       - "DrugBank"

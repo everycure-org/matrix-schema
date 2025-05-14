@@ -14,7 +14,7 @@ else
 include config.public.mk
 endif
 
-RUN = poetry run
+RUN = uvx poetry run
 SCHEMA_NAME = $(LINKML_SCHEMA_NAME)
 SOURCE_SCHEMA_PATH = $(LINKML_SCHEMA_SOURCE_PATH)
 SOURCE_SCHEMA_DIR = $(dir $(SOURCE_SCHEMA_PATH))

@@ -1,5 +1,5 @@
 # Auto generated from matrix_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-14T12:01:22
+# Generation date: 2025-05-14T15:33:15
 # Schema: matrix-schema
 #
 # id: https://w3id.org/everycure-org/matrix-schema
@@ -94,11 +94,11 @@ class MatrixNode(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = MATRIX_SCHEMA.MatrixNode
 
     id: Union[str, MatrixNodeId] = None
-    category: str = None
+    category: Union[str, "NodeCategoryEnum"] = None
     name: Optional[str] = None
     description: Optional[str] = None
     equivalent_identifiers: Optional[Union[str, List[str]]] = empty_list()
-    all_categories: Optional[Union[str, List[str]]] = empty_list()
+    all_categories: Optional[Union[Union[str, "NodeCategoryEnum"], List[Union[str, "NodeCategoryEnum"]]]] = empty_list()
     publications: Optional[Union[str, List[str]]] = empty_list()
     labels: Optional[Union[str, List[str]]] = empty_list()
     international_resource_identifier: Optional[str] = None
@@ -112,8 +112,8 @@ class MatrixNode(YAMLRoot):
 
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        if not isinstance(self.category, str):
-            self.category = str(self.category)
+        if not isinstance(self.category, NodeCategoryEnum):
+            self.category = NodeCategoryEnum(self.category)
 
         if self.name is not None and not isinstance(self.name, str):
             self.name = str(self.name)
@@ -127,7 +127,7 @@ class MatrixNode(YAMLRoot):
 
         if not isinstance(self.all_categories, list):
             self.all_categories = [self.all_categories] if self.all_categories is not None else []
-        self.all_categories = [v if isinstance(v, str) else str(v) for v in self.all_categories]
+        self.all_categories = [v if isinstance(v, NodeCategoryEnum) else NodeCategoryEnum(v) for v in self.all_categories]
 
         if not isinstance(self.publications, list):
             self.publications = [self.publications] if self.publications is not None else []
@@ -160,9 +160,10 @@ class MatrixEdge(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = MATRIX_SCHEMA.MatrixEdge
 
     subject: str = None
-    predicate: str = None
+    predicate: Union[str, "PredicateEnum"] = None
     object: str = None
-    knowledge_level: Optional[str] = None
+    knowledge_level: Optional[Union[str, "KnowledgeLevelEnum"]] = None
+    agent_type: Optional[Union[str, "AgentTypeEnum"]] = None
     primary_knowledge_source: Optional[str] = None
     aggregator_knowledge_source: Optional[Union[str, List[str]]] = empty_list()
     publications: Optional[Union[str, List[str]]] = empty_list()
@@ -180,16 +181,19 @@ class MatrixEdge(YAMLRoot):
 
         if self._is_empty(self.predicate):
             self.MissingRequiredField("predicate")
-        if not isinstance(self.predicate, str):
-            self.predicate = str(self.predicate)
+        if not isinstance(self.predicate, PredicateEnum):
+            self.predicate = PredicateEnum(self.predicate)
 
         if self._is_empty(self.object):
             self.MissingRequiredField("object")
         if not isinstance(self.object, str):
             self.object = str(self.object)
 
-        if self.knowledge_level is not None and not isinstance(self.knowledge_level, str):
-            self.knowledge_level = str(self.knowledge_level)
+        if self.knowledge_level is not None and not isinstance(self.knowledge_level, KnowledgeLevelEnum):
+            self.knowledge_level = KnowledgeLevelEnum(self.knowledge_level)
+
+        if self.agent_type is not None and not isinstance(self.agent_type, AgentTypeEnum):
+            self.agent_type = AgentTypeEnum(self.agent_type)
 
         if self.primary_knowledge_source is not None and not isinstance(self.primary_knowledge_source, str):
             self.primary_knowledge_source = str(self.primary_knowledge_source)
@@ -236,7 +240,9 @@ class MatrixEdgeList(YAMLRoot):
     edges: Optional[Union[Union[dict, MatrixEdge], List[Union[dict, MatrixEdge]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="edges", slot_type=MatrixEdge, key_name="subject", keyed=False)
+        if not isinstance(self.edges, list):
+            self.edges = [self.edges] if self.edges is not None else []
+        self.edges = [v if isinstance(v, MatrixEdge) else MatrixEdge(**as_dict(v)) for v in self.edges]
 
         super().__post_init__(**kwargs)
 
@@ -256,7 +262,7 @@ class MatrixNodeList(YAMLRoot):
     nodes: Optional[Union[Dict[Union[str, MatrixNodeId], Union[dict, MatrixNode]], List[Union[dict, MatrixNode]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="nodes", slot_type=MatrixNode, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="nodes", slot_type=MatrixNode, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -576,12 +582,882 @@ class MatrixDiseaseList(YAMLRoot):
     disease_list_entries: Optional[Union[Union[dict, DiseaseListEntry], List[Union[dict, DiseaseListEntry]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="disease_list_entries", slot_type=DiseaseListEntry, key_name="category_class", keyed=False)
+        if not isinstance(self.disease_list_entries, list):
+            self.disease_list_entries = [self.disease_list_entries] if self.disease_list_entries is not None else []
+        self.disease_list_entries = [v if isinstance(v, DiseaseListEntry) else DiseaseListEntry(**as_dict(v)) for v in self.disease_list_entries]
 
         super().__post_init__(**kwargs)
 
 
 # Enumerations
+class PredicateEnum(EnumDefinitionImpl):
+
+    _defn = EnumDefinition(
+        name="PredicateEnum",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "biolink:related_to",
+            PermissibleValue(text="biolink:related_to"))
+        setattr(cls, "biolink:related_to_at_concept_level",
+            PermissibleValue(text="biolink:related_to_at_concept_level"))
+        setattr(cls, "biolink:related_to_at_instance_level",
+            PermissibleValue(text="biolink:related_to_at_instance_level"))
+        setattr(cls, "biolink:disease_has_location",
+            PermissibleValue(text="biolink:disease_has_location"))
+        setattr(cls, "biolink:location_of_disease",
+            PermissibleValue(text="biolink:location_of_disease"))
+        setattr(cls, "biolink:composed_primarily_of",
+            PermissibleValue(text="biolink:composed_primarily_of"))
+        setattr(cls, "biolink:primarily_composed_of",
+            PermissibleValue(text="biolink:primarily_composed_of"))
+        setattr(cls, "biolink:associated_with",
+            PermissibleValue(text="biolink:associated_with"))
+        setattr(cls, "biolink:opposite_of",
+            PermissibleValue(text="biolink:opposite_of"))
+        setattr(cls, "biolink:affects_likelihood_of",
+            PermissibleValue(text="biolink:affects_likelihood_of"))
+        setattr(cls, "biolink:likelihood_affected_by",
+            PermissibleValue(text="biolink:likelihood_affected_by"))
+        setattr(cls, "biolink:target_for",
+            PermissibleValue(text="biolink:target_for"))
+        setattr(cls, "biolink:has_target",
+            PermissibleValue(text="biolink:has_target"))
+        setattr(cls, "biolink:active_in",
+            PermissibleValue(text="biolink:active_in"))
+        setattr(cls, "biolink:has_active_component",
+            PermissibleValue(text="biolink:has_active_component"))
+        setattr(cls, "biolink:acts_upstream_of",
+            PermissibleValue(text="biolink:acts_upstream_of"))
+        setattr(cls, "biolink:has_upstream_actor",
+            PermissibleValue(text="biolink:has_upstream_actor"))
+        setattr(cls, "biolink:mentions",
+            PermissibleValue(text="biolink:mentions"))
+        setattr(cls, "biolink:mentioned_by",
+            PermissibleValue(text="biolink:mentioned_by"))
+        setattr(cls, "biolink:contributor",
+            PermissibleValue(text="biolink:contributor"))
+        setattr(cls, "biolink:has_contributor",
+            PermissibleValue(text="biolink:has_contributor"))
+        setattr(cls, "biolink:assesses",
+            PermissibleValue(text="biolink:assesses"))
+        setattr(cls, "biolink:is_assessed_by",
+            PermissibleValue(text="biolink:is_assessed_by"))
+        setattr(cls, "biolink:interacts_with",
+            PermissibleValue(text="biolink:interacts_with"))
+        setattr(cls, "biolink:affects",
+            PermissibleValue(text="biolink:affects"))
+        setattr(cls, "biolink:affected_by",
+            PermissibleValue(text="biolink:affected_by"))
+        setattr(cls, "biolink:diagnoses",
+            PermissibleValue(text="biolink:diagnoses"))
+        setattr(cls, "biolink:is_diagnosed_by",
+            PermissibleValue(text="biolink:is_diagnosed_by"))
+        setattr(cls, "biolink:increases_amount_or_activity_of",
+            PermissibleValue(text="biolink:increases_amount_or_activity_of"))
+        setattr(cls, "biolink:amount_or_activity_increased_by",
+            PermissibleValue(text="biolink:amount_or_activity_increased_by"))
+        setattr(cls, "biolink:decreases_amount_or_activity_of",
+            PermissibleValue(text="biolink:decreases_amount_or_activity_of"))
+        setattr(cls, "biolink:amount_or_activity_decreased_by",
+            PermissibleValue(text="biolink:amount_or_activity_decreased_by"))
+        setattr(cls, "biolink:gene_product_of",
+            PermissibleValue(text="biolink:gene_product_of"))
+        setattr(cls, "biolink:has_gene_product",
+            PermissibleValue(text="biolink:has_gene_product"))
+        setattr(cls, "biolink:transcribed_to",
+            PermissibleValue(text="biolink:transcribed_to"))
+        setattr(cls, "biolink:transcribed_from",
+            PermissibleValue(text="biolink:transcribed_from"))
+        setattr(cls, "biolink:translates_to",
+            PermissibleValue(text="biolink:translates_to"))
+        setattr(cls, "biolink:translation_of",
+            PermissibleValue(text="biolink:translation_of"))
+        setattr(cls, "biolink:coexists_with",
+            PermissibleValue(text="biolink:coexists_with"))
+        setattr(cls, "biolink:contributes_to",
+            PermissibleValue(text="biolink:contributes_to"))
+        setattr(cls, "biolink:contribution_from",
+            PermissibleValue(text="biolink:contribution_from"))
+        setattr(cls, "biolink:studied_to_treat",
+            PermissibleValue(text="biolink:studied_to_treat"))
+        setattr(cls, "biolink:applied_to_treat",
+            PermissibleValue(text="biolink:applied_to_treat"))
+        setattr(cls, "biolink:treatment_applications_from",
+            PermissibleValue(text="biolink:treatment_applications_from"))
+        setattr(cls, "biolink:treats_or_applied_or_studied_to_treat",
+            PermissibleValue(text="biolink:treats_or_applied_or_studied_to_treat"))
+        setattr(cls, "biolink:subject_of_treatment_application_or_study_for_treatment_by",
+            PermissibleValue(text="biolink:subject_of_treatment_application_or_study_for_treatment_by"))
+        setattr(cls, "biolink:has_phenotype",
+            PermissibleValue(text="biolink:has_phenotype"))
+        setattr(cls, "biolink:phenotype_of",
+            PermissibleValue(text="biolink:phenotype_of"))
+        setattr(cls, "biolink:occurs_in",
+            PermissibleValue(text="biolink:occurs_in"))
+        setattr(cls, "biolink:contains_process",
+            PermissibleValue(text="biolink:contains_process"))
+        setattr(cls, "biolink:located_in",
+            PermissibleValue(text="biolink:located_in"))
+        setattr(cls, "biolink:location_of",
+            PermissibleValue(text="biolink:location_of"))
+        setattr(cls, "biolink:similar_to",
+            PermissibleValue(text="biolink:similar_to"))
+        setattr(cls, "biolink:has_sequence_location",
+            PermissibleValue(text="biolink:has_sequence_location"))
+        setattr(cls, "biolink:sequence_location_of",
+            PermissibleValue(text="biolink:sequence_location_of"))
+        setattr(cls, "biolink:model_of",
+            PermissibleValue(text="biolink:model_of"))
+        setattr(cls, "biolink:models",
+            PermissibleValue(text="biolink:models"))
+        setattr(cls, "biolink:overlaps",
+            PermissibleValue(text="biolink:overlaps"))
+        setattr(cls, "biolink:has_participant",
+            PermissibleValue(text="biolink:has_participant"))
+        setattr(cls, "biolink:participates_in",
+            PermissibleValue(text="biolink:participates_in"))
+        setattr(cls, "biolink:derives_into",
+            PermissibleValue(text="biolink:derives_into"))
+        setattr(cls, "biolink:derives_from",
+            PermissibleValue(text="biolink:derives_from"))
+        setattr(cls, "biolink:manifestation_of",
+            PermissibleValue(text="biolink:manifestation_of"))
+        setattr(cls, "biolink:has_manifestation",
+            PermissibleValue(text="biolink:has_manifestation"))
+        setattr(cls, "biolink:produces",
+            PermissibleValue(text="biolink:produces"))
+        setattr(cls, "biolink:produced_by",
+            PermissibleValue(text="biolink:produced_by"))
+        setattr(cls, "biolink:temporally_related_to",
+            PermissibleValue(text="biolink:temporally_related_to"))
+        setattr(cls, "biolink:related_condition",
+            PermissibleValue(text="biolink:related_condition"))
+        setattr(cls, "biolink:is_sequence_variant_of",
+            PermissibleValue(text="biolink:is_sequence_variant_of"))
+        setattr(cls, "biolink:has_sequence_variant",
+            PermissibleValue(text="biolink:has_sequence_variant"))
+        setattr(cls, "biolink:disease_has_basis_in",
+            PermissibleValue(text="biolink:disease_has_basis_in"))
+        setattr(cls, "biolink:occurs_in_disease",
+            PermissibleValue(text="biolink:occurs_in_disease"))
+        setattr(cls, "biolink:contraindicated_in",
+            PermissibleValue(text="biolink:contraindicated_in"))
+        setattr(cls, "biolink:has_contraindication",
+            PermissibleValue(text="biolink:has_contraindication"))
+        setattr(cls, "biolink:has_not_completed",
+            PermissibleValue(text="biolink:has_not_completed"))
+        setattr(cls, "biolink:not_completed_by",
+            PermissibleValue(text="biolink:not_completed_by"))
+        setattr(cls, "biolink:has_completed",
+            PermissibleValue(text="biolink:has_completed"))
+        setattr(cls, "biolink:completed_by",
+            PermissibleValue(text="biolink:completed_by"))
+        setattr(cls, "biolink:in_linkage_disequilibrium_with",
+            PermissibleValue(text="biolink:in_linkage_disequilibrium_with"))
+        setattr(cls, "biolink:has_increased_amount",
+            PermissibleValue(text="biolink:has_increased_amount"))
+        setattr(cls, "biolink:increased_amount_of",
+            PermissibleValue(text="biolink:increased_amount_of"))
+        setattr(cls, "biolink:has_decreased_amount",
+            PermissibleValue(text="biolink:has_decreased_amount"))
+        setattr(cls, "biolink:decreased_amount_in",
+            PermissibleValue(text="biolink:decreased_amount_in"))
+        setattr(cls, "biolink:lacks_part",
+            PermissibleValue(text="biolink:lacks_part"))
+        setattr(cls, "biolink:missing_from",
+            PermissibleValue(text="biolink:missing_from"))
+        setattr(cls, "biolink:develops_from",
+            PermissibleValue(text="biolink:develops_from"))
+        setattr(cls, "biolink:develops_into",
+            PermissibleValue(text="biolink:develops_into"))
+        setattr(cls, "biolink:in_taxon",
+            PermissibleValue(text="biolink:in_taxon"))
+        setattr(cls, "biolink:taxon_of",
+            PermissibleValue(text="biolink:taxon_of"))
+        setattr(cls, "biolink:has_molecular_consequence",
+            PermissibleValue(text="biolink:has_molecular_consequence"))
+        setattr(cls, "biolink:is_molecular_consequence_of",
+            PermissibleValue(text="biolink:is_molecular_consequence_of"))
+        setattr(cls, "biolink:has_missense_variant",
+            PermissibleValue(text="biolink:has_missense_variant"))
+        setattr(cls, "biolink:has_synonymous_variant",
+            PermissibleValue(text="biolink:has_synonymous_variant"))
+        setattr(cls, "biolink:has_nonsense_variant",
+            PermissibleValue(text="biolink:has_nonsense_variant"))
+        setattr(cls, "biolink:has_frameshift_variant",
+            PermissibleValue(text="biolink:has_frameshift_variant"))
+        setattr(cls, "biolink:has_splice_site_variant",
+            PermissibleValue(text="biolink:has_splice_site_variant"))
+        setattr(cls, "biolink:has_nearby_variant",
+            PermissibleValue(text="biolink:has_nearby_variant"))
+        setattr(cls, "biolink:has_non_coding_variant",
+            PermissibleValue(text="biolink:has_non_coding_variant"))
+        setattr(cls, "biolink:is_missense_variant_of",
+            PermissibleValue(text="biolink:is_missense_variant_of"))
+        setattr(cls, "biolink:is_synonymous_variant_of",
+            PermissibleValue(text="biolink:is_synonymous_variant_of"))
+        setattr(cls, "biolink:is_nonsense_variant_of",
+            PermissibleValue(text="biolink:is_nonsense_variant_of"))
+        setattr(cls, "biolink:is_frameshift_variant_of",
+            PermissibleValue(text="biolink:is_frameshift_variant_of"))
+        setattr(cls, "biolink:is_splice_site_variant_of",
+            PermissibleValue(text="biolink:is_splice_site_variant_of"))
+        setattr(cls, "biolink:is_nearby_variant_of",
+            PermissibleValue(text="biolink:is_nearby_variant_of"))
+        setattr(cls, "biolink:is_non_coding_variant_of",
+            PermissibleValue(text="biolink:is_non_coding_variant_of"))
+        setattr(cls, "biolink:precedes",
+            PermissibleValue(text="biolink:precedes"))
+        setattr(cls, "biolink:preceded_by",
+            PermissibleValue(text="biolink:preceded_by"))
+        setattr(cls, "biolink:has_mode_of_inheritance",
+            PermissibleValue(text="biolink:has_mode_of_inheritance"))
+        setattr(cls, "biolink:mode_of_inheritance_of",
+            PermissibleValue(text="biolink:mode_of_inheritance_of"))
+        setattr(cls, "biolink:is_metabolite_of",
+            PermissibleValue(text="biolink:is_metabolite_of"))
+        setattr(cls, "biolink:has_metabolite",
+            PermissibleValue(text="biolink:has_metabolite"))
+        setattr(cls, "biolink:is_input_of",
+            PermissibleValue(text="biolink:is_input_of"))
+        setattr(cls, "biolink:is_output_of",
+            PermissibleValue(text="biolink:is_output_of"))
+        setattr(cls, "biolink:catalyzes",
+            PermissibleValue(text="biolink:catalyzes"))
+        setattr(cls, "biolink:is_substrate_of",
+            PermissibleValue(text="biolink:is_substrate_of"))
+        setattr(cls, "biolink:actively_involved_in",
+            PermissibleValue(text="biolink:actively_involved_in"))
+        setattr(cls, "biolink:enables",
+            PermissibleValue(text="biolink:enables"))
+        setattr(cls, "biolink:capable_of",
+            PermissibleValue(text="biolink:capable_of"))
+        setattr(cls, "biolink:consumed_by",
+            PermissibleValue(text="biolink:consumed_by"))
+        setattr(cls, "biolink:has_input",
+            PermissibleValue(text="biolink:has_input"))
+        setattr(cls, "biolink:has_output",
+            PermissibleValue(text="biolink:has_output"))
+        setattr(cls, "biolink:has_catalyst",
+            PermissibleValue(text="biolink:has_catalyst"))
+        setattr(cls, "biolink:has_substrate",
+            PermissibleValue(text="biolink:has_substrate"))
+        setattr(cls, "biolink:actively_involves",
+            PermissibleValue(text="biolink:actively_involves"))
+        setattr(cls, "biolink:enabled_by",
+            PermissibleValue(text="biolink:enabled_by"))
+        setattr(cls, "biolink:can_be_carried_out_by",
+            PermissibleValue(text="biolink:can_be_carried_out_by"))
+        setattr(cls, "biolink:consumes",
+            PermissibleValue(text="biolink:consumes"))
+        setattr(cls, "biolink:has_part",
+            PermissibleValue(text="biolink:has_part"))
+        setattr(cls, "biolink:part_of",
+            PermissibleValue(text="biolink:part_of"))
+        setattr(cls, "biolink:plasma_membrane_part_of",
+            PermissibleValue(text="biolink:plasma_membrane_part_of"))
+        setattr(cls, "biolink:food_component_of",
+            PermissibleValue(text="biolink:food_component_of"))
+        setattr(cls, "biolink:is_active_ingredient_of",
+            PermissibleValue(text="biolink:is_active_ingredient_of"))
+        setattr(cls, "biolink:is_excipient_of",
+            PermissibleValue(text="biolink:is_excipient_of"))
+        setattr(cls, "biolink:variant_part_of",
+            PermissibleValue(text="biolink:variant_part_of"))
+        setattr(cls, "biolink:nutrient_of",
+            PermissibleValue(text="biolink:nutrient_of"))
+        setattr(cls, "biolink:has_plasma_membrane_part",
+            PermissibleValue(text="biolink:has_plasma_membrane_part"))
+        setattr(cls, "biolink:has_food_component",
+            PermissibleValue(text="biolink:has_food_component"))
+        setattr(cls, "biolink:has_active_ingredient",
+            PermissibleValue(text="biolink:has_active_ingredient"))
+        setattr(cls, "biolink:has_excipient",
+            PermissibleValue(text="biolink:has_excipient"))
+        setattr(cls, "biolink:has_variant_part",
+            PermissibleValue(text="biolink:has_variant_part"))
+        setattr(cls, "biolink:has_nutrient",
+            PermissibleValue(text="biolink:has_nutrient"))
+        setattr(cls, "biolink:homologous_to",
+            PermissibleValue(text="biolink:homologous_to"))
+        setattr(cls, "biolink:chemically_similar_to",
+            PermissibleValue(text="biolink:chemically_similar_to"))
+        setattr(cls, "biolink:paralogous_to",
+            PermissibleValue(text="biolink:paralogous_to"))
+        setattr(cls, "biolink:orthologous_to",
+            PermissibleValue(text="biolink:orthologous_to"))
+        setattr(cls, "biolink:xenologous_to",
+            PermissibleValue(text="biolink:xenologous_to"))
+        setattr(cls, "biolink:expresses",
+            PermissibleValue(text="biolink:expresses"))
+        setattr(cls, "biolink:expressed_in",
+            PermissibleValue(text="biolink:expressed_in"))
+        setattr(cls, "biolink:treated_by",
+            PermissibleValue(text="biolink:treated_by"))
+        setattr(cls, "biolink:tested_by_clinical_trials_of",
+            PermissibleValue(text="biolink:tested_by_clinical_trials_of"))
+        setattr(cls, "biolink:treated_in_studies_by",
+            PermissibleValue(text="biolink:treated_in_studies_by"))
+        setattr(cls, "biolink:tested_by_preclinical_trials_of",
+            PermissibleValue(text="biolink:tested_by_preclinical_trials_of"))
+        setattr(cls, "biolink:models_demonstrating_benefits_for",
+            PermissibleValue(text="biolink:models_demonstrating_benefits_for"))
+        setattr(cls, "biolink:treats",
+            PermissibleValue(text="biolink:treats"))
+        setattr(cls, "biolink:in_clinical_trials_for",
+            PermissibleValue(text="biolink:in_clinical_trials_for"))
+        setattr(cls, "biolink:in_preclinical_trials_for",
+            PermissibleValue(text="biolink:in_preclinical_trials_for"))
+        setattr(cls, "biolink:beneficial_in_models_for",
+            PermissibleValue(text="biolink:beneficial_in_models_for"))
+        setattr(cls, "biolink:ameliorates_condition",
+            PermissibleValue(text="biolink:ameliorates_condition"))
+        setattr(cls, "biolink:preventative_for_condition",
+            PermissibleValue(text="biolink:preventative_for_condition"))
+        setattr(cls, "biolink:caused_by",
+            PermissibleValue(text="biolink:caused_by"))
+        setattr(cls, "biolink:causes",
+            PermissibleValue(text="biolink:causes"))
+        setattr(cls, "biolink:in_pathway_with",
+            PermissibleValue(text="biolink:in_pathway_with"))
+        setattr(cls, "biolink:in_complex_with",
+            PermissibleValue(text="biolink:in_complex_with"))
+        setattr(cls, "biolink:in_cell_population_with",
+            PermissibleValue(text="biolink:in_cell_population_with"))
+        setattr(cls, "biolink:colocalizes_with",
+            PermissibleValue(text="biolink:colocalizes_with"))
+        setattr(cls, "biolink:response_affected_by",
+            PermissibleValue(text="biolink:response_affected_by"))
+        setattr(cls, "biolink:regulated_by",
+            PermissibleValue(text="biolink:regulated_by"))
+        setattr(cls, "biolink:disrupted_by",
+            PermissibleValue(text="biolink:disrupted_by"))
+        setattr(cls, "biolink:condition_ameliorated_by",
+            PermissibleValue(text="biolink:condition_ameliorated_by"))
+        setattr(cls, "biolink:condition_prevented_by",
+            PermissibleValue(text="biolink:condition_prevented_by"))
+        setattr(cls, "biolink:condition_exacerbated_by",
+            PermissibleValue(text="biolink:condition_exacerbated_by"))
+        setattr(cls, "biolink:adverse_event_of",
+            PermissibleValue(text="biolink:adverse_event_of"))
+        setattr(cls, "biolink:is_side_effect_of",
+            PermissibleValue(text="biolink:is_side_effect_of"))
+        setattr(cls, "biolink:response_increased_by",
+            PermissibleValue(text="biolink:response_increased_by"))
+        setattr(cls, "biolink:response_decreased_by",
+            PermissibleValue(text="biolink:response_decreased_by"))
+        setattr(cls, "biolink:affects_response_to",
+            PermissibleValue(text="biolink:affects_response_to"))
+        setattr(cls, "biolink:regulates",
+            PermissibleValue(text="biolink:regulates"))
+        setattr(cls, "biolink:disrupts",
+            PermissibleValue(text="biolink:disrupts"))
+        setattr(cls, "biolink:exacerbates_condition",
+            PermissibleValue(text="biolink:exacerbates_condition"))
+        setattr(cls, "biolink:has_adverse_event",
+            PermissibleValue(text="biolink:has_adverse_event"))
+        setattr(cls, "biolink:has_side_effect",
+            PermissibleValue(text="biolink:has_side_effect"))
+        setattr(cls, "biolink:increases_response_to",
+            PermissibleValue(text="biolink:increases_response_to"))
+        setattr(cls, "biolink:decreases_response_to",
+            PermissibleValue(text="biolink:decreases_response_to"))
+        setattr(cls, "biolink:physically_interacts_with",
+            PermissibleValue(text="biolink:physically_interacts_with"))
+        setattr(cls, "biolink:genetically_interacts_with",
+            PermissibleValue(text="biolink:genetically_interacts_with"))
+        setattr(cls, "biolink:gene_fusion_with",
+            PermissibleValue(text="biolink:gene_fusion_with"))
+        setattr(cls, "biolink:genetic_neighborhood_of",
+            PermissibleValue(text="biolink:genetic_neighborhood_of"))
+        setattr(cls, "biolink:directly_physically_interacts_with",
+            PermissibleValue(text="biolink:directly_physically_interacts_with"))
+        setattr(cls, "biolink:indirectly_physically_interacts_with",
+            PermissibleValue(text="biolink:indirectly_physically_interacts_with"))
+        setattr(cls, "biolink:binds",
+            PermissibleValue(text="biolink:binds"))
+        setattr(cls, "biolink:has_provider",
+            PermissibleValue(text="biolink:has_provider"))
+        setattr(cls, "biolink:has_publisher",
+            PermissibleValue(text="biolink:has_publisher"))
+        setattr(cls, "biolink:has_editor",
+            PermissibleValue(text="biolink:has_editor"))
+        setattr(cls, "biolink:has_author",
+            PermissibleValue(text="biolink:has_author"))
+        setattr(cls, "biolink:provider",
+            PermissibleValue(text="biolink:provider"))
+        setattr(cls, "biolink:publisher",
+            PermissibleValue(text="biolink:publisher"))
+        setattr(cls, "biolink:editor",
+            PermissibleValue(text="biolink:editor"))
+        setattr(cls, "biolink:author",
+            PermissibleValue(text="biolink:author"))
+        setattr(cls, "biolink:has_positive_upstream_actor",
+            PermissibleValue(text="biolink:has_positive_upstream_actor"))
+        setattr(cls, "biolink:has_negative_upstream_actor",
+            PermissibleValue(text="biolink:has_negative_upstream_actor"))
+        setattr(cls, "biolink:has_upstream_or_within_actor",
+            PermissibleValue(text="biolink:has_upstream_or_within_actor"))
+        setattr(cls, "biolink:has_positive_upstream_or_within_actor",
+            PermissibleValue(text="biolink:has_positive_upstream_or_within_actor"))
+        setattr(cls, "biolink:has_negative_upstream_or_within_actor",
+            PermissibleValue(text="biolink:has_negative_upstream_or_within_actor"))
+        setattr(cls, "biolink:acts_upstream_of_positive_effect",
+            PermissibleValue(text="biolink:acts_upstream_of_positive_effect"))
+        setattr(cls, "biolink:acts_upstream_of_negative_effect",
+            PermissibleValue(text="biolink:acts_upstream_of_negative_effect"))
+        setattr(cls, "biolink:acts_upstream_of_or_within",
+            PermissibleValue(text="biolink:acts_upstream_of_or_within"))
+        setattr(cls, "biolink:acts_upstream_of_or_within_positive_effect",
+            PermissibleValue(text="biolink:acts_upstream_of_or_within_positive_effect"))
+        setattr(cls, "biolink:acts_upstream_of_or_within_negative_effect",
+            PermissibleValue(text="biolink:acts_upstream_of_or_within_negative_effect"))
+        setattr(cls, "biolink:condition_promoted_by",
+            PermissibleValue(text="biolink:condition_promoted_by"))
+        setattr(cls, "biolink:condition_predisposed_by",
+            PermissibleValue(text="biolink:condition_predisposed_by"))
+        setattr(cls, "biolink:promotes_condition",
+            PermissibleValue(text="biolink:promotes_condition"))
+        setattr(cls, "biolink:predisposes_to_condition",
+            PermissibleValue(text="biolink:predisposes_to_condition"))
+        setattr(cls, "biolink:associated_with_likelihood_of",
+            PermissibleValue(text="biolink:associated_with_likelihood_of"))
+        setattr(cls, "biolink:likelihood_associated_with",
+            PermissibleValue(text="biolink:likelihood_associated_with"))
+        setattr(cls, "biolink:associated_with_sensitivity_to",
+            PermissibleValue(text="biolink:associated_with_sensitivity_to"))
+        setattr(cls, "biolink:sensitivity_associated_with",
+            PermissibleValue(text="biolink:sensitivity_associated_with"))
+        setattr(cls, "biolink:associated_with_resistance_to",
+            PermissibleValue(text="biolink:associated_with_resistance_to"))
+        setattr(cls, "biolink:resistance_associated_with",
+            PermissibleValue(text="biolink:resistance_associated_with"))
+        setattr(cls, "biolink:genetic_association",
+            PermissibleValue(text="biolink:genetic_association"))
+        setattr(cls, "biolink:genetically_associated_with",
+            PermissibleValue(text="biolink:genetically_associated_with"))
+        setattr(cls, "biolink:correlated_with",
+            PermissibleValue(text="biolink:correlated_with"))
+        setattr(cls, "biolink:positively_correlated_with",
+            PermissibleValue(text="biolink:positively_correlated_with"))
+        setattr(cls, "biolink:negatively_correlated_with",
+            PermissibleValue(text="biolink:negatively_correlated_with"))
+        setattr(cls, "biolink:occurs_together_in_literature_with",
+            PermissibleValue(text="biolink:occurs_together_in_literature_with"))
+        setattr(cls, "biolink:coexpressed_with",
+            PermissibleValue(text="biolink:coexpressed_with"))
+        setattr(cls, "biolink:has_biomarker",
+            PermissibleValue(text="biolink:has_biomarker"))
+        setattr(cls, "biolink:biomarker_for",
+            PermissibleValue(text="biolink:biomarker_for"))
+        setattr(cls, "biolink:gene_associated_with_condition",
+            PermissibleValue(text="biolink:gene_associated_with_condition"))
+        setattr(cls, "biolink:condition_associated_with_gene",
+            PermissibleValue(text="biolink:condition_associated_with_gene"))
+        setattr(cls, "biolink:increased_likelihood_associated_with",
+            PermissibleValue(text="biolink:increased_likelihood_associated_with"))
+        setattr(cls, "biolink:decreased_likelihood_associated_with",
+            PermissibleValue(text="biolink:decreased_likelihood_associated_with"))
+        setattr(cls, "biolink:associated_with_increased_likelihood_of",
+            PermissibleValue(text="biolink:associated_with_increased_likelihood_of"))
+        setattr(cls, "biolink:associated_with_decreased_likelihood_of",
+            PermissibleValue(text="biolink:associated_with_decreased_likelihood_of"))
+        setattr(cls, "biolink:has_chemical_role",
+            PermissibleValue(text="biolink:has_chemical_role"))
+        setattr(cls, "biolink:superclass_of",
+            PermissibleValue(text="biolink:superclass_of"))
+        setattr(cls, "biolink:subclass_of",
+            PermissibleValue(text="biolink:subclass_of"))
+        setattr(cls, "biolink:close_match",
+            PermissibleValue(text="biolink:close_match"))
+        setattr(cls, "biolink:broad_match",
+            PermissibleValue(text="biolink:broad_match"))
+        setattr(cls, "biolink:narrow_match",
+            PermissibleValue(text="biolink:narrow_match"))
+        setattr(cls, "biolink:member_of",
+            PermissibleValue(text="biolink:member_of"))
+        setattr(cls, "biolink:has_member",
+            PermissibleValue(text="biolink:has_member"))
+        setattr(cls, "biolink:exact_match",
+            PermissibleValue(text="biolink:exact_match"))
+        setattr(cls, "biolink:same_as",
+            PermissibleValue(text="biolink:same_as"))
+
+class NodeCategoryEnum(EnumDefinitionImpl):
+
+    _defn = EnumDefinition(
+        name="NodeCategoryEnum",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "biolink:NamedThing",
+            PermissibleValue(text="biolink:NamedThing"))
+        setattr(cls, "biolink:Attribute",
+            PermissibleValue(text="biolink:Attribute"))
+        setattr(cls, "biolink:OrganismTaxon",
+            PermissibleValue(text="biolink:OrganismTaxon"))
+        setattr(cls, "biolink:Event",
+            PermissibleValue(text="biolink:Event"))
+        setattr(cls, "biolink:AdministrativeEntity",
+            PermissibleValue(text="biolink:AdministrativeEntity"))
+        setattr(cls, "biolink:InformationContentEntity",
+            PermissibleValue(text="biolink:InformationContentEntity"))
+        setattr(cls, "biolink:PhysicalEntity",
+            PermissibleValue(text="biolink:PhysicalEntity"))
+        setattr(cls, "biolink:Activity",
+            PermissibleValue(text="biolink:Activity"))
+        setattr(cls, "biolink:Procedure",
+            PermissibleValue(text="biolink:Procedure"))
+        setattr(cls, "biolink:Phenomenon",
+            PermissibleValue(text="biolink:Phenomenon"))
+        setattr(cls, "biolink:Device",
+            PermissibleValue(text="biolink:Device"))
+        setattr(cls, "biolink:DiagnosticAid",
+            PermissibleValue(text="biolink:DiagnosticAid"))
+        setattr(cls, "biolink:PlanetaryEntity",
+            PermissibleValue(text="biolink:PlanetaryEntity"))
+        setattr(cls, "biolink:BiologicalEntity",
+            PermissibleValue(text="biolink:BiologicalEntity"))
+        setattr(cls, "biolink:ChemicalEntity",
+            PermissibleValue(text="biolink:ChemicalEntity"))
+        setattr(cls, "biolink:ClinicalEntity",
+            PermissibleValue(text="biolink:ClinicalEntity"))
+        setattr(cls, "biolink:Treatment",
+            PermissibleValue(text="biolink:Treatment"))
+        setattr(cls, "biolink:ClinicalTrial",
+            PermissibleValue(text="biolink:ClinicalTrial"))
+        setattr(cls, "biolink:ClinicalIntervention",
+            PermissibleValue(text="biolink:ClinicalIntervention"))
+        setattr(cls, "biolink:Hospitalization",
+            PermissibleValue(text="biolink:Hospitalization"))
+        setattr(cls, "biolink:MolecularEntity",
+            PermissibleValue(text="biolink:MolecularEntity"))
+        setattr(cls, "biolink:ChemicalMixture",
+            PermissibleValue(text="biolink:ChemicalMixture"))
+        setattr(cls, "biolink:EnvironmentalFoodContaminant",
+            PermissibleValue(text="biolink:EnvironmentalFoodContaminant"))
+        setattr(cls, "biolink:FoodAdditive",
+            PermissibleValue(text="biolink:FoodAdditive"))
+        setattr(cls, "biolink:MolecularMixture",
+            PermissibleValue(text="biolink:MolecularMixture"))
+        setattr(cls, "biolink:ComplexMolecularMixture",
+            PermissibleValue(text="biolink:ComplexMolecularMixture"))
+        setattr(cls, "biolink:ProcessedMaterial",
+            PermissibleValue(text="biolink:ProcessedMaterial"))
+        setattr(cls, "biolink:Food",
+            PermissibleValue(text="biolink:Food"))
+        setattr(cls, "biolink:Drug",
+            PermissibleValue(text="biolink:Drug"))
+        setattr(cls, "biolink:SmallMolecule",
+            PermissibleValue(text="biolink:SmallMolecule"))
+        setattr(cls, "biolink:NucleicAcidEntity",
+            PermissibleValue(text="biolink:NucleicAcidEntity"))
+        setattr(cls, "biolink:RegulatoryRegion",
+            PermissibleValue(text="biolink:RegulatoryRegion"))
+        setattr(cls, "biolink:BiologicalProcessOrActivity",
+            PermissibleValue(text="biolink:BiologicalProcessOrActivity"))
+        setattr(cls, "biolink:GeneticInheritance",
+            PermissibleValue(text="biolink:GeneticInheritance"))
+        setattr(cls, "biolink:OrganismalEntity",
+            PermissibleValue(text="biolink:OrganismalEntity"))
+        setattr(cls, "biolink:DiseaseOrPhenotypicFeature",
+            PermissibleValue(text="biolink:DiseaseOrPhenotypicFeature"))
+        setattr(cls, "biolink:Gene",
+            PermissibleValue(text="biolink:Gene"))
+        setattr(cls, "biolink:MacromolecularComplex",
+            PermissibleValue(text="biolink:MacromolecularComplex"))
+        setattr(cls, "biolink:NucleosomeModification",
+            PermissibleValue(text="biolink:NucleosomeModification"))
+        setattr(cls, "biolink:Genome",
+            PermissibleValue(text="biolink:Genome"))
+        setattr(cls, "biolink:Exon",
+            PermissibleValue(text="biolink:Exon"))
+        setattr(cls, "biolink:Transcript",
+            PermissibleValue(text="biolink:Transcript"))
+        setattr(cls, "biolink:CodingSequence",
+            PermissibleValue(text="biolink:CodingSequence"))
+        setattr(cls, "biolink:Polypeptide",
+            PermissibleValue(text="biolink:Polypeptide"))
+        setattr(cls, "biolink:ProteinDomain",
+            PermissibleValue(text="biolink:ProteinDomain"))
+        setattr(cls, "biolink:PosttranslationalModification",
+            PermissibleValue(text="biolink:PosttranslationalModification"))
+        setattr(cls, "biolink:ProteinFamily",
+            PermissibleValue(text="biolink:ProteinFamily"))
+        setattr(cls, "biolink:NucleicAcidSequenceMotif",
+            PermissibleValue(text="biolink:NucleicAcidSequenceMotif"))
+        setattr(cls, "biolink:GeneFamily",
+            PermissibleValue(text="biolink:GeneFamily"))
+        setattr(cls, "biolink:Genotype",
+            PermissibleValue(text="biolink:Genotype"))
+        setattr(cls, "biolink:Haplotype",
+            PermissibleValue(text="biolink:Haplotype"))
+        setattr(cls, "biolink:SequenceVariant",
+            PermissibleValue(text="biolink:SequenceVariant"))
+        setattr(cls, "biolink:ReagentTargetedGene",
+            PermissibleValue(text="biolink:ReagentTargetedGene"))
+        setattr(cls, "biolink:Snv",
+            PermissibleValue(text="biolink:Snv"))
+        setattr(cls, "biolink:Protein",
+            PermissibleValue(text="biolink:Protein"))
+        setattr(cls, "biolink:ProteinIsoform",
+            PermissibleValue(text="biolink:ProteinIsoform"))
+        setattr(cls, "biolink:RNAProduct",
+            PermissibleValue(text="biolink:RNAProduct"))
+        setattr(cls, "biolink:RNAProductIsoform",
+            PermissibleValue(text="biolink:RNAProductIsoform"))
+        setattr(cls, "biolink:NoncodingRNAProduct",
+            PermissibleValue(text="biolink:NoncodingRNAProduct"))
+        setattr(cls, "biolink:MicroRNA",
+            PermissibleValue(text="biolink:MicroRNA"))
+        setattr(cls, "biolink:SiRNA",
+            PermissibleValue(text="biolink:SiRNA"))
+        setattr(cls, "biolink:Disease",
+            PermissibleValue(text="biolink:Disease"))
+        setattr(cls, "biolink:PhenotypicFeature",
+            PermissibleValue(text="biolink:PhenotypicFeature"))
+        setattr(cls, "biolink:BehavioralFeature",
+            PermissibleValue(text="biolink:BehavioralFeature"))
+        setattr(cls, "biolink:ClinicalFinding",
+            PermissibleValue(text="biolink:ClinicalFinding"))
+        setattr(cls, "biolink:Bacterium",
+            PermissibleValue(text="biolink:Bacterium"))
+        setattr(cls, "biolink:Virus",
+            PermissibleValue(text="biolink:Virus"))
+        setattr(cls, "biolink:CellularOrganism",
+            PermissibleValue(text="biolink:CellularOrganism"))
+        setattr(cls, "biolink:LifeStage",
+            PermissibleValue(text="biolink:LifeStage"))
+        setattr(cls, "biolink:IndividualOrganism",
+            PermissibleValue(text="biolink:IndividualOrganism"))
+        setattr(cls, "biolink:PopulationOfIndividualOrganisms",
+            PermissibleValue(text="biolink:PopulationOfIndividualOrganisms"))
+        setattr(cls, "biolink:AnatomicalEntity",
+            PermissibleValue(text="biolink:AnatomicalEntity"))
+        setattr(cls, "biolink:CellLine",
+            PermissibleValue(text="biolink:CellLine"))
+        setattr(cls, "biolink:CellularComponent",
+            PermissibleValue(text="biolink:CellularComponent"))
+        setattr(cls, "biolink:Cell",
+            PermissibleValue(text="biolink:Cell"))
+        setattr(cls, "biolink:GrossAnatomicalStructure",
+            PermissibleValue(text="biolink:GrossAnatomicalStructure"))
+        setattr(cls, "biolink:PathologicalAnatomicalStructure",
+            PermissibleValue(text="biolink:PathologicalAnatomicalStructure"))
+        setattr(cls, "biolink:StudyPopulation",
+            PermissibleValue(text="biolink:StudyPopulation"))
+        setattr(cls, "biolink:Cohort",
+            PermissibleValue(text="biolink:Cohort"))
+        setattr(cls, "biolink:Case",
+            PermissibleValue(text="biolink:Case"))
+        setattr(cls, "biolink:Mammal",
+            PermissibleValue(text="biolink:Mammal"))
+        setattr(cls, "biolink:Plant",
+            PermissibleValue(text="biolink:Plant"))
+        setattr(cls, "biolink:Invertebrate",
+            PermissibleValue(text="biolink:Invertebrate"))
+        setattr(cls, "biolink:Vertebrate",
+            PermissibleValue(text="biolink:Vertebrate"))
+        setattr(cls, "biolink:Fungus",
+            PermissibleValue(text="biolink:Fungus"))
+        setattr(cls, "biolink:Human",
+            PermissibleValue(text="biolink:Human"))
+        setattr(cls, "biolink:MolecularActivity",
+            PermissibleValue(text="biolink:MolecularActivity"))
+        setattr(cls, "biolink:BiologicalProcess",
+            PermissibleValue(text="biolink:BiologicalProcess"))
+        setattr(cls, "biolink:Pathway",
+            PermissibleValue(text="biolink:Pathway"))
+        setattr(cls, "biolink:PhysiologicalProcess",
+            PermissibleValue(text="biolink:PhysiologicalProcess"))
+        setattr(cls, "biolink:Behavior",
+            PermissibleValue(text="biolink:Behavior"))
+        setattr(cls, "biolink:PathologicalProcess",
+            PermissibleValue(text="biolink:PathologicalProcess"))
+        setattr(cls, "biolink:AccessibleDnaRegion",
+            PermissibleValue(text="biolink:AccessibleDnaRegion"))
+        setattr(cls, "biolink:TranscriptionFactorBindingSite",
+            PermissibleValue(text="biolink:TranscriptionFactorBindingSite"))
+        setattr(cls, "biolink:EnvironmentalProcess",
+            PermissibleValue(text="biolink:EnvironmentalProcess"))
+        setattr(cls, "biolink:EnvironmentalFeature",
+            PermissibleValue(text="biolink:EnvironmentalFeature"))
+        setattr(cls, "biolink:GeographicLocation",
+            PermissibleValue(text="biolink:GeographicLocation"))
+        setattr(cls, "biolink:GeographicLocationAtTime",
+            PermissibleValue(text="biolink:GeographicLocationAtTime"))
+        setattr(cls, "biolink:Study",
+            PermissibleValue(text="biolink:Study"))
+        setattr(cls, "biolink:MaterialSample",
+            PermissibleValue(text="biolink:MaterialSample"))
+        setattr(cls, "biolink:StudyResult",
+            PermissibleValue(text="biolink:StudyResult"))
+        setattr(cls, "biolink:StudyVariable",
+            PermissibleValue(text="biolink:StudyVariable"))
+        setattr(cls, "biolink:CommonDataElement",
+            PermissibleValue(text="biolink:CommonDataElement"))
+        setattr(cls, "biolink:Dataset",
+            PermissibleValue(text="biolink:Dataset"))
+        setattr(cls, "biolink:DatasetDistribution",
+            PermissibleValue(text="biolink:DatasetDistribution"))
+        setattr(cls, "biolink:DatasetVersion",
+            PermissibleValue(text="biolink:DatasetVersion"))
+        setattr(cls, "biolink:DatasetSummary",
+            PermissibleValue(text="biolink:DatasetSummary"))
+        setattr(cls, "biolink:ConfidenceLevel",
+            PermissibleValue(text="biolink:ConfidenceLevel"))
+        setattr(cls, "biolink:EvidenceType",
+            PermissibleValue(text="biolink:EvidenceType"))
+        setattr(cls, "biolink:Publication",
+            PermissibleValue(text="biolink:Publication"))
+        setattr(cls, "biolink:RetrievalSource",
+            PermissibleValue(text="biolink:RetrievalSource"))
+        setattr(cls, "biolink:Book",
+            PermissibleValue(text="biolink:Book"))
+        setattr(cls, "biolink:BookChapter",
+            PermissibleValue(text="biolink:BookChapter"))
+        setattr(cls, "biolink:Serial",
+            PermissibleValue(text="biolink:Serial"))
+        setattr(cls, "biolink:Article",
+            PermissibleValue(text="biolink:Article"))
+        setattr(cls, "biolink:Patent",
+            PermissibleValue(text="biolink:Patent"))
+        setattr(cls, "biolink:WebPage",
+            PermissibleValue(text="biolink:WebPage"))
+        setattr(cls, "biolink:PreprintPublication",
+            PermissibleValue(text="biolink:PreprintPublication"))
+        setattr(cls, "biolink:DrugLabel",
+            PermissibleValue(text="biolink:DrugLabel"))
+        setattr(cls, "biolink:JournalArticle",
+            PermissibleValue(text="biolink:JournalArticle"))
+        setattr(cls, "biolink:ConceptCountAnalysisResult",
+            PermissibleValue(text="biolink:ConceptCountAnalysisResult"))
+        setattr(cls, "biolink:ObservedExpectedFrequencyAnalysisResult",
+            PermissibleValue(text="biolink:ObservedExpectedFrequencyAnalysisResult"))
+        setattr(cls, "biolink:RelativeFrequencyAnalysisResult",
+            PermissibleValue(text="biolink:RelativeFrequencyAnalysisResult"))
+        setattr(cls, "biolink:TextMiningResult",
+            PermissibleValue(text="biolink:TextMiningResult"))
+        setattr(cls, "biolink:ChiSquaredAnalysisResult",
+            PermissibleValue(text="biolink:ChiSquaredAnalysisResult"))
+        setattr(cls, "biolink:LogOddsAnalysisResult",
+            PermissibleValue(text="biolink:LogOddsAnalysisResult"))
+        setattr(cls, "biolink:Agent",
+            PermissibleValue(text="biolink:Agent"))
+        setattr(cls, "biolink:ChemicalRole",
+            PermissibleValue(text="biolink:ChemicalRole"))
+        setattr(cls, "biolink:BiologicalSex",
+            PermissibleValue(text="biolink:BiologicalSex"))
+        setattr(cls, "biolink:SeverityValue",
+            PermissibleValue(text="biolink:SeverityValue"))
+        setattr(cls, "biolink:OrganismAttribute",
+            PermissibleValue(text="biolink:OrganismAttribute"))
+        setattr(cls, "biolink:Zygosity",
+            PermissibleValue(text="biolink:Zygosity"))
+        setattr(cls, "biolink:ClinicalAttribute",
+            PermissibleValue(text="biolink:ClinicalAttribute"))
+        setattr(cls, "biolink:SocioeconomicAttribute",
+            PermissibleValue(text="biolink:SocioeconomicAttribute"))
+        setattr(cls, "biolink:GenomicBackgroundExposure",
+            PermissibleValue(text="biolink:GenomicBackgroundExposure"))
+        setattr(cls, "biolink:PathologicalProcessExposure",
+            PermissibleValue(text="biolink:PathologicalProcessExposure"))
+        setattr(cls, "biolink:PathologicalAnatomicalExposure",
+            PermissibleValue(text="biolink:PathologicalAnatomicalExposure"))
+        setattr(cls, "biolink:DiseaseOrPhenotypicFeatureExposure",
+            PermissibleValue(text="biolink:DiseaseOrPhenotypicFeatureExposure"))
+        setattr(cls, "biolink:ChemicalExposure",
+            PermissibleValue(text="biolink:ChemicalExposure"))
+        setattr(cls, "biolink:ComplexChemicalExposure",
+            PermissibleValue(text="biolink:ComplexChemicalExposure"))
+        setattr(cls, "biolink:BioticExposure",
+            PermissibleValue(text="biolink:BioticExposure"))
+        setattr(cls, "biolink:EnvironmentalExposure",
+            PermissibleValue(text="biolink:EnvironmentalExposure"))
+        setattr(cls, "biolink:BehavioralExposure",
+            PermissibleValue(text="biolink:BehavioralExposure"))
+        setattr(cls, "biolink:SocioeconomicExposure",
+            PermissibleValue(text="biolink:SocioeconomicExposure"))
+        setattr(cls, "biolink:GeographicExposure",
+            PermissibleValue(text="biolink:GeographicExposure"))
+        setattr(cls, "biolink:DrugExposure",
+            PermissibleValue(text="biolink:DrugExposure"))
+        setattr(cls, "biolink:DrugToGeneInteractionExposure",
+            PermissibleValue(text="biolink:DrugToGeneInteractionExposure"))
+        setattr(cls, "biolink:ClinicalMeasurement",
+            PermissibleValue(text="biolink:ClinicalMeasurement"))
+        setattr(cls, "biolink:ClinicalModifier",
+            PermissibleValue(text="biolink:ClinicalModifier"))
+        setattr(cls, "biolink:ClinicalCourse",
+            PermissibleValue(text="biolink:ClinicalCourse"))
+        setattr(cls, "biolink:Onset",
+            PermissibleValue(text="biolink:Onset"))
+        setattr(cls, "biolink:PhenotypicQuality",
+            PermissibleValue(text="biolink:PhenotypicQuality"))
+        setattr(cls, "biolink:PhenotypicSex",
+            PermissibleValue(text="biolink:PhenotypicSex"))
+        setattr(cls, "biolink:GenotypicSex",
+            PermissibleValue(text="biolink:GenotypicSex"))
+
+class KnowledgeLevelEnum(EnumDefinitionImpl):
+
+    knowledge_assertion = PermissibleValue(
+        text="knowledge_assertion",
+        description="""A statement of purported fact that is put forth by an agent as true, based on assessment of direct evidence. Assertions are likely but not  definitively true.""")
+    logical_entailment = PermissibleValue(
+        text="logical_entailment",
+        description="""A statement reporting a conclusion that follows logically from premises representing established facts or knowledge assertions (e.g. fingernail part of finger, finger part of hand --> fingernail part of hand).""")
+    prediction = PermissibleValue(
+        text="prediction",
+        description="""A statement of a possible fact based on probabilistic forms of reasoning over more indirect forms of evidence, that lead to more speculative conclusions.""")
+    statistical_association = PermissibleValue(
+        text="statistical_association",
+        description="""A statement that reports concepts representing variables in a dataset to be statistically associated with each other in a particular cohort (e.g. 'Metformin Treatment (variable 1) is correlated with Diabetes Diagnosis (variable 2) in EHR dataset X').""")
+    observation = PermissibleValue(
+        text="observation",
+        description="""A statement reporting (and possibly quantifying) a phenomenon that was observed to occur -  absent any analysis or interpretation that generates a statistical association or supports a broader conclusion or inference.""")
+    not_provided = PermissibleValue(
+        text="not_provided",
+        description="""The knowledge level is not provided, typically because it cannot be determined from available. information.""")
+
+    _defn = EnumDefinition(
+        name="KnowledgeLevelEnum",
+    )
+
+class AgentTypeEnum(EnumDefinitionImpl):
+
+    manual_agent = PermissibleValue(
+        text="manual_agent",
+        description="""A human agent who is responsible for generating a statement of knowledge. The human may utilize computationally generated information as evidence for the resulting knowledge,  but the human is the one who ultimately interprets/reasons with  this evidence to produce a statement of knowledge.""")
+    automated_agent = PermissibleValue(
+        text="automated_agent",
+        description="""An automated agent, typically a software program or tool, that is  responsible for generating a statement of knowledge. Human contribution  to the knowledge creation process ends with the definition and coding of algorithms or analysis pipelines that get executed by the automated agent.""")
+    data_analysis_pipeline = PermissibleValue(
+        text="data_analysis_pipeline",
+        description="""An automated agent that executes an analysis workflow over data and  reports the direct results of the analysis. These typically report  statistical associations/correlations between variables in the input dataset, and do not interpret/infer broader conclusions from associations the analysis reveals in the data.""")
+    computational_model = PermissibleValue(
+        text="computational_model",
+        description="""An automated agent that generates knowledge statements (typically predictions) based on rules/logic explicitly encoded in an algorithm (e.g. heuristic models, supervised classifiers), or learned from patterns  observed in data (e.g. ML models, unsupervised classifiers).""")
+    text_mining_agent = PermissibleValue(
+        text="text_mining_agent",
+        description="""An automated agent that uses Natural Language Processing to recognize concepts and/or relationships in text, and report them using formally encoded semantics (e.g. as an edge in a knowledge graph).""")
+    image_processing_agent = PermissibleValue(
+        text="image_processing_agent",
+        description="""An automated agent that processes images to generate textual statements of  knowledge derived from the image and/or expressed in text the image  depicts (e.g. via OCR).""")
+    manual_validation_of_automated_agent = PermissibleValue(
+        text="manual_validation_of_automated_agent",
+        description="""A human agent reviews and validates/approves the veracity of knowledge  that is initially generated by an automated agent.""")
+    not_provided = PermissibleValue(
+        text="not_provided",
+        description="""The agent type is not provided, typically because it cannot be determined from available information if the agent that generated the knowledge is  manual or automated.""")
+
+    _defn = EnumDefinition(
+        name="AgentTypeEnum",
+    )
+
 class AttributeTypeEnum(EnumDefinitionImpl):
     """
     Code used to describe the nature of a slot, for documentative purposes.
@@ -637,7 +1513,7 @@ slots.name = Slot(uri=MATRIX_SCHEMA.name, name="name", curie=MATRIX_SCHEMA.curie
                    model_uri=MATRIX_SCHEMA.name, domain=None, range=Optional[str])
 
 slots.category = Slot(uri=MATRIX_SCHEMA.category, name="category", curie=MATRIX_SCHEMA.curie('category'),
-                   model_uri=MATRIX_SCHEMA.category, domain=None, range=Optional[str])
+                   model_uri=MATRIX_SCHEMA.category, domain=None, range=Optional[Union[str, "NodeCategoryEnum"]])
 
 slots.description = Slot(uri=MATRIX_SCHEMA.description, name="description", curie=MATRIX_SCHEMA.curie('description'),
                    model_uri=MATRIX_SCHEMA.description, domain=None, range=Optional[str])
@@ -646,7 +1522,7 @@ slots.equivalent_identifiers = Slot(uri=MATRIX_SCHEMA.equivalent_identifiers, na
                    model_uri=MATRIX_SCHEMA.equivalent_identifiers, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.all_categories = Slot(uri=MATRIX_SCHEMA.all_categories, name="all_categories", curie=MATRIX_SCHEMA.curie('all_categories'),
-                   model_uri=MATRIX_SCHEMA.all_categories, domain=None, range=Optional[Union[str, List[str]]])
+                   model_uri=MATRIX_SCHEMA.all_categories, domain=None, range=Optional[Union[Union[str, "NodeCategoryEnum"], List[Union[str, "NodeCategoryEnum"]]]])
 
 slots.publications = Slot(uri=MATRIX_SCHEMA.publications, name="publications", curie=MATRIX_SCHEMA.curie('publications'),
                    model_uri=MATRIX_SCHEMA.publications, domain=None, range=Optional[Union[str, List[str]]])
@@ -664,13 +1540,16 @@ slots.subject = Slot(uri=MATRIX_SCHEMA.subject, name="subject", curie=MATRIX_SCH
                    model_uri=MATRIX_SCHEMA.subject, domain=None, range=Optional[str])
 
 slots.predicate = Slot(uri=MATRIX_SCHEMA.predicate, name="predicate", curie=MATRIX_SCHEMA.curie('predicate'),
-                   model_uri=MATRIX_SCHEMA.predicate, domain=None, range=Optional[str])
+                   model_uri=MATRIX_SCHEMA.predicate, domain=None, range=Optional[Union[str, "PredicateEnum"]])
 
 slots.object = Slot(uri=MATRIX_SCHEMA.object, name="object", curie=MATRIX_SCHEMA.curie('object'),
                    model_uri=MATRIX_SCHEMA.object, domain=None, range=Optional[str])
 
 slots.knowledge_level = Slot(uri=MATRIX_SCHEMA.knowledge_level, name="knowledge_level", curie=MATRIX_SCHEMA.curie('knowledge_level'),
-                   model_uri=MATRIX_SCHEMA.knowledge_level, domain=None, range=Optional[str])
+                   model_uri=MATRIX_SCHEMA.knowledge_level, domain=None, range=Optional[Union[str, "KnowledgeLevelEnum"]])
+
+slots.agent_type = Slot(uri=MATRIX_SCHEMA.agent_type, name="agent_type", curie=MATRIX_SCHEMA.curie('agent_type'),
+                   model_uri=MATRIX_SCHEMA.agent_type, domain=None, range=Optional[Union[str, "AgentTypeEnum"]])
 
 slots.primary_knowledge_source = Slot(uri=MATRIX_SCHEMA.primary_knowledge_source, name="primary_knowledge_source", curie=MATRIX_SCHEMA.curie('primary_knowledge_source'),
                    model_uri=MATRIX_SCHEMA.primary_knowledge_source, domain=None, range=Optional[str])
@@ -848,7 +1727,7 @@ slots.tag_qaly_lost = Slot(uri=MATRIX_SCHEMA.tag_qaly_lost, name="tag_qaly_lost"
                    pattern=re.compile(r'^(low|medium|high|very_high|none)$'))
 
 slots.MatrixNode_category = Slot(uri=MATRIX_SCHEMA.category, name="MatrixNode_category", curie=MATRIX_SCHEMA.curie('category'),
-                   model_uri=MATRIX_SCHEMA.MatrixNode_category, domain=MatrixNode, range=str)
+                   model_uri=MATRIX_SCHEMA.MatrixNode_category, domain=MatrixNode, range=Union[str, "NodeCategoryEnum"])
 
 slots.MatrixNode_id = Slot(uri=SCHEMA.identifier, name="MatrixNode_id", curie=SCHEMA.curie('identifier'),
                    model_uri=MATRIX_SCHEMA.MatrixNode_id, domain=MatrixNode, range=Union[str, MatrixNodeId])
@@ -857,7 +1736,7 @@ slots.MatrixEdge_subject = Slot(uri=MATRIX_SCHEMA.subject, name="MatrixEdge_subj
                    model_uri=MATRIX_SCHEMA.MatrixEdge_subject, domain=MatrixEdge, range=str)
 
 slots.MatrixEdge_predicate = Slot(uri=MATRIX_SCHEMA.predicate, name="MatrixEdge_predicate", curie=MATRIX_SCHEMA.curie('predicate'),
-                   model_uri=MATRIX_SCHEMA.MatrixEdge_predicate, domain=MatrixEdge, range=str)
+                   model_uri=MATRIX_SCHEMA.MatrixEdge_predicate, domain=MatrixEdge, range=Union[str, "PredicateEnum"])
 
 slots.MatrixEdge_object = Slot(uri=MATRIX_SCHEMA.object, name="MatrixEdge_object", curie=MATRIX_SCHEMA.curie('object'),
                    model_uri=MATRIX_SCHEMA.MatrixEdge_object, domain=MatrixEdge, range=str)
@@ -1009,3 +1888,6 @@ slots.DiseaseListEntry_subset_group_label = Slot(uri=MATRIX_SCHEMA.subset_group_
 
 slots.DiseaseListEntry_other_subsets_count = Slot(uri=MATRIX_SCHEMA.other_subsets_count, name="DiseaseListEntry_other_subsets_count", curie=MATRIX_SCHEMA.curie('other_subsets_count'),
                    model_uri=MATRIX_SCHEMA.DiseaseListEntry_other_subsets_count, domain=DiseaseListEntry, range=Optional[int])
+
+slots.MatrixDiseaseList_disease_list_entries = Slot(uri=MATRIX_SCHEMA.disease_list_entries, name="MatrixDiseaseList_disease_list_entries", curie=MATRIX_SCHEMA.curie('disease_list_entries'),
+                   model_uri=MATRIX_SCHEMA.MatrixDiseaseList_disease_list_entries, domain=MatrixDiseaseList, range=Optional[Union[Union[dict, DiseaseListEntry], List[Union[dict, DiseaseListEntry]]]])

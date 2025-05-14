@@ -1,5 +1,20 @@
 {
     "$defs": {
+        "AgentTypeEnum": {
+            "description": "",
+            "enum": [
+                "manual_agent",
+                "automated_agent",
+                "data_analysis_pipeline",
+                "computational_model",
+                "text_mining_agent",
+                "image_processing_agent",
+                "manual_validation_of_automated_agent",
+                "not_provided"
+            ],
+            "title": "AgentTypeEnum",
+            "type": "string"
+        },
         "AttributeTypeEnum": {
             "description": "Code used to describe the nature of a slot, for documentative purposes.",
             "enum": [
@@ -303,6 +318,19 @@
             "title": "DiseaseListEntry",
             "type": "object"
         },
+        "KnowledgeLevelEnum": {
+            "description": "",
+            "enum": [
+                "knowledge_assertion",
+                "logical_entailment",
+                "prediction",
+                "statistical_association",
+                "observation",
+                "not_provided"
+            ],
+            "title": "KnowledgeLevelEnum",
+            "type": "string"
+        },
         "MatrixDiseaseList": {
             "additionalProperties": false,
             "description": "A list of diseases.",
@@ -325,6 +353,10 @@
             "additionalProperties": false,
             "description": "An edge representing a relationship between two nodes in the Biolink knowledge graph.",
             "properties": {
+                "agent_type": {
+                    "$ref": "#/$defs/AgentTypeEnum",
+                    "description": "Type of agent involved in the relationship."
+                },
                 "aggregator_knowledge_source": {
                     "description": "Aggregators of the knowledge.",
                     "items": {
@@ -336,11 +368,8 @@
                     ]
                 },
                 "knowledge_level": {
-                    "description": "Knowledge level of the relationship.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "$ref": "#/$defs/KnowledgeLevelEnum",
+                    "description": "Knowledge level of the relationship"
                 },
                 "object": {
                     "description": "The object entity in the edge.",
@@ -361,8 +390,8 @@
                     ]
                 },
                 "predicate": {
-                    "description": "The predicate defining the relationship.",
-                    "type": "string"
+                    "$ref": "#/$defs/PredicateEnum",
+                    "description": "The predicate defining the relationship."
                 },
                 "primary_knowledge_source": {
                     "description": "Primary source of the knowledge in the edge.",
@@ -443,7 +472,7 @@
                 "all_categories": {
                     "description": "All categories associated with the entity.",
                     "items": {
-                        "type": "string"
+                        "$ref": "#/$defs/NodeCategoryEnum"
                     },
                     "type": [
                         "array",
@@ -451,8 +480,8 @@
                     ]
                 },
                 "category": {
-                    "description": "Biolink category of the entity.",
-                    "type": "string"
+                    "$ref": "#/$defs/NodeCategoryEnum",
+                    "description": "Biolink category of the entity."
                 },
                 "description": {
                     "description": "Detailed description of the entity.",
@@ -532,20 +561,12 @@
             "description": "A container for MatrixNode objects.",
             "properties": {
                 "nodes": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/MatrixNode__identifier_optional"
-                            },
-                            {
-                                "description": "Biolink category of the entity.",
-                                "type": "string"
-                            }
-                        ]
-                    },
                     "description": "A list of edges.",
+                    "items": {
+                        "$ref": "#/$defs/MatrixNode"
+                    },
                     "type": [
-                        "object",
+                        "array",
                         "null"
                     ]
                 }
@@ -553,95 +574,416 @@
             "title": "MatrixNodeList",
             "type": "object"
         },
-        "MatrixNode__identifier_optional": {
-            "additionalProperties": false,
-            "description": "A node in the Biolink knowledge graph.",
-            "properties": {
-                "all_categories": {
-                    "description": "All categories associated with the entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "category": {
-                    "description": "Biolink category of the entity.",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "Detailed description of the entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "equivalent_identifiers": {
-                    "description": "List of equivalent identifiers for the entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "A unique identifier for a thing",
-                    "type": "string"
-                },
-                "international_resource_identifier": {
-                    "description": "IRI of the entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "labels": {
-                    "description": "Alternative labels for the entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Human-readable name of the entity.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "publications": {
-                    "description": "Publications associated with the entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "upstream_data_source": {
-                    "description": "Sources from which this entity's data originates.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                }
-            },
-            "required": [
-                "category"
+        "NodeCategoryEnum": {
+            "description": "",
+            "enum": [
+                "biolink:NamedThing",
+                "biolink:Attribute",
+                "biolink:OrganismTaxon",
+                "biolink:Event",
+                "biolink:AdministrativeEntity",
+                "biolink:InformationContentEntity",
+                "biolink:PhysicalEntity",
+                "biolink:Activity",
+                "biolink:Procedure",
+                "biolink:Phenomenon",
+                "biolink:Device",
+                "biolink:DiagnosticAid",
+                "biolink:PlanetaryEntity",
+                "biolink:BiologicalEntity",
+                "biolink:ChemicalEntity",
+                "biolink:ClinicalEntity",
+                "biolink:Treatment",
+                "biolink:ClinicalTrial",
+                "biolink:ClinicalIntervention",
+                "biolink:Hospitalization",
+                "biolink:MolecularEntity",
+                "biolink:ChemicalMixture",
+                "biolink:EnvironmentalFoodContaminant",
+                "biolink:FoodAdditive",
+                "biolink:MolecularMixture",
+                "biolink:ComplexMolecularMixture",
+                "biolink:ProcessedMaterial",
+                "biolink:Food",
+                "biolink:Drug",
+                "biolink:SmallMolecule",
+                "biolink:NucleicAcidEntity",
+                "biolink:RegulatoryRegion",
+                "biolink:BiologicalProcessOrActivity",
+                "biolink:GeneticInheritance",
+                "biolink:OrganismalEntity",
+                "biolink:DiseaseOrPhenotypicFeature",
+                "biolink:Gene",
+                "biolink:MacromolecularComplex",
+                "biolink:NucleosomeModification",
+                "biolink:Genome",
+                "biolink:Exon",
+                "biolink:Transcript",
+                "biolink:CodingSequence",
+                "biolink:Polypeptide",
+                "biolink:ProteinDomain",
+                "biolink:PosttranslationalModification",
+                "biolink:ProteinFamily",
+                "biolink:NucleicAcidSequenceMotif",
+                "biolink:GeneFamily",
+                "biolink:Genotype",
+                "biolink:Haplotype",
+                "biolink:SequenceVariant",
+                "biolink:ReagentTargetedGene",
+                "biolink:Snv",
+                "biolink:Protein",
+                "biolink:ProteinIsoform",
+                "biolink:RNAProduct",
+                "biolink:RNAProductIsoform",
+                "biolink:NoncodingRNAProduct",
+                "biolink:MicroRNA",
+                "biolink:SiRNA",
+                "biolink:Disease",
+                "biolink:PhenotypicFeature",
+                "biolink:BehavioralFeature",
+                "biolink:ClinicalFinding",
+                "biolink:Bacterium",
+                "biolink:Virus",
+                "biolink:CellularOrganism",
+                "biolink:LifeStage",
+                "biolink:IndividualOrganism",
+                "biolink:PopulationOfIndividualOrganisms",
+                "biolink:AnatomicalEntity",
+                "biolink:CellLine",
+                "biolink:CellularComponent",
+                "biolink:Cell",
+                "biolink:GrossAnatomicalStructure",
+                "biolink:PathologicalAnatomicalStructure",
+                "biolink:StudyPopulation",
+                "biolink:Cohort",
+                "biolink:Case",
+                "biolink:Mammal",
+                "biolink:Plant",
+                "biolink:Invertebrate",
+                "biolink:Vertebrate",
+                "biolink:Fungus",
+                "biolink:Human",
+                "biolink:MolecularActivity",
+                "biolink:BiologicalProcess",
+                "biolink:Pathway",
+                "biolink:PhysiologicalProcess",
+                "biolink:Behavior",
+                "biolink:PathologicalProcess",
+                "biolink:AccessibleDnaRegion",
+                "biolink:TranscriptionFactorBindingSite",
+                "biolink:EnvironmentalProcess",
+                "biolink:EnvironmentalFeature",
+                "biolink:GeographicLocation",
+                "biolink:GeographicLocationAtTime",
+                "biolink:Study",
+                "biolink:MaterialSample",
+                "biolink:StudyResult",
+                "biolink:StudyVariable",
+                "biolink:CommonDataElement",
+                "biolink:Dataset",
+                "biolink:DatasetDistribution",
+                "biolink:DatasetVersion",
+                "biolink:DatasetSummary",
+                "biolink:ConfidenceLevel",
+                "biolink:EvidenceType",
+                "biolink:Publication",
+                "biolink:RetrievalSource",
+                "biolink:Book",
+                "biolink:BookChapter",
+                "biolink:Serial",
+                "biolink:Article",
+                "biolink:Patent",
+                "biolink:WebPage",
+                "biolink:PreprintPublication",
+                "biolink:DrugLabel",
+                "biolink:JournalArticle",
+                "biolink:ConceptCountAnalysisResult",
+                "biolink:ObservedExpectedFrequencyAnalysisResult",
+                "biolink:RelativeFrequencyAnalysisResult",
+                "biolink:TextMiningResult",
+                "biolink:ChiSquaredAnalysisResult",
+                "biolink:LogOddsAnalysisResult",
+                "biolink:Agent",
+                "biolink:ChemicalRole",
+                "biolink:BiologicalSex",
+                "biolink:SeverityValue",
+                "biolink:OrganismAttribute",
+                "biolink:Zygosity",
+                "biolink:ClinicalAttribute",
+                "biolink:SocioeconomicAttribute",
+                "biolink:GenomicBackgroundExposure",
+                "biolink:PathologicalProcessExposure",
+                "biolink:PathologicalAnatomicalExposure",
+                "biolink:DiseaseOrPhenotypicFeatureExposure",
+                "biolink:ChemicalExposure",
+                "biolink:ComplexChemicalExposure",
+                "biolink:BioticExposure",
+                "biolink:EnvironmentalExposure",
+                "biolink:BehavioralExposure",
+                "biolink:SocioeconomicExposure",
+                "biolink:GeographicExposure",
+                "biolink:DrugExposure",
+                "biolink:DrugToGeneInteractionExposure",
+                "biolink:ClinicalMeasurement",
+                "biolink:ClinicalModifier",
+                "biolink:ClinicalCourse",
+                "biolink:Onset",
+                "biolink:PhenotypicQuality",
+                "biolink:PhenotypicSex",
+                "biolink:GenotypicSex"
             ],
-            "title": "MatrixNode",
-            "type": "object"
+            "title": "NodeCategoryEnum",
+            "type": "string"
+        },
+        "PredicateEnum": {
+            "description": "",
+            "enum": [
+                "biolink:related_to",
+                "biolink:related_to_at_concept_level",
+                "biolink:related_to_at_instance_level",
+                "biolink:disease_has_location",
+                "biolink:location_of_disease",
+                "biolink:composed_primarily_of",
+                "biolink:primarily_composed_of",
+                "biolink:associated_with",
+                "biolink:opposite_of",
+                "biolink:affects_likelihood_of",
+                "biolink:likelihood_affected_by",
+                "biolink:target_for",
+                "biolink:has_target",
+                "biolink:active_in",
+                "biolink:has_active_component",
+                "biolink:acts_upstream_of",
+                "biolink:has_upstream_actor",
+                "biolink:mentions",
+                "biolink:mentioned_by",
+                "biolink:contributor",
+                "biolink:has_contributor",
+                "biolink:assesses",
+                "biolink:is_assessed_by",
+                "biolink:interacts_with",
+                "biolink:affects",
+                "biolink:affected_by",
+                "biolink:diagnoses",
+                "biolink:is_diagnosed_by",
+                "biolink:increases_amount_or_activity_of",
+                "biolink:amount_or_activity_increased_by",
+                "biolink:decreases_amount_or_activity_of",
+                "biolink:amount_or_activity_decreased_by",
+                "biolink:gene_product_of",
+                "biolink:has_gene_product",
+                "biolink:transcribed_to",
+                "biolink:transcribed_from",
+                "biolink:translates_to",
+                "biolink:translation_of",
+                "biolink:coexists_with",
+                "biolink:contributes_to",
+                "biolink:contribution_from",
+                "biolink:studied_to_treat",
+                "biolink:applied_to_treat",
+                "biolink:treatment_applications_from",
+                "biolink:treats_or_applied_or_studied_to_treat",
+                "biolink:subject_of_treatment_application_or_study_for_treatment_by",
+                "biolink:has_phenotype",
+                "biolink:phenotype_of",
+                "biolink:occurs_in",
+                "biolink:contains_process",
+                "biolink:located_in",
+                "biolink:location_of",
+                "biolink:similar_to",
+                "biolink:has_sequence_location",
+                "biolink:sequence_location_of",
+                "biolink:model_of",
+                "biolink:models",
+                "biolink:overlaps",
+                "biolink:has_participant",
+                "biolink:participates_in",
+                "biolink:derives_into",
+                "biolink:derives_from",
+                "biolink:manifestation_of",
+                "biolink:has_manifestation",
+                "biolink:produces",
+                "biolink:produced_by",
+                "biolink:temporally_related_to",
+                "biolink:related_condition",
+                "biolink:is_sequence_variant_of",
+                "biolink:has_sequence_variant",
+                "biolink:disease_has_basis_in",
+                "biolink:occurs_in_disease",
+                "biolink:contraindicated_in",
+                "biolink:has_contraindication",
+                "biolink:has_not_completed",
+                "biolink:not_completed_by",
+                "biolink:has_completed",
+                "biolink:completed_by",
+                "biolink:in_linkage_disequilibrium_with",
+                "biolink:has_increased_amount",
+                "biolink:increased_amount_of",
+                "biolink:has_decreased_amount",
+                "biolink:decreased_amount_in",
+                "biolink:lacks_part",
+                "biolink:missing_from",
+                "biolink:develops_from",
+                "biolink:develops_into",
+                "biolink:in_taxon",
+                "biolink:taxon_of",
+                "biolink:has_molecular_consequence",
+                "biolink:is_molecular_consequence_of",
+                "biolink:has_missense_variant",
+                "biolink:has_synonymous_variant",
+                "biolink:has_nonsense_variant",
+                "biolink:has_frameshift_variant",
+                "biolink:has_splice_site_variant",
+                "biolink:has_nearby_variant",
+                "biolink:has_non_coding_variant",
+                "biolink:is_missense_variant_of",
+                "biolink:is_synonymous_variant_of",
+                "biolink:is_nonsense_variant_of",
+                "biolink:is_frameshift_variant_of",
+                "biolink:is_splice_site_variant_of",
+                "biolink:is_nearby_variant_of",
+                "biolink:is_non_coding_variant_of",
+                "biolink:precedes",
+                "biolink:preceded_by",
+                "biolink:has_mode_of_inheritance",
+                "biolink:mode_of_inheritance_of",
+                "biolink:is_metabolite_of",
+                "biolink:has_metabolite",
+                "biolink:is_input_of",
+                "biolink:is_output_of",
+                "biolink:catalyzes",
+                "biolink:is_substrate_of",
+                "biolink:actively_involved_in",
+                "biolink:enables",
+                "biolink:capable_of",
+                "biolink:consumed_by",
+                "biolink:has_input",
+                "biolink:has_output",
+                "biolink:has_catalyst",
+                "biolink:has_substrate",
+                "biolink:actively_involves",
+                "biolink:enabled_by",
+                "biolink:can_be_carried_out_by",
+                "biolink:consumes",
+                "biolink:has_part",
+                "biolink:part_of",
+                "biolink:plasma_membrane_part_of",
+                "biolink:food_component_of",
+                "biolink:is_active_ingredient_of",
+                "biolink:is_excipient_of",
+                "biolink:variant_part_of",
+                "biolink:nutrient_of",
+                "biolink:has_plasma_membrane_part",
+                "biolink:has_food_component",
+                "biolink:has_active_ingredient",
+                "biolink:has_excipient",
+                "biolink:has_variant_part",
+                "biolink:has_nutrient",
+                "biolink:homologous_to",
+                "biolink:chemically_similar_to",
+                "biolink:paralogous_to",
+                "biolink:orthologous_to",
+                "biolink:xenologous_to",
+                "biolink:expresses",
+                "biolink:expressed_in",
+                "biolink:treated_by",
+                "biolink:tested_by_clinical_trials_of",
+                "biolink:treated_in_studies_by",
+                "biolink:tested_by_preclinical_trials_of",
+                "biolink:models_demonstrating_benefits_for",
+                "biolink:treats",
+                "biolink:in_clinical_trials_for",
+                "biolink:in_preclinical_trials_for",
+                "biolink:beneficial_in_models_for",
+                "biolink:ameliorates_condition",
+                "biolink:preventative_for_condition",
+                "biolink:caused_by",
+                "biolink:causes",
+                "biolink:in_pathway_with",
+                "biolink:in_complex_with",
+                "biolink:in_cell_population_with",
+                "biolink:colocalizes_with",
+                "biolink:response_affected_by",
+                "biolink:regulated_by",
+                "biolink:disrupted_by",
+                "biolink:condition_ameliorated_by",
+                "biolink:condition_prevented_by",
+                "biolink:condition_exacerbated_by",
+                "biolink:adverse_event_of",
+                "biolink:is_side_effect_of",
+                "biolink:response_increased_by",
+                "biolink:response_decreased_by",
+                "biolink:affects_response_to",
+                "biolink:regulates",
+                "biolink:disrupts",
+                "biolink:exacerbates_condition",
+                "biolink:has_adverse_event",
+                "biolink:has_side_effect",
+                "biolink:increases_response_to",
+                "biolink:decreases_response_to",
+                "biolink:physically_interacts_with",
+                "biolink:genetically_interacts_with",
+                "biolink:gene_fusion_with",
+                "biolink:genetic_neighborhood_of",
+                "biolink:directly_physically_interacts_with",
+                "biolink:indirectly_physically_interacts_with",
+                "biolink:binds",
+                "biolink:has_provider",
+                "biolink:has_publisher",
+                "biolink:has_editor",
+                "biolink:has_author",
+                "biolink:provider",
+                "biolink:publisher",
+                "biolink:editor",
+                "biolink:author",
+                "biolink:has_positive_upstream_actor",
+                "biolink:has_negative_upstream_actor",
+                "biolink:has_upstream_or_within_actor",
+                "biolink:has_positive_upstream_or_within_actor",
+                "biolink:has_negative_upstream_or_within_actor",
+                "biolink:acts_upstream_of_positive_effect",
+                "biolink:acts_upstream_of_negative_effect",
+                "biolink:acts_upstream_of_or_within",
+                "biolink:acts_upstream_of_or_within_positive_effect",
+                "biolink:acts_upstream_of_or_within_negative_effect",
+                "biolink:condition_promoted_by",
+                "biolink:condition_predisposed_by",
+                "biolink:promotes_condition",
+                "biolink:predisposes_to_condition",
+                "biolink:associated_with_likelihood_of",
+                "biolink:likelihood_associated_with",
+                "biolink:associated_with_sensitivity_to",
+                "biolink:sensitivity_associated_with",
+                "biolink:associated_with_resistance_to",
+                "biolink:resistance_associated_with",
+                "biolink:genetic_association",
+                "biolink:genetically_associated_with",
+                "biolink:correlated_with",
+                "biolink:positively_correlated_with",
+                "biolink:negatively_correlated_with",
+                "biolink:occurs_together_in_literature_with",
+                "biolink:coexpressed_with",
+                "biolink:has_biomarker",
+                "biolink:biomarker_for",
+                "biolink:gene_associated_with_condition",
+                "biolink:condition_associated_with_gene",
+                "biolink:increased_likelihood_associated_with",
+                "biolink:decreased_likelihood_associated_with",
+                "biolink:associated_with_increased_likelihood_of",
+                "biolink:associated_with_decreased_likelihood_of",
+                "biolink:has_chemical_role",
+                "biolink:superclass_of",
+                "biolink:subclass_of",
+                "biolink:close_match",
+                "biolink:broad_match",
+                "biolink:narrow_match",
+                "biolink:member_of",
+                "biolink:has_member",
+                "biolink:exact_match",
+                "biolink:same_as"
+            ],
+            "title": "PredicateEnum",
+            "type": "string"
         }
     },
     "$id": "https://w3id.org/everycure-org/matrix-schema",

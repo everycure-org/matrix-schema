@@ -19,6 +19,7 @@ default_range: string
 
 imports:
   - linkml:types
+  - biolink_imports
 
 slots:
   id:
@@ -31,7 +32,7 @@ slots:
     range: string
   category:
     description: "Biolink category of the entity."
-    range: string
+    range: NodeCategoryEnum
   description:
     description: "Detailed description of the entity."
     range: string
@@ -41,7 +42,7 @@ slots:
     multivalued: true
   all_categories:
     description: "All categories associated with the entity."
-    range: string
+    range: NodeCategoryEnum
     multivalued: true
   publications:
     description: "Publications associated with the entity."
@@ -63,13 +64,16 @@ slots:
     range: string
   predicate:
     description: "The predicate defining the relationship."
-    range: string
+    range: PredicateEnum
   object:
     description: "The object entity in the edge."
     range: string
   knowledge_level:
-    description: "Knowledge level of the relationship."
-    range: string
+    description: "Knowledge level of the relationship"
+    range: KnowledgeLevelEnum
+  agent_type:
+    description: "Type of agent involved in the relationship."
+    range: AgentTypeEnum
   primary_knowledge_source:
     description: "Primary source of the knowledge in the edge."
     range: string
@@ -123,6 +127,7 @@ classes:
       - predicate
       - object
       - knowledge_level
+      - agent_type
       - primary_knowledge_source
       - aggregator_knowledge_source
       - publications

@@ -172,7 +172,7 @@ disease_list_entries:
 edges:
 - aggregator_knowledge_source:
   - OMIM
-  knowledge_level: high
+  knowledge_level: knowledge_assertion
   object: example:Node002
   object_aspect_qualifier: treatment
   object_direction_qualifier: reduces
@@ -187,7 +187,7 @@ edges:
   - DrugBank
 - aggregator_knowledge_source:
   - MONDO
-  knowledge_level: moderate
+  knowledge_level: prediction
   object: example:Node003
   object_aspect_qualifier: molecular mechanism
   predicate: biolink:has_phenotype
@@ -200,7 +200,7 @@ edges:
   - OMIM
 - aggregator_knowledge_source:
   - DrugBank
-  knowledge_level: low
+  knowledge_level: not_provided
   object: example:Node001
   object_aspect_qualifier: drug effect
   predicate: biolink:interacts_with
