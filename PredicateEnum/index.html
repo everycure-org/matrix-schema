@@ -1,0 +1,2418 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/PredicateEnum/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
+    
+    
+      
+        <title>Enum: PredicateEnum - matrix-schema</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enum-predicateenum" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="matrix-schema" class="md-header__button md-logo" aria-label="matrix-schema" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            matrix-schema
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Enum: PredicateEnum
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/everycure-org/matrix-schema" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="matrix-schema" class="md-nav__button md-logo" aria-label="matrix-schema" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    matrix-schema
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/everycure-org/matrix-schema" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DiseaseListEntry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Disease List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#permissible-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissible Values
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slots
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifier-and-mapping-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identifier and Mapping Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identifier and Mapping Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema Source
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linkml-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      LinkML Source
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="enum-predicateenum">Enum: PredicateEnum</h1>
+<p>URI: <a href="./">PredicateEnum</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biolink:related_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:related_to_at_concept_level</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:related_to_at_instance_level</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:disease_has_location</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:location_of_disease</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:composed_primarily_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:primarily_composed_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:associated_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:opposite_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:affects_likelihood_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:likelihood_affected_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:target_for</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_target</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:active_in</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_active_component</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:acts_upstream_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_upstream_actor</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:mentions</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:mentioned_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:contributor</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_contributor</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:assesses</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_assessed_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:interacts_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:affects</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:affected_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:diagnoses</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_diagnosed_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:increases_amount_or_activity_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:amount_or_activity_increased_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:decreases_amount_or_activity_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:amount_or_activity_decreased_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:gene_product_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_gene_product</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:transcribed_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:transcribed_from</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:translates_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:translation_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:coexists_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:contributes_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:contribution_from</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:studied_to_treat</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:applied_to_treat</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:treatment_applications_from</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:treats_or_applied_or_studied_to_treat</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:subject_of_treatment_application_or_study_for_treatment_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_phenotype</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:phenotype_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:occurs_in</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:contains_process</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:located_in</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:location_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:similar_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_sequence_location</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:sequence_location_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:model_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:models</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:overlaps</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_participant</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:participates_in</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:derives_into</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:derives_from</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:manifestation_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_manifestation</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:produces</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:produced_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:temporally_related_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:related_condition</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_sequence_variant_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_sequence_variant</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:disease_has_basis_in</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:occurs_in_disease</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:contraindicated_in</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_contraindication</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_not_completed</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:not_completed_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_completed</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:completed_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:in_linkage_disequilibrium_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_increased_amount</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:increased_amount_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_decreased_amount</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:decreased_amount_in</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:lacks_part</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:missing_from</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:develops_from</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:develops_into</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:in_taxon</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:taxon_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_molecular_consequence</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_molecular_consequence_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_missense_variant</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_synonymous_variant</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_nonsense_variant</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_frameshift_variant</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_splice_site_variant</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_nearby_variant</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_non_coding_variant</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_missense_variant_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_synonymous_variant_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_nonsense_variant_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_frameshift_variant_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_splice_site_variant_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_nearby_variant_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_non_coding_variant_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:precedes</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:preceded_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_mode_of_inheritance</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:mode_of_inheritance_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_metabolite_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_metabolite</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_input_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_output_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:catalyzes</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_substrate_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:actively_involved_in</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:enables</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:capable_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:consumed_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_input</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_output</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_catalyst</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_substrate</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:actively_involves</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:enabled_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:can_be_carried_out_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:consumes</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_part</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:part_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:plasma_membrane_part_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:food_component_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_active_ingredient_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_excipient_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:variant_part_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:nutrient_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_plasma_membrane_part</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_food_component</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_active_ingredient</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_excipient</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_variant_part</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_nutrient</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:homologous_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:chemically_similar_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:paralogous_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:orthologous_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:xenologous_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:expresses</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:expressed_in</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:treated_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:tested_by_clinical_trials_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:treated_in_studies_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:tested_by_preclinical_trials_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:models_demonstrating_benefits_for</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:treats</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:in_clinical_trials_for</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:in_preclinical_trials_for</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:beneficial_in_models_for</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:ameliorates_condition</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:preventative_for_condition</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:caused_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:causes</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:in_pathway_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:in_complex_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:in_cell_population_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:colocalizes_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:response_affected_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:regulated_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:disrupted_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:condition_ameliorated_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:condition_prevented_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:condition_exacerbated_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:adverse_event_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:is_side_effect_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:response_increased_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:response_decreased_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:affects_response_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:regulates</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:disrupts</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:exacerbates_condition</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_adverse_event</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_side_effect</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:increases_response_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:decreases_response_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:physically_interacts_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:genetically_interacts_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:gene_fusion_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:genetic_neighborhood_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:directly_physically_interacts_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:indirectly_physically_interacts_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:binds</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_provider</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_publisher</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_editor</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_author</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:provider</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:publisher</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:editor</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:author</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_positive_upstream_actor</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_negative_upstream_actor</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_upstream_or_within_actor</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_positive_upstream_or_within_actor</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_negative_upstream_or_within_actor</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:acts_upstream_of_positive_effect</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:acts_upstream_of_negative_effect</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:acts_upstream_of_or_within</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:acts_upstream_of_or_within_positive_effect</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:acts_upstream_of_or_within_negative_effect</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:condition_promoted_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:condition_predisposed_by</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:promotes_condition</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:predisposes_to_condition</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:associated_with_likelihood_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:likelihood_associated_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:associated_with_sensitivity_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:sensitivity_associated_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:associated_with_resistance_to</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:resistance_associated_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:genetic_association</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:genetically_associated_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:correlated_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:positively_correlated_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:negatively_correlated_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:occurs_together_in_literature_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:coexpressed_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_biomarker</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:biomarker_for</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:gene_associated_with_condition</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:condition_associated_with_gene</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:increased_likelihood_associated_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:decreased_likelihood_associated_with</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:associated_with_increased_likelihood_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:associated_with_decreased_likelihood_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_chemical_role</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:superclass_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:subclass_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:close_match</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:broad_match</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:narrow_match</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:member_of</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:has_member</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:exact_match</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>biolink:same_as</td>
+<td>None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../predicate/">predicate</a></td>
+<td>The predicate defining the relationship</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://w3id.org/everycure-org/matrix-schema</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
+<details>
+
+<pre><code class="language-yaml">name: PredicateEnum
+from_schema: https://w3id.org/everycure-org/matrix-schema
+rank: 1000
+permissible_values:
+  biolink:related_to:
+    text: biolink:related_to
+    title: RELATED_TO
+  biolink:related_to_at_concept_level:
+    text: biolink:related_to_at_concept_level
+    title: RELATED_TO_AT_CONCEPT_LEVEL
+  biolink:related_to_at_instance_level:
+    text: biolink:related_to_at_instance_level
+    title: RELATED_TO_AT_INSTANCE_LEVEL
+  biolink:disease_has_location:
+    text: biolink:disease_has_location
+    title: DISEASE_HAS_LOCATION
+  biolink:location_of_disease:
+    text: biolink:location_of_disease
+    title: LOCATION_OF_DISEASE
+  biolink:composed_primarily_of:
+    text: biolink:composed_primarily_of
+    title: COMPOSED_PRIMARILY_OF
+  biolink:primarily_composed_of:
+    text: biolink:primarily_composed_of
+    title: PRIMARILY_COMPOSED_OF
+  biolink:associated_with:
+    text: biolink:associated_with
+    title: ASSOCIATED_WITH
+  biolink:opposite_of:
+    text: biolink:opposite_of
+    title: OPPOSITE_OF
+  biolink:affects_likelihood_of:
+    text: biolink:affects_likelihood_of
+    title: AFFECTS_LIKELIHOOD_OF
+  biolink:likelihood_affected_by:
+    text: biolink:likelihood_affected_by
+    title: LIKELIHOOD_AFFECTED_BY
+  biolink:target_for:
+    text: biolink:target_for
+    title: TARGET_FOR
+  biolink:has_target:
+    text: biolink:has_target
+    title: HAS_TARGET
+  biolink:active_in:
+    text: biolink:active_in
+    title: ACTIVE_IN
+  biolink:has_active_component:
+    text: biolink:has_active_component
+    title: HAS_ACTIVE_COMPONENT
+  biolink:acts_upstream_of:
+    text: biolink:acts_upstream_of
+    title: ACTS_UPSTREAM_OF
+  biolink:has_upstream_actor:
+    text: biolink:has_upstream_actor
+    title: HAS_UPSTREAM_ACTOR
+  biolink:mentions:
+    text: biolink:mentions
+    title: MENTIONS
+  biolink:mentioned_by:
+    text: biolink:mentioned_by
+    title: MENTIONED_BY
+  biolink:contributor:
+    text: biolink:contributor
+    title: CONTRIBUTOR
+  biolink:has_contributor:
+    text: biolink:has_contributor
+    title: HAS_CONTRIBUTOR
+  biolink:assesses:
+    text: biolink:assesses
+    title: ASSESSES
+  biolink:is_assessed_by:
+    text: biolink:is_assessed_by
+    title: IS_ASSESSED_BY
+  biolink:interacts_with:
+    text: biolink:interacts_with
+    title: INTERACTS_WITH
+  biolink:affects:
+    text: biolink:affects
+    title: AFFECTS
+  biolink:affected_by:
+    text: biolink:affected_by
+    title: AFFECTED_BY
+  biolink:diagnoses:
+    text: biolink:diagnoses
+    title: DIAGNOSES
+  biolink:is_diagnosed_by:
+    text: biolink:is_diagnosed_by
+    title: IS_DIAGNOSED_BY
+  biolink:increases_amount_or_activity_of:
+    text: biolink:increases_amount_or_activity_of
+    title: INCREASES_AMOUNT_OR_ACTIVITY_OF
+  biolink:amount_or_activity_increased_by:
+    text: biolink:amount_or_activity_increased_by
+    title: AMOUNT_OR_ACTIVITY_INCREASED_BY
+  biolink:decreases_amount_or_activity_of:
+    text: biolink:decreases_amount_or_activity_of
+    title: DECREASES_AMOUNT_OR_ACTIVITY_OF
+  biolink:amount_or_activity_decreased_by:
+    text: biolink:amount_or_activity_decreased_by
+    title: AMOUNT_OR_ACTIVITY_DECREASED_BY
+  biolink:gene_product_of:
+    text: biolink:gene_product_of
+    title: GENE_PRODUCT_OF
+  biolink:has_gene_product:
+    text: biolink:has_gene_product
+    title: HAS_GENE_PRODUCT
+  biolink:transcribed_to:
+    text: biolink:transcribed_to
+    title: TRANSCRIBED_TO
+  biolink:transcribed_from:
+    text: biolink:transcribed_from
+    title: TRANSCRIBED_FROM
+  biolink:translates_to:
+    text: biolink:translates_to
+    title: TRANSLATES_TO
+  biolink:translation_of:
+    text: biolink:translation_of
+    title: TRANSLATION_OF
+  biolink:coexists_with:
+    text: biolink:coexists_with
+    title: COEXISTS_WITH
+  biolink:contributes_to:
+    text: biolink:contributes_to
+    title: CONTRIBUTES_TO
+  biolink:contribution_from:
+    text: biolink:contribution_from
+    title: CONTRIBUTION_FROM
+  biolink:studied_to_treat:
+    text: biolink:studied_to_treat
+    title: STUDIED_TO_TREAT
+  biolink:applied_to_treat:
+    text: biolink:applied_to_treat
+    title: APPLIED_TO_TREAT
+  biolink:treatment_applications_from:
+    text: biolink:treatment_applications_from
+    title: TREATMENT_APPLICATIONS_FROM
+  biolink:treats_or_applied_or_studied_to_treat:
+    text: biolink:treats_or_applied_or_studied_to_treat
+    title: TREATS_OR_APPLIED_OR_STUDIED_TO_TREAT
+  biolink:subject_of_treatment_application_or_study_for_treatment_by:
+    text: biolink:subject_of_treatment_application_or_study_for_treatment_by
+    title: SUBJECT_OF_TREATMENT_APPLICATION_OR_STUDY_FOR_TREATMENT_BY
+  biolink:has_phenotype:
+    text: biolink:has_phenotype
+    title: HAS_PHENOTYPE
+  biolink:phenotype_of:
+    text: biolink:phenotype_of
+    title: PHENOTYPE_OF
+  biolink:occurs_in:
+    text: biolink:occurs_in
+    title: OCCURS_IN
+  biolink:contains_process:
+    text: biolink:contains_process
+    title: CONTAINS_PROCESS
+  biolink:located_in:
+    text: biolink:located_in
+    title: LOCATED_IN
+  biolink:location_of:
+    text: biolink:location_of
+    title: LOCATION_OF
+  biolink:similar_to:
+    text: biolink:similar_to
+    title: SIMILAR_TO
+  biolink:has_sequence_location:
+    text: biolink:has_sequence_location
+    title: HAS_SEQUENCE_LOCATION
+  biolink:sequence_location_of:
+    text: biolink:sequence_location_of
+    title: SEQUENCE_LOCATION_OF
+  biolink:model_of:
+    text: biolink:model_of
+    title: MODEL_OF
+  biolink:models:
+    text: biolink:models
+    title: MODELS
+  biolink:overlaps:
+    text: biolink:overlaps
+    title: OVERLAPS
+  biolink:has_participant:
+    text: biolink:has_participant
+    title: HAS_PARTICIPANT
+  biolink:participates_in:
+    text: biolink:participates_in
+    title: PARTICIPATES_IN
+  biolink:derives_into:
+    text: biolink:derives_into
+    title: DERIVES_INTO
+  biolink:derives_from:
+    text: biolink:derives_from
+    title: DERIVES_FROM
+  biolink:manifestation_of:
+    text: biolink:manifestation_of
+    title: MANIFESTATION_OF
+  biolink:has_manifestation:
+    text: biolink:has_manifestation
+    title: HAS_MANIFESTATION
+  biolink:produces:
+    text: biolink:produces
+    title: PRODUCES
+  biolink:produced_by:
+    text: biolink:produced_by
+    title: PRODUCED_BY
+  biolink:temporally_related_to:
+    text: biolink:temporally_related_to
+    title: TEMPORALLY_RELATED_TO
+  biolink:related_condition:
+    text: biolink:related_condition
+    title: RELATED_CONDITION
+  biolink:is_sequence_variant_of:
+    text: biolink:is_sequence_variant_of
+    title: IS_SEQUENCE_VARIANT_OF
+  biolink:has_sequence_variant:
+    text: biolink:has_sequence_variant
+    title: HAS_SEQUENCE_VARIANT
+  biolink:disease_has_basis_in:
+    text: biolink:disease_has_basis_in
+    title: DISEASE_HAS_BASIS_IN
+  biolink:occurs_in_disease:
+    text: biolink:occurs_in_disease
+    title: OCCURS_IN_DISEASE
+  biolink:contraindicated_in:
+    text: biolink:contraindicated_in
+    title: CONTRAINDICATED_IN
+  biolink:has_contraindication:
+    text: biolink:has_contraindication
+    title: HAS_CONTRAINDICATION
+  biolink:has_not_completed:
+    text: biolink:has_not_completed
+    title: HAS_NOT_COMPLETED
+  biolink:not_completed_by:
+    text: biolink:not_completed_by
+    title: NOT_COMPLETED_BY
+  biolink:has_completed:
+    text: biolink:has_completed
+    title: HAS_COMPLETED
+  biolink:completed_by:
+    text: biolink:completed_by
+    title: COMPLETED_BY
+  biolink:in_linkage_disequilibrium_with:
+    text: biolink:in_linkage_disequilibrium_with
+    title: IN_LINKAGE_DISEQUILIBRIUM_WITH
+  biolink:has_increased_amount:
+    text: biolink:has_increased_amount
+    title: HAS_INCREASED_AMOUNT
+  biolink:increased_amount_of:
+    text: biolink:increased_amount_of
+    title: INCREASED_AMOUNT_OF
+  biolink:has_decreased_amount:
+    text: biolink:has_decreased_amount
+    title: HAS_DECREASED_AMOUNT
+  biolink:decreased_amount_in:
+    text: biolink:decreased_amount_in
+    title: DECREASED_AMOUNT_IN
+  biolink:lacks_part:
+    text: biolink:lacks_part
+    title: LACKS_PART
+  biolink:missing_from:
+    text: biolink:missing_from
+    title: MISSING_FROM
+  biolink:develops_from:
+    text: biolink:develops_from
+    title: DEVELOPS_FROM
+  biolink:develops_into:
+    text: biolink:develops_into
+    title: DEVELOPS_INTO
+  biolink:in_taxon:
+    text: biolink:in_taxon
+    title: IN_TAXON
+  biolink:taxon_of:
+    text: biolink:taxon_of
+    title: TAXON_OF
+  biolink:has_molecular_consequence:
+    text: biolink:has_molecular_consequence
+    title: HAS_MOLECULAR_CONSEQUENCE
+  biolink:is_molecular_consequence_of:
+    text: biolink:is_molecular_consequence_of
+    title: IS_MOLECULAR_CONSEQUENCE_OF
+  biolink:has_missense_variant:
+    text: biolink:has_missense_variant
+    title: HAS_MISSENSE_VARIANT
+  biolink:has_synonymous_variant:
+    text: biolink:has_synonymous_variant
+    title: HAS_SYNONYMOUS_VARIANT
+  biolink:has_nonsense_variant:
+    text: biolink:has_nonsense_variant
+    title: HAS_NONSENSE_VARIANT
+  biolink:has_frameshift_variant:
+    text: biolink:has_frameshift_variant
+    title: HAS_FRAMESHIFT_VARIANT
+  biolink:has_splice_site_variant:
+    text: biolink:has_splice_site_variant
+    title: HAS_SPLICE_SITE_VARIANT
+  biolink:has_nearby_variant:
+    text: biolink:has_nearby_variant
+    title: HAS_NEARBY_VARIANT
+  biolink:has_non_coding_variant:
+    text: biolink:has_non_coding_variant
+    title: HAS_NON_CODING_VARIANT
+  biolink:is_missense_variant_of:
+    text: biolink:is_missense_variant_of
+    title: IS_MISSENSE_VARIANT_OF
+  biolink:is_synonymous_variant_of:
+    text: biolink:is_synonymous_variant_of
+    title: IS_SYNONYMOUS_VARIANT_OF
+  biolink:is_nonsense_variant_of:
+    text: biolink:is_nonsense_variant_of
+    title: IS_NONSENSE_VARIANT_OF
+  biolink:is_frameshift_variant_of:
+    text: biolink:is_frameshift_variant_of
+    title: IS_FRAMESHIFT_VARIANT_OF
+  biolink:is_splice_site_variant_of:
+    text: biolink:is_splice_site_variant_of
+    title: IS_SPLICE_SITE_VARIANT_OF
+  biolink:is_nearby_variant_of:
+    text: biolink:is_nearby_variant_of
+    title: IS_NEARBY_VARIANT_OF
+  biolink:is_non_coding_variant_of:
+    text: biolink:is_non_coding_variant_of
+    title: IS_NON_CODING_VARIANT_OF
+  biolink:precedes:
+    text: biolink:precedes
+    title: PRECEDES
+  biolink:preceded_by:
+    text: biolink:preceded_by
+    title: PRECEDED_BY
+  biolink:has_mode_of_inheritance:
+    text: biolink:has_mode_of_inheritance
+    title: HAS_MODE_OF_INHERITANCE
+  biolink:mode_of_inheritance_of:
+    text: biolink:mode_of_inheritance_of
+    title: MODE_OF_INHERITANCE_OF
+  biolink:is_metabolite_of:
+    text: biolink:is_metabolite_of
+    title: IS_METABOLITE_OF
+  biolink:has_metabolite:
+    text: biolink:has_metabolite
+    title: HAS_METABOLITE
+  biolink:is_input_of:
+    text: biolink:is_input_of
+    title: IS_INPUT_OF
+  biolink:is_output_of:
+    text: biolink:is_output_of
+    title: IS_OUTPUT_OF
+  biolink:catalyzes:
+    text: biolink:catalyzes
+    title: CATALYZES
+  biolink:is_substrate_of:
+    text: biolink:is_substrate_of
+    title: IS_SUBSTRATE_OF
+  biolink:actively_involved_in:
+    text: biolink:actively_involved_in
+    title: ACTIVELY_INVOLVED_IN
+  biolink:enables:
+    text: biolink:enables
+    title: ENABLES
+  biolink:capable_of:
+    text: biolink:capable_of
+    title: CAPABLE_OF
+  biolink:consumed_by:
+    text: biolink:consumed_by
+    title: CONSUMED_BY
+  biolink:has_input:
+    text: biolink:has_input
+    title: HAS_INPUT
+  biolink:has_output:
+    text: biolink:has_output
+    title: HAS_OUTPUT
+  biolink:has_catalyst:
+    text: biolink:has_catalyst
+    title: HAS_CATALYST
+  biolink:has_substrate:
+    text: biolink:has_substrate
+    title: HAS_SUBSTRATE
+  biolink:actively_involves:
+    text: biolink:actively_involves
+    title: ACTIVELY_INVOLVES
+  biolink:enabled_by:
+    text: biolink:enabled_by
+    title: ENABLED_BY
+  biolink:can_be_carried_out_by:
+    text: biolink:can_be_carried_out_by
+    title: CAN_BE_CARRIED_OUT_BY
+  biolink:consumes:
+    text: biolink:consumes
+    title: CONSUMES
+  biolink:has_part:
+    text: biolink:has_part
+    title: HAS_PART
+  biolink:part_of:
+    text: biolink:part_of
+    title: PART_OF
+  biolink:plasma_membrane_part_of:
+    text: biolink:plasma_membrane_part_of
+    title: PLASMA_MEMBRANE_PART_OF
+  biolink:food_component_of:
+    text: biolink:food_component_of
+    title: FOOD_COMPONENT_OF
+  biolink:is_active_ingredient_of:
+    text: biolink:is_active_ingredient_of
+    title: IS_ACTIVE_INGREDIENT_OF
+  biolink:is_excipient_of:
+    text: biolink:is_excipient_of
+    title: IS_EXCIPIENT_OF
+  biolink:variant_part_of:
+    text: biolink:variant_part_of
+    title: VARIANT_PART_OF
+  biolink:nutrient_of:
+    text: biolink:nutrient_of
+    title: NUTRIENT_OF
+  biolink:has_plasma_membrane_part:
+    text: biolink:has_plasma_membrane_part
+    title: HAS_PLASMA_MEMBRANE_PART
+  biolink:has_food_component:
+    text: biolink:has_food_component
+    title: HAS_FOOD_COMPONENT
+  biolink:has_active_ingredient:
+    text: biolink:has_active_ingredient
+    title: HAS_ACTIVE_INGREDIENT
+  biolink:has_excipient:
+    text: biolink:has_excipient
+    title: HAS_EXCIPIENT
+  biolink:has_variant_part:
+    text: biolink:has_variant_part
+    title: HAS_VARIANT_PART
+  biolink:has_nutrient:
+    text: biolink:has_nutrient
+    title: HAS_NUTRIENT
+  biolink:homologous_to:
+    text: biolink:homologous_to
+    title: HOMOLOGOUS_TO
+  biolink:chemically_similar_to:
+    text: biolink:chemically_similar_to
+    title: CHEMICALLY_SIMILAR_TO
+  biolink:paralogous_to:
+    text: biolink:paralogous_to
+    title: PARALOGOUS_TO
+  biolink:orthologous_to:
+    text: biolink:orthologous_to
+    title: ORTHOLOGOUS_TO
+  biolink:xenologous_to:
+    text: biolink:xenologous_to
+    title: XENOLOGOUS_TO
+  biolink:expresses:
+    text: biolink:expresses
+    title: EXPRESSES
+  biolink:expressed_in:
+    text: biolink:expressed_in
+    title: EXPRESSED_IN
+  biolink:treated_by:
+    text: biolink:treated_by
+    title: TREATED_BY
+  biolink:tested_by_clinical_trials_of:
+    text: biolink:tested_by_clinical_trials_of
+    title: TESTED_BY_CLINICAL_TRIALS_OF
+  biolink:treated_in_studies_by:
+    text: biolink:treated_in_studies_by
+    title: TREATED_IN_STUDIES_BY
+  biolink:tested_by_preclinical_trials_of:
+    text: biolink:tested_by_preclinical_trials_of
+    title: TESTED_BY_PRECLINICAL_TRIALS_OF
+  biolink:models_demonstrating_benefits_for:
+    text: biolink:models_demonstrating_benefits_for
+    title: MODELS_DEMONSTRATING_BENEFITS_FOR
+  biolink:treats:
+    text: biolink:treats
+    title: TREATS
+  biolink:in_clinical_trials_for:
+    text: biolink:in_clinical_trials_for
+    title: IN_CLINICAL_TRIALS_FOR
+  biolink:in_preclinical_trials_for:
+    text: biolink:in_preclinical_trials_for
+    title: IN_PRECLINICAL_TRIALS_FOR
+  biolink:beneficial_in_models_for:
+    text: biolink:beneficial_in_models_for
+    title: BENEFICIAL_IN_MODELS_FOR
+  biolink:ameliorates_condition:
+    text: biolink:ameliorates_condition
+    title: AMELIORATES_CONDITION
+  biolink:preventative_for_condition:
+    text: biolink:preventative_for_condition
+    title: PREVENTATIVE_FOR_CONDITION
+  biolink:caused_by:
+    text: biolink:caused_by
+    title: CAUSED_BY
+  biolink:causes:
+    text: biolink:causes
+    title: CAUSES
+  biolink:in_pathway_with:
+    text: biolink:in_pathway_with
+    title: IN_PATHWAY_WITH
+  biolink:in_complex_with:
+    text: biolink:in_complex_with
+    title: IN_COMPLEX_WITH
+  biolink:in_cell_population_with:
+    text: biolink:in_cell_population_with
+    title: IN_CELL_POPULATION_WITH
+  biolink:colocalizes_with:
+    text: biolink:colocalizes_with
+    title: COLOCALIZES_WITH
+  biolink:response_affected_by:
+    text: biolink:response_affected_by
+    title: RESPONSE_AFFECTED_BY
+  biolink:regulated_by:
+    text: biolink:regulated_by
+    title: REGULATED_BY
+  biolink:disrupted_by:
+    text: biolink:disrupted_by
+    title: DISRUPTED_BY
+  biolink:condition_ameliorated_by:
+    text: biolink:condition_ameliorated_by
+    title: CONDITION_AMELIORATED_BY
+  biolink:condition_prevented_by:
+    text: biolink:condition_prevented_by
+    title: CONDITION_PREVENTED_BY
+  biolink:condition_exacerbated_by:
+    text: biolink:condition_exacerbated_by
+    title: CONDITION_EXACERBATED_BY
+  biolink:adverse_event_of:
+    text: biolink:adverse_event_of
+    title: ADVERSE_EVENT_OF
+  biolink:is_side_effect_of:
+    text: biolink:is_side_effect_of
+    title: IS_SIDE_EFFECT_OF
+  biolink:response_increased_by:
+    text: biolink:response_increased_by
+    title: RESPONSE_INCREASED_BY
+  biolink:response_decreased_by:
+    text: biolink:response_decreased_by
+    title: RESPONSE_DECREASED_BY
+  biolink:affects_response_to:
+    text: biolink:affects_response_to
+    title: AFFECTS_RESPONSE_TO
+  biolink:regulates:
+    text: biolink:regulates
+    title: REGULATES
+  biolink:disrupts:
+    text: biolink:disrupts
+    title: DISRUPTS
+  biolink:exacerbates_condition:
+    text: biolink:exacerbates_condition
+    title: EXACERBATES_CONDITION
+  biolink:has_adverse_event:
+    text: biolink:has_adverse_event
+    title: HAS_ADVERSE_EVENT
+  biolink:has_side_effect:
+    text: biolink:has_side_effect
+    title: HAS_SIDE_EFFECT
+  biolink:increases_response_to:
+    text: biolink:increases_response_to
+    title: INCREASES_RESPONSE_TO
+  biolink:decreases_response_to:
+    text: biolink:decreases_response_to
+    title: DECREASES_RESPONSE_TO
+  biolink:physically_interacts_with:
+    text: biolink:physically_interacts_with
+    title: PHYSICALLY_INTERACTS_WITH
+  biolink:genetically_interacts_with:
+    text: biolink:genetically_interacts_with
+    title: GENETICALLY_INTERACTS_WITH
+  biolink:gene_fusion_with:
+    text: biolink:gene_fusion_with
+    title: GENE_FUSION_WITH
+  biolink:genetic_neighborhood_of:
+    text: biolink:genetic_neighborhood_of
+    title: GENETIC_NEIGHBORHOOD_OF
+  biolink:directly_physically_interacts_with:
+    text: biolink:directly_physically_interacts_with
+    title: DIRECTLY_PHYSICALLY_INTERACTS_WITH
+  biolink:indirectly_physically_interacts_with:
+    text: biolink:indirectly_physically_interacts_with
+    title: INDIRECTLY_PHYSICALLY_INTERACTS_WITH
+  biolink:binds:
+    text: biolink:binds
+    title: BINDS
+  biolink:has_provider:
+    text: biolink:has_provider
+    title: HAS_PROVIDER
+  biolink:has_publisher:
+    text: biolink:has_publisher
+    title: HAS_PUBLISHER
+  biolink:has_editor:
+    text: biolink:has_editor
+    title: HAS_EDITOR
+  biolink:has_author:
+    text: biolink:has_author
+    title: HAS_AUTHOR
+  biolink:provider:
+    text: biolink:provider
+    title: PROVIDER
+  biolink:publisher:
+    text: biolink:publisher
+    title: PUBLISHER
+  biolink:editor:
+    text: biolink:editor
+    title: EDITOR
+  biolink:author:
+    text: biolink:author
+    title: AUTHOR
+  biolink:has_positive_upstream_actor:
+    text: biolink:has_positive_upstream_actor
+    title: HAS_POSITIVE_UPSTREAM_ACTOR
+  biolink:has_negative_upstream_actor:
+    text: biolink:has_negative_upstream_actor
+    title: HAS_NEGATIVE_UPSTREAM_ACTOR
+  biolink:has_upstream_or_within_actor:
+    text: biolink:has_upstream_or_within_actor
+    title: HAS_UPSTREAM_OR_WITHIN_ACTOR
+  biolink:has_positive_upstream_or_within_actor:
+    text: biolink:has_positive_upstream_or_within_actor
+    title: HAS_POSITIVE_UPSTREAM_OR_WITHIN_ACTOR
+  biolink:has_negative_upstream_or_within_actor:
+    text: biolink:has_negative_upstream_or_within_actor
+    title: HAS_NEGATIVE_UPSTREAM_OR_WITHIN_ACTOR
+  biolink:acts_upstream_of_positive_effect:
+    text: biolink:acts_upstream_of_positive_effect
+    title: ACTS_UPSTREAM_OF_POSITIVE_EFFECT
+  biolink:acts_upstream_of_negative_effect:
+    text: biolink:acts_upstream_of_negative_effect
+    title: ACTS_UPSTREAM_OF_NEGATIVE_EFFECT
+  biolink:acts_upstream_of_or_within:
+    text: biolink:acts_upstream_of_or_within
+    title: ACTS_UPSTREAM_OF_OR_WITHIN
+  biolink:acts_upstream_of_or_within_positive_effect:
+    text: biolink:acts_upstream_of_or_within_positive_effect
+    title: ACTS_UPSTREAM_OF_OR_WITHIN_POSITIVE_EFFECT
+  biolink:acts_upstream_of_or_within_negative_effect:
+    text: biolink:acts_upstream_of_or_within_negative_effect
+    title: ACTS_UPSTREAM_OF_OR_WITHIN_NEGATIVE_EFFECT
+  biolink:condition_promoted_by:
+    text: biolink:condition_promoted_by
+    title: CONDITION_PROMOTED_BY
+  biolink:condition_predisposed_by:
+    text: biolink:condition_predisposed_by
+    title: CONDITION_PREDISPOSED_BY
+  biolink:promotes_condition:
+    text: biolink:promotes_condition
+    title: PROMOTES_CONDITION
+  biolink:predisposes_to_condition:
+    text: biolink:predisposes_to_condition
+    title: PREDISPOSES_TO_CONDITION
+  biolink:associated_with_likelihood_of:
+    text: biolink:associated_with_likelihood_of
+    title: ASSOCIATED_WITH_LIKELIHOOD_OF
+  biolink:likelihood_associated_with:
+    text: biolink:likelihood_associated_with
+    title: LIKELIHOOD_ASSOCIATED_WITH
+  biolink:associated_with_sensitivity_to:
+    text: biolink:associated_with_sensitivity_to
+    title: ASSOCIATED_WITH_SENSITIVITY_TO
+  biolink:sensitivity_associated_with:
+    text: biolink:sensitivity_associated_with
+    title: SENSITIVITY_ASSOCIATED_WITH
+  biolink:associated_with_resistance_to:
+    text: biolink:associated_with_resistance_to
+    title: ASSOCIATED_WITH_RESISTANCE_TO
+  biolink:resistance_associated_with:
+    text: biolink:resistance_associated_with
+    title: RESISTANCE_ASSOCIATED_WITH
+  biolink:genetic_association:
+    text: biolink:genetic_association
+    title: GENETIC_ASSOCIATION
+  biolink:genetically_associated_with:
+    text: biolink:genetically_associated_with
+    title: GENETICALLY_ASSOCIATED_WITH
+  biolink:correlated_with:
+    text: biolink:correlated_with
+    title: CORRELATED_WITH
+  biolink:positively_correlated_with:
+    text: biolink:positively_correlated_with
+    title: POSITIVELY_CORRELATED_WITH
+  biolink:negatively_correlated_with:
+    text: biolink:negatively_correlated_with
+    title: NEGATIVELY_CORRELATED_WITH
+  biolink:occurs_together_in_literature_with:
+    text: biolink:occurs_together_in_literature_with
+    title: OCCURS_TOGETHER_IN_LITERATURE_WITH
+  biolink:coexpressed_with:
+    text: biolink:coexpressed_with
+    title: COEXPRESSED_WITH
+  biolink:has_biomarker:
+    text: biolink:has_biomarker
+    title: HAS_BIOMARKER
+  biolink:biomarker_for:
+    text: biolink:biomarker_for
+    title: BIOMARKER_FOR
+  biolink:gene_associated_with_condition:
+    text: biolink:gene_associated_with_condition
+    title: GENE_ASSOCIATED_WITH_CONDITION
+  biolink:condition_associated_with_gene:
+    text: biolink:condition_associated_with_gene
+    title: CONDITION_ASSOCIATED_WITH_GENE
+  biolink:increased_likelihood_associated_with:
+    text: biolink:increased_likelihood_associated_with
+    title: INCREASED_LIKELIHOOD_ASSOCIATED_WITH
+  biolink:decreased_likelihood_associated_with:
+    text: biolink:decreased_likelihood_associated_with
+    title: DECREASED_LIKELIHOOD_ASSOCIATED_WITH
+  biolink:associated_with_increased_likelihood_of:
+    text: biolink:associated_with_increased_likelihood_of
+    title: ASSOCIATED_WITH_INCREASED_LIKELIHOOD_OF
+  biolink:associated_with_decreased_likelihood_of:
+    text: biolink:associated_with_decreased_likelihood_of
+    title: ASSOCIATED_WITH_DECREASED_LIKELIHOOD_OF
+  biolink:has_chemical_role:
+    text: biolink:has_chemical_role
+    title: HAS_CHEMICAL_ROLE
+  biolink:superclass_of:
+    text: biolink:superclass_of
+    title: SUPERCLASS_OF
+  biolink:subclass_of:
+    text: biolink:subclass_of
+    title: SUBCLASS_OF
+  biolink:close_match:
+    text: biolink:close_match
+    title: CLOSE_MATCH
+  biolink:broad_match:
+    text: biolink:broad_match
+    title: BROAD_MATCH
+  biolink:narrow_match:
+    text: biolink:narrow_match
+    title: NARROW_MATCH
+  biolink:member_of:
+    text: biolink:member_of
+    title: MEMBER_OF
+  biolink:has_member:
+    text: biolink:has_member
+    title: HAS_MEMBER
+  biolink:exact_match:
+    text: biolink:exact_match
+    title: EXACT_MATCH
+  biolink:same_as:
+    text: biolink:same_as
+    title: SAME_AS
+
+</code></pre>
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>

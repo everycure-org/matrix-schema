@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/MatrixEdge/">
+        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/AgentTypeEnum/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>None (schema class) - matrix-schema</title>
+        <title>Enum: AgentTypeEnum - matrix-schema</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#none-schema-class" class="md-skip">
+        <a href="#enum-agenttypeenum" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              None (schema class)
+              Enum: AgentTypeEnum
             
           </span>
         </div>
@@ -302,18 +302,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#attributes" class="md-nav__link">
+  <a href="#permissible-values" class="md-nav__link">
     <span class="md-ellipsis">
-      Attributes
+      Permissible Values
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#usages" class="md-nav__link">
+  <a href="#slots" class="md-nav__link">
     <span class="md-ellipsis">
-      Usages
+      Slots
     </span>
   </a>
   
@@ -344,44 +344,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mappings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mappings
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#linkml-source" class="md-nav__link">
     <span class="md-ellipsis">
       LinkML Source
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="LinkML Source">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#direct" class="md-nav__link">
-    <span class="md-ellipsis">
-      Direct
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#induced" class="md-nav__link">
-    <span class="md-ellipsis">
-      Induced
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -404,102 +371,72 @@
   
 
 
-<h1 id="none-schema-class">None (schema class)</h1>
-<p><em>An edge representing a relationship between two nodes in the Biolink knowledge graph.</em></p>
-<p>URI: <a href="https://w3id.org/everycure-org/matrix-schema/MatrixEdge">matrix_schema:MatrixEdge</a></p>
-<h2 id="attributes">Attributes</h2>
+<h1 id="enum-agenttypeenum">Enum: AgentTypeEnum</h1>
+<p>URI: <a href="./">AgentTypeEnum</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>manual_agent</td>
+<td>None</td>
+<td>A human agent who is responsible for generating a statement of knowledge</td>
+</tr>
+<tr>
+<td>automated_agent</td>
+<td>None</td>
+<td>An automated agent, typically a software program or tool, that is  responsibl...</td>
+</tr>
+<tr>
+<td>data_analysis_pipeline</td>
+<td>None</td>
+<td>An automated agent that executes an analysis workflow over data and  reports ...</td>
+</tr>
+<tr>
+<td>computational_model</td>
+<td>None</td>
+<td>An automated agent that generates knowledge statements (typically predictions...</td>
+</tr>
+<tr>
+<td>text_mining_agent</td>
+<td>None</td>
+<td>An automated agent that uses Natural Language Processing to recognize concept...</td>
+</tr>
+<tr>
+<td>image_processing_agent</td>
+<td>None</td>
+<td>An automated agent that processes images to generate textual statements of  k...</td>
+</tr>
+<tr>
+<td>manual_validation_of_automated_agent</td>
+<td>None</td>
+<td>A human agent reviews and validates/approves the veracity of knowledge  that ...</td>
+</tr>
+<tr>
+<td>not_provided</td>
+<td>None</td>
+<td>The agent type is not provided, typically because it cannot be determined fro...</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
-<th>Cardinality and Range</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../subject/">subject</a></td>
-<td>The subject entity in the edge.</td>
-<td>1 <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../predicate/">predicate</a></td>
-<td>The predicate defining the relationship.</td>
-<td>1 <br/> <a href="../PredicateEnum/">PredicateEnum</a></td>
-</tr>
-<tr>
-<td><a href="../object/">object</a></td>
-<td>The object entity in the edge.</td>
-<td>1 <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../knowledge_level/">knowledge_level</a></td>
-<td>Knowledge level of the relationship</td>
-<td>0..1 <br/> <a href="../KnowledgeLevelEnum/">KnowledgeLevelEnum</a></td>
-</tr>
 <tr>
 <td><a href="../agent_type/">agent_type</a></td>
-<td>Type of agent involved in the relationship.</td>
-<td>0..1 <br/> <a href="../AgentTypeEnum/">AgentTypeEnum</a></td>
-</tr>
-<tr>
-<td><a href="../primary_knowledge_source/">primary_knowledge_source</a></td>
-<td>Primary source of the knowledge in the edge.</td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../aggregator_knowledge_source/">aggregator_knowledge_source</a></td>
-<td>Aggregators of the knowledge.</td>
-<td>* <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../publications/">publications</a></td>
-<td>Publications associated with the entity.</td>
-<td>* <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../subject_aspect_qualifier/">subject_aspect_qualifier</a></td>
-<td>Aspect qualifier for the subject.</td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../subject_direction_qualifier/">subject_direction_qualifier</a></td>
-<td>Direction qualifier for the subject.</td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../object_aspect_qualifier/">object_aspect_qualifier</a></td>
-<td>Aspect qualifier for the object.</td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../object_direction_qualifier/">object_direction_qualifier</a></td>
-<td>Direction qualifier for the object.</td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../upstream_data_source/">upstream_data_source</a></td>
-<td>Sources from which this entity's data originates.</td>
-<td>* <br/> <a href="../String/">String</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../MatrixEdgeList/">MatrixEdgeList</a></td>
-<td><a href="../edges/">edges</a></td>
-<td>range</td>
-<td><a href="./">MatrixEdge</a></td>
+<td>Type of agent involved in the relationship</td>
 </tr>
 </tbody>
 </table>
@@ -508,234 +445,94 @@
 <ul>
 <li>from schema: https://w3id.org/everycure-org/matrix-schema</li>
 </ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>matrix_schema:MatrixEdge</td>
-</tr>
-<tr>
-<td>native</td>
-<td>matrix_schema:MatrixEdge</td>
-</tr>
-</tbody>
-</table>
 <h2 id="linkml-source">LinkML Source</h2>
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-<h3 id="direct">Direct</h3>
 <details>
 
-<pre><code class="language-yaml">name: MatrixEdge
-description: An edge representing a relationship between two nodes in the Biolink
-  knowledge graph.
+<pre><code class="language-yaml">name: AgentTypeEnum
 from_schema: https://w3id.org/everycure-org/matrix-schema
-slots:
-- subject
-- predicate
-- object
-- knowledge_level
-- agent_type
-- primary_knowledge_source
-- aggregator_knowledge_source
-- publications
-- subject_aspect_qualifier
-- subject_direction_qualifier
-- object_aspect_qualifier
-- object_direction_qualifier
-- upstream_data_source
-slot_usage:
-  subject:
-    name: subject
-    required: true
-  predicate:
-    name: predicate
-    required: true
-  object:
-    name: object
-    required: true
-unique_keys:
-  unique_edge:
-    unique_key_name: unique_edge
-    unique_key_slots:
-    - subject
-    - predicate
-    - object
-
-</code></pre>
-
-</details>
-
-<h3 id="induced">Induced</h3>
-<details>
-
-<pre><code class="language-yaml">name: MatrixEdge
-description: An edge representing a relationship between two nodes in the Biolink
-  knowledge graph.
-from_schema: https://w3id.org/everycure-org/matrix-schema
-slot_usage:
-  subject:
-    name: subject
-    required: true
-  predicate:
-    name: predicate
-    required: true
-  object:
-    name: object
-    required: true
-attributes:
-  subject:
-    name: subject
-    description: The subject entity in the edge.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: subject
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-    required: true
-  predicate:
-    name: predicate
-    description: The predicate defining the relationship.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: predicate
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: PredicateEnum
-    required: true
-  object:
-    name: object
-    description: The object entity in the edge.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: object
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-    required: true
-  knowledge_level:
-    name: knowledge_level
-    description: Knowledge level of the relationship
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: knowledge_level
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: KnowledgeLevelEnum
-  agent_type:
-    name: agent_type
-    description: Type of agent involved in the relationship.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: agent_type
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: AgentTypeEnum
-  primary_knowledge_source:
-    name: primary_knowledge_source
-    description: Primary source of the knowledge in the edge.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: primary_knowledge_source
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-  aggregator_knowledge_source:
-    name: aggregator_knowledge_source
-    description: Aggregators of the knowledge.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: aggregator_knowledge_source
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-    multivalued: true
-  publications:
-    name: publications
-    description: Publications associated with the entity.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: publications
-    owner: MatrixEdge
-    domain_of:
-    - MatrixNode
-    - MatrixEdge
-    range: string
-    multivalued: true
-  subject_aspect_qualifier:
-    name: subject_aspect_qualifier
-    description: Aspect qualifier for the subject.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: subject_aspect_qualifier
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-  subject_direction_qualifier:
-    name: subject_direction_qualifier
-    description: Direction qualifier for the subject.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: subject_direction_qualifier
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-  object_aspect_qualifier:
-    name: object_aspect_qualifier
-    description: Aspect qualifier for the object.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: object_aspect_qualifier
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-  object_direction_qualifier:
-    name: object_direction_qualifier
-    description: Direction qualifier for the object.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: object_direction_qualifier
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-  upstream_data_source:
-    name: upstream_data_source
-    description: Sources from which this entity's data originates.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: upstream_data_source
-    owner: MatrixEdge
-    domain_of:
-    - MatrixNode
-    - MatrixEdge
-    range: string
-    multivalued: true
-unique_keys:
-  unique_edge:
-    unique_key_name: unique_edge
-    unique_key_slots:
-    - subject
-    - predicate
-    - object
+rank: 1000
+permissible_values:
+  manual_agent:
+    text: manual_agent
+    description: A human agent who is responsible for generating a statement of knowledge.
+      The human may utilize computationally generated information as evidence for
+      the resulting knowledge,  but the human is the one who ultimately interprets/reasons
+      with  this evidence to produce a statement of knowledge.
+  automated_agent:
+    text: automated_agent
+    description: An automated agent, typically a software program or tool, that is  responsible
+      for generating a statement of knowledge. Human contribution  to the knowledge
+      creation process ends with the definition and coding of algorithms or analysis
+      pipelines that get executed by the automated agent.
+  data_analysis_pipeline:
+    text: data_analysis_pipeline
+    description: An automated agent that executes an analysis workflow over data and  reports
+      the direct results of the analysis. These typically report  statistical associations/correlations
+      between variables in the input dataset, and do not interpret/infer broader conclusions
+      from associations the analysis reveals in the data.
+    is_a: automated_agent
+    notes:
+    - If an analysis pipeline includes any rules for generating broader  conclusions
+      based on the dataset-specific statistical correlations it calculates (e.g. create
+      a 'treats' edge when the analysis reveals a  drug-disease correlation in the
+      data with statistical scores that meet a  certain threshold) - we would consider
+      this agent to be a Computational Model rather than just a Data Analysis Pipeline.
+  computational_model:
+    text: computational_model
+    description: An automated agent that generates knowledge statements (typically
+      predictions) based on rules/logic explicitly encoded in an algorithm (e.g. heuristic
+      models, supervised classifiers), or learned from patterns  observed in data
+      (e.g. ML models, unsupervised classifiers).
+    is_a: automated_agent
+    notes:
+    - The bar is quite low relatively for what is considered to be a  ‘computational
+      model’ by our definition. Even agents/tools that apply  simple rules or logic
+      to the output of an ingest or analysis pipeline to allow for a stronger or more
+      general conclusion to be stated can  qualify an agent as a model. For example,
+      an ingest pipeline that applies rules to its ingest of  clinical trials data
+      to create a 'treats' prediction edge when the  source reports a drug to be in
+      phase 2 or 3 trials represents a computational model because it is automatically
+      drawing a stronger conclusion than the source reports, based on logic encoded
+      in the ingest pipeline. Similarly, a data analysis pipeline that is extended
+      with rules to  automatically generate broader conclusions based on dataset-specific
+      statistical correlations (e.g. create a 'treats' edge when the analysis reveals
+      a drug-disease correlation in the data with statistical scores  that meet a
+      certain threshold), would also qualify as a computational  model by our definition.
+  text_mining_agent:
+    text: text_mining_agent
+    description: An automated agent that uses Natural Language Processing to recognize
+      concepts and/or relationships in text, and report them using formally encoded
+      semantics (e.g. as an edge in a knowledge graph).
+    is_a: automated_agent
+    notes:
+    - The original statement in the source text is typically made by a human /  manual
+      agent, but if a specific encoding of this knowledge is produced by a text-mining
+      tool, it has an agent_type of 'text_mining_agent'. Examples of text mining agents
+      include SemmedDB, and the Translator Text-Mining Knowledge Provider. Note that
+      text-mining tools are prone to erroneous interpretation of  concepts and relationships,
+      and can fail to provide important details  about the context in which the original
+      knowledge was reported - so users should always consult the source text for
+      a text-mined statement to assess its veracity and relevance.
+  image_processing_agent:
+    text: image_processing_agent
+    description: An automated agent that processes images to generate textual statements
+      of  knowledge derived from the image and/or expressed in text the image  depicts
+      (e.g. via OCR).
+    is_a: automated_agent
+  manual_validation_of_automated_agent:
+    text: manual_validation_of_automated_agent
+    description: A human agent reviews and validates/approves the veracity of knowledge  that
+      is initially generated by an automated agent.
+    notes:
+    - This term applies when a human was only involved in evaluating the veracity
+      of a knowledge statement that was generated by an automated agent. It is  important
+      to indicate when such manual review has occurred, because it can give a user
+      more confidence in an automated statement.
+  not_provided:
+    text: not_provided
+    description: The agent type is not provided, typically because it cannot be determined
+      from available information if the agent that generated the knowledge is  manual
+      or automated.
 
 </code></pre>
 

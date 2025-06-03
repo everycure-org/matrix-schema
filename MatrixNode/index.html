@@ -430,7 +430,7 @@
 <tr>
 <td><a href="../category/">category</a></td>
 <td>Biolink category of the entity.</td>
-<td>1 <br/> <a href="../String/">String</a></td>
+<td>1 <br/> <a href="../NodeCategoryEnum/">NodeCategoryEnum</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
@@ -445,7 +445,7 @@
 <tr>
 <td><a href="../all_categories/">all_categories</a></td>
 <td>All categories associated with the entity.</td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../NodeCategoryEnum/">NodeCategoryEnum</a></td>
 </tr>
 <tr>
 <td><a href="../publications/">publications</a></td>
@@ -597,7 +597,7 @@ attributes:
     owner: MatrixNode
     domain_of:
     - MatrixNode
-    range: string
+    range: NodeCategoryEnum
     required: true
   description:
     name: description
@@ -629,7 +629,7 @@ attributes:
     owner: MatrixNode
     domain_of:
     - MatrixNode
-    range: string
+    range: NodeCategoryEnum
     multivalued: true
   publications:
     name: publications

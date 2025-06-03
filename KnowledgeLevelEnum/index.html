@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/MatrixEdge/">
+        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/KnowledgeLevelEnum/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>None (schema class) - matrix-schema</title>
+        <title>Enum: KnowledgeLevelEnum - matrix-schema</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#none-schema-class" class="md-skip">
+        <a href="#enum-knowledgelevelenum" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              None (schema class)
+              Enum: KnowledgeLevelEnum
             
           </span>
         </div>
@@ -302,18 +302,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#attributes" class="md-nav__link">
+  <a href="#permissible-values" class="md-nav__link">
     <span class="md-ellipsis">
-      Attributes
+      Permissible Values
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#usages" class="md-nav__link">
+  <a href="#slots" class="md-nav__link">
     <span class="md-ellipsis">
-      Usages
+      Slots
     </span>
   </a>
   
@@ -344,44 +344,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mappings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mappings
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#linkml-source" class="md-nav__link">
     <span class="md-ellipsis">
       LinkML Source
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="LinkML Source">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#direct" class="md-nav__link">
-    <span class="md-ellipsis">
-      Direct
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#induced" class="md-nav__link">
-    <span class="md-ellipsis">
-      Induced
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -404,102 +371,62 @@
   
 
 
-<h1 id="none-schema-class">None (schema class)</h1>
-<p><em>An edge representing a relationship between two nodes in the Biolink knowledge graph.</em></p>
-<p>URI: <a href="https://w3id.org/everycure-org/matrix-schema/MatrixEdge">matrix_schema:MatrixEdge</a></p>
-<h2 id="attributes">Attributes</h2>
+<h1 id="enum-knowledgelevelenum">Enum: KnowledgeLevelEnum</h1>
+<p>URI: <a href="./">KnowledgeLevelEnum</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>knowledge_assertion</td>
+<td>None</td>
+<td>A statement of purported fact that is put forth by an agent as true, based on...</td>
+</tr>
+<tr>
+<td>logical_entailment</td>
+<td>None</td>
+<td>A statement reporting a conclusion that follows logically from premises repre...</td>
+</tr>
+<tr>
+<td>prediction</td>
+<td>None</td>
+<td>A statement of a possible fact based on probabilistic forms of reasoning over...</td>
+</tr>
+<tr>
+<td>statistical_association</td>
+<td>None</td>
+<td>A statement that reports concepts representing variables in a dataset to be s...</td>
+</tr>
+<tr>
+<td>observation</td>
+<td>None</td>
+<td>A statement reporting (and possibly quantifying) a phenomenon that was observ...</td>
+</tr>
+<tr>
+<td>not_provided</td>
+<td>None</td>
+<td>The knowledge level is not provided, typically because it cannot be determine...</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
-<th>Cardinality and Range</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../subject/">subject</a></td>
-<td>The subject entity in the edge.</td>
-<td>1 <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../predicate/">predicate</a></td>
-<td>The predicate defining the relationship.</td>
-<td>1 <br/> <a href="../PredicateEnum/">PredicateEnum</a></td>
-</tr>
-<tr>
-<td><a href="../object/">object</a></td>
-<td>The object entity in the edge.</td>
-<td>1 <br/> <a href="../String/">String</a></td>
-</tr>
 <tr>
 <td><a href="../knowledge_level/">knowledge_level</a></td>
 <td>Knowledge level of the relationship</td>
-<td>0..1 <br/> <a href="../KnowledgeLevelEnum/">KnowledgeLevelEnum</a></td>
-</tr>
-<tr>
-<td><a href="../agent_type/">agent_type</a></td>
-<td>Type of agent involved in the relationship.</td>
-<td>0..1 <br/> <a href="../AgentTypeEnum/">AgentTypeEnum</a></td>
-</tr>
-<tr>
-<td><a href="../primary_knowledge_source/">primary_knowledge_source</a></td>
-<td>Primary source of the knowledge in the edge.</td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../aggregator_knowledge_source/">aggregator_knowledge_source</a></td>
-<td>Aggregators of the knowledge.</td>
-<td>* <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../publications/">publications</a></td>
-<td>Publications associated with the entity.</td>
-<td>* <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../subject_aspect_qualifier/">subject_aspect_qualifier</a></td>
-<td>Aspect qualifier for the subject.</td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../subject_direction_qualifier/">subject_direction_qualifier</a></td>
-<td>Direction qualifier for the subject.</td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../object_aspect_qualifier/">object_aspect_qualifier</a></td>
-<td>Aspect qualifier for the object.</td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../object_direction_qualifier/">object_direction_qualifier</a></td>
-<td>Direction qualifier for the object.</td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-</tr>
-<tr>
-<td><a href="../upstream_data_source/">upstream_data_source</a></td>
-<td>Sources from which this entity's data originates.</td>
-<td>* <br/> <a href="../String/">String</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../MatrixEdgeList/">MatrixEdgeList</a></td>
-<td><a href="../edges/">edges</a></td>
-<td>range</td>
-<td><a href="./">MatrixEdge</a></td>
 </tr>
 </tbody>
 </table>
@@ -508,234 +435,97 @@
 <ul>
 <li>from schema: https://w3id.org/everycure-org/matrix-schema</li>
 </ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>matrix_schema:MatrixEdge</td>
-</tr>
-<tr>
-<td>native</td>
-<td>matrix_schema:MatrixEdge</td>
-</tr>
-</tbody>
-</table>
 <h2 id="linkml-source">LinkML Source</h2>
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-<h3 id="direct">Direct</h3>
 <details>
 
-<pre><code class="language-yaml">name: MatrixEdge
-description: An edge representing a relationship between two nodes in the Biolink
-  knowledge graph.
+<pre><code class="language-yaml">name: KnowledgeLevelEnum
 from_schema: https://w3id.org/everycure-org/matrix-schema
-slots:
-- subject
-- predicate
-- object
-- knowledge_level
-- agent_type
-- primary_knowledge_source
-- aggregator_knowledge_source
-- publications
-- subject_aspect_qualifier
-- subject_direction_qualifier
-- object_aspect_qualifier
-- object_direction_qualifier
-- upstream_data_source
-slot_usage:
-  subject:
-    name: subject
-    required: true
-  predicate:
-    name: predicate
-    required: true
-  object:
-    name: object
-    required: true
-unique_keys:
-  unique_edge:
-    unique_key_name: unique_edge
-    unique_key_slots:
-    - subject
-    - predicate
-    - object
-
-</code></pre>
-
-</details>
-
-<h3 id="induced">Induced</h3>
-<details>
-
-<pre><code class="language-yaml">name: MatrixEdge
-description: An edge representing a relationship between two nodes in the Biolink
-  knowledge graph.
-from_schema: https://w3id.org/everycure-org/matrix-schema
-slot_usage:
-  subject:
-    name: subject
-    required: true
-  predicate:
-    name: predicate
-    required: true
-  object:
-    name: object
-    required: true
-attributes:
-  subject:
-    name: subject
-    description: The subject entity in the edge.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: subject
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-    required: true
-  predicate:
-    name: predicate
-    description: The predicate defining the relationship.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: predicate
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: PredicateEnum
-    required: true
-  object:
-    name: object
-    description: The object entity in the edge.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: object
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-    required: true
-  knowledge_level:
-    name: knowledge_level
-    description: Knowledge level of the relationship
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: knowledge_level
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: KnowledgeLevelEnum
-  agent_type:
-    name: agent_type
-    description: Type of agent involved in the relationship.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: agent_type
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: AgentTypeEnum
-  primary_knowledge_source:
-    name: primary_knowledge_source
-    description: Primary source of the knowledge in the edge.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: primary_knowledge_source
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-  aggregator_knowledge_source:
-    name: aggregator_knowledge_source
-    description: Aggregators of the knowledge.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: aggregator_knowledge_source
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-    multivalued: true
-  publications:
-    name: publications
-    description: Publications associated with the entity.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: publications
-    owner: MatrixEdge
-    domain_of:
-    - MatrixNode
-    - MatrixEdge
-    range: string
-    multivalued: true
-  subject_aspect_qualifier:
-    name: subject_aspect_qualifier
-    description: Aspect qualifier for the subject.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: subject_aspect_qualifier
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-  subject_direction_qualifier:
-    name: subject_direction_qualifier
-    description: Direction qualifier for the subject.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: subject_direction_qualifier
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-  object_aspect_qualifier:
-    name: object_aspect_qualifier
-    description: Aspect qualifier for the object.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: object_aspect_qualifier
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-  object_direction_qualifier:
-    name: object_direction_qualifier
-    description: Direction qualifier for the object.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: object_direction_qualifier
-    owner: MatrixEdge
-    domain_of:
-    - MatrixEdge
-    range: string
-  upstream_data_source:
-    name: upstream_data_source
-    description: Sources from which this entity's data originates.
-    from_schema: https://w3id.org/everycure-org/matrix-schema
-    rank: 1000
-    alias: upstream_data_source
-    owner: MatrixEdge
-    domain_of:
-    - MatrixNode
-    - MatrixEdge
-    range: string
-    multivalued: true
-unique_keys:
-  unique_edge:
-    unique_key_name: unique_edge
-    unique_key_slots:
-    - subject
-    - predicate
-    - object
+rank: 1000
+permissible_values:
+  knowledge_assertion:
+    text: knowledge_assertion
+    description: A statement of purported fact that is put forth by an agent as true,
+      based on assessment of direct evidence. Assertions are likely but not  definitively
+      true.
+    notes:
+    - Knowledge Assertions are supported by direct evidence deemed sufficient by some
+      agent to support a confidence assertion of truth. Our certainty  in this truth
+      is not absolute, but is typically higher than for Predictions.
+    aliases:
+    - assertion
+  logical_entailment:
+    text: logical_entailment
+    description: A statement reporting a conclusion that follows logically from premises
+      representing established facts or knowledge assertions (e.g. fingernail part
+      of finger, finger part of hand --&gt; fingernail part of hand).
+    notes:
+    - These statements report entailed conclusions derived through dedictive inference.
+      They are not directly asserted by a source, but logically follow from statement(s)  a
+      source does make - and are necessarily true if their supporting premises are
+      true.  In practice, these will primarily be entailments based on logic encoded
+      in ontologies.  Examples include propagation of annotated knowledge to hierarchically-related
+      concepts, across paths through a graph constructed from transitive relationships,
+      or sets of  relationships that support property chain inference.
+    aliases:
+    - deductive_inference
+  prediction:
+    text: prediction
+    description: A statement of a possible fact based on probabilistic forms of reasoning
+      over more indirect forms of evidence, that lead to more speculative conclusions.
+    notes:
+    - Predictions typically result from non-deductive forms of reasoning - e.g. inductive
+      and deductive inference, or statistical inference where conclusions are drawn
+      about a broader/global population based on data from a representative cohort.
+      For example, a prediction that a drug may treat a particular disease based on
+      its chemical similarity to known drugs that treat the disease, and the fact
+      that it can inhibit proteins  in a pathway that is associated with the disease
+      As Predictions are based on weaker forms of inference and evidence, they are
+      typically  considered lower confidence statements as compared to Knowledge Assertions
+      and Logical Entailments.
+    aliases:
+    - hypothesis
+  statistical_association:
+    text: statistical_association
+    description: A statement that reports concepts representing variables in a dataset
+      to be statistically associated with each other in a particular cohort (e.g.
+      'Metformin Treatment (variable 1) is correlated with Diabetes Diagnosis (variable
+      2) in EHR dataset X').
+    notes:
+    - Such statements report the direct results of some statistical analysis. Their
+      scope is limited tp the cohort/dataset interrogated in the analysis, and they
+      do not make broader claims or draw  more meaningful conclusions about the domain
+      of discourse. Note however that such Statistical  Associations can be used as
+      evidence to support a more pointed/precise Prediction or Assertion  of knowledge.
+      For example, e.g. a Statistical Association between 'Metformin Prescription'
+      and 'Diabetes Diagnosis' in EHR records could support a Prediction that 'Metformin
+      treats Diabetes',  or 'Metformin causes Diabetes'. This 'treats' edge may have
+      a knowledge_level of 'Prediction',  but the provider could use the 'evidence_type'
+      edge property to indicate that this prediction is  based on a 'Statistical Association'.
+      Because Statistical Associations directly report analysis-specific  results,
+      we can consider them to be inherently true statements, whose broader utility
+      is dependent on  subsequent generalization of the reported result to a broader
+      population, and/or interpretation of the  result as support for a more meaningful
+      statements about the domain of discourse.
+  observation:
+    text: observation
+    description: A statement reporting (and possibly quantifying) a phenomenon that
+      was observed to occur -  absent any analysis or interpretation that generates
+      a statistical association or supports a broader conclusion or inference.
+    notes:
+    - An observation that &quot;56362 people self-reported taking melatonin to treat migraines&quot;
+      is agnostic to whether melatonin is an effective or approved treatment - it
+      only claims that it was taken for this purpose. Such observations, however,
+      may be used as the basis for predicting that a  drug may be efficacious against
+      a disease.
+  not_provided:
+    text: not_provided
+    description: The knowledge level is not provided, typically because it cannot
+      be determined from available. information.
+    notes:
+    - This term is most often applied for text-mined edges, as NLP tools are typically
+      not able to detect a specific knowledge level for the concept relationships
+      they extract (e.g. whether the author  was predicting or asserting a relationship,
+      or merely observed it to occur).
 
 </code></pre>
 
