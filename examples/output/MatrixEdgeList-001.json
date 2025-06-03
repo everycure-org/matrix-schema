@@ -5,9 +5,10 @@
       "predicate": "biolink:treats",
       "object": "example:Node002",
       "knowledge_level": "knowledge_assertion",
-      "primary_knowledge_source": "DrugBank",
+      "agent_type": "manual_agent",
+      "primary_knowledge_source": "infores:drugbank",
       "aggregator_knowledge_source": [
-        "OMIM"
+        "infores:omim"
       ],
       "publications": [
         "PMID:98765432"
