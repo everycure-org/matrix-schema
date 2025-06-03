@@ -5,10 +5,11 @@ edges:
   - subject: example:Node001
     predicate: "biolink:treats"
     object: example:Node002
-    knowledge_level: "high"
-    primary_knowledge_source: "DrugBank"
+    knowledge_level: "knowledge_assertion"
+    agent_type: "manual_agent"
+    primary_knowledge_source: "infores:drugbank"
     aggregator_knowledge_source:
-      - "OMIM"
+      - "infores:omim"
     publications:
       - "PMID:98765432"
     subject_aspect_qualifier: "mode of action"
@@ -21,8 +22,9 @@ edges:
   - subject: example:Node002
     predicate: "biolink:has_phenotype"
     object: example:Node003
-    knowledge_level: "moderate"
-    primary_knowledge_source: "OMIM"
+    knowledge_level: "prediction"
+    agent_type: "automated_agent"
+    primary_knowledge_source: "infores:omim"
     aggregator_knowledge_source:
       - "MONDO"
     publications:
@@ -35,10 +37,11 @@ edges:
   - subject: example:Node003
     predicate: "biolink:interacts_with"
     object: example:Node001
-    knowledge_level: "low"
-    primary_knowledge_source: "ChEBI"
+    knowledge_level: "not_provided"
+    agent_type: "not_provided"
+    primary_knowledge_source: "infores:chebi"
     aggregator_knowledge_source:
-      - "DrugBank"
+      - "infores:drugbank"
     publications:
       - "PMID:45678901"
     subject_aspect_qualifier: "biochemical interaction"

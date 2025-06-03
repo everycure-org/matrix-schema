@@ -4,10 +4,11 @@
       "subject": "example:Node001",
       "predicate": "biolink:treats",
       "object": "example:Node002",
-      "knowledge_level": "high",
-      "primary_knowledge_source": "DrugBank",
+      "knowledge_level": "knowledge_assertion",
+      "agent_type": "manual_agent",
+      "primary_knowledge_source": "infores:drugbank",
       "aggregator_knowledge_source": [
-        "OMIM"
+        "infores:omim"
       ],
       "publications": [
         "PMID:98765432"
@@ -24,7 +25,7 @@
       "subject": "example:Node002",
       "predicate": "biolink:has_phenotype",
       "object": "example:Node003",
-      "knowledge_level": "moderate",
+      "knowledge_level": "prediction",
       "primary_knowledge_source": "OMIM",
       "aggregator_knowledge_source": [
         "MONDO"
@@ -42,7 +43,7 @@
       "subject": "example:Node003",
       "predicate": "biolink:interacts_with",
       "object": "example:Node001",
-      "knowledge_level": "low",
+      "knowledge_level": "not_provided",
       "primary_knowledge_source": "ChEBI",
       "aggregator_knowledge_source": [
         "DrugBank"

@@ -19,6 +19,7 @@ dynamic = ["version"]
 dependencies = [
   "linkml-runtime >=1.8.0",
   "jinjanator (>=24.4.0)",
+  "biolink-model (>=4.2.5,<5.0.0)",
 ]
 
 [tool.poetry]

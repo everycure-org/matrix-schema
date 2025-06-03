@@ -61,9 +61,10 @@ message MatrixDiseaseList
 message MatrixEdge
  {
   string subject = 0
-  string predicate = 0
+  predicateEnum predicate = 0
   string object = 0
-  string knowledgeLevel = 0
+  knowledgeLevelEnum knowledgeLevel = 0
+  agentTypeEnum agentType = 0
   string primaryKnowledgeSource = 0
  repeated  string aggregatorKnowledgeSource = 0
  repeated  string publications = 0
@@ -83,10 +84,10 @@ message MatrixNode
  {
   uriorcurie id = 0
   string name = 0
-  string category = 0
+  nodeCategoryEnum category = 0
   string description = 0
  repeated  string equivalentIdentifiers = 0
- repeated  string allCategories = 0
+ repeated  nodeCategoryEnum allCategories = 0
  repeated  string publications = 0
  repeated  string labels = 0
   string internationalResourceIdentifier = 0
