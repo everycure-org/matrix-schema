@@ -1,5 +1,5 @@
 # Auto generated from matrix_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-06-02T18:21:11
+# Generation date: 2025-06-04T12:32:05
 # Schema: matrix-schema
 #
 # id: https://w3id.org/everycure-org/matrix-schema
