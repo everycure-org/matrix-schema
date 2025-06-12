@@ -18,6 +18,7 @@ dynamic = ["version"]
 
 dependencies = [
   "linkml-runtime >=1.8.0",
+  "biolink-model (>=4.2.5,<5.0.0)",
 ]
 
 [tool.poetry]
@@ -47,6 +48,5 @@ schemasheets = ">=0.1.14"
 jupyter = ">=1.0.0"
 mknotebooks = ">= 0.8.0"
 pandas = ">=2,<3"
-biolink-model = ">=4.2.5,<5.0.0"
 jinjanator = ">=24.4.0"
 
