@@ -5,6 +5,10 @@ on:
   release:
     types: [created]
 
+# Add permissions needed to upload to releases
+permissions:
+  contents: write
+
 jobs:
   create-artifacts:
     name: Create and Upload Release Artifacts
@@ -18,14 +22,14 @@ jobs:
 
       - name: Copy valid edge type table to artifacts
         run: cp src/matrix_schema/schema/valid_biolink_edge_types.tsv artifacts/
-
-      - name: Upload artifacts to release
+          
+      - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: artifacts/valid_biolink_edge_types.tsv
+          files: artifacts/*
           
       - name: Upload as workflow artifact (for debugging)
         uses: actions/upload-artifact@v4
         with:
           name: valid-biolink-edge-types
-          path: src/matrix_schema/schema/valid_biolink_edge_types.tsv
+          path: artifacts
