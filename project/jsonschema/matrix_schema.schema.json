@@ -371,6 +371,20 @@
                     "$ref": "#/$defs/KnowledgeLevelEnum",
                     "description": "Knowledge level of the relationship"
                 },
+                "num_references": {
+                    "description": "Number of references supporting this edge.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "num_sentences": {
+                    "description": "Number of sentences supporting this edge.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
                 "object": {
                     "description": "The object entity in the edge.",
                     "type": "string"

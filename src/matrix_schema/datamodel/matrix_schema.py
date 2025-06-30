@@ -1,5 +1,5 @@
 # Auto generated from matrix_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-06-04T12:32:05
+# Generation date: 2025-06-30T12:06:24
 # Schema: matrix-schema
 #
 # id: https://w3id.org/everycure-org/matrix-schema
@@ -172,6 +172,8 @@ class MatrixEdge(YAMLRoot):
     object_aspect_qualifier: Optional[str] = None
     object_direction_qualifier: Optional[str] = None
     upstream_data_source: Optional[Union[str, List[str]]] = empty_list()
+    num_references: Optional[int] = None
+    num_sentences: Optional[int] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.subject):
@@ -221,6 +223,12 @@ class MatrixEdge(YAMLRoot):
         if not isinstance(self.upstream_data_source, list):
             self.upstream_data_source = [self.upstream_data_source] if self.upstream_data_source is not None else []
         self.upstream_data_source = [v if isinstance(v, str) else str(v) for v in self.upstream_data_source]
+
+        if self.num_references is not None and not isinstance(self.num_references, int):
+            self.num_references = int(self.num_references)
+
+        if self.num_sentences is not None and not isinstance(self.num_sentences, int):
+            self.num_sentences = int(self.num_sentences)
 
         super().__post_init__(**kwargs)
 
@@ -1535,6 +1543,12 @@ slots.international_resource_identifier = Slot(uri=MATRIX_SCHEMA.international_r
 
 slots.upstream_data_source = Slot(uri=MATRIX_SCHEMA.upstream_data_source, name="upstream_data_source", curie=MATRIX_SCHEMA.curie('upstream_data_source'),
                    model_uri=MATRIX_SCHEMA.upstream_data_source, domain=None, range=Optional[Union[str, List[str]]])
+
+slots.num_references = Slot(uri=MATRIX_SCHEMA.num_references, name="num_references", curie=MATRIX_SCHEMA.curie('num_references'),
+                   model_uri=MATRIX_SCHEMA.num_references, domain=None, range=Optional[int])
+
+slots.num_sentences = Slot(uri=MATRIX_SCHEMA.num_sentences, name="num_sentences", curie=MATRIX_SCHEMA.curie('num_sentences'),
+                   model_uri=MATRIX_SCHEMA.num_sentences, domain=None, range=Optional[int])
 
 slots.subject = Slot(uri=MATRIX_SCHEMA.subject, name="subject", curie=MATRIX_SCHEMA.curie('subject'),
                    model_uri=MATRIX_SCHEMA.subject, domain=None, range=Optional[str])

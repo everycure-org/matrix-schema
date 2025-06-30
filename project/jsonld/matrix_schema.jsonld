@@ -2252,6 +2252,32 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "num_references",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/num_references",
+      "description": "Number of references supporting this edge.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/num_references",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "num_sentences",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/num_sentences",
+      "description": "Number of sentences supporting this edge.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/num_sentences",
+      "owner": "MatrixEdge",
+      "domain_of": [
+        "MatrixEdge"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "subject",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/subject",
       "description": "The subject entity in the edge.",
@@ -5402,7 +5428,9 @@
         "subject_direction_qualifier",
         "object_aspect_qualifier",
         "object_direction_qualifier",
-        "upstream_data_source"
+        "upstream_data_source",
+        "num_references",
+        "num_sentences"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdge",
@@ -5519,7 +5547,7 @@
   "source_file": "matrix_schema.yaml",
   "source_file_date": "2025-06-04T10:34:59",
   "source_file_size": 528,
-  "generation_date": "2025-06-04T12:32:05",
+  "generation_date": "2025-06-30T12:06:23",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/matrix_schema.context.jsonld",
