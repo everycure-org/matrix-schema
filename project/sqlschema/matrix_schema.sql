@@ -17,6 +17,8 @@
 --     * Slot: subject_direction_qualifier Description: Direction qualifier for the subject.
 --     * Slot: object_aspect_qualifier Description: Aspect qualifier for the object.
 --     * Slot: object_direction_qualifier Description: Direction qualifier for the object.
+--     * Slot: num_references Description: Number of references supporting this edge.
+--     * Slot: num_sentences Description: Number of sentences supporting this edge.
 --     * Slot: MatrixEdgeList_id Description: Autocreated FK slot
 -- # Class: "MatrixEdgeList" Description: "A container for MatrixEdge objects."
 --     * Slot: id Description: 
@@ -152,6 +154,8 @@ CREATE TABLE "MatrixEdge" (
 	subject_direction_qualifier TEXT, 
 	object_aspect_qualifier TEXT, 
 	object_direction_qualifier TEXT, 
+	num_references INTEGER, 
+	num_sentences INTEGER, 
 	"MatrixEdgeList_id" INTEGER, 
 	PRIMARY KEY (id), 
 	UNIQUE (subject, predicate, object), 

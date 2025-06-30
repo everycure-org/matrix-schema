@@ -59,6 +59,12 @@ slots:
     description: "Sources from which this entity's data originates."
     range: string
     multivalued: true
+  num_references:
+    range: integer
+    description: "Number of references supporting this edge."
+  num_sentences:
+    range: integer
+    description: "Number of sentences supporting this edge."
   subject:
     description: "The subject entity in the edge."
     range: string
@@ -136,6 +142,8 @@ classes:
       - object_aspect_qualifier
       - object_direction_qualifier
       - upstream_data_source
+      - num_references
+      - num_sentences
     slot_usage:
       subject:
         required: true
