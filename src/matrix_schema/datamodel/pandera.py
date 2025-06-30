@@ -16,7 +16,7 @@ except ImportError:
     PANDERA_AVAILABLE = False
 
 # Import the enums from the pydantic model
-from .matrix_schema import (
+from .matrix_schema_pydantic import (
     PredicateEnum,
     NodeCategoryEnum,
     KnowledgeLevelEnum,
