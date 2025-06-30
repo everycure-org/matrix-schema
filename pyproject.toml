@@ -49,4 +49,7 @@ jupyter = ">=1.0.0"
 mknotebooks = ">= 0.8.0"
 pandas = ">=2,<3"
 jinjanator = ">=24.4.0"
+pytest = ">=6.0"
+pandera = {version = ">=0.15", extras = ["pyspark"]}
+pyspark = ">=3.0"
 
