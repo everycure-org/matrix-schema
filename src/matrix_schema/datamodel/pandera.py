@@ -1,42 +1,44 @@
 try:
     import pyspark.sql.types as T
-    PYSPARK_AVAILABLE = True
-except ImportError:
+    import pandera.pandas as pa
+    from ..utils.pandera_utils import Column, DataFrameSchema
+    # Import the enums from the pydantic model
+    from .matrix_schema_pydantic import (
+        PredicateEnum,
+        NodeCategoryEnum,
+        KnowledgeLevelEnum,
+        AgentTypeEnum
+    )
+    DEPENDENCIES_AVAILABLE = True
+except ImportError as e:
     T = None
-    PYSPARK_AVAILABLE = False
-
-try:
-    import pandera.pyspark as pa
-    from pandera.pyspark import Column, DataFrameSchema
-    PANDERA_AVAILABLE = True
-except ImportError:
     pa = None
     Column = None
     DataFrameSchema = None
-    PANDERA_AVAILABLE = False
-
-# Import the enums from the pydantic model
-from .matrix_schema_pydantic import (
-    PredicateEnum,
-    NodeCategoryEnum,
-    KnowledgeLevelEnum,
-    AgentTypeEnum
-)
+    PredicateEnum = None
+    NodeCategoryEnum = None
+    KnowledgeLevelEnum = None
+    AgentTypeEnum = None
+    DEPENDENCIES_AVAILABLE = False
+    IMPORT_ERROR = str(e)
 
 
 def get_matrix_node_schema():
-    """Get the Pandera schema for MatrixNode validation."""
-    if not PYSPARK_AVAILABLE:
-        raise ImportError("PySpark is required for Pandera schema. Install with: pip install pyspark")
-    if not PANDERA_AVAILABLE:
-        raise ImportError("Pandera PySpark is required for schema validation. Install with: pip install 'pandera[pyspark]'")
+    """Get the Pandera schema for MatrixNode validation.
+    
+    Returns a universal schema that works with both pandas and PySpark DataFrames.
+    The actual schema type is determined at validation time based on the DataFrame type.
+    """
+    if not DEPENDENCIES_AVAILABLE:
+        error_msg = f"Dependencies not available for Pandera schema. Original error: {IMPORT_ERROR if 'IMPORT_ERROR' in globals() else 'Unknown'}. Install with: pip install 'pandera[pyspark]' pyspark"
+        raise ImportError(error_msg)
     
     return DataFrameSchema(
         columns={
             "id": Column(T.StringType(), nullable=False),
             "name": Column(T.StringType(), nullable=True),
             "category": Column(T.StringType(), nullable=False, 
-                             checks=pa.Check.isin([category.value for category in NodeCategoryEnum])),
+                             checks=[pa.Check.isin([category.value for category in NodeCategoryEnum])]),
             "description": Column(T.StringType(), nullable=True),
             "equivalent_identifiers": Column(T.ArrayType(T.StringType()), nullable=True),
             "all_categories": Column(T.ArrayType(T.StringType()), nullable=True),
@@ -51,22 +53,25 @@ def get_matrix_node_schema():
 
 
 def get_matrix_edge_schema():
-    """Get the Pandera schema for MatrixEdge validation."""
-    if not PYSPARK_AVAILABLE:
-        raise ImportError("PySpark is required for Pandera schema. Install with: pip install pyspark")
-    if not PANDERA_AVAILABLE:
-        raise ImportError("Pandera PySpark is required for schema validation. Install with: pip install 'pandera[pyspark]'")
+    """Get the Pandera schema for MatrixEdge validation.
+    
+    Returns a universal schema that works with both pandas and PySpark DataFrames.
+    The actual schema type is determined at validation time based on the DataFrame type.
+    """
+    if not DEPENDENCIES_AVAILABLE:
+        error_msg = f"Dependencies not available for Pandera schema. Original error: {IMPORT_ERROR if 'IMPORT_ERROR' in globals() else 'Unknown'}. Install with: pip install 'pandera[pyspark]' pyspark"
+        raise ImportError(error_msg)
     
     return DataFrameSchema(
         columns={
             "subject": Column(T.StringType(), nullable=False),
             "predicate": Column(T.StringType(), nullable=False,
-                              checks=pa.Check.isin([predicate.value for predicate in PredicateEnum])),
+                              checks=[pa.Check.isin([predicate.value for predicate in PredicateEnum])]),
             "object": Column(T.StringType(), nullable=False),
             "knowledge_level": Column(T.StringType(), nullable=True,
-                                    checks=pa.Check.isin([level.value for level in KnowledgeLevelEnum])),
+                                    checks=[pa.Check.isin([level.value for level in KnowledgeLevelEnum])]),
             "agent_type": Column(T.StringType(), nullable=True,
-                               checks=pa.Check.isin([agent.value for agent in AgentTypeEnum])),
+                               checks=[pa.Check.isin([agent.value for agent in AgentTypeEnum])]),
             "primary_knowledge_source": Column(T.StringType(), nullable=True),
             "aggregator_knowledge_source": Column(T.ArrayType(T.StringType()), nullable=True),
             "publications": Column(T.ArrayType(T.StringType()), nullable=True),

@@ -18,6 +18,8 @@ edges:
     object_direction_qualifier: "reduces"
     upstream_data_source:
       - "DrugBank"
+    num_references: 5
+    num_sentences: 3
 
   - subject: example:Node002
     predicate: "biolink:has_phenotype"
@@ -33,6 +35,8 @@ edges:
     object_aspect_qualifier: "molecular mechanism"
     upstream_data_source:
       - "OMIM"
+    num_references: 10
+    num_sentences: 7
 
   - subject: example:Node003
     predicate: "biolink:interacts_with"
@@ -48,3 +52,5 @@ edges:
     object_aspect_qualifier: "drug effect"
     upstream_data_source:
       - "ChEBI"
+    num_references: 3
+    num_sentences: 2
