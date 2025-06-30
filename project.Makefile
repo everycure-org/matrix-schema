@@ -6,7 +6,7 @@ gen-biolink-imports:
 gen-valid-edge-type-table:
 	$(RUN) python src/matrix_schema/utils/generate_valid_edge_type_table.py
 
-gen-pandera: src/resources/pandera-schema.py.jinja2 $(SOURCE_SCHEMA_PATH)
-	$(RUN) jinjanate $^ -o $(PYMODEL)/pandera-schema.py
+gen-pandera:
+	@echo "The pandera schema currently needs to be updated manually in src/matrix_schema/datamodel/pandera.py"
 
 gen-project: gen-pandera gen-biolink-imports gen-valid-edge-type-table

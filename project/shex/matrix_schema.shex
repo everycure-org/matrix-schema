@@ -369,7 +369,9 @@ linkml:Sparqlpath xsd:string
           <subject_direction_qualifier> @linkml:String ? ;
           <object_aspect_qualifier> @linkml:String ? ;
           <object_direction_qualifier> @linkml:String ? ;
-          <upstream_data_source> @linkml:String *
+          <upstream_data_source> @linkml:String * ;
+          <num_references> @linkml:Integer ? ;
+          <num_sentences> @linkml:Integer ?
        ) ;
        rdf:type [ <MatrixEdge> ] ?
     )

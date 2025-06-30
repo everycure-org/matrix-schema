@@ -73,6 +73,8 @@ message MatrixEdge
   string objectAspectQualifier = 0
   string objectDirectionQualifier = 0
  repeated  string upstreamDataSource = 0
+  integer numReferences = 0
+  integer numSentences = 0
  }
 // A container for MatrixEdge objects.
 message MatrixEdgeList

@@ -513,6 +513,8 @@ type MatrixEdge
     objectAspectQualifier: String
     objectDirectionQualifier: String
     upstreamDataSource: [String]
+    numReferences: Integer
+    numSentences: Integer
   }
 
 type MatrixEdgeList
