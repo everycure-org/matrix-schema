@@ -78,20 +78,15 @@ class DataFrameSchema:
 
 
 def check_output(
-    schema: typing.Union[DataFrameSchema, typing.Callable], 
-    df_name: Optional[str] = None, 
-    raise_df_undefined: bool = True, 
-    pass_columns: bool = False,
-    validate_enumeration_values: bool = True
+    schema: DataFrameSchema, df_name: Optional[str] = None, raise_df_undefined: bool = True, pass_columns: bool = False
 ):
     """Decorator to validate output schema of decorated function.
 
     Args:
-        schema: Schema to validate or callable that returns a schema
+        schema: Schema to validate
         df_name (optional): name of output arg to validate
         raise_df_undefined: if set, ensures error is thrown if `df_name` is not defined
         pass_cols (optional): boolean indicating whether cols should be passed into callable
-        validate_enumeration_values: whether to validate enumeration values in schema
     """
 
     def decorator(func):
@@ -101,21 +96,15 @@ def check_output(
                 raise TypeError("No output typehint specified!")
 
             if df_name:
-                if not typing.get_origin(type_) is dict:
+                if typing.get_origin(type_) is not dict:
                     raise TypeError("Specified df_name arg, but function output typehint is not dict.")
 
                 type_ = typing.get_args(type_)[1]
 
-            # Get schema - either use provided schema or call schema factory function
-            if callable(schema):
-                df_schema_obj = schema(validate_enumeration_values=validate_enumeration_values)
-            else:
-                df_schema_obj = schema
-                
-            df_schema = df_schema_obj.build_for_type(type_)
+            df_schema = schema.build_for_type(type_)
 
             if pass_columns:
-                output = func(*args, **kwargs, cols=list(df_schema_obj.columns.keys()))
+                output = func(*args, **kwargs, cols=list(schema.columns.keys()))
             else:
                 output = func(*args, **kwargs)
 
