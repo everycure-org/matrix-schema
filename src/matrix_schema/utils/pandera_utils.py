@@ -96,7 +96,7 @@ def check_output(
                 raise TypeError("No output typehint specified!")
 
             if df_name:
-                if not typing.get_origin(type_) == dict:
+                if typing.get_origin(type_) is not dict:
                     raise TypeError("Specified df_name arg, but function output typehint is not dict.")
 
                 type_ = typing.get_args(type_)[1]
