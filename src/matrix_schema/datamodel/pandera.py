@@ -23,7 +23,7 @@ except ImportError as e:
     IMPORT_ERROR = str(e)
 
 
-def get_matrix_node_schema():
+def get_matrix_node_schema(validate_enumeration_values: bool = True):
     """Get the Pandera schema for MatrixNode validation.
     
     Returns a universal schema that works with both pandas and PySpark DataFrames.
@@ -32,13 +32,18 @@ def get_matrix_node_schema():
     if not DEPENDENCIES_AVAILABLE:
         error_msg = f"Dependencies not available for Pandera schema. Original error: {IMPORT_ERROR if 'IMPORT_ERROR' in globals() else 'Unknown'}. Install with: pip install 'pandera[pyspark]' pyspark"
         raise ImportError(error_msg)
-    
+
+    if validate_enumeration_values:
+        category_checks = [pa.Check.isin([category.value for category in NodeCategoryEnum])]
+    else:
+        category_checks = []
+
     return DataFrameSchema(
         columns={
             "id": Column(T.StringType(), nullable=False),
             "name": Column(T.StringType(), nullable=True),
             "category": Column(T.StringType(), nullable=False, 
-                             checks=[pa.Check.isin([category.value for category in NodeCategoryEnum])]),
+                             checks=category_checks),
             "description": Column(T.StringType(), nullable=True),
             "equivalent_identifiers": Column(T.ArrayType(T.StringType()), nullable=True),
             "all_categories": Column(T.ArrayType(T.StringType()), nullable=True),
@@ -52,7 +57,7 @@ def get_matrix_node_schema():
     )
 
 
-def get_matrix_edge_schema():
+def get_matrix_edge_schema(validate_enumeration_values: bool = True):
     """Get the Pandera schema for MatrixEdge validation.
     
     Returns a universal schema that works with both pandas and PySpark DataFrames.
@@ -62,16 +67,25 @@ def get_matrix_edge_schema():
         error_msg = f"Dependencies not available for Pandera schema. Original error: {IMPORT_ERROR if 'IMPORT_ERROR' in globals() else 'Unknown'}. Install with: pip install 'pandera[pyspark]' pyspark"
         raise ImportError(error_msg)
     
+    if validate_enumeration_values:
+        predicate_checks = [pa.Check.isin([predicate.value for predicate in PredicateEnum])]
+        knowledge_level_checks = [pa.Check.isin([level.value for level in KnowledgeLevelEnum])]
+        agent_type_checks = [pa.Check.isin([agent.value for agent in AgentTypeEnum])]
+    else:
+        predicate_checks = []
+        knowledge_level_checks = []
+        agent_type_checks = []
+
     return DataFrameSchema(
         columns={
             "subject": Column(T.StringType(), nullable=False),
             "predicate": Column(T.StringType(), nullable=False,
-                              checks=[pa.Check.isin([predicate.value for predicate in PredicateEnum])]),
+                              checks=predicate_checks),
             "object": Column(T.StringType(), nullable=False),
             "knowledge_level": Column(T.StringType(), nullable=True,
-                                    checks=[pa.Check.isin([level.value for level in KnowledgeLevelEnum])]),
+                                    checks=knowledge_level_checks),
             "agent_type": Column(T.StringType(), nullable=True,
-                               checks=[pa.Check.isin([agent.value for agent in AgentTypeEnum])]),
+                               checks=agent_type_checks),
             "primary_knowledge_source": Column(T.StringType(), nullable=True),
             "aggregator_knowledge_source": Column(T.ArrayType(T.StringType()), nullable=True),
             "publications": Column(T.ArrayType(T.StringType()), nullable=True),
