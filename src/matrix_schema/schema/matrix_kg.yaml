@@ -83,6 +83,10 @@ slots:
   primary_knowledge_source:
     description: "Primary source of the knowledge in the edge."
     range: string
+  primary_knowledge_sources:
+    description: "Primary sources from edges merged into this edge."
+    range: string
+    multivalued: true
   aggregator_knowledge_source:
     description: "Aggregators of the knowledge."
     range: string
@@ -157,6 +161,17 @@ classes:
           - subject
           - predicate
           - object
+
+  UnionedNode:
+    is_a: MatrixNode
+    description: "A node in the unioned everycure matrix graph."
+
+  UnionedEdge:
+    is_a: MatrixEdge
+    description: "An edge in the unioned everycure matrix graph."
+    slots:
+      - primary_knowledge_sources
+
 
   MatrixEdgeList:
     description: "A container for MatrixEdge objects."

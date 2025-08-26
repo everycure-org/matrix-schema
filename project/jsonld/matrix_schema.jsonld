@@ -2356,6 +2356,20 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "primary_knowledge_sources",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/primary_knowledge_sources",
+      "description": "Primary sources from edges merged into this edge.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "slot_uri": "https://w3id.org/everycure-org/matrix-schema/primary_knowledge_sources",
+      "owner": "UnionedEdge",
+      "domain_of": [
+        "UnionedEdge"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "aggregator_knowledge_source",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/aggregator_knowledge_source",
       "description": "Aggregators of the knowledge.",
@@ -5448,6 +5462,56 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "UnionedNode",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/UnionedNode",
+      "description": "A node in the unioned everycure matrix graph.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "is_a": "MatrixNode",
+      "slots": [
+        "MatrixNode_id",
+        "name",
+        "MatrixNode_category",
+        "description",
+        "equivalent_identifiers",
+        "all_categories",
+        "publications",
+        "labels",
+        "international_resource_identifier",
+        "upstream_data_source"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/everycure-org/matrix-schema/UnionedNode",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "UnionedEdge",
+      "definition_uri": "https://w3id.org/everycure-org/matrix-schema/UnionedEdge",
+      "description": "An edge in the unioned everycure matrix graph.",
+      "from_schema": "https://w3id.org/everycure-org/matrix-schema/kg",
+      "is_a": "MatrixEdge",
+      "slots": [
+        "MatrixEdge_subject",
+        "MatrixEdge_predicate",
+        "MatrixEdge_object",
+        "knowledge_level",
+        "agent_type",
+        "primary_knowledge_source",
+        "aggregator_knowledge_source",
+        "publications",
+        "subject_aspect_qualifier",
+        "subject_direction_qualifier",
+        "object_aspect_qualifier",
+        "object_direction_qualifier",
+        "upstream_data_source",
+        "num_references",
+        "num_sentences",
+        "primary_knowledge_sources"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/everycure-org/matrix-schema/UnionedEdge",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "MatrixEdgeList",
       "definition_uri": "https://w3id.org/everycure-org/matrix-schema/MatrixEdgeList",
       "description": "A container for MatrixEdge objects.",
@@ -5547,7 +5611,7 @@
   "source_file": "matrix_schema.yaml",
   "source_file_date": "2025-06-04T10:34:59",
   "source_file_size": 528,
-  "generation_date": "2025-06-30T12:06:23",
+  "generation_date": "2025-08-26T11:42:19",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/matrix_schema.context.jsonld",

@@ -20,6 +20,26 @@
 --     * Slot: num_references Description: Number of references supporting this edge.
 --     * Slot: num_sentences Description: Number of sentences supporting this edge.
 --     * Slot: MatrixEdgeList_id Description: Autocreated FK slot
+-- # Class: "UnionedNode" Description: "A node in the unioned everycure matrix graph."
+--     * Slot: id Description: A unique identifier for a thing
+--     * Slot: name Description: Human-readable name of the entity.
+--     * Slot: category Description: Biolink category of the entity.
+--     * Slot: description Description: Detailed description of the entity.
+--     * Slot: international_resource_identifier Description: IRI of the entity.
+-- # Class: "UnionedEdge" Description: "An edge in the unioned everycure matrix graph."
+--     * Slot: id Description: 
+--     * Slot: subject Description: The subject entity in the edge.
+--     * Slot: predicate Description: The predicate defining the relationship.
+--     * Slot: object Description: The object entity in the edge.
+--     * Slot: knowledge_level Description: Knowledge level of the relationship
+--     * Slot: agent_type Description: Type of agent involved in the relationship.
+--     * Slot: primary_knowledge_source Description: Primary source of the knowledge in the edge.
+--     * Slot: subject_aspect_qualifier Description: Aspect qualifier for the subject.
+--     * Slot: subject_direction_qualifier Description: Direction qualifier for the subject.
+--     * Slot: object_aspect_qualifier Description: Aspect qualifier for the object.
+--     * Slot: object_direction_qualifier Description: Direction qualifier for the object.
+--     * Slot: num_references Description: Number of references supporting this edge.
+--     * Slot: num_sentences Description: Number of sentences supporting this edge.
 -- # Class: "MatrixEdgeList" Description: "A container for MatrixEdge objects."
 --     * Slot: id Description: 
 -- # Class: "MatrixNodeList" Description: "A container for MatrixNode objects."
@@ -91,6 +111,33 @@
 -- # Class: "MatrixEdge_upstream_data_source" Description: ""
 --     * Slot: MatrixEdge_id Description: Autocreated FK slot
 --     * Slot: upstream_data_source Description: Sources from which this entity's data originates.
+-- # Class: "UnionedNode_equivalent_identifiers" Description: ""
+--     * Slot: UnionedNode_id Description: Autocreated FK slot
+--     * Slot: equivalent_identifiers Description: List of equivalent identifiers for the entity.
+-- # Class: "UnionedNode_all_categories" Description: ""
+--     * Slot: UnionedNode_id Description: Autocreated FK slot
+--     * Slot: all_categories Description: All categories associated with the entity.
+-- # Class: "UnionedNode_publications" Description: ""
+--     * Slot: UnionedNode_id Description: Autocreated FK slot
+--     * Slot: publications Description: Publications associated with the entity.
+-- # Class: "UnionedNode_labels" Description: ""
+--     * Slot: UnionedNode_id Description: Autocreated FK slot
+--     * Slot: labels Description: Alternative labels for the entity.
+-- # Class: "UnionedNode_upstream_data_source" Description: ""
+--     * Slot: UnionedNode_id Description: Autocreated FK slot
+--     * Slot: upstream_data_source Description: Sources from which this entity's data originates.
+-- # Class: "UnionedEdge_primary_knowledge_sources" Description: ""
+--     * Slot: UnionedEdge_id Description: Autocreated FK slot
+--     * Slot: primary_knowledge_sources Description: Primary sources from edges merged into this edge.
+-- # Class: "UnionedEdge_aggregator_knowledge_source" Description: ""
+--     * Slot: UnionedEdge_id Description: Autocreated FK slot
+--     * Slot: aggregator_knowledge_source Description: Aggregators of the knowledge.
+-- # Class: "UnionedEdge_publications" Description: ""
+--     * Slot: UnionedEdge_id Description: Autocreated FK slot
+--     * Slot: publications Description: Publications associated with the entity.
+-- # Class: "UnionedEdge_upstream_data_source" Description: ""
+--     * Slot: UnionedEdge_id Description: Autocreated FK slot
+--     * Slot: upstream_data_source Description: Sources from which this entity's data originates.
 -- # Class: "DiseaseListEntry_synonyms" Description: ""
 --     * Slot: DiseaseListEntry_id Description: Autocreated FK slot
 --     * Slot: synonyms Description: Any exact synonyms of the disease.
@@ -119,6 +166,30 @@
 --     * Slot: DiseaseListEntry_id Description: Autocreated FK slot
 --     * Slot: anatomical Description: Tag to denote this disease to be part of a grouping according to the anatomical location. Disease terms are automatically tagged using an LLM. Problems/issues should be reported on the Matrix disease list issue  tracker (https://github.com/everycure-org/matrix-disease-list/issues).
 
+CREATE TABLE "UnionedNode" (
+	id TEXT NOT NULL, 
+	name TEXT, 
+	category VARCHAR(47) NOT NULL, 
+	description TEXT, 
+	international_resource_identifier TEXT, 
+	PRIMARY KEY (id)
+);
+CREATE TABLE "UnionedEdge" (
+	id INTEGER NOT NULL, 
+	subject TEXT NOT NULL, 
+	predicate VARCHAR(66) NOT NULL, 
+	object TEXT NOT NULL, 
+	knowledge_level VARCHAR(23), 
+	agent_type VARCHAR(36), 
+	primary_knowledge_source TEXT, 
+	subject_aspect_qualifier TEXT, 
+	subject_direction_qualifier TEXT, 
+	object_aspect_qualifier TEXT, 
+	object_direction_qualifier TEXT, 
+	num_references INTEGER, 
+	num_sentences INTEGER, 
+	PRIMARY KEY (id)
+);
 CREATE TABLE "MatrixEdgeList" (
 	id INTEGER NOT NULL, 
 	PRIMARY KEY (id)
@@ -204,6 +275,60 @@ CREATE TABLE "DiseaseListEntry" (
 	"MatrixDiseaseList_id" INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("MatrixDiseaseList_id") REFERENCES "MatrixDiseaseList" (id)
+);
+CREATE TABLE "UnionedNode_equivalent_identifiers" (
+	"UnionedNode_id" TEXT, 
+	equivalent_identifiers TEXT, 
+	PRIMARY KEY ("UnionedNode_id", equivalent_identifiers), 
+	FOREIGN KEY("UnionedNode_id") REFERENCES "UnionedNode" (id)
+);
+CREATE TABLE "UnionedNode_all_categories" (
+	"UnionedNode_id" TEXT, 
+	all_categories VARCHAR(47), 
+	PRIMARY KEY ("UnionedNode_id", all_categories), 
+	FOREIGN KEY("UnionedNode_id") REFERENCES "UnionedNode" (id)
+);
+CREATE TABLE "UnionedNode_publications" (
+	"UnionedNode_id" TEXT, 
+	publications TEXT, 
+	PRIMARY KEY ("UnionedNode_id", publications), 
+	FOREIGN KEY("UnionedNode_id") REFERENCES "UnionedNode" (id)
+);
+CREATE TABLE "UnionedNode_labels" (
+	"UnionedNode_id" TEXT, 
+	labels TEXT, 
+	PRIMARY KEY ("UnionedNode_id", labels), 
+	FOREIGN KEY("UnionedNode_id") REFERENCES "UnionedNode" (id)
+);
+CREATE TABLE "UnionedNode_upstream_data_source" (
+	"UnionedNode_id" TEXT, 
+	upstream_data_source TEXT, 
+	PRIMARY KEY ("UnionedNode_id", upstream_data_source), 
+	FOREIGN KEY("UnionedNode_id") REFERENCES "UnionedNode" (id)
+);
+CREATE TABLE "UnionedEdge_primary_knowledge_sources" (
+	"UnionedEdge_id" INTEGER, 
+	primary_knowledge_sources TEXT, 
+	PRIMARY KEY ("UnionedEdge_id", primary_knowledge_sources), 
+	FOREIGN KEY("UnionedEdge_id") REFERENCES "UnionedEdge" (id)
+);
+CREATE TABLE "UnionedEdge_aggregator_knowledge_source" (
+	"UnionedEdge_id" INTEGER, 
+	aggregator_knowledge_source TEXT, 
+	PRIMARY KEY ("UnionedEdge_id", aggregator_knowledge_source), 
+	FOREIGN KEY("UnionedEdge_id") REFERENCES "UnionedEdge" (id)
+);
+CREATE TABLE "UnionedEdge_publications" (
+	"UnionedEdge_id" INTEGER, 
+	publications TEXT, 
+	PRIMARY KEY ("UnionedEdge_id", publications), 
+	FOREIGN KEY("UnionedEdge_id") REFERENCES "UnionedEdge" (id)
+);
+CREATE TABLE "UnionedEdge_upstream_data_source" (
+	"UnionedEdge_id" INTEGER, 
+	upstream_data_source TEXT, 
+	PRIMARY KEY ("UnionedEdge_id", upstream_data_source), 
+	FOREIGN KEY("UnionedEdge_id") REFERENCES "UnionedEdge" (id)
 );
 CREATE TABLE "MatrixNode_equivalent_identifiers" (
 	"MatrixNode_id" TEXT, 

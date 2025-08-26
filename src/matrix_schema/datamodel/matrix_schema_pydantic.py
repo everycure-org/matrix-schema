@@ -568,6 +568,44 @@ class MatrixEdge(ConfiguredBaseModel):
     num_sentences: Optional[int] = Field(default=None, description="""Number of sentences supporting this edge.""")
 
 
+class UnionedNode(MatrixNode):
+    """
+    A node in the unioned everycure matrix graph.
+    """
+    id: str = Field(default=..., description="""A unique identifier for a thing""")
+    name: Optional[str] = Field(default=None, description="""Human-readable name of the entity.""")
+    category: NodeCategoryEnum = Field(default=..., description="""Biolink category of the entity.""")
+    description: Optional[str] = Field(default=None, description="""Detailed description of the entity.""")
+    equivalent_identifiers: Optional[List[str]] = Field(default=None, description="""List of equivalent identifiers for the entity.""")
+    all_categories: Optional[List[NodeCategoryEnum]] = Field(default=None, description="""All categories associated with the entity.""")
+    publications: Optional[List[str]] = Field(default=None, description="""Publications associated with the entity.""")
+    labels: Optional[List[str]] = Field(default=None, description="""Alternative labels for the entity.""")
+    international_resource_identifier: Optional[str] = Field(default=None, description="""IRI of the entity.""")
+    upstream_data_source: Optional[List[str]] = Field(default=None, description="""Sources from which this entity's data originates.""")
+
+
+class UnionedEdge(MatrixEdge):
+    """
+    An edge in the unioned everycure matrix graph.
+    """
+    primary_knowledge_sources: Optional[List[str]] = Field(default=None, description="""Primary sources from edges merged into this edge.""")
+    subject: str = Field(default=..., description="""The subject entity in the edge.""")
+    predicate: PredicateEnum = Field(default=..., description="""The predicate defining the relationship.""")
+    object: str = Field(default=..., description="""The object entity in the edge.""")
+    knowledge_level: Optional[KnowledgeLevelEnum] = Field(default=None, description="""Knowledge level of the relationship""")
+    agent_type: Optional[AgentTypeEnum] = Field(default=None, description="""Type of agent involved in the relationship.""")
+    primary_knowledge_source: Optional[str] = Field(default=None, description="""Primary source of the knowledge in the edge.""")
+    aggregator_knowledge_source: Optional[List[str]] = Field(default=None, description="""Aggregators of the knowledge.""")
+    publications: Optional[List[str]] = Field(default=None, description="""Publications associated with the entity.""")
+    subject_aspect_qualifier: Optional[str] = Field(default=None, description="""Aspect qualifier for the subject.""")
+    subject_direction_qualifier: Optional[str] = Field(default=None, description="""Direction qualifier for the subject.""")
+    object_aspect_qualifier: Optional[str] = Field(default=None, description="""Aspect qualifier for the object.""")
+    object_direction_qualifier: Optional[str] = Field(default=None, description="""Direction qualifier for the object.""")
+    upstream_data_source: Optional[List[str]] = Field(default=None, description="""Sources from which this entity's data originates.""")
+    num_references: Optional[int] = Field(default=None, description="""Number of references supporting this edge.""")
+    num_sentences: Optional[int] = Field(default=None, description="""Number of sentences supporting this edge.""")
+
+
 class MatrixEdgeList(ConfiguredBaseModel):
     """
     A container for MatrixEdge objects.
@@ -690,6 +728,8 @@ class MatrixDiseaseList(ConfiguredBaseModel):
 # see https://pydantic-docs.helpmanual.io/usage/models/#rebuilding-a-model
 MatrixNode.model_rebuild()
 MatrixEdge.model_rebuild()
+UnionedNode.model_rebuild()
+UnionedEdge.model_rebuild()
 MatrixEdgeList.model_rebuild()
 MatrixNodeList.model_rebuild()
 DiseaseListEntry.model_rebuild()
