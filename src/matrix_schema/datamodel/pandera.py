@@ -103,7 +103,7 @@ def get_matrix_edge_schema(validate_enumeration_values: bool = True):
     )
 
 
-def get_unioned_node_pandera_schema(validate_enumeration_values: bool = True):
+def get_unioned_node_schema(validate_enumeration_values: bool = True):
     """Get the Pandera schema for UnionedNode validation.
     
     Returns a universal schema that works with both pandas and PySpark DataFrames.
@@ -137,7 +137,7 @@ def get_unioned_node_pandera_schema(validate_enumeration_values: bool = True):
     )
 
 
-def get_unioned_edge_pandera_schema(validate_enumeration_values: bool = True):
+def get_unioned_edge_schema(validate_enumeration_values: bool = True):
     """Get the Pandera schema for UnionedEdge validation.
     
     Returns a universal schema that works with both pandas and PySpark DataFrames.
