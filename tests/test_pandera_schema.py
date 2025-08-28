@@ -7,7 +7,7 @@ try:
     import pyspark
     from pyspark.sql import SparkSession
     import pandera.pyspark as pa
-    from matrix_schema.datamodel.pandera import get_matrix_node_schema, get_matrix_edge_schema
+    from matrix_schema.datamodel.pandera import get_matrix_node_schema, get_matrix_edge_schema, get_unioned_node_schema, get_unioned_edge_schema
     DEPENDENCIES_AVAILABLE = True
 except ImportError as e:
     DEPENDENCIES_AVAILABLE = False
@@ -67,6 +67,10 @@ class TestPanderaSchema(unittest.TestCase):
             "num_references": [5, 10],
             "num_sentences": [3, 7]
         }
+
+        # Valid unioned edge data (includes primary_knowledge_sources field)
+        self.valid_unioned_edge_data = self.valid_edge_data.copy()
+        self.valid_unioned_edge_data["primary_knowledge_sources"] = [["infores:drugbank", "infores:pubmed"], ["infores:omim"]]
 
     def tearDown(self):
         """Clean up Spark session."""
@@ -346,6 +350,97 @@ class TestPanderaSchema(unittest.TestCase):
         
         self.assertIsNotNone(pandas_node_schema)
         self.assertIsNotNone(pyspark_node_schema)
+
+    def test_unioned_node_schema_creation(self):
+        """Test that UnionedNode schema creation works."""
+        schema = get_unioned_node_schema()
+        self.assertIsNotNone(schema)
+        
+        # Test with both parameter values
+        strict_schema = get_unioned_node_schema(validate_enumeration_values=True)
+        lenient_schema = get_unioned_node_schema(validate_enumeration_values=False)
+        
+        self.assertIsNotNone(strict_schema)
+        self.assertIsNotNone(lenient_schema)
+        
+        # Check that schema has expected columns (same as MatrixNode)
+        self.assertIn("id", schema.columns)
+        self.assertIn("category", schema.columns)
+        self.assertIn("name", schema.columns)
+
+    def test_unioned_edge_schema_creation(self):
+        """Test that UnionedEdge schema creation works."""
+        schema = get_unioned_edge_schema()
+        self.assertIsNotNone(schema)
+        
+        # Test with both parameter values
+        strict_schema = get_unioned_edge_schema(validate_enumeration_values=True)
+        lenient_schema = get_unioned_edge_schema(validate_enumeration_values=False)
+        
+        self.assertIsNotNone(strict_schema)
+        self.assertIsNotNone(lenient_schema)
+        
+        # Check that schema has expected columns (includes primary_knowledge_sources)
+        self.assertIn("subject", schema.columns)
+        self.assertIn("predicate", schema.columns)
+        self.assertIn("primary_knowledge_sources", schema.columns)
+
+    def test_valid_unioned_node_schema_pandas(self):
+        """Test that valid node data passes UnionedNode validation with pandas DataFrame."""
+        schema = get_unioned_node_schema()
+        
+        # Create pandas DataFrame (UnionedNode has same structure as MatrixNode)
+        pandas_df = pd.DataFrame(self.valid_node_data)
+        
+        # Build schema for pandas and validate
+        pandas_schema = schema.build_for_type(type(pandas_df))
+        
+        # This should not raise an exception
+        try:
+            validated_df = pandas_schema.validate(pandas_df)
+            self.assertIsInstance(validated_df, pd.DataFrame)
+        except Exception as e:
+            self.fail(f"Valid node data failed UnionedNode pandas validation: {e}")
+
+    def test_valid_unioned_edge_schema_pandas(self):
+        """Test that valid edge data passes UnionedEdge validation with pandas DataFrame."""
+        schema = get_unioned_edge_schema()
+        
+        # Create pandas DataFrame with unioned edge data
+        pandas_df = pd.DataFrame(self.valid_unioned_edge_data)
+        
+        # Build schema for pandas and validate
+        pandas_schema = schema.build_for_type(type(pandas_df))
+        
+        # This should not raise an exception
+        try:
+            validated_df = pandas_schema.validate(pandas_df)
+            self.assertIsInstance(validated_df, pd.DataFrame)
+        except Exception as e:
+            self.fail(f"Valid unioned edge data failed UnionedEdge pandas validation: {e}")
+
+    def test_unioned_edge_enum_validation(self):
+        """Test that UnionedEdge schema with validate_enumeration_values=False accepts invalid enum values."""
+        # Test with invalid enum data
+        invalid_data = self.valid_unioned_edge_data.copy()
+        invalid_data["predicate"] = ["invalid:predicate", "another:invalid"]
+        invalid_data["knowledge_level"] = ["invalid_level", "another_invalid"]
+        
+        pandas_df = pd.DataFrame(invalid_data)
+        
+        # Should fail with default validation (True)
+        strict_schema = get_unioned_edge_schema(validate_enumeration_values=True)
+        pandas_strict_schema = strict_schema.build_for_type(type(pandas_df))
+        with self.assertRaises(Exception):
+            pandas_strict_schema.validate(pandas_df)
+        
+        # Should pass with validation disabled (False)
+        lenient_schema = get_unioned_edge_schema(validate_enumeration_values=False)
+        pandas_lenient_schema = lenient_schema.build_for_type(type(pandas_df))
+        
+        # This should not raise an exception
+        validated_pandas_df = pandas_lenient_schema.validate(pandas_df)
+        self.assertIsInstance(validated_pandas_df, pd.DataFrame)
 
 
 if __name__ == "__main__":

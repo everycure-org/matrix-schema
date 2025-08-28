@@ -100,3 +100,37 @@ message MatrixNodeList
  {
  repeated  matrixNode nodes = 0
  }
+// An edge in the unioned everycure matrix graph.
+message UnionedEdge
+ {
+  string subject = 0
+  predicateEnum predicate = 0
+  string object = 0
+  knowledgeLevelEnum knowledgeLevel = 0
+  agentTypeEnum agentType = 0
+  string primaryKnowledgeSource = 0
+ repeated  string aggregatorKnowledgeSource = 0
+ repeated  string publications = 0
+  string subjectAspectQualifier = 0
+  string subjectDirectionQualifier = 0
+  string objectAspectQualifier = 0
+  string objectDirectionQualifier = 0
+ repeated  string upstreamDataSource = 0
+  integer numReferences = 0
+  integer numSentences = 0
+ repeated  string primaryKnowledgeSources = 0
+ }
+// A node in the unioned everycure matrix graph.
+message UnionedNode
+ {
+  uriorcurie id = 0
+  string name = 0
+  nodeCategoryEnum category = 0
+  string description = 0
+ repeated  string equivalentIdentifiers = 0
+ repeated  nodeCategoryEnum allCategories = 0
+ repeated  string publications = 0
+ repeated  string labels = 0
+  string internationalResourceIdentifier = 0
+ repeated  string upstreamDataSource = 0
+ }

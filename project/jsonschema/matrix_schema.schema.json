@@ -998,6 +998,219 @@
             ],
             "title": "PredicateEnum",
             "type": "string"
+        },
+        "UnionedEdge": {
+            "additionalProperties": false,
+            "description": "An edge in the unioned everycure matrix graph.",
+            "properties": {
+                "agent_type": {
+                    "$ref": "#/$defs/AgentTypeEnum",
+                    "description": "Type of agent involved in the relationship."
+                },
+                "aggregator_knowledge_source": {
+                    "description": "Aggregators of the knowledge.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "knowledge_level": {
+                    "$ref": "#/$defs/KnowledgeLevelEnum",
+                    "description": "Knowledge level of the relationship"
+                },
+                "num_references": {
+                    "description": "Number of references supporting this edge.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "num_sentences": {
+                    "description": "Number of sentences supporting this edge.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "object": {
+                    "description": "The object entity in the edge.",
+                    "type": "string"
+                },
+                "object_aspect_qualifier": {
+                    "description": "Aspect qualifier for the object.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "object_direction_qualifier": {
+                    "description": "Direction qualifier for the object.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "predicate": {
+                    "$ref": "#/$defs/PredicateEnum",
+                    "description": "The predicate defining the relationship."
+                },
+                "primary_knowledge_source": {
+                    "description": "Primary source of the knowledge in the edge.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "primary_knowledge_sources": {
+                    "description": "Primary sources from edges merged into this edge.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "publications": {
+                    "description": "Publications associated with the entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "subject": {
+                    "description": "The subject entity in the edge.",
+                    "type": "string"
+                },
+                "subject_aspect_qualifier": {
+                    "description": "Aspect qualifier for the subject.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "subject_direction_qualifier": {
+                    "description": "Direction qualifier for the subject.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "upstream_data_source": {
+                    "description": "Sources from which this entity's data originates.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "subject",
+                "predicate",
+                "object"
+            ],
+            "title": "UnionedEdge",
+            "type": "object"
+        },
+        "UnionedNode": {
+            "additionalProperties": false,
+            "description": "A node in the unioned everycure matrix graph.",
+            "properties": {
+                "all_categories": {
+                    "description": "All categories associated with the entity.",
+                    "items": {
+                        "$ref": "#/$defs/NodeCategoryEnum"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "category": {
+                    "$ref": "#/$defs/NodeCategoryEnum",
+                    "description": "Biolink category of the entity."
+                },
+                "description": {
+                    "description": "Detailed description of the entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "equivalent_identifiers": {
+                    "description": "List of equivalent identifiers for the entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "international_resource_identifier": {
+                    "description": "IRI of the entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "labels": {
+                    "description": "Alternative labels for the entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Human-readable name of the entity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "publications": {
+                    "description": "Publications associated with the entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "upstream_data_source": {
+                    "description": "Sources from which this entity's data originates.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "category"
+            ],
+            "title": "UnionedNode",
+            "type": "object"
         }
     },
     "$id": "https://w3id.org/everycure-org/matrix-schema",

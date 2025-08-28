@@ -1,5 +1,5 @@
 # Auto generated from matrix_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-06-30T12:06:24
+# Generation date: 2025-08-26T11:42:20
 # Schema: matrix-schema
 #
 # id: https://w3id.org/everycure-org/matrix-schema
@@ -78,6 +78,10 @@ DEFAULT_ = MATRIX_SCHEMA
 
 # Class references
 class MatrixNodeId(URIorCURIE):
+    pass
+
+
+class UnionedNodeId(MatrixNodeId):
     pass
 
 
@@ -229,6 +233,55 @@ class MatrixEdge(YAMLRoot):
 
         if self.num_sentences is not None and not isinstance(self.num_sentences, int):
             self.num_sentences = int(self.num_sentences)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class UnionedNode(MatrixNode):
+    """
+    A node in the unioned everycure matrix graph.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MATRIX_SCHEMA["UnionedNode"]
+    class_class_curie: ClassVar[str] = "matrix_schema:UnionedNode"
+    class_name: ClassVar[str] = "UnionedNode"
+    class_model_uri: ClassVar[URIRef] = MATRIX_SCHEMA.UnionedNode
+
+    id: Union[str, UnionedNodeId] = None
+    category: Union[str, "NodeCategoryEnum"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, UnionedNodeId):
+            self.id = UnionedNodeId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class UnionedEdge(MatrixEdge):
+    """
+    An edge in the unioned everycure matrix graph.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MATRIX_SCHEMA["UnionedEdge"]
+    class_class_curie: ClassVar[str] = "matrix_schema:UnionedEdge"
+    class_name: ClassVar[str] = "UnionedEdge"
+    class_model_uri: ClassVar[URIRef] = MATRIX_SCHEMA.UnionedEdge
+
+    subject: str = None
+    predicate: Union[str, "PredicateEnum"] = None
+    object: str = None
+    primary_knowledge_sources: Optional[Union[str, List[str]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if not isinstance(self.primary_knowledge_sources, list):
+            self.primary_knowledge_sources = [self.primary_knowledge_sources] if self.primary_knowledge_sources is not None else []
+        self.primary_knowledge_sources = [v if isinstance(v, str) else str(v) for v in self.primary_knowledge_sources]
 
         super().__post_init__(**kwargs)
 
@@ -1567,6 +1620,9 @@ slots.agent_type = Slot(uri=MATRIX_SCHEMA.agent_type, name="agent_type", curie=M
 
 slots.primary_knowledge_source = Slot(uri=MATRIX_SCHEMA.primary_knowledge_source, name="primary_knowledge_source", curie=MATRIX_SCHEMA.curie('primary_knowledge_source'),
                    model_uri=MATRIX_SCHEMA.primary_knowledge_source, domain=None, range=Optional[str])
+
+slots.primary_knowledge_sources = Slot(uri=MATRIX_SCHEMA.primary_knowledge_sources, name="primary_knowledge_sources", curie=MATRIX_SCHEMA.curie('primary_knowledge_sources'),
+                   model_uri=MATRIX_SCHEMA.primary_knowledge_sources, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.aggregator_knowledge_source = Slot(uri=MATRIX_SCHEMA.aggregator_knowledge_source, name="aggregator_knowledge_source", curie=MATRIX_SCHEMA.curie('aggregator_knowledge_source'),
                    model_uri=MATRIX_SCHEMA.aggregator_knowledge_source, domain=None, range=Optional[Union[str, List[str]]])

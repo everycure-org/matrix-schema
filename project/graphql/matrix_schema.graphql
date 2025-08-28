@@ -541,3 +541,37 @@ type MatrixNodeList
     nodes: [MatrixNode]
   }
 
+type UnionedEdge
+  {
+    subject: String!
+    predicate: PredicateEnum!
+    object: String!
+    knowledgeLevel: KnowledgeLevelEnum
+    agentType: AgentTypeEnum
+    primaryKnowledgeSource: String
+    aggregatorKnowledgeSource: [String]
+    publications: [String]
+    subjectAspectQualifier: String
+    subjectDirectionQualifier: String
+    objectAspectQualifier: String
+    objectDirectionQualifier: String
+    upstreamDataSource: [String]
+    numReferences: Integer
+    numSentences: Integer
+    primaryKnowledgeSources: [String]
+  }
+
+type UnionedNode
+  {
+    id: Uriorcurie!
+    name: String
+    category: NodeCategoryEnum!
+    description: String
+    equivalentIdentifiers: [String]
+    allCategories: [NodeCategoryEnum]
+    publications: [String]
+    labels: [String]
+    internationalResourceIdentifier: String
+    upstreamDataSource: [String]
+  }
+
