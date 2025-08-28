@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/predicate/">
+        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/UnionedNode/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>predicate - matrix-schema</title>
+        <title>None (schema class) - matrix-schema</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#predicate" class="md-skip">
+        <a href="#none-schema-class" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              predicate
+              None (schema class)
             
           </span>
         </div>
@@ -302,20 +302,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
+  <a href="#attributes" class="md-nav__link">
     <span class="md-ellipsis">
-      Properties
+      Attributes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#schema-developer-documentation" class="md-nav__link">
+  <a href="#identifier-and-mapping-information" class="md-nav__link">
     <span class="md-ellipsis">
-      Schema developer documentation
+      Identifier and Mapping Information
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Identifier and Mapping Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema Source
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mappings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linkml-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      LinkML Source
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LinkML Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#induced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Induced
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -338,34 +395,229 @@
   
 
 
-<h1 id="predicate">predicate</h1>
-<p><strong>URI</strong>: <a href="https://w3id.org/everycure-org/matrix-schema/predicate">matrix_schema:predicate</a></p>
-<p><strong>Applicable to</strong>: <a href="../UnionedEdge/">UnionedEdge</a>, <a href="../MatrixEdge/">MatrixEdge</a></p>
-<div class="admonition info">
-<p class="admonition-title">Description</p>
-<p><em>The predicate defining the relationship.</em></p>
-</div>
-<h2 id="properties">Properties</h2>
+<h1 id="none-schema-class">None (schema class)</h1>
+<p><em>A node in the unioned everycure matrix graph.</em></p>
+<p>URI: <a href="https://w3id.org/everycure-org/matrix-schema/UnionedNode">matrix_schema:UnionedNode</a></p>
+<h2 id="attributes">Attributes</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Cardinality and Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../id/">id</a></td>
+<td>A unique identifier for a thing</td>
+<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>Human-readable name of the entity.</td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+</tr>
+<tr>
+<td><a href="../category/">category</a></td>
+<td>Biolink category of the entity.</td>
+<td>1 <br/> <a href="../NodeCategoryEnum/">NodeCategoryEnum</a></td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>Detailed description of the entity.</td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+</tr>
+<tr>
+<td><a href="../equivalent_identifiers/">equivalent_identifiers</a></td>
+<td>List of equivalent identifiers for the entity.</td>
+<td>* <br/> <a href="../String/">String</a></td>
+</tr>
+<tr>
+<td><a href="../all_categories/">all_categories</a></td>
+<td>All categories associated with the entity.</td>
+<td>* <br/> <a href="../NodeCategoryEnum/">NodeCategoryEnum</a></td>
+</tr>
+<tr>
+<td><a href="../publications/">publications</a></td>
+<td>Publications associated with the entity.</td>
+<td>* <br/> <a href="../String/">String</a></td>
+</tr>
+<tr>
+<td><a href="../labels/">labels</a></td>
+<td>Alternative labels for the entity.</td>
+<td>* <br/> <a href="../String/">String</a></td>
+</tr>
+<tr>
+<td><a href="../international_resource_identifier/">international_resource_identifier</a></td>
+<td>IRI of the entity.</td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+</tr>
+<tr>
+<td><a href="../upstream_data_source/">upstream_data_source</a></td>
+<td>Sources from which this entity's data originates.</td>
+<td>* <br/> <a href="../String/">String</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>
-<p><strong>Range</strong>: <a href="../PredicateEnum/">PredicateEnum</a>. The range of the element is the type of the value that can be assigned to it.</p>
-</li>
-<li>
-<p><strong>Required?</strong>: Optional</p>
-</li>
+<li>from schema: https://w3id.org/everycure-org/matrix-schema</li>
 </ul>
-<h2 id="schema-developer-documentation">Schema developer documentation</h2>
-<details><summary>LinkML source</summary>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>matrix_schema:UnionedNode</td>
+</tr>
+<tr>
+<td>native</td>
+<td>matrix_schema:UnionedNode</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
+<h3 id="direct">Direct</h3>
+<details>
 
-<pre><code class="language-yaml">name: predicate
-description: The predicate defining the relationship.
+<pre><code class="language-yaml">name: UnionedNode
+description: A node in the unioned everycure matrix graph.
 from_schema: https://w3id.org/everycure-org/matrix-schema
-rank: 1000
-alias: predicate
-domain_of:
-- MatrixEdge
-range: PredicateEnum
+is_a: MatrixNode
+
+</code></pre>
+
+</details>
+
+<h3 id="induced">Induced</h3>
+<details>
+
+<pre><code class="language-yaml">name: UnionedNode
+description: A node in the unioned everycure matrix graph.
+from_schema: https://w3id.org/everycure-org/matrix-schema
+is_a: MatrixNode
+attributes:
+  id:
+    name: id
+    description: A unique identifier for a thing
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    slot_uri: schema:identifier
+    identifier: true
+    alias: id
+    owner: UnionedNode
+    domain_of:
+    - MatrixNode
+    range: uriorcurie
+    required: true
+  name:
+    name: name
+    description: Human-readable name of the entity.
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    alias: name
+    owner: UnionedNode
+    domain_of:
+    - MatrixNode
+    range: string
+  category:
+    name: category
+    description: Biolink category of the entity.
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    alias: category
+    owner: UnionedNode
+    domain_of:
+    - MatrixNode
+    range: NodeCategoryEnum
+    required: true
+  description:
+    name: description
+    description: Detailed description of the entity.
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    alias: description
+    owner: UnionedNode
+    domain_of:
+    - MatrixNode
+    range: string
+  equivalent_identifiers:
+    name: equivalent_identifiers
+    description: List of equivalent identifiers for the entity.
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    alias: equivalent_identifiers
+    owner: UnionedNode
+    domain_of:
+    - MatrixNode
+    range: string
+    multivalued: true
+  all_categories:
+    name: all_categories
+    description: All categories associated with the entity.
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    alias: all_categories
+    owner: UnionedNode
+    domain_of:
+    - MatrixNode
+    range: NodeCategoryEnum
+    multivalued: true
+  publications:
+    name: publications
+    description: Publications associated with the entity.
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    alias: publications
+    owner: UnionedNode
+    domain_of:
+    - MatrixNode
+    - MatrixEdge
+    range: string
+    multivalued: true
+  labels:
+    name: labels
+    description: Alternative labels for the entity.
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    alias: labels
+    owner: UnionedNode
+    domain_of:
+    - MatrixNode
+    range: string
+    multivalued: true
+  international_resource_identifier:
+    name: international_resource_identifier
+    description: IRI of the entity.
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    alias: international_resource_identifier
+    owner: UnionedNode
+    domain_of:
+    - MatrixNode
+    range: string
+  upstream_data_source:
+    name: upstream_data_source
+    description: Sources from which this entity's data originates.
+    from_schema: https://w3id.org/everycure-org/matrix-schema
+    rank: 1000
+    alias: upstream_data_source
+    owner: UnionedNode
+    domain_of:
+    - MatrixNode
+    - MatrixEdge
+    range: string
+    multivalued: true
 
 </code></pre>
 

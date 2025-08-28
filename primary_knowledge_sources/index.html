@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/predicate/">
+        <link rel="canonical" href="https://everycure-org.github.io/matrix-schema/primary_knowledge_sources/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>predicate - matrix-schema</title>
+        <title>primary_knowledge_sources - matrix-schema</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#predicate" class="md-skip">
+        <a href="#primary_knowledge_sources" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              predicate
+              primary_knowledge_sources
             
           </span>
         </div>
@@ -338,34 +338,32 @@
   
 
 
-<h1 id="predicate">predicate</h1>
-<p><strong>URI</strong>: <a href="https://w3id.org/everycure-org/matrix-schema/predicate">matrix_schema:predicate</a></p>
-<p><strong>Applicable to</strong>: <a href="../UnionedEdge/">UnionedEdge</a>, <a href="../MatrixEdge/">MatrixEdge</a></p>
+<h1 id="primary_knowledge_sources">primary_knowledge_sources</h1>
+<p><strong>URI</strong>: <a href="https://w3id.org/everycure-org/matrix-schema/primary_knowledge_sources">matrix_schema:primary_knowledge_sources</a></p>
+<p><strong>Applicable to</strong>: <a href="../UnionedEdge/">UnionedEdge</a></p>
 <div class="admonition info">
 <p class="admonition-title">Description</p>
-<p><em>The predicate defining the relationship.</em></p>
+<p><em>Primary sources from edges merged into this edge.</em></p>
 </div>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p><strong>Range</strong>: <a href="../PredicateEnum/">PredicateEnum</a>. The range of the element is the type of the value that can be assigned to it.</p>
-</li>
-<li>
-<p><strong>Required?</strong>: Optional</p>
-</li>
+<li><strong>Range</strong>: <a href="../String/">String</a>. The range of the element is the type of the value that can be assigned to it.</li>
+<li><strong>Multivalued</strong>: True. If the element is multivalued, more than one value can be attached to the same field. In the TSV format, these are <code>|</code> separated.</li>
+<li><strong>Required?</strong>: Optional</li>
 </ul>
 <h2 id="schema-developer-documentation">Schema developer documentation</h2>
 <details><summary>LinkML source</summary>
 
 
-<pre><code class="language-yaml">name: predicate
-description: The predicate defining the relationship.
+<pre><code class="language-yaml">name: primary_knowledge_sources
+description: Primary sources from edges merged into this edge.
 from_schema: https://w3id.org/everycure-org/matrix-schema
 rank: 1000
-alias: predicate
+alias: primary_knowledge_sources
 domain_of:
-- MatrixEdge
-range: PredicateEnum
+- UnionedEdge
+range: string
+multivalued: true
 
 </code></pre>
 
