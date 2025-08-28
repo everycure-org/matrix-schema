@@ -7,7 +7,7 @@ try:
     import pyspark
     from pyspark.sql import SparkSession
     import pandera.pyspark as pa
-    from matrix_schema.datamodel.pandera import get_matrix_node_schema, get_matrix_edge_schema, get_unioned_node_pandera_schema, get_unioned_edge_pandera_schema
+    from matrix_schema.datamodel.pandera import get_matrix_node_schema, get_matrix_edge_schema, get_unioned_node_schema, get_unioned_edge_schema
     DEPENDENCIES_AVAILABLE = True
 except ImportError as e:
     DEPENDENCIES_AVAILABLE = False
@@ -353,12 +353,12 @@ class TestPanderaSchema(unittest.TestCase):
 
     def test_unioned_node_schema_creation(self):
         """Test that UnionedNode schema creation works."""
-        schema = get_unioned_node_pandera_schema()
+        schema = get_unioned_node_schema()
         self.assertIsNotNone(schema)
         
         # Test with both parameter values
-        strict_schema = get_unioned_node_pandera_schema(validate_enumeration_values=True)
-        lenient_schema = get_unioned_node_pandera_schema(validate_enumeration_values=False)
+        strict_schema = get_unioned_node_schema(validate_enumeration_values=True)
+        lenient_schema = get_unioned_node_schema(validate_enumeration_values=False)
         
         self.assertIsNotNone(strict_schema)
         self.assertIsNotNone(lenient_schema)
@@ -370,12 +370,12 @@ class TestPanderaSchema(unittest.TestCase):
 
     def test_unioned_edge_schema_creation(self):
         """Test that UnionedEdge schema creation works."""
-        schema = get_unioned_edge_pandera_schema()
+        schema = get_unioned_edge_schema()
         self.assertIsNotNone(schema)
         
         # Test with both parameter values
-        strict_schema = get_unioned_edge_pandera_schema(validate_enumeration_values=True)
-        lenient_schema = get_unioned_edge_pandera_schema(validate_enumeration_values=False)
+        strict_schema = get_unioned_edge_schema(validate_enumeration_values=True)
+        lenient_schema = get_unioned_edge_schema(validate_enumeration_values=False)
         
         self.assertIsNotNone(strict_schema)
         self.assertIsNotNone(lenient_schema)
@@ -387,7 +387,7 @@ class TestPanderaSchema(unittest.TestCase):
 
     def test_valid_unioned_node_schema_pandas(self):
         """Test that valid node data passes UnionedNode validation with pandas DataFrame."""
-        schema = get_unioned_node_pandera_schema()
+        schema = get_unioned_node_schema()
         
         # Create pandas DataFrame (UnionedNode has same structure as MatrixNode)
         pandas_df = pd.DataFrame(self.valid_node_data)
@@ -404,7 +404,7 @@ class TestPanderaSchema(unittest.TestCase):
 
     def test_valid_unioned_edge_schema_pandas(self):
         """Test that valid edge data passes UnionedEdge validation with pandas DataFrame."""
-        schema = get_unioned_edge_pandera_schema()
+        schema = get_unioned_edge_schema()
         
         # Create pandas DataFrame with unioned edge data
         pandas_df = pd.DataFrame(self.valid_unioned_edge_data)
@@ -429,13 +429,13 @@ class TestPanderaSchema(unittest.TestCase):
         pandas_df = pd.DataFrame(invalid_data)
         
         # Should fail with default validation (True)
-        strict_schema = get_unioned_edge_pandera_schema(validate_enumeration_values=True)
+        strict_schema = get_unioned_edge_schema(validate_enumeration_values=True)
         pandas_strict_schema = strict_schema.build_for_type(type(pandas_df))
         with self.assertRaises(Exception):
             pandas_strict_schema.validate(pandas_df)
         
         # Should pass with validation disabled (False)
-        lenient_schema = get_unioned_edge_pandera_schema(validate_enumeration_values=False)
+        lenient_schema = get_unioned_edge_schema(validate_enumeration_values=False)
         pandas_lenient_schema = lenient_schema.build_for_type(type(pandas_df))
         
         # This should not raise an exception
