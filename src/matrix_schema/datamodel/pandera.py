@@ -158,7 +158,7 @@ def get_unioned_edge_schema(validate_enumeration_values: bool = True):
 
     return DataFrameSchema(
         columns={
-            "primary_knowledge_sources": Column(T.ArrayType(T.StringType()), nullable=True),
+            "primary_knowledge_sources": Column(T.ArrayType(T.StringType()), nullable=False),
             "subject": Column(T.StringType(), nullable=False),
             "predicate": Column(T.StringType(), nullable=False,
                               checks=predicate_checks),
