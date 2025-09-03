@@ -9,7 +9,7 @@ gen-valid-edge-type-table:
 gen-pydantic:
 	$(RUN) gen-pydantic --meta None src/matrix_schema/schema/matrix_schema.yaml > src/matrix_schema/datamodel/matrix_schema_pydantic.py
 
-gen-pandera: gen-pydantic
-	@echo "The pandera schema currently needs to be updated manually in src/matrix_schema/datamodel/pandera.py"
+gen-pandera: src/resources/pandera-schema.py.jinja2 src/matrix_schema/schema/matrix_kg.yaml
+	$(RUN) jinjanate $^ -o $(PYMODEL)/pandera-schema.py
 
 gen-project: gen-pydantic gen-pandera gen-biolink-imports gen-valid-edge-type-table
