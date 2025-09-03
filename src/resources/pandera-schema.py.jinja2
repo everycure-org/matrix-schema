@@ -11,7 +11,10 @@ from pandera.typing import Series
 {%- set class_def = classes[class_name] %}
 class {{ class_name }}Schema(pa.DataFrameModel):
     """Schema for {{ class_name.lower() }} TSV file."""
+    {% if 'slots' in class_def %}
     {%- for attr_name in (class_def.slots or {}) %}
+    {% if 'slot_usage' in class_def %}
+    {% if attr_name in class_def.slot_usage %}
     {% set attr_def = (class_def.slot_usage[attr_name] or {}) %}
     {% if attr_name -%}
     {% if attr_def and attr_def.get('required', False) %}
@@ -20,7 +23,10 @@ class {{ class_name }}Schema(pa.DataFrameModel):
     {{ attr_name }}: Optional[Series[{{ 'str' if attr_def and attr_def.get('range', 'string') == 'string' else 'str' }}]] = pa.Field(nullable=True)
     {%- endif %}
     {%- endif %}
+    {%- endif %}
+    {% endif %}
     {%- endfor %}
+    {% endif %}
 
 {% endfor %}
 {%- endif %}
