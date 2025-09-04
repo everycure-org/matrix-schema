@@ -24,6 +24,7 @@ imports:
 slots:
   id:
     identifier: true
+    required: true
     slot_uri: schema:identifier
     range: uriorcurie
     description: A unique identifier for a thing
