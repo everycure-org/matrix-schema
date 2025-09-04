@@ -2,35 +2,23 @@
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
 build-backend = "poetry_dynamic_versioning.backend"
 
-[project]
+[tool.poetry]
 name = "matrix_schema"
+version = "0.0.0"
 description = "The collected MATRIX schemas"
-authors = [
-  {name = "Nicolas Matentzoglu", email = "nicolas.matentzoglu@gmail.com"},
-]
+authors = ["Nicolas Matentzoglu <nicolas.matentzoglu@gmail.com>"]
 license = "BSD-3"
 readme = "README.md"
+packages = [{include = "matrix_schema", from = "src"}]
 include = ["README.md", "src/matrix_schema/schema", "project"]
-
-requires-python = ">=3.9"
-
-dynamic = ["version"]
-
-dependencies = [
-  "linkml-runtime >=1.8.0",
-  "biolink-model (>=4.2.5,<5.0.0)",
-]
-
-[tool.poetry]
-requires-poetry = ">=2.0"
-version = "0.0.0"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-linkml-runtime = "^1.1.24"
+linkml-runtime = ">=1.8.0"
+biolink-model = ">=4.2.5,<5.0.0"
 
-[project.optional-dependencies]
-docs = ["jinjanator>=24.4.0"]
+[tool.poetry.group.docs.dependencies]
+jinjanator = ">=24.4.0"
 
 [tool.poetry.requires-plugins]
 poetry-dynamic-versioning = ">=1.5.2"

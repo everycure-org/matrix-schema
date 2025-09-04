@@ -50,7 +50,7 @@ def get_matrix_node_schema(validate_enumeration_values: bool = True):
 
     return DataFrameSchema(
         columns={
-            "id": Column(T.StringType(), nullable=True),
+            "id": Column(T.StringType(), nullable=False),
             "name": Column(T.StringType(), nullable=True),
             "category": Column(T.StringType(), nullable=True,
                              checks=category_checks),
@@ -143,7 +143,7 @@ def get_unioned_node_schema(validate_enumeration_values: bool = True):
 
     return DataFrameSchema(
         columns={
-            "id": Column(T.StringType(), nullable=True),
+            "id": Column(T.StringType(), nullable=False),
             "name": Column(T.StringType(), nullable=True),
             "category": Column(T.StringType(), nullable=True,
                              checks=category_checks),
