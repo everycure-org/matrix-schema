@@ -9,7 +9,6 @@ gen-valid-edge-type-table:
 gen-pydantic:
 	$(RUN) gen-pydantic --meta None src/matrix_schema/schema/matrix_schema.yaml > src/matrix_schema/datamodel/matrix_schema_pydantic.py
 
-gen-pandera: gen-pydantic
-	@echo "The pandera schema currently needs to be updated manually in src/matrix_schema/datamodel/pandera.py"
+# gen-pandera target is now defined in main Makefile
 
 gen-project: gen-pydantic gen-pandera gen-biolink-imports gen-valid-edge-type-table
