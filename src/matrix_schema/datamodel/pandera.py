@@ -39,12 +39,14 @@ def get_matrix_node_schema(validate_enumeration_values: bool = True):
         raise ImportError(error_msg)
 
     if validate_enumeration_values:
-        category_checks = [pa.Check.isin([category.value for category in NodeCategoryEnum])]
+        category_checks = [pa.Check.isin([enum_val.value for enum_val in NodeCategoryEnum])]
     else:
         category_checks = []
 
     if validate_enumeration_values:
-        all_categories_checks = [pa.Check.isin([category.value for category in NodeCategoryEnum])]
+        all_categories_checks = [pa.Check(lambda series: series.dropna().apply(
+                    lambda arr: all(item in [enum_val.value for enum_val in NodeCategoryEnum] for item in (arr if isinstance(arr, list) else []))
+                ).all(), element_wise=False, error="all items in all_categories must be valid NodeCategory enum values")]
     else:
         all_categories_checks = []
 
@@ -80,17 +82,17 @@ def get_matrix_edge_schema(validate_enumeration_values: bool = True):
         raise ImportError(error_msg)
 
     if validate_enumeration_values:
-        predicate_checks = [pa.Check.isin([predicate.value for predicate in PredicateEnum])]
+        predicate_checks = [pa.Check.isin([enum_val.value for enum_val in PredicateEnum])]
     else:
         predicate_checks = []
 
     if validate_enumeration_values:
-        knowledge_level_checks = [pa.Check.isin([level.value for level in KnowledgeLevelEnum])]
+        knowledge_level_checks = [pa.Check.isin([enum_val.value for enum_val in KnowledgeLevelEnum])]
     else:
         knowledge_level_checks = []
 
     if validate_enumeration_values:
-        agent_type_checks = [pa.Check.isin([agent.value for agent in AgentTypeEnum])]
+        agent_type_checks = [pa.Check.isin([enum_val.value for enum_val in AgentTypeEnum])]
     else:
         agent_type_checks = []
 
@@ -132,12 +134,14 @@ def get_unioned_node_schema(validate_enumeration_values: bool = True):
         raise ImportError(error_msg)
 
     if validate_enumeration_values:
-        category_checks = [pa.Check.isin([category.value for category in NodeCategoryEnum])]
+        category_checks = [pa.Check.isin([enum_val.value for enum_val in NodeCategoryEnum])]
     else:
         category_checks = []
 
     if validate_enumeration_values:
-        all_categories_checks = [pa.Check.isin([category.value for category in NodeCategoryEnum])]
+        all_categories_checks = [pa.Check(lambda series: series.dropna().apply(
+                    lambda arr: all(item in [enum_val.value for enum_val in NodeCategoryEnum] for item in (arr if isinstance(arr, list) else []))
+                ).all(), element_wise=False, error="all items in all_categories must be valid NodeCategory enum values")]
     else:
         all_categories_checks = []
 
@@ -173,17 +177,17 @@ def get_unioned_edge_schema(validate_enumeration_values: bool = True):
         raise ImportError(error_msg)
 
     if validate_enumeration_values:
-        predicate_checks = [pa.Check.isin([predicate.value for predicate in PredicateEnum])]
+        predicate_checks = [pa.Check.isin([enum_val.value for enum_val in PredicateEnum])]
     else:
         predicate_checks = []
 
     if validate_enumeration_values:
-        knowledge_level_checks = [pa.Check.isin([level.value for level in KnowledgeLevelEnum])]
+        knowledge_level_checks = [pa.Check.isin([enum_val.value for enum_val in KnowledgeLevelEnum])]
     else:
         knowledge_level_checks = []
 
     if validate_enumeration_values:
-        agent_type_checks = [pa.Check.isin([agent.value for agent in AgentTypeEnum])]
+        agent_type_checks = [pa.Check.isin([enum_val.value for enum_val in AgentTypeEnum])]
     else:
         agent_type_checks = []
 

@@ -247,16 +247,17 @@ def get_{{ class_info.function_name }}(validate_enumeration_values: bool = True)
         
         # Generate enum checks if applicable
         enum_checks = None
-        if slot_def.range:
-            range_name = slot_def.range
-            if range_name == "NodeCategoryEnum":
-                enum_checks = "pa.Check.isin([category.value for category in NodeCategoryEnum])"
-            elif range_name == "PredicateEnum":
-                enum_checks = "pa.Check.isin([predicate.value for predicate in PredicateEnum])"
-            elif range_name == "KnowledgeLevelEnum":
-                enum_checks = "pa.Check.isin([level.value for level in KnowledgeLevelEnum])"
-            elif range_name == "AgentTypeEnum":
-                enum_checks = "pa.Check.isin([agent.value for agent in AgentTypeEnum])"
+        if slot_def.range and slot_def.range.endswith("Enum"):
+            range_name = slot_def.range  # e.g., "NodeCategoryEnum"
+            slot_name = slot_def.name
+            enum_name = range_name.replace("Enum", "")  # e.g., "NodeCategory"
+            
+            if slot_def.multivalued:
+                enum_checks = f"""pa.Check(lambda series: series.dropna().apply(
+                    lambda arr: all(item in [enum_val.value for enum_val in {range_name}] for item in (arr if isinstance(arr, list) else []))
+                ).all(), element_wise=False, error="all items in {slot_name} must be valid {enum_name} enum values")"""
+            else:
+                enum_checks = f"pa.Check.isin([enum_val.value for enum_val in {range_name}])"
         
         return {
             "pyspark_type": pyspark_type,
