@@ -28,6 +28,47 @@ except ImportError as e:
     IMPORT_ERROR = str(e)
 
 
+def get_matrix_node_schema(validate_enumeration_values: bool = True):
+    """Get the Pandera schema for MatrixNode validation.
+    
+    Returns a universal schema that works with both pandas and PySpark DataFrames.
+    The actual schema type is determined at validation time based on the DataFrame type.
+    """
+    if not DEPENDENCIES_AVAILABLE:
+        error_msg = f"Dependencies not available for Pandera schema. Original error: {IMPORT_ERROR if 'IMPORT_ERROR' in globals() else 'Unknown'}. Install with: pip install 'pandera[pyspark]' pyspark"
+        raise ImportError(error_msg)
+
+    if validate_enumeration_values:
+        category_checks = [pa.Check.isin([category.value for category in NodeCategoryEnum])]
+    else:
+        category_checks = []
+
+    if validate_enumeration_values:
+        all_categories_checks = [pa.Check.isin([category.value for category in NodeCategoryEnum])]
+    else:
+        all_categories_checks = []
+
+    return DataFrameSchema(
+        columns={
+            "id": Column(T.StringType(), nullable=True),
+            "name": Column(T.StringType(), nullable=True),
+            "category": Column(T.StringType(), nullable=True,
+                             checks=category_checks),
+            "description": Column(T.StringType(), nullable=True),
+            "equivalent_identifiers": Column(T.ArrayType(T.StringType(), False), nullable=True),
+            "all_categories": Column(T.ArrayType(T.StringType(), False), nullable=True,
+                             checks=all_categories_checks),
+            "publications": Column(T.ArrayType(T.StringType(), False), nullable=True),
+            "labels": Column(T.ArrayType(T.StringType(), False), nullable=True),
+            "international_resource_identifier": Column(T.StringType(), nullable=True),
+            "upstream_data_source": Column(T.ArrayType(T.StringType(), False), nullable=True),
+        },
+        unique=["id"],
+        strict=True,
+    )
+
+
+
 def get_matrix_edge_schema(validate_enumeration_values: bool = True):
     """Get the Pandera schema for MatrixEdge validation.
     
@@ -75,6 +116,47 @@ def get_matrix_edge_schema(validate_enumeration_values: bool = True):
             "num_sentences": Column(T.IntegerType(), nullable=True),
         },
         unique=["subject", "predicate", "object"],
+        strict=True,
+    )
+
+
+
+def get_unioned_node_schema(validate_enumeration_values: bool = True):
+    """Get the Pandera schema for UnionedNode validation.
+    
+    Returns a universal schema that works with both pandas and PySpark DataFrames.
+    The actual schema type is determined at validation time based on the DataFrame type.
+    """
+    if not DEPENDENCIES_AVAILABLE:
+        error_msg = f"Dependencies not available for Pandera schema. Original error: {IMPORT_ERROR if 'IMPORT_ERROR' in globals() else 'Unknown'}. Install with: pip install 'pandera[pyspark]' pyspark"
+        raise ImportError(error_msg)
+
+    if validate_enumeration_values:
+        category_checks = [pa.Check.isin([category.value for category in NodeCategoryEnum])]
+    else:
+        category_checks = []
+
+    if validate_enumeration_values:
+        all_categories_checks = [pa.Check.isin([category.value for category in NodeCategoryEnum])]
+    else:
+        all_categories_checks = []
+
+    return DataFrameSchema(
+        columns={
+            "id": Column(T.StringType(), nullable=True),
+            "name": Column(T.StringType(), nullable=True),
+            "category": Column(T.StringType(), nullable=True,
+                             checks=category_checks),
+            "description": Column(T.StringType(), nullable=True),
+            "equivalent_identifiers": Column(T.ArrayType(T.StringType(), False), nullable=True),
+            "all_categories": Column(T.ArrayType(T.StringType(), False), nullable=True,
+                             checks=all_categories_checks),
+            "publications": Column(T.ArrayType(T.StringType(), False), nullable=True),
+            "labels": Column(T.ArrayType(T.StringType(), False), nullable=True),
+            "international_resource_identifier": Column(T.StringType(), nullable=True),
+            "upstream_data_source": Column(T.ArrayType(T.StringType(), False), nullable=True),
+        },
+        unique=["id"],
         strict=True,
     )
 
@@ -128,88 +210,6 @@ def get_unioned_edge_schema(validate_enumeration_values: bool = True):
             "num_sentences": Column(T.IntegerType(), nullable=True),
         },
         unique=["subject", "predicate", "object"],
-        strict=True,
-    )
-
-
-
-def get_matrix_node_schema(validate_enumeration_values: bool = True):
-    """Get the Pandera schema for MatrixNode validation.
-    
-    Returns a universal schema that works with both pandas and PySpark DataFrames.
-    The actual schema type is determined at validation time based on the DataFrame type.
-    """
-    if not DEPENDENCIES_AVAILABLE:
-        error_msg = f"Dependencies not available for Pandera schema. Original error: {IMPORT_ERROR if 'IMPORT_ERROR' in globals() else 'Unknown'}. Install with: pip install 'pandera[pyspark]' pyspark"
-        raise ImportError(error_msg)
-
-    if validate_enumeration_values:
-        category_checks = [pa.Check.isin([category.value for category in NodeCategoryEnum])]
-    else:
-        category_checks = []
-
-    if validate_enumeration_values:
-        all_categories_checks = [pa.Check.isin([category.value for category in NodeCategoryEnum])]
-    else:
-        all_categories_checks = []
-
-    return DataFrameSchema(
-        columns={
-            "id": Column(T.StringType(), nullable=True),
-            "name": Column(T.StringType(), nullable=True),
-            "category": Column(T.StringType(), nullable=True,
-                             checks=category_checks),
-            "description": Column(T.StringType(), nullable=True),
-            "equivalent_identifiers": Column(T.ArrayType(T.StringType(), False), nullable=True),
-            "all_categories": Column(T.ArrayType(T.StringType(), False), nullable=True,
-                             checks=all_categories_checks),
-            "publications": Column(T.ArrayType(T.StringType(), False), nullable=True),
-            "labels": Column(T.ArrayType(T.StringType(), False), nullable=True),
-            "international_resource_identifier": Column(T.StringType(), nullable=True),
-            "upstream_data_source": Column(T.ArrayType(T.StringType(), False), nullable=True),
-        },
-        unique=["id"],
-        strict=True,
-    )
-
-
-
-def get_unioned_node_schema(validate_enumeration_values: bool = True):
-    """Get the Pandera schema for UnionedNode validation.
-    
-    Returns a universal schema that works with both pandas and PySpark DataFrames.
-    The actual schema type is determined at validation time based on the DataFrame type.
-    """
-    if not DEPENDENCIES_AVAILABLE:
-        error_msg = f"Dependencies not available for Pandera schema. Original error: {IMPORT_ERROR if 'IMPORT_ERROR' in globals() else 'Unknown'}. Install with: pip install 'pandera[pyspark]' pyspark"
-        raise ImportError(error_msg)
-
-    if validate_enumeration_values:
-        category_checks = [pa.Check.isin([category.value for category in NodeCategoryEnum])]
-    else:
-        category_checks = []
-
-    if validate_enumeration_values:
-        all_categories_checks = [pa.Check.isin([category.value for category in NodeCategoryEnum])]
-    else:
-        all_categories_checks = []
-
-    return DataFrameSchema(
-        columns={
-            "id": Column(T.StringType(), nullable=True),
-            "name": Column(T.StringType(), nullable=True),
-            "category": Column(T.StringType(), nullable=True,
-                             checks=category_checks),
-            "description": Column(T.StringType(), nullable=True),
-            "equivalent_identifiers": Column(T.ArrayType(T.StringType(), False), nullable=True),
-            "all_categories": Column(T.ArrayType(T.StringType(), False), nullable=True,
-                             checks=all_categories_checks),
-            "publications": Column(T.ArrayType(T.StringType(), False), nullable=True),
-            "labels": Column(T.ArrayType(T.StringType(), False), nullable=True),
-            "international_resource_identifier": Column(T.StringType(), nullable=True),
-            "upstream_data_source": Column(T.ArrayType(T.StringType(), False), nullable=True),
-        },
-        unique=["id"],
         strict=True,
     )
 

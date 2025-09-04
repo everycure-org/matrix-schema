@@ -126,12 +126,6 @@ gen-examples:
 gen-project: $(PYMODEL)
 	$(RUN) gen-project ${CONFIG_YAML} -d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
 
-# generate pandera schemas
-.PHONY: gen-pandera
-gen-pandera:
-	python -m matrix_schema.generators.panderagen $(SOURCE_SCHEMA_PATH) -c MatrixNode -c MatrixEdge -c UnionedNode -c UnionedEdge --output $(PYMODEL)/pandera.py
-
-
 # non-empty arg triggers owl (workaround https://github.com/linkml/linkml/issues/1453)
 ifneq ($(strip ${GEN_OWL_ARGS}),)
 	mkdir -p ${DEST}/owl || true

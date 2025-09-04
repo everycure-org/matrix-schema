@@ -50,7 +50,8 @@ class PanderaGenerator(Generator):
     ):
         super().__init__(schema, **kwargs)
         self.schemaview = SchemaView(schema)
-        self.target_classes = set(classes) if classes else set()
+        # Preserve the order of classes as specified
+        self.target_classes = classes if classes else []
         
     def serialize(self, **kwargs) -> str:
         """Generate Pandera schema code."""
@@ -177,7 +178,9 @@ def get_{{ class_info.function_name }}(validate_enumeration_values: bool = True)
     
     def _prepare_template_data(self) -> Dict[str, Any]:
         """Prepare data for the Jinja template."""
-        classes_data = {}
+        # Use OrderedDict to preserve the order of classes as specified in CLI
+        from collections import OrderedDict
+        classes_data = OrderedDict()
         
         for class_name in self.target_classes:
             class_def = self.schemaview.get_class(class_name)
