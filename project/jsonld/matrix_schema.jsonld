@@ -5609,9 +5609,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "matrix_schema.yaml",
-  "source_file_date": "2025-06-04T10:34:59",
+  "source_file_date": "2025-09-03T12:54:24",
   "source_file_size": 528,
-  "generation_date": "2025-08-26T11:42:19",
+  "generation_date": "2025-09-04T16:20:53",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/matrix_schema.context.jsonld",
